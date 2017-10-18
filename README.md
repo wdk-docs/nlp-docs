@@ -43,7 +43,7 @@ Please feel free to create [pull requests](https://github.com/keonkim/awesome-nl
  - [Credits](#credits)
 
 
-## Tutorials and Courses
+## 文档和课程
 
 * Tensor Flow Tutorial on [Seq2Seq](https://www.tensorflow.org/tutorials/seq2seq/index.html) Models
 * Natural Language Understanding with Distributed Representation [Lecture Note](https://github.com/nyu-dl/NLP_DL_Lecture_Note) by Cho
@@ -52,7 +52,7 @@ Please feel free to create [pull requests](https://github.com/keonkim/awesome-nl
 * [Natural Language Processing in Action](https://www.manning.com/books/natural-language-processing-in-action) - A guide to creating machines that understand human language. 
 
 
-### videos
+### 视频
 
 * [Intro to Natural Language Processing](https://www.coursera.org/learn/natural-language-processing) on Coursera by U of Michigan
 * [Intro to Artificial Intelligence](https://www.udacity.com/course/intro-to-artificial-intelligence--cs271) course on Udacity which also covers NLP
@@ -66,7 +66,7 @@ Please feel free to create [pull requests](https://github.com/keonkim/awesome-nl
 * [Computational Linguistics I](https://www.youtube.com/playlist?list=PLQVvvaa0QuDf2JswnfiGkliBInZnIC4HL) by Jordan Boyd-Graber . Lectures from University of Maryland.
 * [Natural Language Processing - Stanford](https://www.youtube.com/playlist?list=PL6397E4B26D00A269) by Dan Jurafsky & Chris Manning. Previously on coursera. [Lecture Notes](http://www.mohamedaly.info/teaching/cmp-462-spring-2013)
 
-## Deep Learning for NLP
+## NLP  深度学习
 [Deep Natural Language Processing](https://github.com/oxford-cs-deepnlp-2017/lectures)
  +lecture slides and course description for the Deep Natural Language Processing course offered in Hilary Term 2017 at the University of Oxford.
 [Stanford CS 224D: Deep Learning for NLP class](http://cs224d.stanford.edu/syllabus.html)
@@ -79,9 +79,9 @@ Deep Learning course on Udacity (using Tensorflow) which covers a section on usi
 Yoav Goldberg. October 2015. No new info, 75 page summary of state of the art.
 
 
-## Packages
+## 包
 
-### Implementations
+### 实现
 * [Pre-trained word embeddings for WSJ corpus](https://github.com/ai-ku/wvec) by Koc AI-Lab
 * [Word2vec](https://code.google.com/archive/p/word2vec) by Mikolov
 * [HLBL language model](http://metaoptimize.com/projects/wordreprs/) by Turian
@@ -90,7 +90,7 @@ Yoav Goldberg. October 2015. No new info, 75 page summary of state of the art.
 * [Dependency based word embeddings](https://levyomer.wordpress.com/2014/04/25/dependency-based-word-embeddings/)
 * [Global Vectors for Word Representations](http://nlp.stanford.edu/projects/glove/)
 
-### Libraries
+### 库
 * [TwitIE: An Open-Source Information Extraction Pipeline for Microblog Text](http://www.anthology.aclweb.org/R/R13/R13-1011.pdf)
 
 * <a id="node-js">**Node.js and Javascript** - Node.js Libaries for NLP</a>
@@ -182,13 +182,13 @@ Yoav Goldberg. October 2015. No new info, 75 page summary of state of the art.
 * <a id="rust">**Rust**</a>
   * [whatlang](https://github.com/greyblake/whatlang-rs) — Natural language recognition library based on trigrams
 
-### Services
+### 服务
 * [Wit-ai](https://github.com/wit-ai/wit) - Natural Language Interface for apps and devices
 * IBM Watson's [Natural Language Understanding](https://github.com/watson-developer-cloud/natural-language-understanding-nodejs), [Natural Language Classifier](https://github.com/watson-developer-cloud/natural-language-classifier-nodejs) and [Machine Translation](https://github.com/watson-developer-cloud/language-translator-nodejs) API Demos
 
-## Articles
+## 文章
 
-### Review Articles
+### 综述
 * [Deep Learning for Web Search and Natural Language Processing](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/wsdm2015.v3.pdf)
 * [Probabilistic topic models](https://www.cs.princeton.edu/~blei/papers/Blei2012.pdf)
 * [Natural language processing: an introduction](http://jamia.oxfordjournals.org/content/18/5/544.short)
@@ -198,7 +198,7 @@ Yoav Goldberg. October 2015. No new info, 75 page summary of state of the art.
 * [Online named entity recognition method for microtexts in social networking services: A case study of twitter](http://arxiv.org/pdf/1301.2857.pdf)
 
 
-### Word Vectors
+### 词向量
 Resources about word vectors, aka word embeddings, and distributed representations for words.
 Word vectors are numeric representations of words that are often used as input to deep learning systems. This process is sometimes called pretraining.
 
@@ -222,7 +222,7 @@ Pennington, Socher, Manning. 2014. Creates word vectors and relates word2vec to 
 * [Skip Thought Vectors](http://arxiv.org/abs/1506.06726) - word representation method
 * [Adaptive skip-gram](http://arxiv.org/abs/1502.07257) - similar approach, with adaptive properties
 
-### Thought Vectors
+### 认为向量
 Thought vectors are numeric representations for sentences, paragraphs, and documents.  The following papers are listed in order of date published, each one replaces the last as the state of the art in sentiment analysis.
 
 [Recursive Deep Models for Semantic Compositionality Over a Sentiment Treebank](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.383.1327&rep=rep1&type=pdf)
@@ -241,7 +241,9 @@ Tai et al. 2015  Introduces Tree LSTM. Uses a parse tree.
 [Semi-supervised Sequence Learning](http://arxiv.org/pdf/1511.01432.pdf)
 Dai, Le 2015 "With pretraining, we are able to train long short term memory recurrent networks up to a few hundred
 timesteps, thereby achieving strong performance in many text classification tasks, such as IMDB, DBpedia and 20 Newsgroups."
-### Machine Translation
+
+### 机器翻译
+
 [Neural Machine Translation by jointly learning to align and translate](http://arxiv.org/pdf/1409.0473v6.pdf)
 Bahdanau, Cho 2014.  "comparable to the existing state-of-the-art phrase-based system on the task of English-to-French translation."  Implements attention mechanism.
 [English to French Demo](http://104.131.78.120/)
@@ -255,7 +257,8 @@ Sutskever, Vinyals, Le 2014.  ([nips presentation](http://research.microsoft.com
 * [IXA pipeline: Efficient and Ready to Use Multilingual NLP tools](http://www.lrec-conf.org/proceedings/lrec2014/pdf/775_Paper.pdf)
 
 
-### Single Exchange Dialogs
+### 单一的交流对话
+
 [A Neural Network Approach toContext-Sensitive Generation of Conversational Responses](http://arxiv.org/pdf/1506.06714v1.pdf)
 Sordoni 2015.  Generates responses to tweets.
 Uses [Recurrent Neural Network Language Model (RLM) architecture
@@ -267,7 +270,8 @@ Shang et al. 2015  Uses Neural Responding Machine.  Trained on Weibo dataset.  A
 [A Neural Conversation Model](http://arxiv.org/pdf/1506.05869v3.pdf)
 Vinyals, [Le](https://scholar.google.com/citations?user=vfT6-XIAAAAJ) 2015.  Uses LSTM RNNs to generate conversational responses. Uses [seq2seq framework](http://tensorflow.org/tutorials/seq2seq/index.html).  Seq2Seq was originally designed for machine transation and it "translates" a single sentence, up to around 79 words, to a single sentence response, and has no memory of previous dialog exchanges.  Used in Google [Smart Reply feature for Inbox](http://googleresearch.blogspot.co.uk/2015/11/computer-respond-to-this-email.html)
 
-### Memory and Attention Models (from [DL4NLP](https://github.com/andrewt3000/DL4NLP))
+### 记忆力和注意力模型 (from [DL4NLP](https://github.com/andrewt3000/DL4NLP))
+
 [Reasoning, Attention and Memory RAM workshop at NIPS 2015. slides included](http://www.thespermwhale.com/jaseweston/ram/)
 
 [Memory Networks](http://arxiv.org/pdf/1410.3916v10.pdf) Weston et. al 2014, and
@@ -285,7 +289,8 @@ Graves et al. 2014.
 [Inferring Algorithmic Patterns with Stack-Augmented Recurrent Nets](http://arxiv.org/pdf/1503.01007v4.pdf)
 Joulin, Mikolov 2015. [Stack RNN source code](https://github.com/facebook/Stack-RNN) and [blog post](https://research.facebook.com/blog/1642778845966521/inferring-algorithmic-patterns-with-stack/)
 
-### General Natural Language Processing
+### 通用的自然语言处理
+
 * [Neural autocoder for paragraphs and documents](http://arxiv.org/abs/1506.01057) - LSTM representation
 * [LSTM over tree structures](http://arxiv.org/abs/1503.04881)
 * [Sequence to Sequence Learning](http://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf) - word vectors for machine translation
@@ -312,12 +317,14 @@ Joulin, Mikolov 2015. [Stack RNN source code](https://github.com/facebook/Stack-
 * [Knowledge base population: Successful approaches and challenges](http://www.aclweb.org/anthology/P11-1115)
 * [SpeedRead: A fast named entity recognition Pipeline](http://arxiv.org/pdf/1301.2857.pdf)
 
-### Neural Network
+### 神经网络
+
 * [The Unreasonable Effectiveness of Recurrent Neural Networks](https://karpathy.github.io/2015/05/21/rnn-effectiveness)
 * [Statistical Language Models based on Neural Networks](http://www.fit.vutbr.cz/~imikolov/rnnlm/thesis.pdf)
 * [Slides from Google Talk](http://www.fit.vutbr.cz/~imikolov/rnnlm/google.pdf)
 
-### Supplementary Materials
+### 补充材料
+
 * [DrQA: Open Domain Question Answering](https://github.com/facebookresearch/DrQA) by facebook on Wikipedia data
 * [Word2Vec](https://github.com/clulab/nlp-reading-group/wiki/Word2Vec-Resources)
 * [Relation Extraction with Matrix Factorization and Universal Schemas](http://www.riedelcastro.org//publications/papers/riedel13relation.pdf)
@@ -328,7 +335,8 @@ Joulin, Mikolov 2015. [Stack RNN source code](https://github.com/facebook/Stack-
 * [Knowledge-Based Weak Supervision for Information Extraction of Overlapping Relations](https://homes.cs.washington.edu/~clzhang/paper/acl2011.pdf)
 
 
-## Blogs
+## 博客
+
 * Blog Post on [Deep Learning, NLP, and Representations](http://colah.github.io/posts/2014-07-NLP-RNNs-Representations/)
 * Blog Post on [NLP Tutorial](http://www.vikparuchuri.com/blog/natural-language-processing-tutorial/)
 * [Natural Language Processing Blog](http://nlpers.blogspot.ch/) by Hal Daumé III
@@ -337,7 +345,8 @@ Joulin, Mikolov 2015. [Stack RNN source code](https://github.com/facebook/Stack-
 *[Introduction to NLP]
 (https://hackernoon.com/learning-ai-if-you-suck-at-math-p7-the-magic-of-natural-language-processing-f3819a689386)
 
-## Credits
+## 学分
+
 part of the lists are from
 * [ai-reading-list](https://github.com/m0nologuer/AI-reading-list)
 * [nlp-reading-group](https://github.com/clulab/nlp-reading-group/wiki/Fall-2015-Reading-Schedule/_edit)
