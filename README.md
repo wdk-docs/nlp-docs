@@ -9,14 +9,14 @@
 Please feel free to create [pull requests](https://github.com/keonkim/awesome-nlp/pulls), or email Martin Park (sp3005@nyu.edu)/Keon Kim (keon.kim@nyu.edu) to add links.
 
 
-## Table of Contents
+## 菜单
 
- - [Tutorials and Courses](#tutorials-and-courses)
+ - [文档课程](#tutorials-and-courses)
    - [videos](#videos)
- - [Deep Learning for NLP](#deep-learning-for-nlp)
- - [Packages](#packages)
-   - [Implemendations](#implementations)
-   - [Libraries](#libraries)
+ - [NLP深度学习](#deep-learning-for-nlp)
+ - [包](#packages)
+   - [实现](#implementations)
+   - [库](#libraries)
      - [Node.js](#user-content-node-js)
      - [Python](#user-content-python)
      - [C++](#user-content-c++)
@@ -26,8 +26,8 @@ Please feel free to create [pull requests](https://github.com/keonkim/awesome-nl
      - [Clojure](#user-content-clojure)
      - [Ruby](#user-content-ruby)
      - [Rust](#user-content-rust)
-   - [Services](#services)
- - [Articles](#articles)
+   - [服务](#services)
+ - [文章](#articles)
    - [Review Articles](#review-articles)
    - [Word Vectors](#word-vectors)
    - [Thought Vectors](#thought-vectors)
@@ -39,7 +39,7 @@ Please feel free to create [pull requests](https://github.com/keonkim/awesome-nl
    - [Named Entity Recognition](#named-entity-recognition)
    - [Neural Network](#neural-network)
    - [Supplementary Materials](#supplementary-materials)
- - [Blogs](#blogs)
+ - [博客](#blogs)
  - [Credits](#credits)
 
 
