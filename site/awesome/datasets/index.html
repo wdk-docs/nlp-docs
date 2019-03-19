@@ -1,0 +1,979 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="自然语言处理文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
+    
+    
+      
+        <title>数据集 nlp-datasets - NLP Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.572ca0f0.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.8c900955.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#nlp-datasets" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="NLP Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                NLP Docs
+              </span>
+              <span class="md-header-nav__topic">
+                数据集 nlp-datasets
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      nlp-docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="自然语言处理" class="md-tabs__link">
+        自然语言处理
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="Awesome" class="md-tabs__link md-tabs__link--active">
+          Awesome
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="NLP Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    NLP Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      nlp-docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="自然语言处理" class="md-nav__link">
+      自然语言处理
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../bosonnlp/" title="玻森数据" class="md-nav__link">
+      玻森数据
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../jieba/" title="结巴分词" class="md-nav__link">
+      结巴分词
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../nlpair-ictclas/" title="NLPIR" class="md-nav__link">
+      NLPIR
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Awesome
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Awesome
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="awesome-nlp" class="md-nav__link">
+      awesome-nlp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        数据集 nlp-datasets
+      </label>
+    
+    <a href="./" title="数据集 nlp-datasets" class="md-nav__link md-nav__link--active">
+      数据集 nlp-datasets
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#datasets-english-multilang" title="Datasets (English, multilang)" class="md-nav__link">
+    Datasets (English, multilang)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" title="Sources" class="md-nav__link">
+    Sources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datasets-arabic" title="Datasets (Arabic)" class="md-nav__link">
+    Datasets (Arabic)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datasets-german" title="Datasets (German)" class="md-nav__link">
+    Datasets (German)
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../libraries/" title="库" class="md-nav__link">
+      库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../multi-language/" title="其他语言" class="md-nav__link">
+      其他语言
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../techniques/" title="技术" class="md-nav__link">
+      技术
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorials/" title="教程" class="md-nav__link">
+      教程
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#datasets-english-multilang" title="Datasets (English, multilang)" class="md-nav__link">
+    Datasets (English, multilang)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" title="Sources" class="md-nav__link">
+    Sources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datasets-arabic" title="Datasets (Arabic)" class="md-nav__link">
+    Datasets (Arabic)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datasets-german" title="Datasets (German)" class="md-nav__link">
+    Datasets (German)
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="nlp-datasets">数据集 nlp-datasets<a class="headerlink" href="#nlp-datasets" title="Permanent link">&para;</a></h1>
+<ul>
+<li><a href="https://github.com/niderhoff/nlp-datasets">nlp-datasets</a> great collection of nlp datasets</li>
+</ul>
+<p>Alphabetical list of free/public domain datasets with text data for use in Natural Language Processing (NLP). Most stuff here is just raw unstructured text data, if you are looking for annotated corpora or Treebanks refer to the sources at the bottom.</p>
+<h2 id="datasets-english-multilang">Datasets (English, multilang)<a class="headerlink" href="#datasets-english-multilang" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><a href="http://aws.amazon.com/de/datasets/apache-software-foundation-public-mail-archives/">Apache Software Foundation Public Mail Archives</a>: all publicly available Apache Software Foundation mail archives as of July 11, 2011 (200 GB)</p>
+</li>
+<li>
+<p><a href="http://u.cs.biu.ac.il/~koppel/BlogCorpus.htm">Blog Authorship Corpus</a>: consists of the collected posts of 19,320 bloggers gathered from blogger.com in August 2004. 681,288 posts and over 140 million words. (298 MB)</p>
+</li>
+<li>
+<p><a href="https://www.kaggle.com/snap/amazon-fine-food-reviews">Amazon Fine Food Reviews [Kaggle]</a>: consists of 568,454 food reviews Amazon users left up to October 2012. <a href="http://i.stanford.edu/~julian/pdfs/www13.pdf">Paper</a>. (240 MB)</p>
+</li>
+<li>
+<p><a href="https://snap.stanford.edu/data/web-Amazon.html">Amazon Reviews</a>: Stanford collection of 35 million amazon reviews. (11 GB)</p>
+</li>
+<li>
+<p><a href="http://arxiv.org/help/bulk_data_s3">ArXiv</a>: All the Papers on archive as fulltext (270 GB) + sourcefiles (190 GB).</p>
+</li>
+<li>
+<p><a href="https://www.kaggle.com/c/asap-aes/data">ASAP Automated Essay Scoring [Kaggle]</a>: For this competition, there are eight essay sets. Each of the sets of essays was generated from a single prompt. Selected essays range from an average length of 150 to 550 words per response. Some of the essays are dependent upon source information and others are not. All responses were written by students ranging in grade levels from Grade 7 to Grade 10. All essays were hand graded and were double-scored. (100 MB)</p>
+</li>
+<li>
+<p><a href="https://www.kaggle.com/c/asap-sas/data">ASAP Short Answer Scoring [Kaggle]</a>: Each of the data sets was generated from a single prompt. Selected responses have an average length of 50 words per response. Some of the essays are dependent upon source information and others are not. All responses were written by students primarily in Grade 10. All responses were hand graded and were double-scored. (35 MB)</p>
+</li>
+<li>
+<p><a href="https://www.crowdflower.com/data-for-everyone/">Classification of political social media</a>: Social media messages from politicians classified by content. (4 MB)</p>
+</li>
+<li>
+<p><a href="http://www.clips.uantwerpen.be/datasets/csi-corpus">CLiPS Stylometry Investigation (CSI) Corpus</a>: a yearly expanded corpus of student texts in two genres: essays and reviews. The purpose of this corpus lies primarily in stylometric research, but other applications are possible. (on request)</p>
+</li>
+<li>
+<p><a href="http://lemurproject.org/clueweb09/FACC1/">ClueWeb09 FACC</a>: <a href="http://lemurproject.org/clueweb09/">ClueWeb09</a> with Freebase annotations (72 GB)</p>
+</li>
+<li>
+<p><a href="http://lemurproject.org/clueweb12/FACC1/">ClueWeb11 FACC</a>: <a href="http://lemurproject.org/clueweb12/">ClueWeb11</a> with Freebase annotations (92 GB)</p>
+</li>
+<li>
+<p><a href="http://aws.amazon.com/de/datasets/common-crawl-corpus/">Common Crawl Corpus</a>: web crawl data composed of over 5 billion web pages (541 TB)</p>
+</li>
+<li>
+<p><a href="http://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html">Cornell Movie Dialog Corpus</a>: contains a large metadata-rich collection of fictional conversations extracted from raw movie scripts: 220,579 conversational exchanges between 10,292 pairs of movie characters, 617 movies (9.5 MB)</p>
+</li>
+<li>
+<p><a href="http://aws.amazon.com/de/datasets/common-crawl-corpus/">Corporate messaging</a>: A data categorization job concerning what corporations actually talk about on social media. Contributors were asked to classify statements as information (objective statements about the company or it’s activities), dialog (replies to users, etc.), or action (messages that ask for votes or ask users to click on links, etc.). (600 KB)</p>
+</li>
+<li>
+<p><a href="http://nlp.stanford.edu/data/crosswikis-data.tar.bz2/">Crosswikis</a>: English-phrase-to-associated-Wikipedia-article database. Paper. (11 GB)</p>
+</li>
+<li>
+<p><a href="http://aws.amazon.com/de/datasets/dbpedia-3-5-1/?tag=datasets%23keywords%23encyclopedic">DBpedia</a>: a community effort to extract structured information from Wikipedia and to make this information available on the Web (17 GB)</p>
+</li>
+<li>
+<p><a href="http://www.tdcj.state.tx.us/death_row/dr_executed_offenders.html">Death Row</a>: last words of every inmate executed since 1984 online (HTML table)</p>
+</li>
+<li>
+<p><a href="http://arvindn.livejournal.com/116137.html">Del.icio.us</a>: 1.25 million bookmarks on delicious.com (170 MB)</p>
+</li>
+<li>
+<p><a href="https://www.crowdflower.com/data-for-everyone/">Disasters on social media</a>: 10,000 tweets with annotations whether the tweet referred to a disaster event (2 MB).</p>
+</li>
+<li>
+<p><a href="https://www.crowdflower.com/data-for-everyone/">Economic News Article Tone and Relevance</a>: News articles judged if relevant to the US economy and, if so, what the tone of the article was. Dates range from 1951 to 2014. (12 MB)</p>
+</li>
+<li>
+<p><a href="http://aws.amazon.com/de/datasets/enron-email-data/">Enron Email Data</a>: consists of 1,227,255 emails with 493,384 attachments covering 151 custodians (210 GB)</p>
+</li>
+<li>
+<p><a href="http://eventregistry.org/">Event Registry</a>: Free tool that gives real time access to news articles by 100.000 news publishers worldwide. <a href="https://github.com/gregorleban/EventRegistry/">Has API</a>. (query tool)</p>
+</li>
+<li>
+<p><a href="https://www.kaggle.com/therohk/examine-the-examiner">Examiner.com - Spam Clickbait News Headlines [Kaggle]</a>: 3 Million crowdsourced News headlines published by now defunct clickbait website The Examiner from 2010 to 2015. (200 MB)</p>
+</li>
+<li>
+<p><a href="http://aws.amazon.com/de/datasets/federal-contracts-from-the-federal-procurement-data-center-usaspending-gov/">Federal Contracts from the Federal Procurement Data Center (USASpending.gov)</a>: data dump of all federal contracts from the Federal Procurement Data Center found at USASpending.gov (180 GB)</p>
+</li>
+<li>
+<p><a href="http://www.isi.edu/~lerman/downloads/flickr/flickr_taxonomies.html">Flickr Personal Taxonomies</a>: Tree dataset of personal tags (40 MB)</p>
+</li>
+<li>
+<p><a href="http://aws.amazon.com/de/datasets/freebase-data-dump/">Freebase Data Dump</a>: data dump of all the current facts and assertions in Freebase (26 GB)</p>
+</li>
+<li>
+<p><a href="http://aws.amazon.com/de/datasets/freebase-simple-topic-dump/">Freebase Simple Topic Dump</a>: data dump of the basic identifying facts about every topic in Freebase (5 GB)</p>
+</li>
+<li>
+<p><a href="http://aws.amazon.com/de/datasets/freebase-quad-dump/">Freebase Quad Dump</a>: data dump of all the current facts and assertions in Freebase (35 GB)</p>
+</li>
+<li>
+<p><a href="https://www.kaggle.com/c/predict-wordpress-likes/data">GigaOM Wordpress Challenge [Kaggle]</a>: blog posts, meta data, user likes (1.5 GB)</p>
+</li>
+<li>
+<p><a href="http://storage.googleapis.com/books/ngrams/books/datasetsv2.html">Google Books Ngrams</a>: available also in hadoop format on amazon s3 (2.2 TB)</p>
+</li>
+<li>
+<p><a href="https://catalog.ldc.upenn.edu/LDC2006T13">Google Web 5gram</a>: contains English word n-grams and their observed frequency counts (24 GB)</p>
+</li>
+<li>
+<p><a href="http://www.gutenberg.org/wiki/Gutenberg:Offline_Catalogs">Gutenberg Ebook List</a>: annotated list of ebooks (2 MB)</p>
+</li>
+<li>
+<p><a href="http://www.isi.edu/natural-language/download/hansard/">Hansards text chunks of Canadian Parliament</a>: 1.3 million pairs of aligned text chunks (sentences or smaller fragments) from the official records (Hansards) of the 36th Canadian Parliament. (82 MB)</p>
+</li>
+<li>
+<p><a href="http://library.harvard.edu/open-metadata#Harvard-Library-Bibliographic-Dataset">Harvard Library</a>: over 12 million bibliographic records for materials held by the Harvard Library, including books, journals, electronic resources, manuscripts, archival materials, scores, audio, video and other materials. (4 GB)</p>
+</li>
+<li>
+<p><a href="https://github.com/t-davidson/hate-speech-and-offensive-language">Hate speech identification</a>: Contributors viewed short text and identified if it a) contained hate speech, b) was offensive but without hate speech, or c) was not offensive at all. Contains nearly 15K rows with three contributor judgments per text string. (3 MB)</p>
+</li>
+<li>
+<p><a href="https://www.kaggle.com/kaggle/hillary-clinton-emails">Hillary Clinton Emails [Kaggle]</a>: nearly 7,000 pages of Clinton's heavily redacted emails (12 MB)</p>
+</li>
+<li>
+<p><a href="https://data.bris.ac.uk/data/dataset/dobuvuu00mh51q773bo8ybkdz">Historical Newspapers Yearly N-grams and Entities Dataset</a>: Yearly time series for the usage of the 1,000,000 most frequent 1-, 2-, and 3-grams from a subset of the British Newspaper Archive corpus, along with yearly time series for the 100,000 most frequent named entities linked to Wikipedia and a list of all articles and newspapers contained in the dataset (3.1 GB)</p>
+</li>
+<li>
+<p><a href="https://datadryad.org/resource/doi:10.5061/dryad.nh775">Historical Newspapers Daily Word Time Series Dataset</a>: Time series of daily word usage for the 25,000 most frequent words in 87 years of UK and US historical newspapers between 1836 and 1922. (2.7GB)</p>
+</li>
+<li>
+<p><a href="https://www.kaggle.com/c/home-depot-product-search-relevance/data">Home Depot Product Search Relevance [Kaggle]</a>: contains a number of products and real customer search terms from Home Depot's website. The challenge is to predict a relevance score for the provided combinations of search terms and products. To create the ground truth labels, Home Depot has crowdsourced the search/product pairs to multiple human raters. (65 MB)</p>
+</li>
+<li>
+<p><a href="https://www.crowdflower.com/data-for-everyone/">Identifying key phrases in text</a>: Question/Answer pairs + context; context was judged if relevant to question/answer. (8 MB)</p>
+</li>
+<li>
+<p><a href="http://www.reddit.com/r/datasets/comments/1uyd0t/200000_jeopardy_questions_in_a_json_file/">Jeopardy</a>: archive of 216,930 past Jeopardy questions (53 MB)</p>
+</li>
+<li>
+<p><a href="https://github.com/taivop/joke-dataset">200k English plaintext jokes</a>: archive of 208,000 plaintext jokes from various sources.</p>
+</li>
+<li>
+<p><a href="http://statmt.org/wmt11/translation-task.html#download">Machine Translation of European Languages</a>: (612 MB)</p>
+</li>
+<li>
+<p><a href="http://aws.amazon.com/de/datasets/material-safety-data-sheets/">Material Safety Datasheets</a>: 230,000 Material Safety Data Sheets. (3 GB)</p>
+</li>
+<li>
+<p><a href="https://www.kaggle.com/therohk/million-headlines">Million News Headlines - ABC Australia [Kaggle]</a>: 1.3 Million News headlines published by ABC News Australia from 2003 to 2017. (56 MB)</p>
+</li>
+<li>
+<p><a href="https://datadryad.org/resource/doi:10.5061/dryad.p8s0j">Millions of News Article URLs</a>: 2.3 million URLs for news articles from the frontpage of over 950 English-language news outlets in the six month period between October 2014 and April 2015. (101MB)</p>
+</li>
+<li>
+<p><a href="http://research.microsoft.com/en-us/um/redmond/projects/mctest/index.html">MCTest</a>: a freely available set of 660 stories and associated questions intended for research on the machine comprehension of text; for question answering (1 MB)</p>
+</li>
+<li>
+<p><a href="https://www.kaggle.com/therohk/india-headlines-news-dataset">News Headlines of India - Times of India [Kaggle]</a>: 2.7 Million News Headlines with category published by Times of India from 2001 to 2017. (185 MB)</p>
+</li>
+<li>
+<p><a href="https://www.crowdflower.com/data-for-everyone/">News article / Wikipedia page pairings</a>: Contributors read a short article and were asked which of two Wikipedia articles it matched most closely. (6 MB)</p>
+</li>
+<li>
+<p><a href="https://www.kaggle.com/benhamner/nips-2015-papers/version/2">NIPS2015 Papers (version 2) [Kaggle]</a>: full text of all NIPS2015 papers (335 MB)</p>
+</li>
+<li>
+<p><a href="http://minimaxir.com/2015/07/facebook-scraper/">NYTimes Facebook Data</a>: all the NYTimes facebook posts (5 MB)</p>
+</li>
+<li>
+<p><a href="https://www.kaggle.com/therohk/global-news-week">One Week of Global News Feeds [Kaggle]</a>: News Event Dataset of 1.4 Million Articles published globally in 20 languages over one week of August 2017. (115 MB)</p>
+</li>
+<li>
+<p><a href="https://www.crowdflower.com/data-for-everyone/">Objective truths of sentences/concept pairs</a>: Contributors read a sentence with two concepts. For example “a dog is a kind of animal” or “captain can have the same meaning as master.” They were then asked if the sentence could be true and ranked it on a 1-5 scale. (700 KB)</p>
+</li>
+<li>
+<p><a href="https://openlibrary.org/developers/dumps">Open Library Data Dumps</a>: dump of all revisions of all the records in Open Library. (16 GB)</p>
+</li>
+<li>
+<p><a href="http://www.clips.uantwerpen.be/datasets/personae-corpus">Personae Corpus</a>: collected for experiments in Authorship Attribution and Personality Prediction. It consists of 145 Dutch-language essays by 145 different students. (on request)</p>
+</li>
+<li>
+<p><a href="https://www.reddit.com/r/datasets/comments/3bxlg7/i_have_every_publicly_available_reddit_comment/">Reddit Comments</a>: every publicly available reddit comment as of july 2015. 1.7 billion comments (250 GB)</p>
+</li>
+<li>
+<p><a href="https://www.kaggle.com/reddit/reddit-comments-may-2015">Reddit Comments (May ‘15) [Kaggle]</a>: subset of above dataset (8 GB)</p>
+</li>
+<li>
+<p><a href="https://www.reddit.com/r/datasets/comments/3mg812/full_reddit_submission_corpus_now_available_2006/">Reddit Submission Corpus</a>: all publicly available Reddit submissions from January 2006 - August 31, 2015). (42 GB)</p>
+</li>
+<li>
+<p><a href="http://trec.nist.gov/data/reuters/reuters.html">Reuters Corpus</a>: a large collection of Reuters News stories for use in research and development of natural language processing, information retrieval, and machine learning systems. This corpus, known as "Reuters Corpus, Volume 1" or RCV1, is significantly larger than the older, well-known Reuters-21578 collection heavily used in the text classification community. Need to sign agreement and sent per post to obtain. (2.5 GB)</p>
+</li>
+<li>
+<p><a href="http://www.dt.fee.unicamp.br/~tiago/smsspamcollection/">SMS Spam Collection</a>: 5,574 English, real and non-enconded SMS messages, tagged according being legitimate (ham) or spam.  (200 KB)</p>
+</li>
+<li>
+<p><a href="https://github.com/BobAdamsEE/SouthParkData">SouthparkData</a>: .csv files containing script information including: season, episode, character, &amp; line. (3.6 MB)</p>
+</li>
+<li>
+<p><a href="https://rajpurkar.github.io/SQuAD-explorer/">Stanford Question Answering Dataset (SQUAD 2.0)</a>: a reading comprehension dataset, consisting of questions posed by crowdworkers on a set of Wikipedia articles, where the answer to every question is a segment of text, or span, from the corresponding reading passage, or the question might be unanswerable.</p>
+</li>
+<li>
+<p><a href="http://data.stackexchange.com/">Stackoverflow</a>: 7.3 million stackoverflow questions + other stackexchanges (query tool)</p>
+</li>
+<li>
+<p><a href="https://archive.org/details/twitter_cikm_2010">Twitter Cheng-Caverlee-Lee Scrape</a>: Tweets from September 2009 - January 2010, geolocated. (400 MB)</p>
+</li>
+<li>
+<p><a href="https://www.crowdflower.com/data-for-everyone/">Twitter New England Patriots Deflategate sentiment</a>: Before the 2015 Super Bowl, there was a great deal of chatter around deflated footballs and whether the Patriots cheated. This data set looks at Twitter sentiment on important days during the scandal to gauge public sentiment about the whole ordeal. (2 MB)</p>
+</li>
+<li>
+<p><a href="https://www.crowdflower.com/data-for-everyone/">Twitter Progressive issues sentiment analysis</a>: tweets regarding a variety of left-leaning issues like legalization of abortion, feminism, Hillary Clinton, etc. classified if the tweets in question were for, against, or neutral on the issue (with an option for none of the above). (600 KB)</p>
+</li>
+<li>
+<p><a href="http://help.sentiment140.com/for-students/">Twitter Sentiment140</a>: Tweets related to brands/keywords. Website includes papers and research ideas. (77 MB)</p>
+</li>
+<li>
+<p><a href="https://www.crowdflower.com/data-for-everyone/">Twitter sentiment analysis: Self-driving cars</a>: contributors read tweets and classified them as very positive, slightly positive, neutral, slightly negative, or very negative. They were also prompted asked to mark if the tweet was not relevant to self-driving cars. (1 MB)</p>
+</li>
+<li>
+<p><a href="https://about.twitter.com/en_us/values/elections-integrity.html#data">Twitter Elections Integrity</a>: All suspicious tweets and media from 2016 US election. (1.4 GB)</p>
+</li>
+<li>
+<p><a href="http://followthehashtag.com/datasets/200000-tokyo-geolocated-tweets-free-twitter-dataset/">Twitter Tokyo Geolocated Tweets</a>: 200K tweets from Tokyo. (47 MB)</p>
+</li>
+<li>
+<p><a href="http://followthehashtag.com/datasets/170000-uk-geolocated-tweets-free-twitter-dataset/">Twitter UK Geolocated Tweets</a>: 170K tweets from UK. (47 MB)</p>
+</li>
+<li>
+<p><a href="http://followthehashtag.com/datasets/free-twitter-dataset-usa-200000-free-usa-tweets/">Twitter USA Geolocated Tweets</a>: 200k tweets from the US (45MB)</p>
+</li>
+<li>
+<p><a href="https://www.kaggle.com/crowdflower/twitter-airline-sentiment">Twitter US Airline Sentiment [Kaggle]</a>: A sentiment analysis job about the problems of each major U.S. airline. Twitter data was scraped from February of 2015 and contributors were asked to first classify positive, negative, and neutral tweets, followed by categorizing negative reasons (such as "late flight" or "rude service"). (2.5 MB)</p>
+</li>
+<li>
+<p><a href="https://www.crowdflower.com/data-for-everyone/">U.S. economic performance based on news articles</a>: News articles headlines and excerpts ranked as whether relevant to U.S. economy. (5 MB)</p>
+</li>
+<li>
+<p><a href="https://www.kaggle.com/therohk/urban-dictionary-words-dataset">Urban Dictionary Words and Definitions [Kaggle]</a>: Cleaned CSV corpus of 2.6 Million of all Urban Dictionary words, definitions, authors, votes as of May 2016. (238 MB)</p>
+</li>
+<li>
+<p><a href="http://aws.amazon.com/de/datasets/the-westburylab-usenet-corpus/">Wesbury Lab Usenet Corpus</a>: anonymized compilation of postings from 47,860 English-language newsgroups from 2005-2010 (40 GB)</p>
+</li>
+<li>
+<p><a href="http://www.psych.ualberta.ca/~westburylab/downloads/westburylab.wikicorp.download.html">Wesbury Lab Wikipedia Corpus</a> Snapshot of all the articles in the English part of the Wikipedia that was taken in April 2010. It was processed, as described in detail below, to remove all links and irrelevant material (navigation text, etc) The corpus is untagged, raw text. Used by <a href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;cites=9060444488071171966&amp;as_sdt=5">Stanford NLP</a> (1.8 GB).</p>
+</li>
+<li>
+<p><a href="http://cognitiveai.org/explanationbank/">WorldTree Corpus of Explanation Graphs for Elementary Science Questions</a>: a corpus of manually-constructed explanation graphs, explanatory role ratings, and associated semistructured tablestore for most publicly available elementary science exam questions in the US (8 MB)</p>
+</li>
+<li>
+<p><a href="http://aws.amazon.com/de/datasets/wikipedia-extraction-wex/">Wikipedia Extraction (WEX)</a>: a processed dump of english language wikipedia (66 GB)</p>
+</li>
+<li>
+<p><a href="http://aws.amazon.com/de/datasets/wikipedia-xml-data/">Wikipedia XML Data</a>: complete copy of all Wikimedia wikis, in the form of wikitext source and metadata embedded in XML. (500 GB)</p>
+</li>
+<li>
+<p><a href="http://webscope.sandbox.yahoo.com/catalog.php?datatype=l">Yahoo! Answers Comprehensive Questions and Answers</a>: Yahoo! Answers corpus as of 10/25/2007. Contains 4,483,032 questions and their answers. (3.6 GB)</p>
+</li>
+<li>
+<p><a href="http://webscope.sandbox.yahoo.com/catalog.php?datatype=l">Yahoo! Answers consisting of questions asked in French</a>: Subset of the Yahoo! Answers corpus from 2006 to 2015 consisting of 1.7 million questions posed in French, and their corresponding answers. (3.8 GB)</p>
+</li>
+<li>
+<p><a href="http://webscope.sandbox.yahoo.com/catalog.php?datatype=l">Yahoo! Answers Manner Questions</a>: subset of the Yahoo! Answers corpus from a 10/25/2007 dump, selected for their linguistic properties. Contains 142,627 questions and their answers. (104 MB)</p>
+</li>
+<li>
+<p><a href="http://webscope.sandbox.yahoo.com/catalog.php?datatype=l">Yahoo! HTML Forms Extracted from Publicly Available Webpages</a>: contains a small sample of pages that contain complex HTML forms, contains 2.67 million complex forms. (50+ GB)</p>
+</li>
+<li>
+<p><a href="http://webscope.sandbox.yahoo.com/catalog.php?datatype=l">Yahoo! Metadata Extracted from Publicly Available Web Pages</a>: 100 million triples of RDF data (2 GB)</p>
+</li>
+<li>
+<p><a href="http://webscope.sandbox.yahoo.com/catalog.php?datatype=l">Yahoo N-Gram Representations</a>: This dataset contains n-gram representations. The data may serve as a testbed for query rewriting task, a common problem in IR research as well as to word and sentence similarity task, which is common in NLP research. (2.6 GB)</p>
+</li>
+<li>
+<p><a href="http://webscope.sandbox.yahoo.com/catalog.php?datatype=l">Yahoo! N-Grams, version 2.0</a>: n-grams (n = 1 to 5), extracted from a corpus of 14.6 million documents (126 million unique sentences, 3.4 billion running words) crawled from over 12000 news-oriented sites (12 GB)</p>
+</li>
+<li>
+<p><a href="http://webscope.sandbox.yahoo.com/catalog.php?datatype=l">Yahoo! Search Logs with Relevance Judgments</a>: Annonymized Yahoo! Search Logs with Relevance Judgments (1.3 GB)</p>
+</li>
+<li>
+<p><a href="http://webscope.sandbox.yahoo.com/catalog.php?datatype=l">Yahoo! Semantically Annotated Snapshot of the English Wikipedia</a>: English Wikipedia dated from 2006-11-04 processed with a number of publicly-available NLP tools. 1,490,688 entries. (6 GB)</p>
+</li>
+<li>
+<p><a href="https://www.yelp.com/academic_dataset">Yelp</a>: including restaurant rankings and 2.2M reviews (on request)</p>
+</li>
+<li>
+<p><a href="https://www.reddit.com/r/datasets/comments/3gegdz/17_millions_youtube_videos_description/">Youtube</a>: 1.7 million youtube videos descriptions (torrent)</p>
+</li>
+</ul>
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/caesar0301/awesome-public-datasets#natural-language">Awesome public datasets/NLP</a> (includes more lists)</li>
+<li><a href="http://aws.amazon.com/de/datasets/">AWS Public Datasets</a></li>
+<li><a href="https://www.crowdflower.com/data-for-everyone/">CrowdFlower: Data for Everyone</a> (lots of little surveys they conducted and data obtained by crowdsourcing for a specific task)</li>
+<li><a href="https://www.kaggle.com/datasets">Kaggle 1</a>, <a href="https://www.kaggle.com/competitions">2</a> (make sure though that the kaggle competition data can be used outside of the competition!)</li>
+<li><a href="https://openlibrary.org/developers/dumps">Open Library</a></li>
+<li><a href="https://www.quora.com/Datasets-What-are-the-major-text-corpora-used-by-computational-linguists-and-natural-language-processing-researchers-and-what-are-the-characteristics-biases-of-each-corpus">Quora</a> (mainly annotated corpora)</li>
+<li><a href="https://www.reddit.com/r/datasets">/r/datasets</a> (endless list of datasets, most is scraped by amateurs though and not properly documented or licensed)</li>
+<li><a href="http://rs.io/100-interesting-data-sets-for-statistics/">rs.io</a> (another big list)</li>
+<li><a href="http://opendata.stackexchange.com/">Stackexchange: Opendata</a></li>
+<li><a href="http://www-nlp.stanford.edu/links/statnlp.html">Stanford NLP group</a> (mainly annotated corpora and TreeBanks or actual NLP tools)</li>
+<li><a href="http://webscope.sandbox.yahoo.com/">Yahoo! Webscope</a> (also includes papers that use the data that is provided)</li>
+</ul>
+<h2 id="datasets-arabic">Datasets (Arabic)<a class="headerlink" href="#datasets-arabic" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/ParallelMazen/SaudiNewsNet">SaudiNewsNet</a>: 31,030 Arabic newspaper articles alongwith metadata, extracted from various online Saudi newspapers. (2 MB)</li>
+</ul>
+<h2 id="datasets-german">Datasets (German)<a class="headerlink" href="#datasets-german" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><a href="http://purl.org/corpus/german-speeches">German Political Speeches Corpus</a>: collection of recent speeches held by top German representatives (25 MB, 11 MTokens)</p>
+</li>
+<li>
+<p><a href="http://www.coli.uni-saarland.de/projects/sfb378/negra-corpus/negra-corpus.html">NEGRA</a>: A Syntactically Annotated Corpus of German Newspaper Texts. Available for free for all Universities and non-profit organizations. Need to sign and send form to obtain. (on request)</p>
+</li>
+<li>
+<p><a href="https://tblock.github.io/10kGNAD/">Ten Thousand German News Articles Dataset</a>: 10273 german language news articles categorized into nine classes for topic classification. (26.1 MB)</p>
+</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../" title="awesome-nlp" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                awesome-nlp
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../libraries/" title="库" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                库
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            @2018 nlp-docs.github.io
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.b41f3d20.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

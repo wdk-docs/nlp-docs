@@ -1,0 +1,1207 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="自然语言处理文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
+    
+    
+      
+        <title>其他语言 - NLP Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.572ca0f0.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.8c900955.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="NLP Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                NLP Docs
+              </span>
+              <span class="md-header-nav__topic">
+                其他语言
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      nlp-docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="自然语言处理" class="md-tabs__link">
+        自然语言处理
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="Awesome" class="md-tabs__link md-tabs__link--active">
+          Awesome
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="NLP Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    NLP Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      nlp-docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="自然语言处理" class="md-nav__link">
+      自然语言处理
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../bosonnlp/" title="玻森数据" class="md-nav__link">
+      玻森数据
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../jieba/" title="结巴分词" class="md-nav__link">
+      结巴分词
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../nlpair-ictclas/" title="NLPIR" class="md-nav__link">
+      NLPIR
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Awesome
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Awesome
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="awesome-nlp" class="md-nav__link">
+      awesome-nlp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../datasets/" title="数据集 nlp-datasets" class="md-nav__link">
+      数据集 nlp-datasets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../libraries/" title="库" class="md-nav__link">
+      库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        其他语言
+      </label>
+    
+    <a href="./" title="其他语言" class="md-nav__link md-nav__link--active">
+      其他语言
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nlp" title="多语种 NLP 框架" class="md-nav__link">
+    多语种 NLP 框架
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nlp-" title="NLP-韩语" class="md-nav__link">
+    NLP-韩语
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="库" class="md-nav__link">
+    库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="博客和教程" class="md-nav__link">
+    博客和教程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="数据集" class="md-nav__link">
+    数据集
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nlp-_1" title="NLP-阿拉伯语" class="md-nav__link">
+    NLP-阿拉伯语
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="库" class="md-nav__link">
+    库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="数据集" class="md-nav__link">
+    数据集
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nlp-_2" title="NLP-中文" class="md-nav__link">
+    NLP-中文
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="库" class="md-nav__link">
+    库
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nlp-_3" title="NLP-德语" class="md-nav__link">
+    NLP-德语
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nlp-_4" title="NLP-西班牙语" class="md-nav__link">
+    NLP-西班牙语
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="数据" class="md-nav__link">
+    数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nlp-_5" title="NLP-印度语" class="md-nav__link">
+    NLP-印度语
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hindi" title="Hindi" class="md-nav__link">
+    Hindi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-corpora-and-treebanks" title="Data, Corpora and Treebanks" class="md-nav__link">
+    Data, Corpora and Treebanks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nlp-_6" title="NLP-泰语" class="md-nav__link">
+    NLP-泰语
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="库" class="md-nav__link">
+    库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="数据" class="md-nav__link">
+    数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nlp-_7" title="NLP-丹麦语" class="md-nav__link">
+    NLP-丹麦语
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nlp-_8" title="NLP-越南语" class="md-nav__link">
+    NLP-越南语
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" title="库" class="md-nav__link">
+    库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" title="数据" class="md-nav__link">
+    数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nlp-_9" title="NLP-印度尼西亚语" class="md-nav__link">
+    NLP-印度尼西亚语
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" title="数据集" class="md-nav__link">
+    数据集
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" title="库和嵌入" class="md-nav__link">
+    库和嵌入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" title="其他语言" class="md-nav__link">
+    其他语言
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../techniques/" title="技术" class="md-nav__link">
+      技术
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorials/" title="教程" class="md-nav__link">
+      教程
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nlp" title="多语种 NLP 框架" class="md-nav__link">
+    多语种 NLP 框架
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nlp-" title="NLP-韩语" class="md-nav__link">
+    NLP-韩语
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="库" class="md-nav__link">
+    库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="博客和教程" class="md-nav__link">
+    博客和教程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="数据集" class="md-nav__link">
+    数据集
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nlp-_1" title="NLP-阿拉伯语" class="md-nav__link">
+    NLP-阿拉伯语
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="库" class="md-nav__link">
+    库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="数据集" class="md-nav__link">
+    数据集
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nlp-_2" title="NLP-中文" class="md-nav__link">
+    NLP-中文
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="库" class="md-nav__link">
+    库
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nlp-_3" title="NLP-德语" class="md-nav__link">
+    NLP-德语
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nlp-_4" title="NLP-西班牙语" class="md-nav__link">
+    NLP-西班牙语
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="数据" class="md-nav__link">
+    数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nlp-_5" title="NLP-印度语" class="md-nav__link">
+    NLP-印度语
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hindi" title="Hindi" class="md-nav__link">
+    Hindi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-corpora-and-treebanks" title="Data, Corpora and Treebanks" class="md-nav__link">
+    Data, Corpora and Treebanks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nlp-_6" title="NLP-泰语" class="md-nav__link">
+    NLP-泰语
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="库" class="md-nav__link">
+    库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="数据" class="md-nav__link">
+    数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nlp-_7" title="NLP-丹麦语" class="md-nav__link">
+    NLP-丹麦语
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nlp-_8" title="NLP-越南语" class="md-nav__link">
+    NLP-越南语
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" title="库" class="md-nav__link">
+    库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" title="数据" class="md-nav__link">
+    数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nlp-_9" title="NLP-印度尼西亚语" class="md-nav__link">
+    NLP-印度尼西亚语
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" title="数据集" class="md-nav__link">
+    数据集
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" title="库和嵌入" class="md-nav__link">
+    库和嵌入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" title="其他语言" class="md-nav__link">
+    其他语言
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">其他语言<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="nlp">多语种 NLP 框架<a class="headerlink" href="#nlp" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/ufal/udpipe">UDPipe</a> is a trainable pipeline for tokenizing, tagging, lemmatizing and parsing Universal Treebanks and other CoNLL-U files. Primarily written in C++, offers a fast and reliable solution for multilingual NLP processing.</li>
+<li><a href="https://github.com/adobe/NLP-Cube">NLP-Cube</a> : Natural Language Processing Pipeline - Sentence Splitting, Tokenization, Lemmatization, Part-of-speech Tagging and Dependency Parsing. New platform, written in Python with Dynet 2.0. Offers standalone (CLI/Python bindings) and server functionality (REST API).</li>
+</ul>
+<h2 id="nlp-">NLP-韩语<a class="headerlink" href="#nlp-" title="Permanent link">&para;</a></h2>
+<h3 id="_2">库<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="http://konlpy.org">KoNLPy</a> - Python package for Korean natural language processing.</li>
+<li><a href="https://eunjeon.blogspot.com/">Mecab (Korean)</a> - C++ library for Korean NLP</li>
+<li><a href="https://koalanlp.github.io/koalanlp/">KoalaNLP</a> - Scala library for Korean Natural Language Processing.</li>
+<li><a href="https://cran.r-project.org/web/packages/KoNLP/index.html">KoNLP</a> - R package for Korean Natural language processing</li>
+</ul>
+<h3 id="_3">博客和教程<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://dsindex.github.io/">dsindex's blog</a></li>
+<li><a href="http://cs.kangwon.ac.kr/~leeck/NLP/">Kangwon University's NLP course in Korean</a></li>
+</ul>
+<h3 id="_4">数据集<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="http://semanticweb.kaist.ac.kr/home/index.php/KAIST_Corpus">KAIST Corpus</a> - A corpus from the Korea Advanced Institute of Science and Technology in Korean.</li>
+<li><a href="https://github.com/e9t/nsmc/">Naver Sentiment Movie Corpus in Korean</a></li>
+<li><a href="http://srchdb1.chosun.com/pdf/i_archive/">Chosun Ilbo archive</a> - dataset in Korean from one of the major newspapers in South Korea, the Chosun Ilbo.</li>
+</ul>
+<h2 id="nlp-_1">NLP-阿拉伯语<a class="headerlink" href="#nlp-_1" title="Permanent link">&para;</a></h2>
+<h3 id="_5">库<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/01walid/goarabic">goarabic</a> - Go package for Arabic text processing</li>
+<li><a href="https://github.com/ejtaal/jsastem">jsastem</a> - Javascript for Arabic stemming</li>
+<li><a href="https://pypi.org/project/PyArabic/">PyArabic</a> - Python libraries for Arabic</li>
+</ul>
+<h3 id="_6">数据集<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/hadyelsahar/large-arabic-sentiment-analysis-resouces">Multidomain Datasets</a> - Largest Available Multi-Domain Resources for Arabic Sentiment Analysis</li>
+<li><a href="https://github.com/mohamedadaly/labr">LABR</a> - LArge Arabic Book Reviews dataset</li>
+<li><a href="https://github.com/mohataher/arabic-stop-words">Arabic Stopwords</a> - A list of Arabic stopwords from various resources</li>
+</ul>
+<h2 id="nlp-_2">NLP-中文<a class="headerlink" href="#nlp-_2" title="Permanent link">&para;</a></h2>
+<h3 id="_7">库<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/fxsjy/jieba#jieba-1">jieba</a> - Python package for Words Segmentation Utilities in Chinese</li>
+<li><a href="https://github.com/isnowfy/snownlp">SnowNLP</a> - Python package for Chinese NLP</li>
+<li><a href="https://github.com/FudanNLP/fnlp">FudanNLP</a> - Java library for Chinese text processing</li>
+</ul>
+<h2 id="nlp-_3">NLP-德语<a class="headerlink" href="#nlp-_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/adbar/German-NLP">German-NLP</a> - Curated list of open-access/open-source/off-the-shelf resources and tools developed with a particular focus on German</li>
+</ul>
+<h2 id="nlp-_4">NLP-西班牙语<a class="headerlink" href="#nlp-_4" title="Permanent link">&para;</a></h2>
+<h3 id="_8">数据<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/dav009/LatinamericanTextResources">Columbian Political Speeches</a></li>
+<li><a href="https://mbkromann.github.io/copenhagen-dependency-treebank/">Copenhagen Treebank</a></li>
+<li><a href="https://github.com/crscardellino/sbwce">Spanish Billion words corpus with Word2Vec embeddings</a></li>
+</ul>
+<h2 id="nlp-_5">NLP-印度语<a class="headerlink" href="#nlp-_5" title="Permanent link">&para;</a></h2>
+<h3 id="hindi">Hindi<a class="headerlink" href="#hindi" title="Permanent link">&para;</a></h3>
+<h3 id="data-corpora-and-treebanks">Data, Corpora and Treebanks<a class="headerlink" href="#data-corpora-and-treebanks" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://ltrc.iiit.ac.in/treebank_H2014/">Hindi Dependency Treebank</a> - A multi-representational multi-layered treebank for Hindi and Urdu</li>
+<li><a href="https://universaldependencies.org/treebanks/hi_hdtb/index.html">Universal Dependencies Treebank in Hindi</a></li>
+<li><a href="http://universaldependencies.org/treebanks/hi_pud/index.html">Parallel Universal Dependencies Treebank in Hindi</a> - A smaller part of the above-mentioned treebank.</li>
+</ul>
+<h2 id="nlp-_6">NLP-泰语<a class="headerlink" href="#nlp-_6" title="Permanent link">&para;</a></h2>
+<h3 id="_9">库<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/PyThaiNLP/pythainlp">PyThaiNLP</a> - Thai NLP in Python Package</li>
+<li><a href="https://github.com/wittawatj/jtcc">JTCC</a> - A character cluster library in Java</li>
+<li><a href="https://github.com/pucktada/cutkum">CutKum</a> - Word segmentation with deep learning in TensorFlow</li>
+<li><a href="https://pypi.python.org/pypi/tltk/">Thai Language Toolkit</a> - Based on a paper by Wirote Aroonmanakun in 2002 with included dataset</li>
+<li><a href="https://github.com/KenjiroAI/SynThai">SynThai</a> - Word segmentation and POS tagging using deep learning in Python</li>
+</ul>
+<h3 id="_10">数据<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://www.nectec.or.th/corpus/index.php?league=pm">Inter-BEST</a> - A text corpus with 5 million words with word segmentation</li>
+<li><a href="https://github.com/PyThaiNLP/lexicon-thai/tree/master/thai-corpus/Prime%20Minister%2029">Prime Minister 29</a> - Dataset containing speeches of the current Prime Minister of Thailand</li>
+</ul>
+<h2 id="nlp-_7">NLP-丹麦语<a class="headerlink" href="#nlp-_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/ITUnlp/daner">Named Entity Recognition for Danish</a></li>
+</ul>
+<h2 id="nlp-_8">NLP-越南语<a class="headerlink" href="#nlp-_8" title="Permanent link">&para;</a></h2>
+<h3 id="_11">库<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/undertheseanlp/underthesea">underthesea</a> - Vietnamese NLP Toolkit</li>
+<li><a href="https://github.com/phuonglh/vn.vitk">vn.vitk</a> - A Vietnamese Text Processing Toolkit</li>
+<li><a href="https://github.com/vncorenlp/VnCoreNLP">VnCoreNLP</a> - A Vietnamese natural language processing toolkit</li>
+</ul>
+<h3 id="_12">数据<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://vlsp.hpda.vn/demo/?page=resources&amp;lang=en">Vietnamese treebank</a> - 10,000 sentences for the constituency parsing task</li>
+<li><a href="https://arxiv.org/pdf/1710.05519.pdf">BKTreeBank</a> - a Vietnamese Dependency Treebank</li>
+<li><a href="https://github.com/UniversalDependencies/UD_Vietnamese-VTB">UD_Vietnamese</a> - Vietnamese Universal Dependency Treebank</li>
+<li><a href="https://ailab.hcmus.edu.vn/vivos/">VIVOS</a> - a free Vietnamese speech corpus consisting of 15 hours of recording speech by AILab</li>
+<li><a href="http://viet.jnlp.org/download-du-lieu-tu-vung-corpus">VNTQcorpus(big).txt</a> - 1.75 million sentences in news</li>
+</ul>
+<h2 id="nlp-_9">NLP-印度尼西亚语<a class="headerlink" href="#nlp-_9" title="Permanent link">&para;</a></h2>
+<h3 id="_13">数据集<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Kompas and Tempo collections at <a href="http://ilps.science.uva.nl/resources/bahasa/">ILPS</a></li>
+<li><a href="http://www.panl10n.net/english/outputs/Indonesia/UI/0802/UI-1M-tagged.zip">PANL10N for PoS tagging</a>: 39K sentences and 900K word tokens</li>
+<li><a href="https://github.com/famrashel/idn-tagged-corpus">IDN for PoS tagging</a>: This corpus contains 10K sentences and 250K word tokens</li>
+<li><a href="https://github.com/famrashel/idn-treebank">Indonesian Treebank</a> and <a href="https://github.com/UniversalDependencies/UD_Indonesian-GSD">Universal Dependencies-Indonesian</a></li>
+<li><a href="https://github.com/kata-ai/indosum">IndoSum</a> for text summarization and classification both</li>
+<li><a href="http://wn-msa.sourceforge.net/">Wordnet-Bahasa</a> - large, free, semantic dictionary</li>
+</ul>
+<h3 id="_14">库和嵌入<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Natural language toolkit <a href="https://github.com/kangfend/bahasa">bahasa</a></li>
+<li><a href="https://github.com/galuhsahid/indonesian-word-embedding">Indonesian Word Embedding</a></li>
+<li>Pretrained <a href="https://s3-us-west-1.amazonaws.com/fasttext-vectors/wiki.id.zip">Indonesian fastText Text Embedding</a> trained on Wikipedia</li>
+</ul>
+<h3 id="_15">其他语言<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<ul>
+<li>俄语: <a href="https://github.com/kmike/pymorphy2">pymorphy2</a> - a good pos-tagger for Russian</li>
+<li>亚洲语言: 泰国, Lao, 中文, 日本, 和韩国 <a href="https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-icu-tokenizer.html">ICU Tokenizer</a> implementation in ElasticSearch</li>
+<li>古代语言: <a href="https://github.com/cltk/cltk">CLTK</a>: The Classical Language Toolkit is a Python library and collection of texts for doing NLP in ancient languages</li>
+<li>荷兰语: <a href="https://github.com/proycon/python-frog">python-frog</a> - Python binding to Frog, an NLP suite for Dutch. (pos tagging, lemmatisation, dependency parsing, NER)</li>
+<li>希伯来语: <a href="https://github.com/NLPH/NLPH_Resources">NLPH_Resources</a> - A collection of papers, corpora and linguistic resources for NLP in Hebrew</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../libraries/" title="库" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                库
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../techniques/" title="技术" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                技术
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            @2018 nlp-docs.github.io
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.b41f3d20.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
