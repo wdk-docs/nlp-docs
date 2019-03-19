@@ -1,4 +1,4 @@
-# jieba
+# [jieba](https://github.com/fxsjy/jieba)
 
 “结巴”中文分词：做最好的 Python 中文分词组件
 
