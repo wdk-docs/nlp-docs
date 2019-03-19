@@ -1,4 +1,6 @@
-# awesome-nlp [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
+# awesome-nlp
+
+[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
 > A curated list of resources dedicated to Natural Language Processing
 
@@ -8,7 +10,7 @@
 
 _Please read the [contribution guidelines](contributing.md) before contributing. Please feel free to create [pull requests](https://github.com/keonkim/awesome-nlp/pulls)._
 
-## Contents
+## 内容
 
 - [Research Summaries and Trends](#research-summaries-and-trends)
 - [Tutorials](#tutorials)
@@ -42,9 +44,9 @@ _Please read the [contribution guidelines](contributing.md) before contributing.
 - [Other Languages](#other-languages)
 - [Credits](#credits)
 
-## Research Summaries and Trends
+## 研究摘要和趋势
 
-- [NLP-Overview](https://nlpoverview.com/) is an up-to-date overview of deep learning techniques applied to NLP, including theory, implementations, applications, and state-of-the-art results. This is a great Deep NLP Introduction for researchers. 
+- [NLP-Overview](https://nlpoverview.com/) is an up-to-date overview of deep learning techniques applied to NLP, including theory, implementations, applications, and state-of-the-art results. This is a great Deep NLP Introduction for researchers.
 - [NLP-Progress](https://nlpprogress.com/) tracks the progress in Natural Language Processing, including the datasets and the current state-of-the-art for the most common NLP tasks
 - [NLP's ImageNet moment has arrived](https://thegradient.pub/nlp-imagenet/)
 - [ACL 2018 Highlights: Understanding Representation and Evaluation in More Challenging Settings](http://ruder.io/acl-2018-highlights/)
@@ -54,10 +56,9 @@ _Please read the [contribution guidelines](contributing.md) before contributing.
 - [Deep Learning for Natural Language Processing (NLP): Advancements & Trends](https://tryolabs.com/blog/2017/12/12/deep-learning-for-nlp-advancements-and-trends-in-2017/?utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=The%20Wild%20Week%20in%20AI)
 - [Survey of the State of the Art in Natural Language Generation](https://arxiv.org/abs/1703.09902)
 
-## Tutorials
-[Back to Top](#contents)
+## 教程
 
-### Reading Content
+### 阅读内容
 
 General Machine Learning
 
@@ -84,11 +85,11 @@ Blogs and Newsletters
 - [arXiv: Natural Language Processing (Almost) from Scratch](https://arxiv.org/pdf/1103.0398.pdf)
 - [Karpathy's The Unreasonable Effectiveness of Recurrent Neural Networks](https://karpathy.github.io/2015/05/21/rnn-effectiveness)
 
-### Videos and Online Courses
+### 视频和在线课程
 
-#### Deep Learning and NLP
+#### 深度学习和 NLP
 
-Word embeddings, RNNs, LSTMs and CNNs for Natural Language Processing | [Back to Top](#contents)
+Word embeddings, RNNs, LSTMs and CNNs for Natural Language Processing |
 
 - Udacity's [Intro to Artificial Intelligence](https://www.udacity.com/course/intro-to-artificial-intelligence--cs271) course which touches upon NLP as well
 - Udacity's [Deep Learning](https://udacity.com/course/deep-learning--ud730) using Tensorflow which covers a section on using deep learning for NLP tasks (covering Word2Vec, RNN's and LSTMs)
@@ -97,26 +98,25 @@ Word embeddings, RNNs, LSTMs and CNNs for Natural Language Processing | [Back to
 - Coursera's [Natural Language Processing](https://www.coursera.org/learn/language-processing) by National Research University Higher School of Economics
 - Carnegie Mellon University's [Neural Networks for NLP](http://phontron.com/class/nn4nlp2017/) by Language Technology Institute there
 
-#### Classical NLP
+#### 经典 NLP
 
-Bayesian, statistics and Linguistics approaches for Natural Language Processing | [Back to Top](#contents)
+Bayesian, statistics and Linguistics approaches for Natural Language Processing |
 
 - [Statistical Machine Translation](http://mt-class.org) - a Machine Translation course with great assignments and slides
 - [NLTK with Python 3 for Natural Language Processing](https://www.youtube.com/playlist?list=PLQVvvaa0QuDf2JswnfiGkliBInZnIC4HL) by Harrison Kinsley(sentdex). Good tutorials with NLTK code implementation
 - [Computational Linguistics I](https://www.youtube.com/playlist?list=PLegWUnz91WfuPebLI97-WueAP90JO-15i) by Jordan Boyd-Graber, Lectures from University of Maryland
-- [Deep NLP Course](https://github.com/yandexdataschool/nlp_course) by Yandex Data School, covering important ideas from text embedding to machine translation including sequence modeling, language models and so on. 
+- [Deep NLP Course](https://github.com/yandexdataschool/nlp_course) by Yandex Data School, covering important ideas from text embedding to machine translation including sequence modeling, language models and so on.
 
-### Books
+### 图书
 
 - [Speech and Language Processing](https://web.stanford.edu/~jurafsky/slp3/) by Prof. Dan Jurafsy
 - [Text Mining in R](https://www.tidytextmining.com)
 - [Natural Language Processing with Python](https://www.nltk.org/book/)
 
-## Libraries
+## 库
 
-[Back to Top](#contents)
+- <a id="node-js">**Node.js and Javascript** - Node.js Libaries for NLP</a> |
 
-- <a id="node-js">**Node.js and Javascript** - Node.js Libaries for NLP</a> | [Back to Top](#contents)
   - [Twitter-text](https://github.com/twitter/twitter-text) - A JavaScript implementation of Twitter's text processing library
   - [Knwl.js](https://github.com/benhmoore/Knwl.js) - A Natural Language Processor in JS
   - [Retext](https://github.com/retextjs/retext) - Extensible system for analyzing and manipulating natural language
@@ -124,7 +124,7 @@ Bayesian, statistics and Linguistics approaches for Natural Language Processing 
   - [Natural](https://github.com/NaturalNode/natural) - general natural language facilities for node
   - [Poplar](https://github.com/synyi/poplar) - A web-based annotation tool for natural language processing (NLP)
 
-- <a id="python"> **Python** - Python NLP Libraries</a> | [Back to Top](#contents)
+- <a id="python"> **Python** - Python NLP Libraries</a> |
 
   - [TextBlob](http://textblob.readthedocs.org/) - Providing a consistent API for diving into common natural language processing (NLP) tasks. Stands on the giant shoulders of [Natural Language Toolkit (NLTK)](https://www.nltk.org/) and [Pattern](https://github.com/clips/pattern), and plays nicely with both :+1:
   - [spaCy](https://github.com/explosion/spaCy) - Industrial strength NLP with Python and Cython :+1:
@@ -145,8 +145,8 @@ Bayesian, statistics and Linguistics approaches for Natural Language Processing 
   - [Flair](https://github.com/zalandoresearch/flair) - A very simple framework for state-of-the-art multilingual NLP built on PyTorch. Includes BERT, ELMo and Flair embeddings.
   - [Kashgari](https://github.com/BrikerMan/Kashgari) - Simple, Keras-powered multilingual NLP framework, allows you to build your models in 5 minutes for named entity recognition (NER), part-of-speech tagging (PoS) and text classification tasks. Includes BERT and word2vec embedding.
 
+* <a id="c++">**C++** - C++ Libraries</a> |
 
-- <a id="c++">**C++** - C++ Libraries</a> | [Back to Top](#contents)
   - [MIT Information Extraction Toolkit](https://github.com/mit-nlp/MITIE) - C, C++, and Python tools for named entity recognition and relation extraction
   - [CRF++](https://taku910.github.io/crfpp/) - Open source implementation of Conditional Random Fields (CRFs) for segmenting/labeling sequential data & other Natural Language Processing tasks.
   - [CRFsuite](http://www.chokkan.org/software/crfsuite/) - CRFsuite is an implementation of Conditional Random Fields (CRFs) for labeling sequential data.
@@ -160,7 +160,8 @@ Bayesian, statistics and Linguistics approaches for Natural Language Processing 
   - [Moses](http://statmt.org/moses/)
   - [StarSpace](https://github.com/facebookresearch/StarSpace) - a library from Facebook for creating embeddings of word-level, paragraph-level, document-level and for text classification
 
-- <a id="java">**Java** - Java NLP Libraries</a> | [Back to Top](#contents)
+* <a id="java">**Java** - Java NLP Libraries</a> |
+
   - [Stanford NLP](https://nlp.stanford.edu/software/index.shtml)
   - [OpenNLP](https://opennlp.apache.org/)
   - [NLP4J](https://emorynlp.github.io/nlp4j/)
@@ -170,19 +171,22 @@ Bayesian, statistics and Linguistics approaches for Natural Language Processing 
   - [CogcompNLP](https://github.com/CogComp/cogcomp-nlp) - Core libraries developed in the U of Illinois' Cognitive Computation Group.
   - [MALLET](http://mallet.cs.umass.edu/) - MAchine Learning for LanguagE Toolkit - package for statistical natural language processing, document classification, clustering, topic modeling, information extraction, and other machine learning applications to text.
   - [RDRPOSTagger](https://github.com/datquocnguyen/RDRPOSTagger) - A robust POS tagging toolkit available (in both Java & Python) together with pre-trained models for 40+ languages.
-  
-- <a id="kotlin">**Kotlin** - Kotlin NLP Libraries</a> | [Back to Top](#contents)
+
+* <a id="kotlin">**Kotlin** - Kotlin NLP Libraries</a> |
+
   - [Lingua](https://github.com/pemistahl/lingua/) A language detection library for Kotlin and Java, suitable for long and short text alike
   - [Kotidgy](https://github.com/meiblorn/kotidgy) — an index-based text data generator written in Kotlin
-  
-- <a id="scala">**Scala** - Scala NLP Libraries</a> | [Back to Top](#contents)
+
+* <a id="scala">**Scala** - Scala NLP Libraries</a> |
+
   - [Saul](https://github.com/CogComp/saul) - Library for developing NLP systems, including built in modules like SRL, POS, etc.
   - [ATR4S](https://github.com/ispras/atr4s) - Toolkit with state-of-the-art [automatic term recognition](https://en.wikipedia.org/wiki/Terminology_extraction) methods.
   - [tm](https://github.com/ispras/tm) - Implementation of topic modeling based on regularized multilingual [PLSA](https://en.wikipedia.org/wiki/Probabilistic_latent_semantic_analysis).
   - [word2vec-scala](https://github.com/Refefer/word2vec-scala) - Scala interface to word2vec model; includes operations on vectors like word-distance and word-analogy.
   - [Epic](https://github.com/dlwh/epic) - Epic is a high performance statistical parser written in Scala, along with a framework for building complex structured prediction models.
 
-- <a id="R">**R** - R NLP Libraries</a> | [Back to Top](#contents)
+* <a id="R">**R** - R NLP Libraries</a> |
+
   - [text2vec](https://github.com/dselivanov/text2vec) - Fast vectorization, topic modeling, distances and GloVe word embeddings in R.
   - [wordVectors](https://github.com/bmschmidt/wordVectors) - An R package for creating and exploring word2vec and other word embedding models
   - [RMallet](https://github.com/mimno/RMallet) - R package to interface with the Java machine learning tool MALLET
@@ -191,25 +195,27 @@ Bayesian, statistics and Linguistics approaches for Natural Language Processing 
   - [sentiment_classifier](https://github.com/kevincobain2000/sentiment_classifier) - Sentiment Classification using Word Sense Disambiguation and WordNet Reader
   - [jProcessing](https://github.com/kevincobain2000/jProcessing) - Japanese Natural Langauge Processing Libraries, with Japanese sentiment classification
 
-- <a id="clojure">**Clojure**</a> | [Back to Top](#contents)
+* <a id="clojure">**Clojure**</a> |
+
   - [Clojure-openNLP](https://github.com/dakrone/clojure-opennlp) - Natural Language Processing in Clojure (opennlp)
   - [Infections-clj](https://github.com/r0man/inflections-clj) - Rails-like inflection library for Clojure and ClojureScript
   - [postagga](https://github.com/fekr/postagga) - A library to parse natural language in Clojure and ClojureScript
 
-- <a id="ruby">**Ruby**</a> | [Back to Top](#contents)
+* <a id="ruby">**Ruby**</a> |
+
   - Kevin Dias's [A collection of Natural Language Processing (NLP) Ruby libraries, tools and software](https://github.com/diasks2/ruby-nlp)
   - [Practical Natural Language Processing done in Ruby](https://github.com/arbox/nlp-with-ruby)
 
-- <a id="rust">**Rust**</a>
+* <a id="rust">**Rust**</a>
   - [whatlang](https://github.com/greyblake/whatlang-rs) — Natural language recognition library based on trigrams
   - [snips-nlu-rs](https://github.com/snipsco/snips-nlu-rs) - A production ready library for intent parsing
 
-### Services
+### 服务
 
-NLP as API with higher level functionality such as NER, Topic tagging and so on | [Back to Top](#contents)
+NLP as API with higher level functionality such as NER, Topic tagging and so on |
 
 - [Wit-ai](https://github.com/wit-ai/wit) - Natural Language Interface for apps and devices
-- [IBM Watson's Natural Language Understanding](https://github.com/watson-developer-cloud/natural-language-understanding-nodejs) - API and Github demo 
+- [IBM Watson's Natural Language Understanding](https://github.com/watson-developer-cloud/natural-language-understanding-nodejs) - API and Github demo
 - [Amazon Comprehend](https://aws.amazon.com/comprehend/) - NLP and ML suite covers most common tasks like NER, tagging, and sentiment analysis
 - [Google Cloud Natural Language API](https://cloud.google.com/natural-language/) - Syntax Analysis, NER, Sentiment Analysis, and Content tagging in atleast 9 languages include English and Chinese (Simplified and Traditional).
 - [ParallelDots](https://www.paralleldots.com/text-analysis-apis) - High level Text Analysis API Service ranging from Sentiment Analysis to Intent Analysis
@@ -217,34 +223,30 @@ NLP as API with higher level functionality such as NER, Topic tagging and so on 
 - [TextRazor](https://www.textrazor.com/)
 - [Rosette](https://www.rosette.com/)
 
-### Annotation Tools
+### 注释工具
 
 - [GATE](https://gate.ac.uk/overview.html) - General Architecture and Text Engineering is 15+ years old, free and open source
 - [Anafora](https://github.com/weitechen/anafora) is free and open source, web-based raw text annotation tool
 - [brat](https://brat.nlplab.org/) - brat rapid annotation tool is an online environment for collaborative text annotation
-- [tagtog](https://www.tagtog.net/), costs $
-- [prodigy](https://prodi.gy/) is an annotation tool powered by active learning, costs $
-- [LightTag](https://lighttag.io) - Hosted and managed text annotation tool for teams, costs $
+- [tagtog](https://www.tagtog.net/), costs \$
+- [prodigy](https://prodi.gy/) is an annotation tool powered by active learning, costs \$
+- [LightTag](https://lighttag.io) - Hosted and managed text annotation tool for teams, costs \$
 
-## Techniques
+## 技术
 
-### Text Embeddings
-
-[Back to Top](#contents)
+### 文字嵌入
 
 Text embeddings allow deep learning to be effective on smaller datasets. These are often first inputs to a deep learning archiectures and most popular way of transfer learning in NLP. Embeddings are simply vectors or a more generically, real valued representations of strings. Word embeddings are considered a great starting point for most deep NLP tasks.
 
-The most popular names in word embeddings are word2vec by Google (Mikolov) and GloVe by Stanford (Pennington, Socher and Manning). fastText seems to be a fairly popular for multi-lingual sub-word embeddings. 
+The most popular names in word embeddings are word2vec by Google (Mikolov) and GloVe by Stanford (Pennington, Socher and Manning). fastText seems to be a fairly popular for multi-lingual sub-word embeddings.
 
-#### Word Embeddings
+#### 单词嵌入
 
-[Back to Top](#contents)
-
-|Embedding |Paper| Organisation| gensim- Training Support |Blogs|
-|---|---|---|---|---|
-|word2vec|[Official Implementation](https://code.google.com/archive/p/word2vec/), T.Mikolove et al. 2013. Distributed Representations of Words and Phrases and their Compositionality. [pdf](https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf) |Google|Yes :heavy_check_mark:| Visual explanations by colah at [Deep Learning, NLP, and Representations](http://colah.github.io/posts/2014-07-NLP-RNNs-Representations/); gensim's [Making Sense of word2vec](https://rare-technologies.com/making-sense-of-word2vec) |
-|GloVe|Jeffrey Pennington, Richard Socher, and Christopher D. Manning. 2014. GloVe: Global Vectors for Word Representation. [pdf](https://nlp.stanford.edu/pubs/glove.pdf)|Stanford|No :negative_squared_cross_mark:|[Morning Paper on GloVe](https://blog.acolyer.org/2016/04/22/glove-global-vectors-for-word-representation/) by acoyler|
-|fastText|[Official Implementation](https://github.com/facebookresearch/fastText), T. Mikolov et al. 2017. Enriching Word Vectors with Subword Information. [pdf](https://arxiv.org/abs/1607.04606)|Facebook|Yes :heavy_check_mark:|[Fasttext: Under the Hood](https://towardsdatascience.com/fasttext-under-the-hood-11efc57b2b3)|
+| Embedding | Paper                                                                                                                                                                                                                                                                                                 | Organisation | gensim- Training Support         | Blogs                                                                                                                                                                                                                                  |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| word2vec  | [Official Implementation](https://code.google.com/archive/p/word2vec/), T.Mikolove et al. 2013. Distributed Representations of Words and Phrases and their Compositionality. [pdf](https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf) | Google       | Yes :heavy_check_mark:           | Visual explanations by colah at [Deep Learning, NLP, and Representations](http://colah.github.io/posts/2014-07-NLP-RNNs-Representations/); gensim's [Making Sense of word2vec](https://rare-technologies.com/making-sense-of-word2vec) |
+| GloVe     | Jeffrey Pennington, Richard Socher, and Christopher D. Manning. 2014. GloVe: Global Vectors for Word Representation. [pdf](https://nlp.stanford.edu/pubs/glove.pdf)                                                                                                                                   | Stanford     | No :negative_squared_cross_mark: | [Morning Paper on GloVe](https://blog.acolyer.org/2016/04/22/glove-global-vectors-for-word-representation/) by acoyler                                                                                                                 |
+| fastText  | [Official Implementation](https://github.com/facebookresearch/fastText), T. Mikolov et al. 2017. Enriching Word Vectors with Subword Information. [pdf](https://arxiv.org/abs/1607.04606)                                                                                                             | Facebook     | Yes :heavy_check_mark:           | [Fasttext: Under the Hood](https://towardsdatascience.com/fasttext-under-the-hood-11efc57b2b3)                                                                                                                                         |
 
 Notes for Beginners:
 
@@ -253,9 +255,7 @@ Notes for Beginners:
 - If you are interested in the logic and intuition behind word2vec and GloVe: [The Amazing Power of Word Vectors](https://blog.acolyer.org/2016/04/21/the-amazing-power-of-word-vectors/) and introduce the topics well
 - [arXiv: Bag of Tricks for Efficient Text Classification](https://arxiv.org/abs/1607.01759), and [arXiv: FastText.zip: Compressing text classification models](https://arxiv.org/abs/1612.03651) were released as part of fasttext
 
-#### Sentence and Language Model Based Word Embeddings
-
-[Back to Top](#contents)
+#### 基于句子和语言模型的词嵌入
 
 - _ElMo_ from [Deep Contextualized Word Represenations](https://arxiv.org/abs/1802.05365) - [PyTorch implmentation](https://github.com/allenai/allennlp/blob/master/tutorials/how_to/elmo.md) - [TF Implementation](https://github.com/allenai/bilm-tf)
 - _ULimFit_ aka [Universal Language Model Fine-tuning for Text Classification](https://arxiv.org/abs/1801.06146) by Jeremy Howard and Sebastian Ruder
@@ -267,9 +267,7 @@ Notes for Beginners:
 - [Adaptive skip-gram](https://arxiv.org/abs/1502.07257) - similar approach, with adaptive properties
 - [Sequence to Sequence Learning](https://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf) - word vectors for machine translation
 
-### Question Answering and Knowledge Extraction
-
-[Back to Top](#contents)
+### 问答和知识提取
 
 - [DrQA: Open Domain Question Answering](https://github.com/facebookresearch/DrQA) by facebook on Wikipedia data
 - DocQA: [Simple and Effective Multi-Paragraph Reading Comprehension](https://github.com/allenai/document-qa) by AllenAI
@@ -284,84 +282,70 @@ Notes for Beginners:
 - [Presentation slides for QA applications of MLNs](https://github.com/clulab/nlp-reading-group/blob/master/fall-2015-resources/Markov%20Logic%20Networks%20for%20Natural%20Language%20Question%20Answering.pdf)
 - [Presentation slides](https://github.com/clulab/nlp-reading-group/blob/master/fall-2015-resources/poon-paper.pdf)
 
-## Datasets
-
-[Back to Top](#contents)
+## 数据集
 
 - [nlp-datasets](https://github.com/niderhoff/nlp-datasets) great collection of nlp datasets
 
-## Multilingual NLP Frameworks
-
-[Back to Top](#contents)
+## 多语种 NLP 框架
 
 - [UDPipe](https://github.com/ufal/udpipe) is a trainable pipeline for tokenizing, tagging, lemmatizing and parsing Universal Treebanks and other CoNLL-U files. Primarily written in C++, offers a fast and reliable solution for multilingual NLP processing.
 - [NLP-Cube](https://github.com/adobe/NLP-Cube) : Natural Language Processing Pipeline - Sentence Splitting, Tokenization, Lemmatization, Part-of-speech Tagging and Dependency Parsing. New platform, written in Python with Dynet 2.0. Offers standalone (CLI/Python bindings) and server functionality (REST API).
 
-## NLP in Korean
+## NLP-韩语
 
-[Back to Top](#contents)
-
-### Libraries
+### 库
 
 - [KoNLPy](http://konlpy.org) - Python package for Korean natural language processing.
 - [Mecab (Korean)](https://eunjeon.blogspot.com/) - C++ library for Korean NLP
 - [KoalaNLP](https://koalanlp.github.io/koalanlp/) - Scala library for Korean Natural Language Processing.
 - [KoNLP](https://cran.r-project.org/web/packages/KoNLP/index.html) - R package for Korean Natural language processing
 
-### Blogs and Tutorials
+### 博客和教程
 
 - [dsindex's blog](https://dsindex.github.io/)
 - [Kangwon University's NLP course in Korean](http://cs.kangwon.ac.kr/~leeck/NLP/)
 
-### Datasets
+### 数据集
 
 - [KAIST Corpus](http://semanticweb.kaist.ac.kr/home/index.php/KAIST_Corpus) - A corpus from the Korea Advanced Institute of Science and Technology in Korean.
 - [Naver Sentiment Movie Corpus in Korean](https://github.com/e9t/nsmc/)
 - [Chosun Ilbo archive](http://srchdb1.chosun.com/pdf/i_archive/) - dataset in Korean from one of the major newspapers in South Korea, the Chosun Ilbo.
 
-## NLP in Arabic
+## NLP-阿拉伯语
 
-[Back to Top](#contents)
-
-### Libraries
+### 库
 
 - [goarabic](https://github.com/01walid/goarabic) - Go package for Arabic text processing
 - [jsastem](https://github.com/ejtaal/jsastem) - Javascript for Arabic stemming
 - [PyArabic](https://pypi.org/project/PyArabic/) - Python libraries for Arabic
 
-### Datasets
+### 数据集
 
 - [Multidomain Datasets](https://github.com/hadyelsahar/large-arabic-sentiment-analysis-resouces) - Largest Available Multi-Domain Resources for Arabic Sentiment Analysis
 - [LABR](https://github.com/mohamedadaly/labr) - LArge Arabic Book Reviews dataset
 - [Arabic Stopwords](https://github.com/mohataher/arabic-stop-words) - A list of Arabic stopwords from various resources
 
-## NLP in Chinese
+## NLP-中文
 
-[Back to Top](#contents)
-
-### Libraries
+### 库
 
 - [jieba](https://github.com/fxsjy/jieba#jieba-1) - Python package for Words Segmentation Utilities in Chinese
 - [SnowNLP](https://github.com/isnowfy/snownlp) - Python package for Chinese NLP
 - [FudanNLP](https://github.com/FudanNLP/fnlp) - Java library for Chinese text processing
 
-## NLP in German
+## NLP-德语
 
 - [German-NLP](https://github.com/adbar/German-NLP) - Curated list of open-access/open-source/off-the-shelf resources and tools developed with a particular focus on German
- 
-## NLP in Spanish
 
-[Back to Top](#contents)
+## NLP-西班牙语
 
-### Data
+### 数据
 
 - [Columbian Political Speeches](https://github.com/dav009/LatinamericanTextResources)
 - [Copenhagen Treebank](https://mbkromann.github.io/copenhagen-dependency-treebank/)
 - [Spanish Billion words corpus with Word2Vec embeddings](https://github.com/crscardellino/sbwce)
 
-## NLP in Indic languages
-
-[Back to Top](#contents)
+## NLP-印度语
 
 ### Hindi
 
@@ -371,11 +355,9 @@ Notes for Beginners:
 - [Universal Dependencies Treebank in Hindi](https://universaldependencies.org/treebanks/hi_hdtb/index.html)
   - [Parallel Universal Dependencies Treebank in Hindi](http://universaldependencies.org/treebanks/hi_pud/index.html) - A smaller part of the above-mentioned treebank.
 
-## NLP in Thai
+## NLP-泰语
 
-[Back to Top](#contents)
-
-### Libraries
+### 库
 
 - [PyThaiNLP](https://github.com/PyThaiNLP/pythainlp) - Thai NLP in Python Package
 - [JTCC](https://github.com/wittawatj/jtcc) - A character cluster library in Java
@@ -383,25 +365,24 @@ Notes for Beginners:
 - [Thai Language Toolkit](https://pypi.python.org/pypi/tltk/) - Based on a paper by Wirote Aroonmanakun in 2002 with included dataset
 - [SynThai](https://github.com/KenjiroAI/SynThai) - Word segmentation and POS tagging using deep learning in Python
 
-### Data
+### 数据
 
 - [Inter-BEST](https://www.nectec.or.th/corpus/index.php?league=pm) - A text corpus with 5 million words with word segmentation
 - [Prime Minister 29](https://github.com/PyThaiNLP/lexicon-thai/tree/master/thai-corpus/Prime%20Minister%2029) - Dataset containing speeches of the current Prime Minister of Thailand
 
-
-## NLP in Danish 
+## NLP-丹麦语
 
 - [Named Entity Recognition for Danish](https://github.com/ITUnlp/daner)
 
-## NLP in Vietnamese 
+## NLP-越南语
 
-### Libraries
+### 库
 
 - [underthesea](https://github.com/undertheseanlp/underthesea) - Vietnamese NLP Toolkit
 - [vn.vitk](https://github.com/phuonglh/vn.vitk) - A Vietnamese Text Processing Toolkit
 - [VnCoreNLP](https://github.com/vncorenlp/VnCoreNLP) - A Vietnamese natural language processing toolkit
 
-### Data
+### 数据
 
 - [Vietnamese treebank](https://vlsp.hpda.vn/demo/?page=resources&lang=en) - 10,000 sentences for the constituency parsing task
 - [BKTreeBank](https://arxiv.org/pdf/1710.05519.pdf) - a Vietnamese Dependency Treebank
@@ -409,9 +390,10 @@ Notes for Beginners:
 - [VIVOS](https://ailab.hcmus.edu.vn/vivos/) - a free Vietnamese speech corpus consisting of 15 hours of recording speech by AILab
 - [VNTQcorpus(big).txt](http://viet.jnlp.org/download-du-lieu-tu-vung-corpus) - 1.75 million sentences in news
 
-## NLP in Indonesian 
+## NLP-印度尼西亚语
 
-### Datasets
+### 数据集
+
 - Kompas and Tempo collections at [ILPS](http://ilps.science.uva.nl/resources/bahasa/)
 - [PANL10N for PoS tagging](http://www.panl10n.net/english/outputs/Indonesia/UI/0802/UI-1M-tagged.zip): 39K sentences and 900K word tokens
 - [IDN for PoS tagging](https://github.com/famrashel/idn-tagged-corpus): This corpus contains 10K sentences and 250K word tokens
@@ -419,19 +401,18 @@ Notes for Beginners:
 - [IndoSum](https://github.com/kata-ai/indosum) for text summarization and classification both
 - [Wordnet-Bahasa](http://wn-msa.sourceforge.net/) - large, free, semantic dictionary
 
-### Libraries & Embedding
+### 库和嵌入
+
 - Natural language toolkit [bahasa](https://github.com/kangfend/bahasa)
 - [Indonesian Word Embedding](https://github.com/galuhsahid/indonesian-word-embedding)
 - Pretrained [Indonesian fastText Text Embedding](https://s3-us-west-1.amazonaws.com/fasttext-vectors/wiki.id.zip) trained on Wikipedia
 
-### Other Languages 
+### 其他语言
 
 - Russian: [pymorphy2](https://github.com/kmike/pymorphy2) - a good pos-tagger for Russian
 - Asian Languages: Thai, Lao, Chinese, Japanese, and Korean [ICU Tokenizer](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-icu-tokenizer.html) implementation in ElasticSearch
 - Ancient Languages: [CLTK](https://github.com/cltk/cltk): The Classical Language Toolkit is a Python library and collection of texts for doing NLP in ancient languages
 - Dutch: [python-frog](https://github.com/proycon/python-frog) - Python binding to Frog, an NLP suite for Dutch. (pos tagging, lemmatisation, dependency parsing, NER)
 - Hebrew: [NLPH_Resources](https://github.com/NLPH/NLPH_Resources) - A collection of papers, corpora and linguistic resources for NLP in Hebrew
-
-[Back to Top](#contents)
 
 [Credits](./CREDITS.md) for initial curators and sources
