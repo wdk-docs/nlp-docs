@@ -5,21 +5,21 @@
 - [UDPipe](https://github.com/ufal/udpipe) is a trainable pipeline for tokenizing, tagging, lemmatizing and parsing Universal Treebanks and other CoNLL-U files. Primarily written in C++, offers a fast and reliable solution for multilingual NLP processing.
 - [NLP-Cube](https://github.com/adobe/NLP-Cube) : Natural Language Processing Pipeline - Sentence Splitting, Tokenization, Lemmatization, Part-of-speech Tagging and Dependency Parsing. New platform, written in Python with Dynet 2.0. Offers standalone (CLI/Python bindings) and server functionality (REST API).
 
-## NLP-韩语
+## NLP-朝鲜语
 
-### 库
+### 朝鲜语库
 
 - [KoNLPy](http://konlpy.org) - Python package for Korean natural language processing.
 - [Mecab (Korean)](https://eunjeon.blogspot.com/) - C++ library for Korean NLP
 - [KoalaNLP](https://koalanlp.github.io/koalanlp/) - Scala library for Korean Natural Language Processing.
 - [KoNLP](https://cran.r-project.org/web/packages/KoNLP/index.html) - R package for Korean Natural language processing
 
-### 博客和教程
+### 朝鲜语博客和教程
 
 - [dsindex's blog](https://dsindex.github.io/)
 - [Kangwon University's NLP course in Korean](http://cs.kangwon.ac.kr/~leeck/NLP/)
 
-### 数据集
+### 朝鲜语数据集
 
 - [KAIST Corpus](http://semanticweb.kaist.ac.kr/home/index.php/KAIST_Corpus) - A corpus from the Korea Advanced Institute of Science and Technology in Korean.
 - [Naver Sentiment Movie Corpus in Korean](https://github.com/e9t/nsmc/)
@@ -27,13 +27,13 @@
 
 ## NLP-阿拉伯语
 
-### 库
+### 阿拉伯语库
 
 - [goarabic](https://github.com/01walid/goarabic) - Go package for Arabic text processing
 - [jsastem](https://github.com/ejtaal/jsastem) - Javascript for Arabic stemming
 - [PyArabic](https://pypi.org/project/PyArabic/) - Python libraries for Arabic
 
-### 数据集
+### 阿拉伯语数据集
 
 - [Multidomain Datasets](https://github.com/hadyelsahar/large-arabic-sentiment-analysis-resouces) - Largest Available Multi-Domain Resources for Arabic Sentiment Analysis
 - [LABR](https://github.com/mohamedadaly/labr) - LArge Arabic Book Reviews dataset
@@ -41,11 +41,13 @@
 
 ## NLP-中文
 
-### 库
+### 中文分词库
 
-- [jieba](https://github.com/fxsjy/jieba#jieba-1) - Python package for Words Segmentation Utilities in Chinese
-- [SnowNLP](https://github.com/isnowfy/snownlp) - Python package for Chinese NLP
-- [FudanNLP](https://github.com/FudanNLP/fnlp) - Java library for Chinese text processing
+- [jieba](https://github.com/fxsjy/jieba#jieba-1) - 用于中文词语分割实用程序的 Python 包
+- [SnowNLP](https://github.com/isnowfy/snownlp) - 中文 NLP 的 Python 包
+- [FudanNLP](https://github.com/FudanNLP/fnlp) - 用于中文文本处理的 Java 库(已作废转 fastNLP)
+- [fastNLP](https://github.com/fastnlp/fastNLP) - 模块化和可扩展的 NLP 框架。 目前仍处于孵化期。
+- [kcws](https://github.com/koth/kcws) - 深度学习中文单词段
 
 ## NLP-德语
 
@@ -55,48 +57,48 @@
 
 ### 数据
 
-- [Columbian Political Speeches](https://github.com/dav009/LatinamericanTextResources)
-- [Copenhagen Treebank](https://mbkromann.github.io/copenhagen-dependency-treebank/)
-- [Spanish Billion words corpus with Word2Vec embeddings](https://github.com/crscardellino/sbwce)
+- [哥伦比亚政治演说](https://github.com/dav009/LatinamericanTextResources)
+- [哥本哈根树队](https://mbkromann.github.io/copenhagen-dependency-treebank/)
+- [西班牙语十亿字语料库与 Word2Vec 嵌入](https://github.com/crscardellino/sbwce)
 
 ## NLP-印度语
 
 ### Hindi
 
-### Data, Corpora and Treebanks
+### 数据，Corpora 和 Treebanks
 
-- [Hindi Dependency Treebank](https://ltrc.iiit.ac.in/treebank_H2014/) - A multi-representational multi-layered treebank for Hindi and Urdu
-- [Universal Dependencies Treebank in Hindi](https://universaldependencies.org/treebanks/hi_hdtb/index.html)
-  - [Parallel Universal Dependencies Treebank in Hindi](http://universaldependencies.org/treebanks/hi_pud/index.html) - A smaller part of the above-mentioned treebank.
+- [Hindi 依赖树库](https://ltrc.iiit.ac.in/treebank_H2014/) - A multi-representational multi-layered treebank for Hindi and Urdu
+- [在印地语的普遍依赖性树库](https://universaldependencies.org/treebanks/hi_hdtb/index.html)
+  - [在印地语中的并行通用依赖树库](http://universaldependencies.org/treebanks/hi_pud/index.html) - A smaller part of the above-mentioned treebank.
 
 ## NLP-泰语
 
-### 库
+### 泰语库
 
 - [PyThaiNLP](https://github.com/PyThaiNLP/pythainlp) - Thai NLP in Python Package
 - [JTCC](https://github.com/wittawatj/jtcc) - A character cluster library in Java
 - [CutKum](https://github.com/pucktada/cutkum) - Word segmentation with deep learning in TensorFlow
-- [Thai Language Toolkit](https://pypi.python.org/pypi/tltk/) - Based on a paper by Wirote Aroonmanakun in 2002 with included dataset
+- [泰语工具包](https://pypi.python.org/pypi/tltk/) - Based on a paper by Wirote Aroonmanakun in 2002 with included dataset
 - [SynThai](https://github.com/KenjiroAI/SynThai) - Word segmentation and POS tagging using deep learning in Python
 
-### 数据
+### 泰语数据
 
 - [Inter-BEST](https://www.nectec.or.th/corpus/index.php?league=pm) - A text corpus with 5 million words with word segmentation
 - [Prime Minister 29](https://github.com/PyThaiNLP/lexicon-thai/tree/master/thai-corpus/Prime%20Minister%2029) - Dataset containing speeches of the current Prime Minister of Thailand
 
 ## NLP-丹麦语
 
-- [Named Entity Recognition for Danish](https://github.com/ITUnlp/daner)
+- [丹麦语的命名实体识别](https://github.com/ITUnlp/daner)
 
 ## NLP-越南语
 
-### 库
+### 越南语库
 
 - [underthesea](https://github.com/undertheseanlp/underthesea) - Vietnamese NLP Toolkit
 - [vn.vitk](https://github.com/phuonglh/vn.vitk) - A Vietnamese Text Processing Toolkit
 - [VnCoreNLP](https://github.com/vncorenlp/VnCoreNLP) - A Vietnamese natural language processing toolkit
 
-### 数据
+### 越南语数据
 
 - [Vietnamese treebank](https://vlsp.hpda.vn/demo/?page=resources&lang=en) - 10,000 sentences for the constituency parsing task
 - [BKTreeBank](https://arxiv.org/pdf/1710.05519.pdf) - a Vietnamese Dependency Treebank
@@ -106,10 +108,10 @@
 
 ## NLP-印度尼西亚语
 
-### 数据集
+### 印度尼西亚语数据集
 
 - Kompas and Tempo collections at [ILPS](http://ilps.science.uva.nl/resources/bahasa/)
-- [PANL10N for PoS tagging](http://www.panl10n.net/english/outputs/Indonesia/UI/0802/UI-1M-tagged.zip): 39K sentences and 900K word tokens
+- [PANL10N 用于 PoS 标记](http://www.panl10n.net/english/outputs/Indonesia/UI/0802/UI-1M-tagged.zip): 39K sentences and 900K word tokens
 - [IDN for PoS tagging](https://github.com/famrashel/idn-tagged-corpus): This corpus contains 10K sentences and 250K word tokens
 - [Indonesian Treebank](https://github.com/famrashel/idn-treebank) and [Universal Dependencies-Indonesian](https://github.com/UniversalDependencies/UD_Indonesian-GSD)
 - [IndoSum](https://github.com/kata-ai/indosum) for text summarization and classification both
@@ -117,14 +119,14 @@
 
 ### 库和嵌入
 
-- Natural language toolkit [bahasa](https://github.com/kangfend/bahasa)
-- [Indonesian Word Embedding](https://github.com/galuhsahid/indonesian-word-embedding)
-- Pretrained [Indonesian fastText Text Embedding](https://s3-us-west-1.amazonaws.com/fasttext-vectors/wiki.id.zip) trained on Wikipedia
+- 自然语言工具包[bahasa](https://github.com/kangfend/bahasa)
+- [印尼语嵌入](https://github.com/galuhsahid/indonesian-word-embedding)
+- 在维基百科上训练的预训练[印尼快速文本文本嵌入](https://s3-us-west-1.amazonaws.com/fasttext-vectors/wiki.id.zip)
 
 ### 其他语言
 
-- 俄语: [pymorphy2](https://github.com/kmike/pymorphy2) - a good pos-tagger for Russian
+- 俄语: [pymorphy2](https://github.com/kmike/pymorphy2) - 一个很好的俄语定位器
 - 亚洲语言: 泰国, Lao, 中文, 日本, 和韩国 [ICU Tokenizer](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-icu-tokenizer.html) implementation in ElasticSearch
-- 古代语言: [CLTK](https://github.com/cltk/cltk): The Classical Language Toolkit is a Python library and collection of texts for doing NLP in ancient languages
-- 荷兰语: [python-frog](https://github.com/proycon/python-frog) - Python binding to Frog, an NLP suite for Dutch. (pos tagging, lemmatisation, dependency parsing, NER)
-- 希伯来语: [NLPH_Resources](https://github.com/NLPH/NLPH_Resources) - A collection of papers, corpora and linguistic resources for NLP in Hebrew
+- 古代语言: [CLTK](https://github.com/cltk/cltk): Classical Language Toolkit 是一个 Python 库和用于在古代语言中进行 NLP 的文本集合
+- 荷兰语: [python-frog](https://github.com/proycon/python-frog) - Python 绑定到 Frog，一个荷兰语的 NLP 套件。 (pos 标记，词形还原，依赖解析，NEAR)
+- 希伯来语: [NLPH_Resources](https://github.com/NLPH/NLPH_Resources) - 希伯来语 NLP 的论文，语料库和语言资源的集合

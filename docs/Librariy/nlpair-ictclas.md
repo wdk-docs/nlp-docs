@@ -1,6 +1,8 @@
-# NLPIR
+# 中科院-NLPIR
 
-[NLPIR 汉语分词系统](http://ictclas.nlpir.org/)
+> [NLPIR 汉语分词系统](http://ictclas.nlpir.org/)
+
+> [GitHub](https://github.com/NLPIR-team/NLPIR)
 
 主要功能包括中文分词；英文分词；词性标注；命名实体识别；新词识别；关键词提取；
 支持用户专业词典与微博分析。NLPIR 系统支持多种编码、多种操作系统、多种开发语言与平台。

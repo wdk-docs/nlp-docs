@@ -4,7 +4,7 @@
 
 > 专门用于自然语言处理的精选资源列表
 
-[![Awesome NLP Logo](/images/logo.jpg)](https://github.com/keon/awesome-nlp)
+[![Awesome NLP Logo](../images/logo.jpg)](https://github.com/keon/awesome-nlp)
 
 **Maintainers** - [Keon](https://github.com/keon), [Martin](https://github.com/outpark), [Nirant](https://github.com/NirantK), [Dhruv](https://github.com/the-ethan-hunt)
 
