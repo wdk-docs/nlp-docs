@@ -1,0 +1,1492 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="自然语言处理文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
+    
+    
+      
+        <title>张华平 - NLP Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.572ca0f0.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.8c900955.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="NLP Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                NLP Docs
+              </span>
+              <span class="md-header-nav__topic">
+                张华平
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      nlp-docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="自然语言处理" class="md-tabs__link">
+        自然语言处理
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="Author" class="md-tabs__link md-tabs__link--active">
+          Author
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Corpus/" title="Corpus" class="md-tabs__link">
+          Corpus
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Librariy/" title="Librariy" class="md-tabs__link">
+          Librariy
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Paper/" title="Paper" class="md-tabs__link">
+          Paper
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../awesome/" title="Awesome" class="md-tabs__link">
+          Awesome
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../sensitive-word/" title="Sensitive word" class="md-tabs__link">
+          Sensitive word
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="NLP Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    NLP Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      nlp-docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="自然语言处理" class="md-nav__link">
+      自然语言处理
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Author
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Author
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../刘焕勇/" title="刘焕勇" class="md-nav__link">
+      刘焕勇
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        张华平
+      </label>
+    
+    <a href="./" title="张华平" class="md-nav__link md-nav__link--active">
+      张华平
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="一、基本情况：" class="md-nav__link">
+    一、基本情况：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="二、 学术经历：" class="md-nav__link">
+    二、 学术经历：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="三、教育经历：" class="md-nav__link">
+    三、教育经历：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="四、工作经历：" class="md-nav__link">
+    四、工作经历：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="五、主要科研成果：" class="md-nav__link">
+    五、主要科研成果：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="六、主要获奖情况：" class="md-nav__link">
+    六、主要获奖情况：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="七、教学情况：" class="md-nav__link">
+    七、教学情况：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" title="八、主持的科研课题：" class="md-nav__link">
+    八、主持的科研课题：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" title="九、新闻媒体报道：" class="md-nav__link">
+    九、新闻媒体报道：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" title="十、指导学生情况：" class="md-nav__link">
+    十、指导学生情况：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" title="十一、学术论文论著：" class="md-nav__link">
+    十一、学术论文论著：
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" title="【获得的专利】" class="md-nav__link">
+    【获得的专利】
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" title="【获得的软件著作权】" class="md-nav__link">
+    【获得的软件著作权】
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" title="【发表的论文】" class="md-nav__link">
+    【发表的论文】
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../杨洋/" title="杨洋" class="md-nav__link">
+      杨洋
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../王珊/" title="王珊" class="md-nav__link">
+      王珊
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Corpus
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Corpus
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/" title="语料库" class="md-nav__link">
+      语料库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/ChineseNLPCorpus/" title="Chinese NLP Corpus" class="md-nav__link">
+      Chinese NLP Corpus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/GlobalWordNetAssociation/" title="全球 WordNet 协会" class="md-nav__link">
+      全球 WordNet 协会
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/HowNet/" title="知网" class="md-nav__link">
+      知网
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/cow/" title="Chinese Open Wordnet" class="md-nav__link">
+      Chinese Open Wordnet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/funNLP/" title="funNLP" class="md-nav__link">
+      funNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/nlp-datasets/" title="nlp-datasets" class="md-nav__link">
+      nlp-datasets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/wordnet/" title="WordNet" class="md-nav__link">
+      WordNet
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Librariy
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Librariy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/" title="常用分词工具包" class="md-nav__link">
+      常用分词工具包
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/FoolNLTK/" title="FoolNLTK" class="md-nav__link">
+      FoolNLTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/HanLP/" title="HanLP" class="md-nav__link">
+      HanLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/Jiagu/" title="Jiagu" class="md-nav__link">
+      Jiagu
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/SnowNLP/" title="SnowNLP" class="md-nav__link">
+      SnowNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/THULAC/" title="清华-THULAC" class="md-nav__link">
+      清华-THULAC
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/awesome/" title="👍🏻 表库" class="md-nav__link">
+      👍🏻 表库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/bosonnlp/" title="玻森数据" class="md-nav__link">
+      玻森数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/jieba-en/" title="JieBa English Docs" class="md-nav__link">
+      JieBa English Docs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/jieba/" title="JieBa" class="md-nav__link">
+      JieBa
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/ltp/" title="哈工大-LTP" class="md-nav__link">
+      哈工大-LTP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/nlpair-ictclas/" title="中科院-NLPIR" class="md-nav__link">
+      中科院-NLPIR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/nltk/" title="NLTK" class="md-nav__link">
+      NLTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/pkuseg/" title="北大-pkuseg" class="md-nav__link">
+      北大-pkuseg
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Paper
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Paper
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/" title="论文 || 文章" class="md-nav__link">
+      论文 || 文章
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/chinese-segmenter/" title="细说中文分词" class="md-nav__link">
+      细说中文分词
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/milestone/" title="一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑" class="md-nav__link">
+      一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Awesome
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Awesome
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/" title="awesome-nlp" class="md-nav__link">
+      awesome-nlp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/multi-language/" title="其他语言" class="md-nav__link">
+      其他语言
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/techniques/" title="技术" class="md-nav__link">
+      技术
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/tutorials/" title="教程" class="md-nav__link">
+      教程
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Sensitive word
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Sensitive word
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sensitive-word/" title="敏感词" class="md-nav__link">
+      敏感词
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="一、基本情况：" class="md-nav__link">
+    一、基本情况：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="二、 学术经历：" class="md-nav__link">
+    二、 学术经历：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="三、教育经历：" class="md-nav__link">
+    三、教育经历：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="四、工作经历：" class="md-nav__link">
+    四、工作经历：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="五、主要科研成果：" class="md-nav__link">
+    五、主要科研成果：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="六、主要获奖情况：" class="md-nav__link">
+    六、主要获奖情况：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="七、教学情况：" class="md-nav__link">
+    七、教学情况：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" title="八、主持的科研课题：" class="md-nav__link">
+    八、主持的科研课题：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" title="九、新闻媒体报道：" class="md-nav__link">
+    九、新闻媒体报道：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" title="十、指导学生情况：" class="md-nav__link">
+    十、指导学生情况：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" title="十一、学术论文论著：" class="md-nav__link">
+    十一、学术论文论著：
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" title="【获得的专利】" class="md-nav__link">
+    【获得的专利】
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" title="【获得的软件著作权】" class="md-nav__link">
+    【获得的软件著作权】
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" title="【发表的论文】" class="md-nav__link">
+    【发表的论文】
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">张华平<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<ul>
+<li>张华平 博士 副教授 研究生导师</li>
+<li>大数据搜索挖掘实验室（北京市海量语言信息处理与云计算应用工程技术研究中心） 主任</li>
+<li>地址：北京海淀区中关村南大街 5 号 100081</li>
+<li>电话：+86-10-68918642</li>
+<li>Email:kevinzhang@bit.edu.cn</li>
+<li>MSN: pipy_zhang@msn.com;</li>
+<li>网站: http://www.nlpir.org (自然语言处理与信息检索共享平台)</li>
+<li>http://www.bigdataBBS.com (大数据论坛)</li>
+<li>微博:http://www.weibo.com/drkevinzhang/</li>
+<li>微信公众号：大数据千人会</li>
+<li>GitHub：https://github.com/NLPIR-team/NLPIR</li>
+</ul>
+<h2 id="_2">一、基本情况：<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>北京理工大学副教授，博士，研究生导师，知名汉语分词系统 ICTCLAS 创始人，北京市海量语言信息处理与云计算工程中心大数据搜索与挖掘实验室主任，中国互联网协会大数据工作委员会（筹）执行主任，中国中文信息学会社会媒体处理专业委员会副秘书长，北京市顺义区政府专家咨询委员会委员，同时担任湖北汽车工业学院兼职教授，辽宁师范大学客座教授，首都师范大学兼职副教授；中国计算机学会青年科技论坛 YOCSEF 委员，中国计算机学会普及工委委员，国家自然科学基金函评专家，北京市重点产业知识产权联盟专家、同时担任《计算机学报》、《计算机研究与发展》、中国科技论文在线等杂志的特邀评审专家。2005 年博士毕业于中科院计算所，研究方向为：大数据搜索与挖掘、自然语言处理、信息检索与信息安全。曾先后获得 2016 年新疆自治区科技进步奖二等奖，2010 年度钱伟长中文信息处理科学技术奖一等奖，中科院院长优秀奖、中科院计算所所长特别奖，中科院计算所“百星计划”首批入选者。发表《大数据搜索与挖掘》、《大数据大家谈》、《信息检索：算法与启发式规则》、《自然语言理解》等专译著 4 部。并作为特邀大数据技术专家，先后在中央电视台、全球大数据技术峰会、中国网络科学大会、《中国计算机世界》上做演讲或专访，引起学术界与产业界广泛关注。</p>
+<p>张华平作为课题组长主持开发了国家自然科学基金、863、973、242 等科研课题十余项，2004 年参加 TREC Novelty 比赛，综合排名国际第一；从 2002 年至今，研制汉语词法分析系统 ICTCLAS，是当前世界上最好的汉语词法分析器，ICTCLAS 在国家 973 评测和第一届国际汉语分词大赛中均获得了综合得分第 1 名；同时，ICTCLAS 也是中文自然语言开放平台(www.nlp.org.cn)上最受欢迎的开放源代码项目，目前，已经向国内外的企业和学术机构颁发了三十万多份授权，在学术界和产业界得到了广泛的应用。</p>
+<h2 id="_3">二、 学术经历：<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>2014 年全国社会媒体处理大会程序委员会主席 IJCNLP 2013 Workshop on Natural Language Processing for Social Media (SocialNLP) 程序委员会委员 Workshop on Natural Language Processing for Social Media (SocialNLP2014) 程序委员会委员 Big Data Summit 2014 Program Committee Member</p>
+<h2 id="_4">三、教育经历：<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ol>
+<li>2007.11-2008.5 北京大学光华管理学院高级工商管理硕士进修班 6 期结业</li>
+<li>2000.9-2005.7 中国科学院计算技术研究所 计算机软件与理论 博士学位，（硕士课题组长：刘群研究员中科院计算所；硕士导师：程学旗研究员 中科院计算所网络实验室主任；博士导师：白硕研究员 上海证券交易所总工程师）</li>
+<li>1995.9-1999.7 北方工业大学 计算机应用 学士学位</li>
+</ol>
+<h2 id="_5">四、工作经历：<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ol>
+<li>2009.11-至今，北京理工大学计算机学院 大数据搜索与挖掘实验室主任，副教授，研究生导师；</li>
+<li>2006.9-2009.11，副研究员（破格晋升），中国科学院计算技术研究所硕士生导师，中科计算技术转移中心网络智能事业部负责人；</li>
+<li>2005.7-2006.9 助理研究员，中国科学院计算技术研究所浅层语言处理课题组组长；</li>
+</ol>
+<h2 id="_6">五、主要科研成果：<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ol>
+<li>作为课题第一负责人先后主持研制的课题有：中国证监会网络监测系统，网络话题的发现、传播及动态演化特征分析技术(863 课题);专项辅助**系统(国家 242 信息安全计划)、短文本分析(国家 242 信息安全计划)、面向证券市场的舆情动态分析（科学院支持课题）、社会舆情分析机制研究（计算所知识创新工程课题），面向中文搜索引擎的索引词分析技术（计算所知识创新工程课题）；</li>
+<li>从 2002 年至今，一直研制汉语词法分析系统 ICTCLAS，最新研制的 ICTCLAS2011 版本，速度达到了 1MB/s，精度达到 98.45%，是当前世界上最好的汉语词法分析器，曾获得了国家 973 专家组评测中获得第一名，获得了第一届国际汉语分词大赛中综合得分第 1 名。同时，ICTCLAS 也是中文自然语言开放平台(www.nlp.org.cn)上最受欢迎的开放源代码项目，目前，已经向国内外的企业和学术机构颁发了 10 万余份授权，我们提供的各种形式研究成果，在学术界和产业界得到了广泛的应用。</li>
+</ol>
+<h2 id="_7">六、主要获奖情况：<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ol>
+<li>2016 年，新疆自治区科技进步二等奖，维吾尔文目标站点内容监测关键技术研究与系统开发；</li>
+<li>中央网信办十佳讲师</li>
+<li>2010 年获得钱伟长中文信息处理科学技术奖一等奖（中文信息领域最高奖）</li>
+<li>2004 年获计算所所长特别奖(0.5%)</li>
+<li>2004 年获中科院院长奖(0.2%)</li>
+<li>2006 年获计算所优秀个人(1%)</li>
+<li>2007 年获计算所优秀团队(1%)</li>
+<li>2008 年获计算所优秀个人(1%)</li>
+<li>2007 年计算所“百星计划”首批入选者(1%)</li>
+</ol>
+<h2 id="_8">七、教学情况：<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>研究生教学：大数据分析与应用</p>
+<p>本科教学：汇编语言程序设计、C 语义程序设计</p>
+<h2 id="_9">八、主持的科研课题：<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>课题名称 来源 起始日期 完成人顺序</p>
+<ul>
+<li>语义主题与社交关系融合的特定群体发现关键技术研究；国家自然科学基金面上项目(61772075); 2018.1-2021.12;61 万；在研 张华平</li>
+<li>日志分析与用户画像* 国家 242 信息安全计划 70 2016.6-2017.5 课题负责人 2016A83</li>
+<li>中国人民银行征信中心互联网公共信息自动抓取课题研究服务二次采购项目 2015.5-10 负责人</li>
+<li>文本挖掘关键技术* 国家 242 信息安全计划 80 2014.11-2015.11 课题负责人 2014A10 社交网络分析及信息传播理论在舆情预警方面的示范验证 国家 973 重点基础研究发展计划 96 2013.1-2017.12 子课题负责人：张华平 2013CB329606</li>
+<li>基于主体个性化的微博情感分析关键技术研究 国家自然科学基金面上项目 84 万 2013.1-2016.12 基金号：61272362 课题负责人：张华平</li>
+<li>新疆维文语言网络舆情监测预警系统开发与应用 新疆自治区科技支撑计划课题 2012.1-2013.12 2 联合申请单位负责人</li>
+<li>云计算安全隐患分析与战略对策研究 中国信息安全评测中心 2010.11-2011.11 1 主持</li>
+<li>科技项目库构建与挖掘系统 中国科学技术信息研究所 2010.11-2011.11 1 主持</li>
+<li>基于时空分析的气象公报自动生成 国家气象局 2010.9-2011.9 1 主持</li>
+<li>中国邮政地址搜索引擎系统 中国邮政集团 2011.1-2011.3 1 主持</li>
+<li>网络话题的发现、传播及动态演化特征分析技术 国家 863 计划 2007.9-2009.7 1 主持</li>
+<li>基于消息的热点发现与信息追踪* 国家 242 信息安全计划 2005.11-2006.11 1 主持</li>
+<li>辅助分析系统* 国家 242 信息安全计划 2007.10-2008.4 1 主持</li>
+<li>面向热点话题发现系统* 工信部 2008.12-2009.5 1 主持</li>
+<li><strong>的舆情</strong>研究* 国家 242 信息安全计划 2008.11-2009.10 2 副组长</li>
+<li>虚拟计算环境下的网络舆情自适应系统研究* 国家 242 信息安全计划 2008.11-2009.11 2 副组长</li>
+<li>面向互联网的发现系统* 工信部 2008.6-2009.5 1 主持</li>
+<li>中国证监会网络信息监控系统 中国证监会 2008.11-2009.6 1 主持</li>
+<li>云计算安全战略研究 安全部 2010.11-2011.11 1 主持</li>
+<li>社会舆情分析机制研究 2006 所知识创新基金 2006.6-2007.6 1 主持</li>
+<li>面向证券市场的舆情动态分析 优秀博士学位论文、院长奖获得者科研启动专项资金 2006.07－2007.6 1 主持</li>
+<li>上市公司商情挖掘系统开发应用 2007 计算所所知识创新基金百星计划 2007.11-2008.10 1 主持</li>
+<li>基于大规模计算平台的互联网文本信息搜索引擎系统 中国移动研究院 2008.10-2009.6 1 主持</li>
+</ul>
+<h2 id="_10">九、新闻媒体报道：<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<ul>
+<li>2013-9-20 【计世网】“四问大数据”北理工计算机学院副教授张华平接受采访</li>
+<li>2013-7-2 张博士再次接受 CCTV 新闻频道连线采访谈网络战</li>
+<li>2013-6-14 张华平博士接受 CCTV 新闻频道采访谈棱镜项目 2012-6-8 张华平博士接受《中国远程教育》专访，畅谈网络搜索与挖掘</li>
+</ul>
+<h2 id="_11">十、指导学生情况：<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>学生姓名 身份 年份 毕业去向</p>
+<ul>
+<li>万金晶北京理工大学 硕士 2017 在读</li>
+<li>ihad 北京理工大学 博士 2018 在读(来自尼泊尔？)</li>
+<li>Iham Nugraha 北京理工大学 博士 2018 在读(来自印尼)</li>
+<li>ada 北京理工大学 博士 2017 在读(来自尼泊尔？)</li>
+<li>sif Khan 北京理工大学 博士 2018 在读(来自巴基斯坦)</li>
+<li>张宝华 北京理工大学 硕士 2018 在读</li>
+<li>姜庆红 北京理工大学 硕士 2018 在读</li>
+<li>刘子宇 北京理工大学 硕士 2018 在读</li>
+<li>王刚 北京理工大学 硕士 2018 在读</li>
+<li>. Sheryta Yvette 北京理工大学 硕士 2018 在读(来自多哥)</li>
+<li>ram 北京理工大学 硕士 2016 毕业回国（巴基斯坦）</li>
+<li>fazi 北京理工大学 硕士 2016 毕业回国(印尼)</li>
+<li>高莘 北京理工大学 硕士 2016 北大读博</li>
+<li>刘斌 北京理工大学 硕士 2016 中国联通</li>
+<li>张玺 北京理工大学 硕士 2016 在读</li>
+<li>徐程程 北京理工大学 硕士 2015 百度</li>
+<li>吴松泽 北京理工大学 硕士 2015 百度</li>
+<li>张亚男 北京理工大学 硕士 2015 百度</li>
+<li>卢兵兵 北京理工大学 硕士 2015 部队</li>
+<li>于 敏 北京理工大学 硕士 2014 福建三明学院任教</li>
+<li>乔 杨 北京理工大学 硕士 2014 中国移动研究院</li>
+<li>张 雨 北京理工大学 硕士 2014 百度</li>
+<li>赵连伟 北京理工大学 硕士 2013 中国农业银行</li>
+<li>史学文 北京理工大学 硕士 2013 转博</li>
+<li>陈晓阳 北京理工大学 硕士 2012 微软苏州研究院</li>
+<li>张瑞琦 北京理工大学 硕士 2012 解放军某部</li>
+<li>李 蕾 北京理工大学 硕士（联合赵燕平教授） 2012 亚马逊</li>
+<li>孙梦淑 北京理工大学 硕士（联合商建云教授） 2012 支付宝</li>
+<li>王 琦 北京理工大学 硕士（联合商建云教授） 2012 央行</li>
+<li>朱 倩 北京理工大学 硕士（联合商建云教授） 2012 工信部电子一所</li>
+<li>李 然 北京理工大学 硕士 2012 百度赵小宝 北京理工大学 硕士 2011 华为</li>
+<li>李清敏 首都师大 客座硕士 2011 工信部电子一所</li>
+<li>李笑侃 北京理工大学 硕士（联合李玉岗博士） 2010 中国人寿</li>
+<li>王晓冉 北京理工大学 硕士（联合赵燕平教授） 2010 京东方</li>
+<li>潘迪 北京理工大学 硕士（联合赵燕平教授） 2010 新东方</li>
+<li>高健 北京理工大学 硕士（联合赵燕平教授） 2009 北车集团</li>
+<li>李恒训 首都师大 客座硕士 2008 公安部一所</li>
+<li>刘治华 北方工业大学 客座硕士 2008 曙光公司</li>
+<li>蒋骈 中国科技大学 客座硕士 2007 南京工业学院</li>
+<li>张京阳 首都师大 客座硕士 2007 网易</li>
+<li>秦鹏 首都师大 客座硕士 2007</li>
+</ul>
+<h2 id="_12">十一、学术论文论著：<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>【出版的专（译）著】</p>
+<ul>
+<li>张华平,商建云，郭涛，刘兆友编著 大数据智能（2019）,清华大学出版社（ISBN:978-7-121-30181-0）</li>
+<li>张华平,商建云，白硕，段永朝等著 大数据大家谈（2017.1）,电子工业出版社（ISBN:978-7-121-30181-0）</li>
+<li>张华平,高凯，黄河燕,赵燕平.大数据搜索与挖掘.科学出版社.2014 出版（ISBN:978-7-03-040318-6）</li>
+<li>张华平,李恒训,刘治华.信息检索算法与探索法(译著)，人民邮电出版社， 2010 年 9 月（ISBN:978-7-115-23575-6）</li>
+<li>刘群,张华平,骆卫华,孙健，自然语言理解(译著), 电子工业出版社, 2005 年 1 月(ISBN：7-121-00755-X)</li>
+<li>高凯，仇晶，张晓明，王伟， 张华平，信息检索与智能处理，国防工业出版社，2014。</li>
+</ul>
+<h3 id="_13">【获得的专利】<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>完美双数组 TRIE 树词典管理与检索方法(专利号：200510130690.3)，张华平、王思力，第一发明人</li>
+<li>周建栋，赵燕平，张华平，李想.一种网络个体或群体情绪认知能力预测与可视化方法（授权专利号： 20140795679.8）.专利</li>
+<li>张华平，周建栋，赵燕平，孙梦淑.一种网络个体或群体价值观自动判别方法.专利（已申请立项）</li>
+<li>一种基于微博特定事件的影响力计算方法 ? ?专利号：201610371596.5 申请日：2016.5.30</li>
+<li>一种面向微博的疑似水军发现技术 ? 专利号：201610371264.7?申请日：2016.5.30</li>
+</ul>
+<h3 id="_14">【获得的软件著作权】<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>[1]计算所汉语词法分析系统 ICTCLAS，软件登记号为 2003SR0087。
+[2]汉语命名实体识别系统，软件登记号：2004SR00677</p>
+<h3 id="_15">【发表的论文】<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<ul>
+<li>“Xi Zhang, Hua-Ping Zhang, Lei Zhao:</li>
+<li>Reading More Efficiently: Multi-sentence Summarization with a Dual Attention and Copy-Generator Network. In: The Pacific Rim International Conferences on Artificial Intelligence, PRICAI 2018, Nanjing, Jiangsu, China, 28-31 August 2018, (1) 2018: 811-823″</li>
+<li>Shen Gao, Huaping Zhang, Kai Gao. A Convolutional Neural Network Based Sentiment Classification and the Convolutional Kernel Representation[C]. Proceedings of 22nd International Conference on Natural Language &amp; Information Systems(NLDB), Springer LNCS, Liège, Belgium, 21-23 June, 2017, EI Compendex index</li>
+<li>Shen Gao, Huaping Zhang, Kai Gao. Text Understanding with a Hybrid Neural Network Based Learning[C]. Proceedings of the 3th International Conference of Pioneering Computer Scientists, Engineers and Educators (ICPCSEE), Springer LNCS, Changsha, China, 22-24 September, 2017, EI Compendex index.</li>
+<li>SongZe Wu, Huaping Zhang, Chengcheng Xu, Tao Guo. Text Clustering on Short Message by Using Deep Semantic Representation. International Conference on Computational Sciences, Advanced Database and Computing, 2017.</li>
+<li>“CHENGCHENG XU, HUAPING ZHANG, BINGBING LU AND SONGZE WU. Local</li>
+<li>Community Detection Using Social Relations and Topic Features in Social Networks -[M]. Chinese Computational Linguistics and Natural Language Processing Based on</li>
+<li>Naturally Annotated Big Data. Springer, Cham, 2017, 371-383.”</li>
+<li>“BINGBING LU, HUAPING ZHANG, BIN LIU AND ZHONGHUA ZHAO. Research on</li>
+<li>User Identification Algorithm Based on Massive Multi-site VPN Log [C]. IEEE, International Conference on Communication Technology. IEEE, 2017:1372-1381″ -张华平，商建云.面向社会媒体的开放领域新词发现.中文信息学报.第 31 卷第 3 期，115-121. 2017 年 5 月 -张华平，李恒训，李清敏. 情感词发现与极性权重自动计算算法研究.中文信息学报.第 31 卷第 3 期，60-66. 2017 年 5 月</li>
+<li>A Convolutional Neural Network Based Sentiment Classification and the Convolutional Kernel Representation</li>
+<li>News Abridgement Algorithm Based on Word Alignment and Syntactic Parsing[M]// Chinese Computational Linguistics and Natural Language Processing Based on Naturally Annotated Big Data. 2016. -</li>
+<li>Qiao Y, Zhang Huaping(_), Yu M, et al. Sina-Weibo Spammer Detection with GBDT [M]// Social Media Processing. Springer Singapore, 2016.</li>
+<li>Yang Qiao,Huaping Zhang_（张华平）,.Effective Detecting Microblog Spammers Using Big Data Fusion Algorithm.WorldComp’16,July 25-28,Las Vegas,Nevada,USA -</li>
+<li>Jiandong Zhou(周建栋）, Yanping Zhao（赵燕平）, Huaping Zhang*（张华平）. Measuring Emotion Bifurcation Points for Individuals in Social Media[C].the Hawaii International Conference on System Science(国际系统科学年会 HICSS’49，管理 A 类会议, EI 检索), Jan.5-8, 2016, Honolulu, KAUAI, Hawaii USA.2016:1949-1958. - -李然,张华平,赵燕平，商建云.基于主题模型与信息熵的中文文档自动摘要技术研究(Automatic Text Summarization Research Based on Topic Model and Information Entropy).计算机科学.2014-11 - -张华平,孙梦姝,张瑞琦,李蕾.微博博主的特征与行为大数据挖掘.中国计算机学会通讯.2014.6.p36-p43 -</li>
+<li>Huaping Zhang,Ruiqi Zhang,Yanping Zhao,Baojun Ma;Big Data Modeling and Analysis of Microblog Ecosystem;International Journal of Automation and Computing,2014.11(2) p119-127 -</li>
+<li>Baojun Ma,Huaping Zhao,Guoqing Chen,Yanping Zhao;Investigating Associative Classification for Software Fault Prediction: An Experimental Perspective;Int’l Journal of Software Engineering and Knowledge Engineering,2013（ SCI Indexed） -</li>
+<li>Kai Gao*, Hua-ping Zhang, Sheng-wang Li, Wei Wang, Jing Qiu;Research on Classification Algorithm and its Application in Cased-Based Reasoning,2014 - -张华平,以主体为中心的微博计算方法,复杂系统与复杂性科学,2012 年第四期 p84-91 -</li>
+<li>Hua-Ping Zhang,Huan-Ping Wu,Jian Gao,Yan-Ping Zhao,Zhong-Liang Lv,Meteorological Bulletin Automatic Generation based on Spatio-Temporal Reasoning,In Proceedings of 2011 International Conference on Machine Learning and Cybernetics in Guangxi, China,2011.7，p1927-1931 -</li>
+<li>Hua-Ping Zhang, Qian Mo,He-Yang Huang,Structured POI data Extraction from Internet News,In Proceedings of the 4th International Universal Communication Symposium (IUCS 2010) in Beijing, China,2010.10，p115-120(特邀报告)</li>
+<li>Hua-Ping ZHANG,Jian GAO,Qian MO, He-Yan HUANG. Incorporating New Words Detection with Chinese Word Segmentation. In Proceedings of CIPS-SIGHAN Joint Conference on Chinese Language Processing (CLP 2010).Beijing, China.2010.8 .p249-251.</li>
+<li>Hua-Ping ZHANG,Zhi-Hua LIU,Qian MO,He-Yan HUANG. Chinese Personal Name Disambiguation Based on Person Modeling. In Proceedings of CIPS-SIGHAN Joint Conference on Chinese Language Processing (CLP 2010).Beijing, China.2010.8 .p374-378</li>
+<li>Hua-Ping ZHANG, Jian Sun, Bin WANG, Shuo BAI. Computation on Sentence Semantic Distance for Novelty Detection; Chinese Journal of Computer Science and Tech. vol.3, 2005</li>
+<li>Hua-Ping Zhang, Hong-Bo Xu, Shuo Bai, Bin Wang, Xue-Qi Cheng. Experiments in TREC 2004 Novelty Track at CAS-ICT. In Proc. of the 13th Text Retrieval Conference, Gaithersburg, Maryland, November, 2004, pp287 -张华平,刘群. 基于角色标注的中国人名自动识别研究. 计算机学报, vol.27, No.1, 2004, pp.85-91 被引用 31 次 -刘群,张华平,俞鸿魁,程学旗. 基于层叠隐马模型的汉语词法分析; 计算机研究与发展, 41 卷, No.8, 2004, pp.1421-pp.1429 被引用 43 次</li>
+<li>Hua-Ping ZHANG, Qun LIU, Hong-Kui YU, Xue-Qi CHENG, Shuo BAI. Chinese Name Entity Recognition Using Role Model. Special issue “Word Formation and Chinese Language processing” of the International Journal of Computational Linguistics and Chinese Language Processing, vol.8, No.2, 2003, pp. 29-602</li>
+<li>Hua-Ping ZHANG, Qun LIU, Xue-Qi CHENG, Hao Zhang, Hong-Kui Yu. Chinese Lexical Analysis Using Hierarchical Hidden Markov Model, Second SIGHAN workshop affiliated with 41st ACL; Sapporo Japan, July, 2003, pp. 63-70</li>
+<li>Hua-Ping ZHANG, Hong-Kui Yu, De-Yi Xiong, Qun LIU. HHMM-based Chinese Lexical Analyzer ICTCLAS, Second SIGHAN workshop affiliated with 41th ACL; Sapporo Japan, July, 2003, pp. 184-187</li>
+<li>Kevin Zhang (Hua-Ping Zhang), Qun Liu, Hao Zhang, Xueqi Cheng. Automatic Recognition of Chinese Unknown Words Based on Role Tagging, First SIGHAN affiliated with 19th COLING, September 2002, pp71-77 -张华平,刘群.基于 N-最短路径的中文词语粗分模型. 中文信息学报. 2002.9, Vol.16(5):pp.1-pp.7; 被引用 34 次</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../刘焕勇/" title="刘焕勇" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                刘焕勇
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../杨洋/" title="杨洋" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                杨洋
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            @2018 nlp-docs.github.io
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.b41f3d20.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1429 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="自然语言处理文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
+    
+    
+      
+        <title>王珊 - NLP Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.572ca0f0.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.8c900955.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="NLP Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                NLP Docs
+              </span>
+              <span class="md-header-nav__topic">
+                王珊
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      nlp-docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="自然语言处理" class="md-tabs__link">
+        自然语言处理
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="Author" class="md-tabs__link md-tabs__link--active">
+          Author
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Corpus/" title="Corpus" class="md-tabs__link">
+          Corpus
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Librariy/" title="Librariy" class="md-tabs__link">
+          Librariy
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Paper/" title="Paper" class="md-tabs__link">
+          Paper
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../awesome/" title="Awesome" class="md-tabs__link">
+          Awesome
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../sensitive-word/" title="Sensitive word" class="md-tabs__link">
+          Sensitive word
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="NLP Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    NLP Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      nlp-docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="自然语言处理" class="md-nav__link">
+      自然语言处理
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Author
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Author
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../刘焕勇/" title="刘焕勇" class="md-nav__link">
+      刘焕勇
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../张华平/" title="张华平" class="md-nav__link">
+      张华平
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../杨洋/" title="杨洋" class="md-nav__link">
+      杨洋
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        王珊
+      </label>
+    
+    <a href="./" title="王珊" class="md-nav__link md-nav__link--active">
+      王珊
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="访问专业人士" class="md-nav__link">
+    访问专业人士
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="工作经验" class="md-nav__link">
+    工作经验
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="研究兴趣" class="md-nav__link">
+    研究兴趣
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="研究项目" class="md-nav__link">
+    研究项目
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="资源" class="md-nav__link">
+    资源
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="出版物" class="md-nav__link">
+    出版物
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="期刊论文和书籍章节:" class="md-nav__link">
+    期刊论文和书籍章节:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="字典:" class="md-nav__link">
+    字典:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcsl" title="TCSL 教科书:" class="md-nav__link">
+    TCSL 教科书:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isbn" title="会议论文集（无 ISBN）:" class="md-nav__link">
+    会议论文集（无 ISBN）:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="会议报告（仅列出没有全文论文的会议）:" class="md-nav__link">
+    会议报告（仅列出没有全文论文的会议）:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" title="链接" class="md-nav__link">
+    链接
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Corpus
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Corpus
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/" title="语料库" class="md-nav__link">
+      语料库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/ChineseNLPCorpus/" title="Chinese NLP Corpus" class="md-nav__link">
+      Chinese NLP Corpus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/GlobalWordNetAssociation/" title="全球 WordNet 协会" class="md-nav__link">
+      全球 WordNet 协会
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/HowNet/" title="知网" class="md-nav__link">
+      知网
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/cow/" title="Chinese Open Wordnet" class="md-nav__link">
+      Chinese Open Wordnet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/funNLP/" title="funNLP" class="md-nav__link">
+      funNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/nlp-datasets/" title="nlp-datasets" class="md-nav__link">
+      nlp-datasets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/wordnet/" title="WordNet" class="md-nav__link">
+      WordNet
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Librariy
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Librariy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/" title="常用分词工具包" class="md-nav__link">
+      常用分词工具包
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/FoolNLTK/" title="FoolNLTK" class="md-nav__link">
+      FoolNLTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/HanLP/" title="HanLP" class="md-nav__link">
+      HanLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/Jiagu/" title="Jiagu" class="md-nav__link">
+      Jiagu
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/SnowNLP/" title="SnowNLP" class="md-nav__link">
+      SnowNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/THULAC/" title="清华-THULAC" class="md-nav__link">
+      清华-THULAC
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/awesome/" title="👍🏻 表库" class="md-nav__link">
+      👍🏻 表库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/bosonnlp/" title="玻森数据" class="md-nav__link">
+      玻森数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/jieba-en/" title="JieBa English Docs" class="md-nav__link">
+      JieBa English Docs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/jieba/" title="JieBa" class="md-nav__link">
+      JieBa
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/ltp/" title="哈工大-LTP" class="md-nav__link">
+      哈工大-LTP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/nlpair-ictclas/" title="中科院-NLPIR" class="md-nav__link">
+      中科院-NLPIR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/nltk/" title="NLTK" class="md-nav__link">
+      NLTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/pkuseg/" title="北大-pkuseg" class="md-nav__link">
+      北大-pkuseg
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Paper
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Paper
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/" title="论文 || 文章" class="md-nav__link">
+      论文 || 文章
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/chinese-segmenter/" title="细说中文分词" class="md-nav__link">
+      细说中文分词
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/milestone/" title="一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑" class="md-nav__link">
+      一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Awesome
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Awesome
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/" title="awesome-nlp" class="md-nav__link">
+      awesome-nlp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/multi-language/" title="其他语言" class="md-nav__link">
+      其他语言
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/techniques/" title="技术" class="md-nav__link">
+      技术
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/tutorials/" title="教程" class="md-nav__link">
+      教程
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Sensitive word
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Sensitive word
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sensitive-word/" title="敏感词" class="md-nav__link">
+      敏感词
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="访问专业人士" class="md-nav__link">
+    访问专业人士
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="工作经验" class="md-nav__link">
+    工作经验
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="研究兴趣" class="md-nav__link">
+    研究兴趣
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="研究项目" class="md-nav__link">
+    研究项目
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="资源" class="md-nav__link">
+    资源
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="出版物" class="md-nav__link">
+    出版物
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="期刊论文和书籍章节:" class="md-nav__link">
+    期刊论文和书籍章节:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="字典:" class="md-nav__link">
+    字典:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcsl" title="TCSL 教科书:" class="md-nav__link">
+    TCSL 教科书:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isbn" title="会议论文集（无 ISBN）:" class="md-nav__link">
+    会议论文集（无 ISBN）:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="会议报告（仅列出没有全文论文的会议）:" class="md-nav__link">
+    会议报告（仅列出没有全文论文的会议）:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" title="链接" class="md-nav__link">
+    链接
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">王珊<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">访问专业人士<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>美国布兰迪斯大学访问科学家</p>
+<p>美国科罗拉多大学博尔德分校短期学者</p>
+<h2 id="_3">工作经验<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>新加坡南洋理工大学研究员</p>
+<p>-- QS 世界大学排名 2018 - 11 世界排名</p>
+<h2 id="_4">研究兴趣<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>应用语言学</li>
+<li>语料库语言学</li>
+<li>语义</li>
+<li>句法</li>
+<li>词汇学和词典学</li>
+<li>计算语言学</li>
+<li>翻译</li>
+</ul>
+<h2 id="_5">研究项目<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ol>
+<li>High frequency Chinese idioms for Chinese L2 learners</li>
+<li>Intermediate-level disyllabic polysemous words in teaching Chinese as an international language</li>
+<li>Multiword expressions and their application in Chinese as a second language learning</li>
+<li>Research on spoken Chinese: a case study of talk shows</li>
+<li>The Syntax-Semantics Interface of Chinese Polysemous Words</li>
+<li>Developing and Implementing Instructional Games in Chinese Language Teacher Training</li>
+<li>Developing audio-visual textbooks based on the popular talk shows</li>
+<li>A Contrastive Study of Cross-straits Academic Chinese</li>
+<li>An annotated bilingual corpus of advertisements and promotional material for investigating cross linguistic aspects of argumentation</li>
+<li>Curriculum design and the teaching of Classical Chinese Texts in secondary schools in Hong Kong</li>
+</ol>
+<h2 id="_6">资源<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>    Lead Developer, Chinese Open Wordnet (COW)
+
+   Chief Editor, Talk Show Chinese:Intermediate and Advanced Level Audiovisual-Oral Textbook  (脫口秀漢語：中高級漢語視聽說課本)
+</pre></div>
+
+
+<h2 id="_7">出版物<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="_8">期刊论文和书籍章节:<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>(1) Wang, S. (2007). Explorations of Dictionary Users Guides (凡例顯示辭書的性質、內容與特色). Lexicographical Studies (辭書研究)(5), 78-80. <a href="B-level">ISSN: 1000-6125; CN: 31-1997/G2</a></p>
+<p>(2) Educational and Teaching Materials Research Center (Bian, C., Du, J., Guan, J., Hong, G., Jiang, Y., Jiang, Y., Li, A., Li, S., Li, Y., Liu, Y., Su, X., Tian, L., Wang, S., Wang, Y., Wu, C., Yuan, R., Zhang, Y., Zheng, Z., &amp; Zhou, M.) (2008). 3000 Basic Words of the New Curriculum-based Chinese Textbooks (語文新課標教材 3000 基本詞語表). In N. L. M. a. R. Center (Ed.), Language Situation in China: 2007 (II) (中國語言生活狀况報告：2007) (Vol. 2, pp. 475-515). Beijing: The Commercial Press (商務印書館). (Note: the author order is according to pinyin) [ISBN: 9787100059053] (B-level publisher)</p>
+<p>(3) Educational and Teaching Materials Research Center (Bian, C., Du, J., Guan, J., Hong, G., Jiang, Y., Jiang, Y., Li, A., Li, S., Li, Y., Liu, Y., Su, X., Tian, L., Wang, S., Wang, Y., Wu, C., Yuan, R., Zhang, Y., Zheng, Z., &amp; Zhou, M.) (2008). An Investigation of the Usage of Characters and Words in the New Curriculum-based Chinese Textbooks (基礎教育語文新課標教材用字用語調查). In N. L. M. a. R. Center (Ed.), Language Situation in China: 2007 (II) (中國語言生活狀况報告：2007) (Vol. 2, pp. 437-474). Beijing: The Commercial Press (商務印書館). (Note: the author order is according to pinyin) [ISBN: 9787100059053] (B-level publisher)</p>
+<p>(4) Wang, S. (2008). A Study on Vocabulary Interpretation of CFL Comprehensive Textbooks--Taking Boya Chinese as an Example (對外漢語綜合課教材生詞釋義研究——以《博雅漢語》爲例). In H. Wang, M. Zhang, M. Dong &amp; K. T. Lua (Eds.), Word Meaning and Computing (pp. 449-464). National University of Singapore, Singapore: Chinese and Oriental Languages Information Processing Society (COLIPS) Publication. [ISBN: 978-981-08-0972-0]</p>
+<p>(5) Wang, S. (2010). A Study on Annotation Languages of the Glossary in Boya Chinese (《博雅漢語》的生詞表注釋語種研究). Journal of Jiangxi Science &amp; Technology Normal University (4), 41-46. [ISSN: 1007-3558; CN: 36-1325/Z]</p>
+<p>(6) Wang, S. (2010). Ideas on Improving the Sense Definitions of Chinese as a Foreign Language Dictionaries (對外漢語學習詞典釋義改進的設想). In The Academic Committee of Chinese Lexicography Society (Ed.), Selected papers of Chinese lexicography (中國辭書論集) (Vol. 8, pp. 157-173). Wuhan: Chongwen Publishing House, Hubei Changjiang Publishing Group. [ISBN: 978-7-5403-1801-7]</p>
+<p>(7) Wang, S., &amp; Huang, C.-R. (2010). Adjectival Modification to Nouns in Mandarin Chinese: Case Studies on “cháng+noun” and “adjective+túshūguǎn. In R. Otoguro, K. Ishikawa, H. Umemoto, K. Yoshimoto &amp; Y. Harada (Eds.), Proceedings of The 24th Pacific Asia Conference on Language, Information and Computation (PACLIC-24) (pp. 701-705). Tohoku University, Sendai, Japan. [ISBN: 978-4-905166-00-9] (EI index)</p>
+<p>(8) Wang, S., &amp; Huang, C.-R. (2010). Compositional Operations of Mandarin Chinese Perception Verb “kàn”: A Generative Lexicon Approach. In R. Otoguro, K. Ishikawa, H. Umemoto, K. Yoshimoto &amp; Y. Harada (Eds.), Proceedings of The 24th Pacific Asia Conference on Language, Information and Computation (PACLIC-24) (pp. 707-714). Tohoku University, Sendai, Japan. [ISBN: 978-4-905166-00-9] (EI index)</p>
+<p>(9) Wang, S., &amp; Huang, C.-R. (2010). Sense Representation in MARVS--A Case Study on the Polysemy of chī. In Q. Zhu, D. Ji &amp; G. Zhou (Eds.), Proceedings of The 11th Chinese Lexical Semantics Workshop (pp. 22-29). Singapore: Chinese and Oriental Languages Information Processing Society (COLIPS) Publications. [ISBN: 978-981-08-8260-0] (Inspec index)</p>
+<p>(10) Wang, S., &amp; Huang, C.-R. (2011). Sense Representation in MARVS: A Case Study on the Polysemy of chī. International Journal of Computer Processing Of Languages (IJCPOL), 23(3), 285-306. [Print ISSN: 1793-8406; Online ISSN: 2010-0205][index: dblp computer science bibliography; inspec; linguistics and language behavior abstracts (csa)] (B-level at PolyU)</p>
+<p>(11) Wang, S. (2011). The Role of Corpora in Vocabulary Assessment of Chinese as a Foreign Language Textbooks (論語料庫在對外漢語教材生詞評估中的作用). In Z. Xia (Ed.), Proceedings of Language Use of Educational and Teaching Materials (教育教材語言論集) (pp. 103-113). Beijing: China Social Sciences Press (中國社會科學出版社). [ISBN: 9787500494669]</p>
+<p>(12) Wang, S., &amp; Huang, C.-R. (2011). Compound Event Nouns of the ‘Modifier-head’ Type in Mandarin Chinese. In H. H. Gao &amp; M. Dong (Eds.), Proceedings of The 25th Pacific Asia Conference on Language, Information and Computation (PACLIC-25) (pp. 511-518). Nanyang Technological University, Singapore. [ISBN: 978-4-905166-02-3] (EI index)</p>
+<p>(13) Wang, S., &amp; Huang, C.-R. (2012). Type Construction of Event Nouns in Mandarin Chinese Proceedings of The First Workshop on Generative Lexicon for Asian Languages (GLAL-1), Workshop of The 26th Pacific Asia Conference on Language, Information and Computation (PACLIC-26) (pp. 582-591). Bali: Faculty of Computer Science, Universitas Indonesia. [ISBN: 978-979-1421-17-1] (EI index)</p>
+<p>(14) Wang, S., Huang, C.-R., &amp; Xu, H. (2012). Compositionality of NN Compounds: A Case Study on [N1+Artifactual-Type Event Nouns] Proceedings of The 26th Pacific Asia Conference on Language, Information and Computation (PACLIC-26) (pp. 70-79). Bali: Faculty of Computer Science, Universitas Indonesia. [ISBN: 978-979-1421-17-1] (EI index)</p>
+<p>(15) Wang, S. (2013). Corpus-based Assessment of New Words in Textbooks of Chinese as a Foreign Language (基於語料庫的對外漢語教材生詞評估). Newsletter of Chinese Language (中國語文通訊), 92(2), 91-102. <a href="B-level">ISSN: 1726-9245</a></p>
+<p>(16) Bond, F., Wang, S., Gao, H., Mok, S., &amp; Tan, Y. (2013). Developing Parallel Sense-tagged Corpora with Wordnets Proceedings of the 7th Linguistic Annotation Workshop &amp; Interoperability with Discourse (LAW-7), Workshop of The 51st Annual Meeting of the Association for Computational Linguistics (ACL-51) (pp. 149-158). Sofia, Bulgaria. [ISBN: 978-1-937284-58-9]</p>
+<p>(17) Wang, S., &amp; Bond, F. (2013). Building the Chinese Open Wordnet (COW): Starting from Core Synsets Proceedings of The 11th Workshop on Asian Language Resources, Workshop of The 6th International Joint Conference on Natural Language Processing (IJCNLP-6) (pp. 10-18). Nagoya, Japan. [ISBN: 978-4-9907348-4-8]</p>
+<p>(18) Wang, S., &amp; Huang, C.-R. (2013). The Semantic Type System of Event Nouns. In S. Z. Jing (Ed.), Increased Empiricism: Recent Advances in Chinese Linguistics (Vol. 2, pp. 205-221). Amsterdam / Philadelphia: John Benjamins Publishing Company. <a href="C-level">ISBN: 9789027201812; 9789027271419</a></p>
+<p>(19) Wang, S., &amp; Huang, C.-R. (2013). Towards an Event-Based Classification System for Non-Natural Kind Nouns. In D. Ji &amp; G. Xiao (Eds.), Chinese Lexical Semantics (pp. 381-395). Berlin Heidelberg: Springer. [Print ISBN: 978-3-642-36336-8; Online ISBN: 978-3-642-36337-5; Series ISSN: 0302-9743] (EI index) (A-level publisher)</p>
+<p>(20) Wang, S., &amp; Huang, C.-R. (2013). Inchoative State of Emotions. In P. Liu &amp; Q. Su (Eds.), Chinese Lexical Semantics (pp. 135-142). Berlin Heidelberg: Springer. [ISBN: 978-3-642-45184-3] (EI index) (A-level)</p>
+<p>(21) Wang, S., &amp; Huang, C.-R. (2013). A Generative Lexicon Approach to Possessive Relations in Mandarin Chinese. In Y. Shen (Ed.), Towards the Contemporary Cutting-edge Science of Modern Chinese Grammar (走向當代前沿科學的現代漢語語法研究) (pp. 329-353). Beijing: The Commercial Press (商務印書館). [ISBN: 978-7-100-09289-0] (B-level publisher)</p>
+<p>(22) Bond, F., &amp; Wang, S. (2014). Issues in Building English-Chinese Parallel Corpora with WordNets. In Heili Orav, C. Fellbaum &amp; P. Vossen (Eds.), Proceedings of The Seventh Global WordNet Conference (GWC-7) (pp. 391-399). Tartu, Estonia. [ISBN: 978–9949–32–492–7]</p>
+<p>(23) Ho, W.-Y., Kng, C., Wang, S., &amp; Bond, F. (2014). Identify Idioms in Chinese Translations. In C. Nicoletta, C. Khalid, D. Thierry, L. Hrafn, M. Bente, M. Joseph, M. Asuncion, O. Jan &amp; P. Stelios (Eds.), Proceedings of The 9th edition of the Language Resources and Evaluation Conference (LREC) (pp. 716-721). Reykjavik, Iceland. [ISBN: 978-2-9517408-8-4; EAN: 9782951740884]</p>
+<p>(24) Wang, S., &amp; Bond, F. (2014). Building The Sense-Tagged Multilingual Parallel Corpus. In C. Nicoletta, C. Khalid, D. Thierry, L. Hrafn, M. Bente, M. Joseph, M. Asuncion, O. Jan &amp; P. Stelios (Eds.), Proceedings of The 9th edition of the Language Resources and Evaluation Conference (LREC) (pp. 2403-2409). Reykjavik, Iceland. [ISBN: 978-2-9517408-8-4; EAN: 9782951740884]</p>
+<p>(25) An, Y., &amp; Wang, S. * (2015). Narrative Idioms for Elementary-level Chinese as a Second Language Learners. In Q. Lu &amp; H. H. Gao (Eds.), Chinese Lexical Semantics (pp. 457-464). Switzerland: Springer. [Print ISBN: 978-3-319-27193-4; Online ISBN: 978-3-319-27194-1] (EI index) (A-level rated by RDO)</p>
+<p>(26) Wang, S. *, &amp; Wu, Y. (2015). The Design of an App for Learning Chinese Idioms. In L. Li, J. Mckeown &amp; L. Liu (Eds.), Words, Dictionaries and Corpora: Innovations in Reference Science (pp. 460-468). Hong Kong: The Hong Kong Polytechnic University. [ISBN: 978-962-367-790-5]</p>
+<p>(27) Wang, S. (2016). Innovations in the Definitions of Chinese Learners' Dictionaries (漢語學習詞典釋義的創新). In C.-M. Si (Ed.), The New Exploration to Chinese Teaching and Research (漢語教學與研究新探) (pp. 169-182). Hong Kong: Chung Hwa Book Co. (HK) Ltd. [ISBN: 978-988-8420-07-0] (B-level rated by RDO)</p>
+<p>(28) Wang, S.*, &amp; Liu, R. (2016). The Construction and Analysis of a Chinese Talk Shows Corpus (漢語談話節目語料庫的構建與分析). Journal of Chinese Information Processing (中文信息學報), 30(6), 140-146. <a href="B-Level at PolyU">ISSN: 1003-0077; CN: 11-2325/N</a></p>
+<p>(29) Wu, Y., &amp; Wang, S.* (2016). Applying Chinese Word Sketch Engine to Distinguish Commonly Confused Words. In M. Dong, J. Lin &amp; X. Tang (Eds.), Chinese Lexical Semantics (pp. 625-644). Switzerland: Springer. [ISSN 0302-9743, ISSN 1611-3349 (electronic); ISBN 978-3-319-49507-1, ISBN 978-3-319-49508-8 (eBook)] (EI index) (A-level publisher)</p>
+<p>(30) An, Y., &amp; Wang, S. * (2017). The Cultural Items of Chinese Language Textbooks in International Schools: Chinese Made Easy as an Example (國際學校華語文教材的文化項目設置——以《輕鬆學漢語》爲例). Chinese Teaching in the World (世界華文教學). (accepted)</p>
+<p>(31) Huang, R., &amp; Wang, S.* (2017). Autonomous Learning in Chinse Extensive Reading. Third International Conference on Linguistics and Language Studies. The Open University of Hong Kong, Hong Kong. (accepted)</p>
+<p>(32) Liu, R., Sun, B., Long, Y., &amp; Wang, S. (2017). The distributive feature of lexical frequency order difference and the lexical similarities and differences between texts (詞語序差的分布特點與文本間詞匯异同). Journal of Chinese Information Processing (中文信息學報). (B-Level at PolyU) (accepted)</p>
+<p>(33) Wang, S., &amp; Huang, C.-R. (2017). Word Sketch Lexicography: New Perspectives on Lexicographic Studies of Chinese Near Synonyms. Lingua Sinica. (accepted) (B-level at PolyU)</p>
+<p>(34) Wang, S.*, &amp; Li, X. (2017). Autonomous Vocabulary Learning beyond the Classroom: New Media for Learners of Chinese as a Second Language. In S. C. Kong, T. L. Wong, M. Yang, C. F. Chow &amp; K. H. Tse (Eds.), Emerging Practices in Scholarship of Learning and Teaching in a Digital Era (pp. 199-217). Singapore: Springer. [ISBN 978-981-10-3342-1, ISBN 978-981-10-3344-5 (eBook)] (EI index) (A-level publisher)</p>
+<p>(35) Wu, C., &amp; Wang, S.* (2017). The Selection and Application of the Example Sentences of Idioms in International Chinese Language Teaching (面向國際漢語教學的成語例句選取及應用). Newsletter of Chinese Language (中國語文通訊). (accepted) (B-level)</p>
+<p>(36) Chen, C., &amp; Wang, S.* Sense Arrangement and Illustrations of Polysemy Words in Chinese Learners' Dictionaries (外向型漢語學習詞典中多義詞義項的排列及例證研究). Newsletter of Chinese Language (中國語文通訊). (accepted) (B-level)</p>
+<p>(37) Wang, S., &amp; Huang, C.-R. The Type System Construction of The Generative Lexicon (生成詞庫理論的類型系統建構). In Z. Song &amp; C.-R. Huang (Eds.), The Generative Lexicon and Chinese Studies (生成詞庫理論與漢語研究). Beijing: The Commercial Press (商務印書館). (accepted)(B-level)</p>
+<h3 id="_9">字典:<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>(39) Wang, S. (2006). Words from w to z (學生造句詞典). In X. Su (Ed.), Sentence-making Dictionary for Students. Shanghai: Shanghai Lexicographical Publishing House. [ISBN: 7532620557]</p>
+<p>(40) Wang, S. (2009). Words from w to z. In X. Su (Ed.), Sentence Making Dictionary of Modern Chinese (現代漢語造句詞典). Shanghai: Shanghai Lexicographical Publishing House. [ISBN: 9787532628520]</p>
+<p>(41) Wang, S. (2013). Social Activities. In X. Su (Ed.), A Thesaurus of Modern Chinese / Modern Chinese Concept Dictionary (現代漢語分類詞典). Beijing: The Commercial Press (商務印書館). [ISBN: 9787100088688] (B-level publisher)</p>
+<h3 id="tcsl">TCSL 教科书:<a class="headerlink" href="#tcsl" title="Permanent link">&para;</a></h3>
+<p>Funded by Knowledge Transfer Funds</p>
+<p>(42) Wang, S.*, &amp; Liu, R. (2017). Talk Show Chinese: Intermediate and Advanced Level Audiovisual-Oral Textbook (I) (脫口秀漢語：中高級漢語視聽說課本). Hong Kong: The Education University of Hong Kong. (Chief Editor: Shan Wang)</p>
+<p>(43) Wang, S.*, &amp; Liu, R. (2017). Talk Show Chinese: Intermediate and Advanced Level Audiovisual-Oral Textbook (II) (脫口秀漢語：中高級漢語視聽說課本). Hong Kong: The Education University of Hong Kong. (Chief Editor: Shan Wang)</p>
+<h3 id="isbn">会议论文集（无 ISBN）:<a class="headerlink" href="#isbn" title="Permanent link">&para;</a></h3>
+<p>(44) Su, X., Du, J., Guan, J., Liu, Y., Zhou, M., Dong, Y., Lin, J., Yuan, R., Wang, S., Yang, Y., Ke, L., Tian, L., &amp; Li, A. (2006). Research on Language Use of Educational and Teaching Materials Revisited (教育教材語言研究的再探討). Proceedings of The First National Symposium on Language Use of Educational and Teaching Materials (首届全國教育教材語言專題學術研討會論文集) (pp. 6-10). Xiamen, China.</p>
+<p>(45) Yuan, R., Zhou, M., &amp; Wang, S. (2007). A Statistical Study on Character Use Condition of Chinese Textbooks for Primary Schools The Summit Forum on National Language Resources and Applied Linguistics. Beijing, China.</p>
+<p>(46) Zhou, M., Han, J., Yuan, R., &amp; Wang, S. (2007). Statistical Analysis and Reflection on the Distribution of New Characters and New Words in the First Stage of Elementary Schools: A Study on New Curriculum-based Chinese Textbooks of People's Education Press and Jiangsu Education Press The Summit Forum on National Language Resources and Applied Linguistics. Beijing, China.</p>
+<p>(47) Wang, S., Lee, Y.-M., &amp; Huang, C.-R. (2011). A Corpus-based Analysis of Semantic Type System of Event Nouns: A Case Study on huìyì 'conference'. In S. Z. Jing (Ed.), Proceedings of the 23rd North American Conference on Chinese Lingusitics (NACCL-23) (Vol. I, pp. 18-34). Eugene, Oregon, USA.</p>
+<p>(48) Wang, S., &amp; Huang, C.-R. (2011). A Generative Lexicon Perspective to Possessive Relation in Mandarin Chinese. Proceedings of The 12th Chinese Lexical Semantics Workshop (CLSW-12) (pp. 201-213). National Taiwan University, Taipei.</p>
+<p>(49) Wang, S., &amp; Huang, C.-R. (2012). A Preliminary Study of An Event-based Noun Classification System. In Y. He &amp; D. Ji (Eds.), The 13th Chinese Lexical Semantics Workshop (CLSW-13) (pp. 4-9). Wuhan University, China.</p>
+<p>(50) Wang, S., &amp; Huang, C.-R. (2013). Inchoation of Emotions. Proceedings of The 14th Chinese Lexical Semantics Workshop (CLSW-14) (pp. 195-202). Zhengzhou University, China.</p>
+<p>(51) Wang, S., &amp; Huang, C.-R. (2013). Apply Chinese Word Sketch Engine to Facilitate Lexicography. In D. A. Kwary, N. Wulan &amp; L. Musyahda (Eds.), Lexicography and Dictionaries in the Information Age: Selected papers from the 8th ASIALEX International Conference (pp. 285-292). Bali, Indonesia.</p>
+<p>(52) An, Y., &amp; Wang, S.* (2015). A Study on Common Narrative Idioms in Primary-level TCFL Proceedings of The 16th Chinese Lexical Semantics Workshop (pp. 573-578). Beijing Normal University, Beijing.</p>
+<p>(53) Wu, Y., &amp; Wang, S.* (2016). Apply Chinese Word Sketch Engine to Discriminate Confusing Words. In M. Dong, J. Lin &amp; Z. Zhang (Eds.), Proceedings of The 17th Chinese Lexical Semantics Workshop (CLSW-17) (pp. 417-431). Singapore: Nanyang Technological University.</p>
+<h3 id="_10">会议报告（仅列出没有全文论文的会议）:<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>(54) Wang, S. (2008). Ideas on Improving the Sense Definitions of Chinese as a Foreign Language Dictionaries (對外漢語詞典釋義改進的設想). Paper presented at The Fifth Lexicography Symposium for Young and Middle-aged Researchers, Chongwen Publishing House, Wuhan, China.</p>
+<p>(55) Wang, S. (2008). A Study on Vocabulary Interpretation of CFL Comprehensive Textbooks--Taking Boya Chinese as an Example (對外漢語綜合課教材生詞釋義研究——以《博雅漢語》爲例). Paper presented at The 9th Chinese Lexical Semantics Workshop (CLSW-9), National University of Singapore, Singapore</p>
+<p>(56) Wang, S., &amp; Huang, C.-R. (2010). A Generative Lexicon Approach to Possessive Relation of Mandarin Chinese. Paper presented at The Symposium Commemorating the 90th Anniversary of the Birth of Prof. Dexi Zhu and the 50th Anniversary of Prof. Jianming Lu’s Teaching, Peking University, Beijing, China.</p>
+<p>(57) Wang, S., &amp; Huang, C.-R. (2010). Mechanism of Composition of Mandarin Perception Verb kàn. Paper presented at The 16th Symposium on Modern Chinese Grammar, City University of Hong Kong, Hong Kong.</p>
+<p>(58) Wang, S., &amp; Huang, C.-R. (2010). Semantic and Temporal Features of Event Nouns. Paper presented at the Annual Research Forum, Linguistic Society of Hong Kong (LSHK-ARF), Chinese University of Hong Kong, Hong Kong.</p>
+<p>(59) Wang, S., &amp; Huang, C.-R. (2010). Sense Representation in MARVS--A Case Study on the Polysemy of chī. Paper presented at The 11th Chinese Lexical Semantics Workshop (CLSW-11), Soochow University, Suzhou, China.</p>
+<p>(60) Wang, S. (2011). The Concept System Construction: A Case Study on the “Economy and Trade” Category. Paper presented at the 19th Annual Conference of the International Association of Chinese Linguistics (IACL-19), Nankai University, Tianjin, China.</p>
+<p>(61) Wang, S., &amp; Huang, C.-R. (2011). A Generative Lexicon Perspective to Possessive Relation in Mandarin Chinese. Paper presented The 12th Chinese Lexical Semantics Workshop (CLSW-12), National Taiwan University, Taipei.</p>
+<p>(62) Wang, S., &amp; Huang, C.-R. (2011). Derived Event Nouns in Mandarin Chinese. Paper presented at The 7th LSHK Postgraduate Research Forum on Linguistics (PRFL-7), City University of Hong Kong.</p>
+<p>(63) Wang, S., &amp; Huang, C.-R. (2011). Domain Relevance of Event Coercion in Compound Nouns. Paper presented at The 6th International Conference on Contemporary Chinese Grammar (ICCCG-6), I-Shou University, Kaohsiung, Taiwan.</p>
+<p>(64) Wang, S., &amp; Huang, C.-R. (2011). Event Classifiers and Their Selected Nouns. Paper presented at The 19th Annual Conference of the International Association of Chinese Linguistics (IACL-19), Nankai University, Tianjin, China.</p>
+<p>(65) Wang, S., &amp; Huang, C.-R. (2012). A Constraint-based Linguistic Model for Event Nouns. Paper presented at the Forum on "Y. R. Chao and Linguistics", Workshop of The 20th Annual Conference of the International Association of Chinese Linguistics (IACL-20), The Hong Kong Institute of Education, Hong Kong.</p>
+<p>(66) Wang, S., &amp; Huang, C.-R. (2012). A Preliminary Study of An Event-based Noun Classification System. Paper presented at The 13th Chinese Lexical Semantics Workshop (CLSW-13), Wuhan University, China.</p>
+<p>(67) Wang, S., &amp; Huang, C.-R. (2012). Light Verbs and Their Selected Nouns. Paper presented at the XIX Biennial Conference of the European Association of Chinese Studies (EACS-19), Paris, France.</p>
+<p>(68) Wang, S., &amp; Huang, C.-R. (2012). Qualia Structure of Event Nouns in Mandarin Chinese. Paper presented at The Second International Symposium on Chinese Language and Discourse, Nanyang Technological University, Singapore.</p>
+<p>(69) Xu, H., &amp; Wang, S. (2012). Restrictive and Descriptive Attributes of Chinese Modifiers (漢語定語的限制性與描寫性). Paper presented at The 20th Annual Conference of the International Association of Chinese Linguistics (IACL-20), The Hong Kong Polytechnic University, Hong Kong.</p>
+<p>(70) Wang, S., &amp; Huang, C.-R. (2012). Temporal Properties of Event Nouns in Mandarin Chinese. Paper presented at The 57th Annual International Linguistic Association Conference (ILA-57), Borough of Manhattan Community College, City University of New York, New York, USA.</p>
+<p>(71) Wang, S., &amp; Bond, F. (2013). Theoretical and Practical Issues in Creating Chinese Open Wordnet (COW). Paper presented at The 7th International Conference on Contemporary Chinese Grammar (ICCCG-7), Nanyang Technological University, Singapore.</p>
+<p>(72) Wang, S., &amp; Huang, C.-R. (2013). Aspectualizers and Their Selected Nouns. Paper presented at The 21st Annual Conference of the International Association of Chinese Linguistics (IACL-21), National Taiwan Normal University, Taiwan.</p>
+<p>(73) Wang, S., &amp; Huang, C.-R. (2013). Inchoation of Emotions. Paper presented at The 14th Chinese Lexical Semantics Workshop (CLSW-14), Zhengzhou University, China.</p>
+<p>(74) Wang, S., &amp; Bond, F. (2014). A Multilingual Corpus: Its Construction and Application. Paper presented at the Annual Research Forum, Linguistic Society of Hong Kong (LSHK-ARF), City University of Hong Kong, Hong Kong.</p>
+<p>(75) An, Y., &amp; Wang, S. * (2015). The Cultural Items of Chinese Language Textbooks in International Schools: Chinese Made Easy as an Example (國際學校華語文教材的文化項目設置——以《輕鬆學漢語》爲例). Paper presented at The First International Chinese Language Teaching Conference, Huaqiao University, Xiamen Campus, China.</p>
+<p>(76) An, Y., &amp; Wang, S. * (2015). Exploring "Children Standard" in TCSL textbooks: Chinese Made Easy (Kids Version) as an Example (淺論“兒童本位” 在對外華語文教材中的體現——以《輕鬆學漢語（少兒版）》與為例). Paper presented at The 14th International Annual Conference of Teaching Chinese as a Second Language, National Taitung University, Taiwan.</p>
+<p>(77) Tu, C., &amp; Wang, S. * (2015). Exploring the elementary-level Words in “International Curriculum for Chinese Language Education” from the Perspective of "Six Writings" (從六書角度解讀《國際漢語通用課程大綱》初級常用字表). Paper presented at The 14th International Annual Conference of Teaching Chinese as a Second Language, National Taitung University, Taiwan.</p>
+<p>(78) Wang, S. (2015). Chinese Disyllabic Polysemous Words of the Intermediate Level. Paper presented at the International Conference on Corpus Linguistics and Technology Advancement, The Hong Kong Institute of Education, Hong Kong.</p>
+<p>(79) Wang, S. (2015). Innovation in Compiling the Senses of Chinese Learners' Dictionary (談漢語學習詞典釋義的創新). Paper presented at The Symposium of Chinese Language Research and Teaching (中國語言研究與教學學術研討會), The Hong Kong Institute of Education, Hong Kong.</p>
+<p>(80) Wang, S. *, &amp; Wu, Y. (2015). The Design of an App for Learning Chinese Idioms. Paper presented at The 9th International Conference of Asian Association of Lexicography, The Hong Kong Polytechnic University, Hong Kong.</p>
+<p>(81) Winterstein, G. A., Wang, S., &amp; Li, W.-Y. S. (2015). Building an English-Chinese Advertisement Corpus. Paper presented at the International Conference on Corpus Linguistics and Technology Advancement, The Hong Kong Institute of Education, Hong Kong.</p>
+<p>(82) Wu, Y., &amp; Wang, S. * (2015). A Psychology Perspective on the Use of New Media Software in Teaching Chinese Characters (心理學角度論新媒體軟件在漢字教學中的運用). Paper presented at The 4th International Conference on Nationalized TCSL Textbooks, Chongqing University, China.</p>
+<p>(83) Chen, C., &amp; Wang, S. * (2016). Examples for Intermediate-level Polysemy in International Chinese Teaching (國際漢語教學中級多義詞的例證研究). Paper presented at The International Conference on Lexicology &amp; The Eleventh National Conference on Chinese Lexicology, Peking University, China.</p>
+<p>(84) Chen, C., &amp; Wang, S. * (2016). Concise and Practical Senses for Learners of Chinese as a Second Language. Paper presented at The 4th International Conference on Chinese as a Second Language Research, East China Normal University, Shanghai.</p>
+<p>(85) Lam, K.-H., &amp; Wang, S. * (2016). The Word Arrangement of Chinese Textbooks in Primary Schools in Hong Kong: A Case Study of "Learning Chinese Language Well" and "New Chinese Language" (香港小學語文教材的詞語安排研究——以《學好中國語文》和《新語文》為例). Paper presented at The Sixth National Conference on Educational and teaching materials &amp; The Summit Meeting on the Promotion and Development of Outcomes of National Language Resources Monitoring and Research, Beihua University, China.</p>
+<p>(86) Tu, C., &amp; Wang, S. * (2016). Listening and Speaking Errors of "Hong Kong-style Mandarin": Taking the Case of Tone Errors as an Example (“港式普通話”聽說問題研究——以實例聲調錯誤為例). Paper presented at The 4th International Conference on Chinese as a Second Language Research, East China Normal University, China.</p>
+<p>(87) Wang, S. (2016). Creating a Sense-annotated Corpus of Chinese Polysemous Words for Teaching Chinese as a Second Language. Paper presented at The 24th Annual Conference of the International Association of Chinese Linguistics (IACL-24), Beijing Language and Culture University, Beijing.</p>
+<p>(88) Wang, S. *, &amp; Chen, C. (2016). Teacher Training in Teaching Chinese as a Second Language. Paper presented at the Annual Conference of the Comparative Education Society of Hong Kong (CESHK) 2016 “Learning to Live Together &amp; Comparative Education” and Third Across-Strait Four Region Forum on Comparative Education, The Hong Kong Institute of Education, Hong Kong.</p>
+<p>(89) Wang, S. *, &amp; Liu, R. (2016). Learning and Teaching of Advanced Spoken Chinese (漢語高級口語教學研究). Paper presented at The Second International Conference on Teaching Chinese as a Second Language——The IB Philosophy and Chinese Language Teaching, The Education University of Hong Kong, Hong Kong.</p>
+<p>(90) Wang, S. *, &amp; Liu, R. (2016). The Construction and Analysis of a Chinese Talk Shows Corpus (漢語談話節目語料庫的構建與分析). Poster presented at The 15th China National Conference on Computational Linguistics, Ludong University, China.</p>
+<p>(91) Zhang, R., &amp; Wang, S. * (2016). A Comparative Study on the Teaching of Chinese Characters in Mother Tongue Teaching and International Chinese Teaching: Taking the Primary Stage as an Example (漢字教學在母語教學與國際漢語教學中的對比研究——以初級階段爲例). Paper presented at The Second International Forum on Linguistics in Chinese Education (IFOLICE-2), Beijing Language and Culture University, Beijing.</p>
+<p>(92) Cheung, K.-Y., &amp; Wang, S.* (2017). An Analysis of Teachers' Discourse Functions in International Chinese Teacher Training (國際漢語師資培訓中教師的話語功能分析). Paper presented at The Sixth Language Education, Ideology and Culture Conference (第六屆語文教育與思想文化學術研討會), The Education University of Hong Kong, Hong Kong.</p>
+<p>(93) Huang, R. &amp; Wang, S.* (2017). Autonomous Learning in Chinese Extensive Reading, paper presented at The Third International Conference on Linguistics and Language Studies (ICLLS 2017), The Open University of Hong Kong, Hong Kong.</p>
+<p>(94) Liu, R., &amp; Wang, S.* (2017). A Cross-strait Contrastive Study of Common Chinese Academic Words (兩岸中文學術常用詞對比研究). Paper presented at The Third International Conference on Teaching Chinese as a Second Language, The Education University of Hong Kong, Hong Kong.</p>
+<p>(95) Luo, H., &amp; Wang, S.* (2017). The Construction and Application of The Legal Corpus of Mainland China (中國大陸法律語料庫建設及其應用研究). Paper presented at The 18th Chinese Lexical Semantics Workshop (CLSW2017), Leshan Normal University, Leshan, Sichuan, China.</p>
+<p>(96) Luo, H, &amp; Wang, S.* (2017). The Transitional Sentences in The Legislative Language. Paper presented at The International Linguistic Association 62nd Annual Conference, City Uiversity of Hong Kong, Hong Kong.</p>
+<p>(97) Luo, W., &amp; Wang, S.* (2017). Teachers' Discourse in Game-based Teaching Method (遊戲教學法中的教師話語分析). Paper presented at the International Symposium on Chinese in the Maritime Silk Road, The Chinese University of Hong Kong, Hong Kong.</p>
+<p>(98) Ren, Y., &amp; Wang, S.* (2017). Teachers' Feedback Discourse in International Chinese Teaching (國際漢語教學教師反饋話語研究). Paper presented at The 14th International Conference on Chinese Language Pedagogy, The University of Macau, Macau.</p>
+<p>(99) Tang, Q., &amp; Wang, S.* (2017). The Application of Questioning in Spoken Chinese Teaching of TCIL (提問模式在國際漢語口語教學中的應用). Paper presented at the International Symposium on Chinese in the Maritime Silk Road, The Chinese University of Hong Kong, Hong Kong.</p>
+<p>(100) Wei, W., &amp; Wang, S.* (2017). A Study on the Homonyms in the Advanced-level of International Chinese Teaching. Paper presented at The 11th International Conference of the Asian Association for Lexicography (AsiaLex 2017), Guangdong University of Foreign Studies, China.</p>
+<h2 id="_11">链接<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>研究门: <a href="http://www.researchgate.net/profile/Shan_Wang5/publications/">http://www.researchgate.net/profile/Shan_Wang5/publications/</a></p>
+<p>谷歌学术: <a href="http://scholar.google.com.sg/citations?user=D8kS3pIAAAAJ&amp;hl=en">http://scholar.google.com.sg/citations?user=D8kS3pIAAAAJ&amp;hl=en</a></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../杨洋/" title="杨洋" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                杨洋
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../Corpus/" title="语料库" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                语料库
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            @2018 nlp-docs.github.io
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.b41f3d20.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1707 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="自然语言处理文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
+    
+    
+      
+        <title>北大-pkuseg - NLP Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.572ca0f0.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.8c900955.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#-pkuseg" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="NLP Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                NLP Docs
+              </span>
+              <span class="md-header-nav__topic">
+                北大-pkuseg
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      nlp-docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="自然语言处理" class="md-tabs__link">
+        自然语言处理
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Author/" title="Author" class="md-tabs__link">
+          Author
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Corpus/" title="Corpus" class="md-tabs__link">
+          Corpus
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="Librariy" class="md-tabs__link md-tabs__link--active">
+          Librariy
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Paper/" title="Paper" class="md-tabs__link">
+          Paper
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../awesome/" title="Awesome" class="md-tabs__link">
+          Awesome
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../sensitive-word/" title="Sensitive word" class="md-tabs__link">
+          Sensitive word
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="NLP Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    NLP Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      nlp-docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="自然语言处理" class="md-nav__link">
+      自然语言处理
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Author
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Author
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/刘焕勇/" title="刘焕勇" class="md-nav__link">
+      刘焕勇
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/张华平/" title="张华平" class="md-nav__link">
+      张华平
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/杨洋/" title="杨洋" class="md-nav__link">
+      杨洋
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/王珊/" title="王珊" class="md-nav__link">
+      王珊
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Corpus
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Corpus
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/" title="语料库" class="md-nav__link">
+      语料库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/ChineseNLPCorpus/" title="Chinese NLP Corpus" class="md-nav__link">
+      Chinese NLP Corpus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/GlobalWordNetAssociation/" title="全球 WordNet 协会" class="md-nav__link">
+      全球 WordNet 协会
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/HowNet/" title="知网" class="md-nav__link">
+      知网
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/cow/" title="Chinese Open Wordnet" class="md-nav__link">
+      Chinese Open Wordnet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/funNLP/" title="funNLP" class="md-nav__link">
+      funNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/nlp-datasets/" title="nlp-datasets" class="md-nav__link">
+      nlp-datasets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/wordnet/" title="WordNet" class="md-nav__link">
+      WordNet
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Librariy
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Librariy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="常用分词工具包" class="md-nav__link">
+      常用分词工具包
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../FoolNLTK/" title="FoolNLTK" class="md-nav__link">
+      FoolNLTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../HanLP/" title="HanLP" class="md-nav__link">
+      HanLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Jiagu/" title="Jiagu" class="md-nav__link">
+      Jiagu
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../SnowNLP/" title="SnowNLP" class="md-nav__link">
+      SnowNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../THULAC/" title="清华-THULAC" class="md-nav__link">
+      清华-THULAC
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../awesome/" title="👍🏻 表库" class="md-nav__link">
+      👍🏻 表库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../bosonnlp/" title="玻森数据" class="md-nav__link">
+      玻森数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jieba-en/" title="JieBa English Docs" class="md-nav__link">
+      JieBa English Docs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jieba/" title="JieBa" class="md-nav__link">
+      JieBa
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ltp/" title="哈工大-LTP" class="md-nav__link">
+      哈工大-LTP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nlpair-ictclas/" title="中科院-NLPIR" class="md-nav__link">
+      中科院-NLPIR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nltk/" title="NLTK" class="md-nav__link">
+      NLTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        北大-pkuseg
+      </label>
+    
+    <a href="./" title="北大-pkuseg" class="md-nav__link md-nav__link--active">
+      北大-pkuseg
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="主要亮点" class="md-nav__link">
+    主要亮点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="编译和安装" class="md-nav__link">
+    编译和安装
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="使用方式" class="md-nav__link">
+    使用方式
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="代码示例" class="md-nav__link">
+    代码示例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="参数说明" class="md-nav__link">
+    参数说明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="多进程分词" class="md-nav__link">
+    多进程分词
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="预训练模型" class="md-nav__link">
+    预训练模型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="各类分词工具包的性能对比" class="md-nav__link">
+    各类分词工具包的性能对比
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="细领域训练及测试结果" class="md-nav__link">
+    细领域训练及测试结果
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="默认模型在不同领域的测试效果" class="md-nav__link">
+    默认模型在不同领域的测试效果
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" title="版本历史" class="md-nav__link">
+    版本历史
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" title="开源协议" class="md-nav__link">
+    开源协议
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" title="相关论文" class="md-nav__link">
+    相关论文
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" title="常见问题及解答" class="md-nav__link">
+    常见问题及解答
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" title="作者" class="md-nav__link">
+    作者
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Paper
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Paper
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/" title="论文 || 文章" class="md-nav__link">
+      论文 || 文章
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/chinese-segmenter/" title="细说中文分词" class="md-nav__link">
+      细说中文分词
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/milestone/" title="一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑" class="md-nav__link">
+      一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Awesome
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Awesome
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/" title="awesome-nlp" class="md-nav__link">
+      awesome-nlp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/multi-language/" title="其他语言" class="md-nav__link">
+      其他语言
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/techniques/" title="技术" class="md-nav__link">
+      技术
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/tutorials/" title="教程" class="md-nav__link">
+      教程
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Sensitive word
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Sensitive word
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sensitive-word/" title="敏感词" class="md-nav__link">
+      敏感词
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="主要亮点" class="md-nav__link">
+    主要亮点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="编译和安装" class="md-nav__link">
+    编译和安装
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="使用方式" class="md-nav__link">
+    使用方式
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="代码示例" class="md-nav__link">
+    代码示例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="参数说明" class="md-nav__link">
+    参数说明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="多进程分词" class="md-nav__link">
+    多进程分词
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="预训练模型" class="md-nav__link">
+    预训练模型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="各类分词工具包的性能对比" class="md-nav__link">
+    各类分词工具包的性能对比
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="细领域训练及测试结果" class="md-nav__link">
+    细领域训练及测试结果
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="默认模型在不同领域的测试效果" class="md-nav__link">
+    默认模型在不同领域的测试效果
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" title="版本历史" class="md-nav__link">
+    版本历史
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" title="开源协议" class="md-nav__link">
+    开源协议
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" title="相关论文" class="md-nav__link">
+    相关论文
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" title="常见问题及解答" class="md-nav__link">
+    常见问题及解答
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" title="作者" class="md-nav__link">
+    作者
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="-pkuseg">北大-pkuseg<a class="headerlink" href="#-pkuseg" title="Permanent link">&para;</a></h1>
+<p>一个多领域中文分词工具包</p>
+<p><a href="https://github.com/lancopku/pkuseg-python">pkuseg</a> 简单易用，支持细分领域分词，有效提升了分词准确度。</p>
+<h2 id="_1">主要亮点<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>pkuseg 具有如下几个特点：</p>
+<ol>
+<li>多领域分词。不同于以往的通用中文分词工具，此工具包同时致力于为不同领域的数据提供个性化的预训练模型。根据待分词文本的领域特点，用户可以自由地选择不同的模型。 我们目前支持了新闻领域，网络领域，医药领域，旅游领域，以及混合领域的分词预训练模型。在使用中，如果用户明确待分词的领域，可加载对应的模型进行分词。如果用户无法确定具体领域，推荐使用在混合领域上训练的通用模型。各领域分词样例可参考 <a href="https://github.com/lancopku/pkuseg-python/blob/master/example.txt"><strong>example.txt</strong></a>。</li>
+<li>更高的分词准确率。相比于其他的分词工具包，当使用相同的训练数据和测试数据，pkuseg 可以取得更高的分词准确率。</li>
+<li>支持用户自训练模型。支持用户使用全新的标注数据进行训练。</li>
+<li>支持词性标注。</li>
+</ol>
+<h2 id="_2">编译和安装<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>目前<strong>仅支持 python3</strong></li>
+<li>
+<p>新版本发布：2019-1-23</p>
+<ul>
+<li>修改了词典处理方法，扩充了词典，分词效果有提升</li>
+<li><strong>效率进行了优化，测试速度较之前版本提升 9 倍左右</strong></li>
+<li>增加了在大规模混合数据集训练的通用模型，并将其设为默认使用模型</li>
+</ul>
+</li>
+<li>
+<p>新版本发布：2019-1-30</p>
+<ul>
+<li>支持 fine-tune 训练（从预加载的模型继续训练），支持设定训练轮数</li>
+</ul>
+</li>
+<li>
+<p>新版本发布：2019-2-20</p>
+<ul>
+<li><strong>支持词性标注，增加了医疗、旅游细领域模型</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>为了获得好的效果和速度，强烈建议大家通过 pip install 更新到目前的最新版本</strong></p>
+</li>
+</ul>
+<p>安装</p>
+<ol>
+<li>
+<p>通过 PyPI 安装(自带模型文件)：</p>
+<div class="codehilite"><pre><span></span>pip3 install pkuseg
+<span class="c1"># 之后通过import pkuseg来引用</span>
+<span class="c1"># 建议更新到最新版本以获得更好的开箱体验：</span>
+pip3 install -U pkuseg
+</pre></div>
+
+</li>
+<li>
+<p>如果 PyPI 官方源下载速度不理想，建议使用镜像源，比如：</p>
+<div class="codehilite"><pre><span></span><span class="c1">#初次安装：</span>
+pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple pkuseg
+<span class="c1">#更新：</span>
+pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple -U pkuseg
+</pre></div>
+
+</li>
+<li>
+<p>如果不使用 pip 安装方式，选择从 GitHub 下载，可运行以下命令安装：</p>
+<div class="codehilite"><pre><span></span>python setup.py build_ext -i
+</pre></div>
+
+<p>GitHub 的代码并不包括预训练模型，因此需要用户自行下载或训练模型，预训练模型可详见<a href="https://github.com/lancopku/pkuseg-python/releases">release</a>。使用时需设定"model_name"为模型文件。</p>
+</li>
+</ol>
+<p>注意：<strong>安装方式 1 和 2 目前仅支持 linux(ubuntu)、mac、windows 64 位的 python3 版本</strong>。如果非以上系统，请使用安装方式 3 进行本地编译安装。</p>
+<h2 id="_3">使用方式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">代码示例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>以下代码示例适用于 python 交互式环境。</p>
+<p>代码示例 1：使用默认配置进行分词（<strong>如果用户无法确定分词领域，推荐使用默认模型分词</strong>）</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pkuseg</span>
+
+<span class="n">seg</span> <span class="o">=</span> <span class="n">pkuseg</span><span class="o">.</span><span class="n">pkuseg</span><span class="p">()</span>           <span class="c1"># 以默认配置加载模型</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">seg</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="s1">&#39;我爱北京天安门&#39;</span><span class="p">)</span>  <span class="c1"># 进行分词</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+<p>代码示例 2：细领域分词（<strong>如果用户明确分词领域，推荐使用细领域模型分词</strong>）</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pkuseg</span>
+
+<span class="n">seg</span> <span class="o">=</span> <span class="n">pkuseg</span><span class="o">.</span><span class="n">pkuseg</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;medicine&#39;</span><span class="p">)</span>  <span class="c1"># 程序会自动下载所对应的细领域模型</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">seg</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="s1">&#39;我爱北京天安门&#39;</span><span class="p">)</span>              <span class="c1"># 进行分词</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+<p>代码示例 3：分词同时进行词性标注，各词性标签的详细含义可参考 <a href="https://github.com/lancopku/pkuseg-python/blob/master/tags.txt">tags.txt</a></p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pkuseg</span>
+
+<span class="n">seg</span> <span class="o">=</span> <span class="n">pkuseg</span><span class="o">.</span><span class="n">pkuseg</span><span class="p">(</span><span class="n">postag</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># 开启词性标注功能</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">seg</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="s1">&#39;我爱北京天安门&#39;</span><span class="p">)</span>    <span class="c1"># 进行分词和词性标注</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+<p>代码示例 4：对文件分词</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pkuseg</span>
+
+<span class="c1"># 对input.txt的文件分词输出到output.txt中</span>
+<span class="c1"># 开20个进程</span>
+<span class="n">pkuseg</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="s1">&#39;input.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;output.txt&#39;</span><span class="p">,</span> <span class="n">nthread</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+
+<p>代码示例 5：额外使用用户自定义词典</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pkuseg</span>
+
+<span class="n">seg</span> <span class="o">=</span> <span class="n">pkuseg</span><span class="o">.</span><span class="n">pkuseg</span><span class="p">(</span><span class="n">user_dict</span><span class="o">=</span><span class="s1">&#39;my_dict.txt&#39;</span><span class="p">)</span>  <span class="c1"># 给定用户词典为当前目录下的&quot;my_dict.txt&quot;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">seg</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="s1">&#39;我爱北京天安门&#39;</span><span class="p">)</span>                <span class="c1"># 进行分词</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+<p>代码示例 6：使用自训练模型分词（以 CTB8 模型为例）</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pkuseg</span>
+
+<span class="n">seg</span> <span class="o">=</span> <span class="n">pkuseg</span><span class="o">.</span><span class="n">pkuseg</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;./ctb8&#39;</span><span class="p">)</span>  <span class="c1"># 假设用户已经下载好了ctb8的模型并放在了&#39;./ctb8&#39;目录下，通过设置model_name加载该模型</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">seg</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="s1">&#39;我爱北京天安门&#39;</span><span class="p">)</span>            <span class="c1"># 进行分词</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+
+<p>代码示例 7：训练新模型 （模型随机初始化）</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pkuseg</span>
+
+<span class="c1"># 训练文件为&#39;msr_training.utf8&#39;</span>
+<span class="c1"># 测试文件为&#39;msr_test_gold.utf8&#39;</span>
+<span class="c1"># 训练好的模型存到&#39;./models&#39;目录下</span>
+<span class="c1"># 训练模式下会保存最后一轮模型作为最终模型</span>
+<span class="c1"># 目前仅支持utf-8编码，训练集和测试集要求所有单词以单个或多个空格分开</span>
+<span class="n">pkuseg</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="s1">&#39;msr_training.utf8&#39;</span><span class="p">,</span> <span class="s1">&#39;msr_test_gold.utf8&#39;</span><span class="p">,</span> <span class="s1">&#39;./models&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>代码示例 8：fine-tune 训练（从预加载的模型继续训练）</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pkuseg</span>
+
+<span class="c1"># 训练文件为&#39;train.txt&#39;</span>
+<span class="c1"># 测试文件为&#39;test.txt&#39;</span>
+<span class="c1"># 加载&#39;./pretrained&#39;目录下的模型，训练好的模型保存在&#39;./models&#39;，训练10轮</span>
+<span class="n">pkuseg</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="s1">&#39;train.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;test.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;./models&#39;</span><span class="p">,</span> <span class="n">train_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">init_model</span><span class="o">=</span><span class="s1">&#39;./pretrained&#39;</span><span class="p">)</span>
+</pre></div>
+
+<h3 id="_5">参数说明<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>模型配置</p>
+<div class="codehilite"><pre><span></span>pkuseg.pkuseg(model_name = &quot;default&quot;, user_dict = &quot;default&quot;, postag = False)
+    model_name      模型路径。
+                    &quot;default&quot;，默认参数，表示使用我们预训练好的混合领域模型(仅对pip下载的用户)。
+                &quot;news&quot;, 使用新闻领域模型。
+                &quot;web&quot;, 使用网络领域模型。
+                &quot;medicine&quot;, 使用医药领域模型。
+                &quot;tourism&quot;, 使用旅游领域模型。
+                    model_path, 从用户指定路径加载模型。
+    user_dict       设置用户词典。
+                &quot;default&quot;, 默认参数，使用我们提供的词典。
+                None, 不使用词典。
+                dict_path, 在使用默认词典的同时会额外使用用户自定义词典，可以填自己的用户词典的路径，词典格式为一行一个词。
+    postag              是否进行词性分析。
+                False, 默认参数，只进行分词，不进行词性标注。
+                True, 会在分词的同时进行词性标注。
+</pre></div>
+
+<p>对文件进行分词</p>
+<div class="codehilite"><pre><span></span>pkuseg.test(readFile, outputFile, model_name = &quot;default&quot;, user_dict = &quot;default&quot;, postag = False, nthread = 10)
+    readFile        输入文件路径。
+    outputFile      输出文件路径。
+    model_name      模型路径。同pkuseg.pkuseg
+    user_dict       设置用户词典。同pkuseg.pkuseg
+    postag          设置是否开启词性分析功能。同pkuseg.pkuseg
+    nthread         测试时开的进程数。
+</pre></div>
+
+<p>模型训练</p>
+<div class="codehilite"><pre><span></span>pkuseg.train(trainFile, testFile, savedir, train_iter = 20, init_model = None)
+    trainFile       训练文件路径。
+    testFile        测试文件路径。
+    savedir         训练模型的保存路径。
+    train_iter      训练轮数。
+    init_model      初始化模型，默认为None表示使用默认初始化，用户可以填自己想要初始化的模型的路径如init_model=&#39;./models/&#39;。
+</pre></div>
+
+<h3 id="_6">多进程分词<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>当将以上代码示例置于文件中运行时，如涉及多进程功能，请务必使用<code>if __name__ == '__main__'</code>保护全局语句，如：
+mp.py 文件</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pkuseg</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">pkuseg</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="s1">&#39;input.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;output.txt&#39;</span><span class="p">,</span> <span class="n">nthread</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">pkuseg</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="s1">&#39;msr_training.utf8&#39;</span><span class="p">,</span> <span class="s1">&#39;msr_test_gold.utf8&#39;</span><span class="p">,</span> <span class="s1">&#39;./models&#39;</span><span class="p">,</span> <span class="n">nthread</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+
+<p>运行</p>
+<div class="codehilite"><pre><span></span>python3 mp.py
+</pre></div>
+
+<p>详见<a href="https://github.com/lancopku/pkuseg-python/wiki#3-无法使用多进程分词和训练功能提示runtimeerror和brokenpipeerror">无法使用多进程分词和训练功能，提示 RuntimeError 和 BrokenPipeError</a>。</p>
+<p><strong>在 Windows 平台上，请当文件足够大时再使用多进程分词功能</strong>，详见<a href="https://github.com/lancopku/pkuseg-python/wiki#9-关于多进程速度问题">关于多进程速度问题</a>。</p>
+<h2 id="_7">预训练模型<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>从 pip 安装的用户在使用细领域分词功能时，只需要设置 model_name 字段为对应的领域即可，会自动下载对应的细领域模型。</p>
+<p>从 github 下载的用户则需要自己下载对应的预训练模型，并设置 model_name 字段为预训练模型路径。预训练模型可以在<a href="https://github.com/lancopku/pkuseg-python/releases">release</a>部分下载。以下是对预训练模型的说明：</p>
+<ul>
+<li>
+<p><strong>news</strong>: 在 MSRA（新闻语料）上训练的模型。</p>
+</li>
+<li>
+<p><strong>web</strong>: 在微博（网络文本语料）上训练的模型。</p>
+</li>
+<li>
+<p><strong>medicine</strong>: 在医药领域上训练的模型。</p>
+</li>
+<li>
+<p><strong>tourism</strong>: 在旅游领域上训练的模型。</p>
+</li>
+<li>
+<p><strong>mixed</strong>: 混合数据集训练的通用模型。随 pip 包附带的是此模型。</p>
+</li>
+</ul>
+<p>欢迎更多用户可以分享自己训练好的细分领域模型。</p>
+<h2 id="_8">各类分词工具包的性能对比<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>我们选择 jieba、THULAC 等国内代表分词工具包与 pkuseg 做性能比较。</p>
+<p>考虑到 jieba 分词和 THULAC 工具包等并没有提供细领域的预训练模型，为了便于比较，我们重新使用它们提供的训练接口在细领域的数据集上进行训练，用训练得到的模型进行中文分词。</p>
+<p>我们选择 Linux 作为测试环境，在新闻数据(MSRA)、混合型文本(CTB8)、网络文本(WEIBO)数据上对不同工具包进行了准确率测试。我们使用了第二届国际汉语分词评测比赛提供的分词评价脚本。其中 MSRA 与 WEIBO 使用标准训练集测试集划分，CTB8 采用随机划分。对于不同的分词工具包，训练测试数据的划分都是一致的；<strong>即所有的分词工具包都在相同的训练集上训练，在相同的测试集上测试</strong>。对于所有数据集，pkuseg 使用了不使用词典的训练和测试接口。以下是 pkuseg 训练和测试代码示例:</p>
+<div class="codehilite"><pre><span></span><span class="n">pkuseg</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="s1">&#39;msr_training.utf8&#39;</span><span class="p">,</span> <span class="s1">&#39;msr_test_gold.utf8&#39;</span><span class="p">,</span> <span class="s1">&#39;./models&#39;</span><span class="p">)</span>
+<span class="n">pkuseg</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="s1">&#39;msr_test.raw&#39;</span><span class="p">,</span> <span class="s1">&#39;output.txt&#39;</span><span class="p">,</span> <span class="n">user_dict</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</pre></div>
+
+<h3 id="_9">细领域训练及测试结果<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>以下是在不同数据集上的对比结果：</p>
+<table>
+<thead>
+<tr>
+<th align="left">MSRA</th>
+<th align="right">Precision</th>
+<th align="right">Recall</th>
+<th align="right">F-score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">jieba</td>
+<td align="right">87.01</td>
+<td align="right">89.88</td>
+<td align="right">88.42</td>
+</tr>
+<tr>
+<td align="left">THULAC</td>
+<td align="right">95.60</td>
+<td align="right">95.91</td>
+<td align="right">95.71</td>
+</tr>
+<tr>
+<td align="left">pkuseg</td>
+<td align="right">96.94</td>
+<td align="right">96.81</td>
+<td align="right"><strong>96.88</strong></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">WEIBO</th>
+<th align="right">Precision</th>
+<th align="right">Recall</th>
+<th align="right">F-score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">jieba</td>
+<td align="right">87.79</td>
+<td align="right">87.54</td>
+<td align="right">87.66</td>
+</tr>
+<tr>
+<td align="left">THULAC</td>
+<td align="right">93.40</td>
+<td align="right">92.40</td>
+<td align="right">92.87</td>
+</tr>
+<tr>
+<td align="left">pkuseg</td>
+<td align="right">93.78</td>
+<td align="right">94.65</td>
+<td align="right"><strong>94.21</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_10">默认模型在不同领域的测试效果<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>考虑到很多用户在尝试分词工具的时候，大多数时候会使用工具包自带模型测试。为了直接对比“初始”性能，我们也比较了各个工具包的默认模型在不同领域的测试效果。请注意，这样的比较只是为了说明默认情况下的效果，并不一定是公平的。</p>
+<table>
+<thead>
+<tr>
+<th>Default</th>
+<th align="center">MSRA</th>
+<th align="center">CTB8</th>
+<th align="center">PKU</th>
+<th align="center">WEIBO</th>
+<th align="center">All Average</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>jieba</td>
+<td align="center">81.45</td>
+<td align="center">79.58</td>
+<td align="center">81.83</td>
+<td align="center">83.56</td>
+<td align="center">81.61</td>
+</tr>
+<tr>
+<td>THULAC</td>
+<td align="center">85.55</td>
+<td align="center">87.84</td>
+<td align="center">92.29</td>
+<td align="center">86.65</td>
+<td align="center">88.08</td>
+</tr>
+<tr>
+<td>pkuseg</td>
+<td align="center">87.29</td>
+<td align="center">91.77</td>
+<td align="center">92.68</td>
+<td align="center">93.43</td>
+<td align="center"><strong>91.29</strong></td>
+</tr>
+</tbody>
+</table>
+<p>其中，<code>All Average</code>显示的是在所有测试集上 F-score 的平均。</p>
+<p>更多详细比较可参见<a href="https://github.com/lancopku/pkuseg-python/wiki/%E5%92%8C%E7%8E%B0%E6%9C%89%E5%B7%A5%E5%85%B7%E5%8C%85%E7%9A%84%E6%AF%94%E8%BE%83">和现有工具包的比较</a>。</p>
+<h2 id="_11">版本历史<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<ul>
+<li>v0.0.11(2019-01-09)</li>
+<li>修订默认配置：CTB8 作为默认模型，不使用词典</li>
+<li>v0.0.14(2019-01-23)</li>
+<li>修改了词典处理方法，扩充了词典，分词效果有提升</li>
+<li>效率进行了优化，测试速度较之前版本提升 9 倍左右</li>
+<li>增加了在大规模混合数据集训练的通用模型，并将其设为默认使用模型</li>
+<li>v0.0.15(2019-01-30)</li>
+<li>支持 fine-tune 训练（从预加载的模型继续训练），支持设定训练轮数</li>
+<li>v0.0.18(2019-02-20)</li>
+<li>支持词性标注，增加了医疗、旅游两个细领域模型</li>
+</ul>
+<h2 id="_12">开源协议<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<ol>
+<li>本代码采用 MIT 许可证。</li>
+<li>欢迎对该工具包提出任何宝贵意见和建议，请发邮件至 jingjingxu@pku.edu.cn。</li>
+</ol>
+<h2 id="_13">相关论文<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p>该代码包主要基于以下科研论文，如使用了本工具，请引用以下论文：</p>
+<ul>
+<li>Xu Sun, Houfeng Wang, Wenjie Li. <a href="http://www.aclweb.org/anthology/P12-1027">Fast Online Training with Frequency-Adaptive Learning Rates for Chinese Word Segmentation and New Word Detection</a>. ACL. 253–262. 2012</li>
+</ul>
+<div class="codehilite"><pre><span></span>@inproceedings{DBLP:conf/acl/SunWL12,
+author = {Xu Sun and Houfeng Wang and Wenjie Li},
+title = {Fast Online Training with Frequency-Adaptive Learning Rates for Chinese Word Segmentation and New Word Detection},
+booktitle = {The 50th Annual Meeting of the Association for Computational Linguistics, Proceedings of the Conference, July 8-14, 2012, Jeju Island, Korea- Volume 1: Long Papers},
+pages = {253--262},
+year = {2012}}
+</pre></div>
+
+<h2 id="_14">常见问题及解答<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="https://github.com/lancopku/pkuseg-python/wiki/FAQ#1-为什么要发布pkuseg">为什么要发布 pkuseg？</a></li>
+<li><a href="https://github.com/lancopku/pkuseg-python/wiki/FAQ#2-pkuseg使用了哪些技术">pkuseg 使用了哪些技术？</a></li>
+<li><a href="https://github.com/lancopku/pkuseg-python/wiki/FAQ#3-无法使用多进程分词和训练功能提示runtimeerror和brokenpipeerror">无法使用多进程分词和训练功能，提示 RuntimeError 和 BrokenPipeError。</a></li>
+<li><a href="https://github.com/lancopku/pkuseg-python/wiki/FAQ#4-是如何跟其它工具包在细领域数据上进行比较的">是如何跟其它工具包在细领域数据上进行比较的？</a></li>
+<li><a href="https://github.com/lancopku/pkuseg-python/wiki/FAQ#5-在黑盒测试集上进行比较的话效果如何">在黑盒测试集上进行比较的话，效果如何？</a></li>
+<li><a href="https://github.com/lancopku/pkuseg-python/wiki/FAQ#6-如果我不了解待分词语料的所属领域呢">如果我不了解待分词语料的所属领域呢？</a></li>
+<li><a href="https://github.com/lancopku/pkuseg-python/wiki/FAQ#7-如何看待在一些特定样例上的分词结果">如何看待在一些特定样例上的分词结果？</a></li>
+<li><a href="https://github.com/lancopku/pkuseg-python/wiki/FAQ#8-关于运行速度问题">关于运行速度问题？</a></li>
+<li><a href="https://github.com/lancopku/pkuseg-python/wiki/FAQ#9-关于多进程速度问题">关于多进程速度问题？</a></li>
+</ol>
+<h2 id="_15">作者<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p>Ruixuan Luo （罗睿轩）, Jingjing Xu（许晶晶）, Xuancheng Ren（任宣丞）, Yi Zhang（张艺）, Bingzhen Wei（位冰镇）， Xu Sun （孙栩）</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../nltk/" title="NLTK" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                NLTK
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../Paper/" title="论文 || 文章" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                论文 || 文章
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            @2018 nlp-docs.github.io
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.b41f3d20.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
