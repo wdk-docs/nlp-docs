@@ -1,14 +1,6 @@
 # HanLP
 
-> [Han Language Processing](https://github.com/hankcs/HanLP)
-
-汉语言处理包
-[![Maven Central](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/com/hankcs/hanlp/maven-metadata.xml.svg)](https://mvnrepository.com/artifact/com.hankcs/hanlp)
-[![GitHub release](https://img.shields.io/github/release/hankcs/HanLP.svg)](https://github.com/hankcs/hanlp/releases)
-[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
-[![Docker Stars](https://img.shields.io/docker/stars/samurais/hanlp-api.svg?maxAge=2592000)](https://hub.docker.com/r/samurais/hanlp-api/)
-
----
+> [汉语言处理包 Han Language Processing](https://github.com/hankcs/HanLP)
 
 HanLP 是一系列模型与算法组成的 NLP 工具包，由大快搜索主导并完全开源，目标是普及自然语言处理在生产环境中的应用。HanLP 具备功能完善、性能高效、架构清晰、语料时新、可自定义的特点。
 
@@ -61,13 +53,9 @@ HanLP 提供下列功能：
 
 在提供丰富功能的同时，HanLP 内部模块坚持低耦合、模型坚持惰性加载、服务坚持静态提供、词典坚持明文发布，使用非常方便。默认模型训练自全世界最大规模的中文语料库，同时自带一些语料处理工具，帮助用户训练自己的模型。
 
----
-
 ## 项目主页
 
 [在线演示](http://hanlp.com/)、[Python 调用](https://github.com/hankcs/pyhanlp)、[Solr 及 Lucene 插件](https://github.com/hankcs/hanlp-lucene-plugin)、[论文引用](https://github.com/hankcs/HanLP/wiki/papers)、[更多信息](https://github.com/hankcs/HanLP/wiki)。
-
----
 
 ## 下载与配置
 
@@ -75,7 +63,7 @@ HanLP 提供下列功能：
 
 为了方便用户，特提供内置了数据包的 Portable 版，只需在 pom.xml 加入：
 
-```
+```xml
 <dependency>
     <groupId>com.hankcs</groupId>
     <artifactId>hanlp</artifactId>
@@ -760,8 +748,6 @@ HanLP.Config.enableDebug();
   - 这些词典的格式与原理都是类似的，请阅读[相应的文章](http://www.hankcs.com/category/nlp/ner/)或代码修改它。
 
 如果问题解决了，欢迎向我提交一个 pull request，这是我在代码库中保留明文词典的原因，众人拾柴火焰高！
-
----
 
 ## 版权
 

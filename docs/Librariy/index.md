@@ -1,16 +1,16 @@
 # 常用分词工具包
 
-| 名称                  | ⭐                                | 更新                                | 活跃                                    | 费用       |
-| --------------------- | --------------------------------- | ----------------------------------- | --------------------------------------- | ---------- |
-| jieba-结巴分词        | ![stars-jieba][stars-jieba]       | ![commit-jieba][commit-jieba]       | ![activity-jieba][activity-jieba]       | 免费使     |
-| HanLP-汉语言处理包    | ![stars-hanlp][stars-hanlp]       | ![commit-hanlp][commit-hanlp]       | ![activity-hanlp][activity-hanlp]       | 免费使     |
-| SnowNLP-中文的类库    | ![stars-snownlp][stars-snownlp]   | ![commit-snownlp][commit-snownlp]   | ![activity-snownlp][activity-snownlp]   | 免费使     |
-| pkuseg-北大多领域分词 | ![stars-pkuseg][stars-pkuseg]     | ![commit-pkuseg][commit-pkuseg]     | ![activity-pkuseg][activity-pkuseg]     | 免费使     |
-| NLPIR-中科院汉语分词  | ![stars-nlpir][stars-nlpir]       | ![commit-nlpir][commit-nlpir]       | ![activity-nlpir][activity-nlpir]       | 付费使用   |
-| FoolNLTK-中文处理     | ![stars-foolnltk][stars-foolnltk] | ![commit-foolnltk][commit-foolnltk] | ![activity-foolnltk][activity-foolnltk] | 免费使     |
-| pyltp-哈工大语言云    | ![stars-pyltp][stars-pyltp]       | ![commit-pyltp][commit-pyltp]       | ![activity-pyltp][activity-pyltp]       | 商用需要付 |
-| THULAC -清华词法分析  | ![stars-thulac][stars-thulac]     | ![commit-thulac][commit-thulac]     | ![activity-thulac][activity-thulac]     | 商用需要付 |
-| Jiagu-甲骨 NLP        | ![stars-jiagu][stars-jiagu]       | ![commit-jiagu][commit-jiagu]       | ![activity-jiagu][activity-jiagu]       | 免费使     |
+| 名称                  | ⭐                                | 更新                                | 活跃                                    | 费用     |
+| --------------------- | --------------------------------- | ----------------------------------- | --------------------------------------- | -------- |
+| jieba-结巴分词        | ![stars-jieba][stars-jieba]       | ![commit-jieba][commit-jieba]       | ![activity-jieba][activity-jieba]       | 免费     |
+| HanLP-汉语言处理包    | ![stars-hanlp][stars-hanlp]       | ![commit-hanlp][commit-hanlp]       | ![activity-hanlp][activity-hanlp]       | 免费     |
+| SnowNLP-中文的类库    | ![stars-snownlp][stars-snownlp]   | ![commit-snownlp][commit-snownlp]   | ![activity-snownlp][activity-snownlp]   | 免费     |
+| pkuseg-北大多领域分词 | ![stars-pkuseg][stars-pkuseg]     | ![commit-pkuseg][commit-pkuseg]     | ![activity-pkuseg][activity-pkuseg]     | 免费     |
+| NLPIR-中科院汉语分词  | ![stars-nlpir][stars-nlpir]       | ![commit-nlpir][commit-nlpir]       | ![activity-nlpir][activity-nlpir]       | 付费     |
+| FoolNLTK-中文处理     | ![stars-foolnltk][stars-foolnltk] | ![commit-foolnltk][commit-foolnltk] | ![activity-foolnltk][activity-foolnltk] | 免费     |
+| pyltp-哈工大语言云    | ![stars-pyltp][stars-pyltp]       | ![commit-pyltp][commit-pyltp]       | ![activity-pyltp][activity-pyltp]       | 商用付费 |
+| THULAC -清华词法分析  | ![stars-thulac][stars-thulac]     | ![commit-thulac][commit-thulac]     | ![activity-thulac][activity-thulac]     | 商用付费 |
+| Jiagu-甲骨 NLP        | ![stars-jiagu][stars-jiagu]       | ![commit-jiagu][commit-jiagu]       | ![activity-jiagu][activity-jiagu]       | 免费     |
 
 [stars-jieba]: https://img.shields.io/github/stars/fxsjy/jieba.svg?style=social
 [stars-hanlp]: https://img.shields.io/github/stars/hankcs/HanLP.svg?style=social
@@ -39,3 +39,10 @@
 [activity-thulac]: https://img.shields.io/github/commit-activity/m/thunlp/thulac.svg?label=%E6%B4%BB%E8%B7%83&style=social
 [activity-nlpir]: https://img.shields.io/github/commit-activity/m/NLPIR-team/nlpir.svg?label=%E6%B4%BB%E8%B7%83&style=social
 [activity-pkuseg]: https://img.shields.io/github/commit-activity/m/lancopku/pkuseg-python.svg?label=%E6%B4%BB%E8%B7%83&style=social
+
+| 名称                  | 分词 | 词性 | 实体 | 情感 | 提炼 | 并行 | 词典 |
+| --------------------- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| jieba 结巴分词        | √    | √    | ×    | ×    | √    | √    | √    |
+| pkuseg-北大多领域分词 | √    | ×    | ×    | ×    | ×    | √    | √    |
+| FoolNLTK              | √    | √    | √    | ×    | ×    | √    | √    |
+| HanLP-汉语言处理包    | √    | √    | √    | √    | √    | ×    | √    |

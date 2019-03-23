@@ -1,0 +1,2038 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="自然语言处理文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
+    
+    
+      
+        <title>JieBa - NLP Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.572ca0f0.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.8c900955.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#jieba" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="NLP Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                NLP Docs
+              </span>
+              <span class="md-header-nav__topic">
+                JieBa
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      nlp-docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="自然语言处理" class="md-tabs__link">
+        自然语言处理
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Author/" title="Author" class="md-tabs__link">
+          Author
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Corpus/" title="Corpus" class="md-tabs__link">
+          Corpus
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="Librariy" class="md-tabs__link md-tabs__link--active">
+          Librariy
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Paper/" title="Paper" class="md-tabs__link">
+          Paper
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../awesome/" title="Awesome" class="md-tabs__link">
+          Awesome
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../sensitive-word/" title="Sensitive word" class="md-tabs__link">
+          Sensitive word
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="NLP Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    NLP Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      nlp-docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="自然语言处理" class="md-nav__link">
+      自然语言处理
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Author
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Author
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/刘焕勇/" title="刘焕勇" class="md-nav__link">
+      刘焕勇
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/张华平/" title="张华平" class="md-nav__link">
+      张华平
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/杨洋/" title="杨洋" class="md-nav__link">
+      杨洋
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/王珊/" title="王珊" class="md-nav__link">
+      王珊
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Corpus
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Corpus
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/" title="语料库" class="md-nav__link">
+      语料库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/ChineseNLPCorpus/" title="Chinese NLP Corpus" class="md-nav__link">
+      Chinese NLP Corpus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/GlobalWordNetAssociation/" title="全球 WordNet 协会" class="md-nav__link">
+      全球 WordNet 协会
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/HowNet/" title="知网" class="md-nav__link">
+      知网
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/cow/" title="Chinese Open Wordnet" class="md-nav__link">
+      Chinese Open Wordnet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/funNLP/" title="funNLP" class="md-nav__link">
+      funNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/nlp-datasets/" title="nlp-datasets" class="md-nav__link">
+      nlp-datasets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/wordnet/" title="WordNet" class="md-nav__link">
+      WordNet
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Librariy
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Librariy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="常用分词工具包" class="md-nav__link">
+      常用分词工具包
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../FoolNLTK/" title="FoolNLTK" class="md-nav__link">
+      FoolNLTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../HanLP/" title="HanLP" class="md-nav__link">
+      HanLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Jiagu/" title="Jiagu" class="md-nav__link">
+      Jiagu
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../SnowNLP/" title="SnowNLP" class="md-nav__link">
+      SnowNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../THULAC/" title="清华-THULAC" class="md-nav__link">
+      清华-THULAC
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../awesome/" title="👍🏻 表库" class="md-nav__link">
+      👍🏻 表库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../bosonnlp/" title="玻森数据" class="md-nav__link">
+      玻森数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jieba-en/" title="JieBa English Docs" class="md-nav__link">
+      JieBa English Docs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        JieBa
+      </label>
+    
+    <a href="./" title="JieBa" class="md-nav__link md-nav__link--active">
+      JieBa
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="特点" class="md-nav__link">
+    特点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="友情链接" class="md-nav__link">
+    友情链接
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="安装说明" class="md-nav__link">
+    安装说明
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="算法" class="md-nav__link">
+    算法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="主要功能" class="md-nav__link">
+    主要功能
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="载入词典" class="md-nav__link">
+    载入词典
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="调整词典" class="md-nav__link">
+    调整词典
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tf-idf" title="基于 TF-IDF 算法的关键词抽取" class="md-nav__link">
+    基于 TF-IDF 算法的关键词抽取
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#textrank" title="基于 TextRank 算法的关键词抽取" class="md-nav__link">
+    基于 TextRank 算法的关键词抽取
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="基本思想:" class="md-nav__link">
+    基本思想:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="使用示例:" class="md-nav__link">
+    使用示例:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" title="延迟加载机制" class="md-nav__link">
+    延迟加载机制
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" title="其他词典" class="md-nav__link">
+    其他词典
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" title="其他语言实现" class="md-nav__link">
+    其他语言实现
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#java" title="结巴分词 Java 版本" class="md-nav__link">
+    结巴分词 Java 版本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" title="结巴分词 C++ 版本" class="md-nav__link">
+    结巴分词 C++ 版本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nodejs" title="结巴分词 Node.js 版本" class="md-nav__link">
+    结巴分词 Node.js 版本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erlang" title="结巴分词 Erlang 版本" class="md-nav__link">
+    结巴分词 Erlang 版本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r" title="结巴分词 R 版本" class="md-nav__link">
+    结巴分词 R 版本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ios" title="结巴分词 iOS 版本" class="md-nav__link">
+    结巴分词 iOS 版本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#php" title="结巴分词 PHP 版本" class="md-nav__link">
+    结巴分词 PHP 版本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#netc" title="结巴分词 .NET(C#) 版本" class="md-nav__link">
+    结巴分词 .NET(C#) 版本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go" title="结巴分词 Go 版本" class="md-nav__link">
+    结巴分词 Go 版本
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#android" title="结巴分词 Android 版本" class="md-nav__link">
+    结巴分词 Android 版本
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" title="系统集成" class="md-nav__link">
+    系统集成
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" title="分词速度" class="md-nav__link">
+    分词速度
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" title="常见问题" class="md-nav__link">
+    常见问题
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" title="1. 模型的数据是如何生成的？" class="md-nav__link">
+    1. 模型的数据是如何生成的？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" title="2. “台中”总是被切成“台 中”？（以及类似情况）" class="md-nav__link">
+    2. “台中”总是被切成“台 中”？（以及类似情况）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" title="3. “今天天气 不错”应该被切成“今天 天气 不错”？（以及类似情况）" class="md-nav__link">
+    3. “今天天气 不错”应该被切成“今天 天气 不错”？（以及类似情况）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" title="4. 切出了词典中没有的词语，效果不理想？" class="md-nav__link">
+    4. 切出了词典中没有的词语，效果不理想？
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" title="修订历史" class="md-nav__link">
+    修订历史
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ltp/" title="哈工大-LTP" class="md-nav__link">
+      哈工大-LTP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nlpair-ictclas/" title="中科院-NLPIR" class="md-nav__link">
+      中科院-NLPIR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nltk/" title="NLTK" class="md-nav__link">
+      NLTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pkuseg/" title="北大-pkuseg" class="md-nav__link">
+      北大-pkuseg
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Paper
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Paper
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/" title="论文 || 文章" class="md-nav__link">
+      论文 || 文章
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/chinese-segmenter/" title="细说中文分词" class="md-nav__link">
+      细说中文分词
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/milestone/" title="一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑" class="md-nav__link">
+      一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Awesome
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Awesome
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/" title="awesome-nlp" class="md-nav__link">
+      awesome-nlp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/multi-language/" title="其他语言" class="md-nav__link">
+      其他语言
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/techniques/" title="技术" class="md-nav__link">
+      技术
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/tutorials/" title="教程" class="md-nav__link">
+      教程
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Sensitive word
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Sensitive word
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sensitive-word/" title="敏感词" class="md-nav__link">
+      敏感词
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="特点" class="md-nav__link">
+    特点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="友情链接" class="md-nav__link">
+    友情链接
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="安装说明" class="md-nav__link">
+    安装说明
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="算法" class="md-nav__link">
+    算法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="主要功能" class="md-nav__link">
+    主要功能
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="载入词典" class="md-nav__link">
+    载入词典
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="调整词典" class="md-nav__link">
+    调整词典
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tf-idf" title="基于 TF-IDF 算法的关键词抽取" class="md-nav__link">
+    基于 TF-IDF 算法的关键词抽取
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#textrank" title="基于 TextRank 算法的关键词抽取" class="md-nav__link">
+    基于 TextRank 算法的关键词抽取
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="基本思想:" class="md-nav__link">
+    基本思想:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="使用示例:" class="md-nav__link">
+    使用示例:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" title="延迟加载机制" class="md-nav__link">
+    延迟加载机制
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" title="其他词典" class="md-nav__link">
+    其他词典
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" title="其他语言实现" class="md-nav__link">
+    其他语言实现
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#java" title="结巴分词 Java 版本" class="md-nav__link">
+    结巴分词 Java 版本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" title="结巴分词 C++ 版本" class="md-nav__link">
+    结巴分词 C++ 版本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nodejs" title="结巴分词 Node.js 版本" class="md-nav__link">
+    结巴分词 Node.js 版本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erlang" title="结巴分词 Erlang 版本" class="md-nav__link">
+    结巴分词 Erlang 版本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r" title="结巴分词 R 版本" class="md-nav__link">
+    结巴分词 R 版本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ios" title="结巴分词 iOS 版本" class="md-nav__link">
+    结巴分词 iOS 版本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#php" title="结巴分词 PHP 版本" class="md-nav__link">
+    结巴分词 PHP 版本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#netc" title="结巴分词 .NET(C#) 版本" class="md-nav__link">
+    结巴分词 .NET(C#) 版本
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go" title="结巴分词 Go 版本" class="md-nav__link">
+    结巴分词 Go 版本
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#android" title="结巴分词 Android 版本" class="md-nav__link">
+    结巴分词 Android 版本
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" title="系统集成" class="md-nav__link">
+    系统集成
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" title="分词速度" class="md-nav__link">
+    分词速度
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" title="常见问题" class="md-nav__link">
+    常见问题
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" title="1. 模型的数据是如何生成的？" class="md-nav__link">
+    1. 模型的数据是如何生成的？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" title="2. “台中”总是被切成“台 中”？（以及类似情况）" class="md-nav__link">
+    2. “台中”总是被切成“台 中”？（以及类似情况）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" title="3. “今天天气 不错”应该被切成“今天 天气 不错”？（以及类似情况）" class="md-nav__link">
+    3. “今天天气 不错”应该被切成“今天 天气 不错”？（以及类似情况）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" title="4. 切出了词典中没有的词语，效果不理想？" class="md-nav__link">
+    4. 切出了词典中没有的词语，效果不理想？
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" title="修订历史" class="md-nav__link">
+    修订历史
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="jieba">JieBa<a class="headerlink" href="#jieba" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><a href="https://github.com/fxsjy/jieba">jieba</a>结巴分词</p>
+</blockquote>
+<p>“结巴”中文分词：做最好的 Python 中文分词组件</p>
+<p>"Jieba" (Chinese for "to stutter") Chinese text segmentation: built to be the best Python Chinese word segmentation module.</p>
+<ul>
+<li><em>Scroll down for English documentation.</em></li>
+</ul>
+<h2 id="_1">特点<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>支持三种分词模式：</p>
+<ul>
+<li>精确模式，试图将句子最精确地切开，适合文本分析；</li>
+<li>全模式，把句子中所有的可以成词的词语都扫描出来, 速度非常快，但是不能解决歧义；</li>
+<li>搜索引擎模式，在精确模式的基础上，对长词再次切分，提高召回率，适合用于搜索引擎分词。</li>
+</ul>
+</li>
+<li>
+<p>支持繁体分词</p>
+</li>
+<li>支持自定义词典</li>
+<li>MIT 授权协议</li>
+</ul>
+<h2 id="_2">友情链接<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>https://github.com/baidu/lac 百度中文词法分析（分词+词性+专名）系统</li>
+<li>https://github.com/baidu/AnyQ 百度 FAQ 自动问答系统</li>
+<li>https://github.com/baidu/Senta 百度情感识别系统</li>
+</ul>
+<h2 id="_3">安装说明<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>代码对 Python 2/3 均兼容</p>
+<ul>
+<li>全自动安装：<code>easy_install jieba</code> 或者 <code>pip install jieba</code> / <code>pip3 install jieba</code></li>
+<li>半自动安装：先下载 http://pypi.python.org/pypi/jieba/ ，解压后运行 <code>python setup.py install</code></li>
+<li>手动安装：将 jieba 目录放置于当前目录或者 site-packages 目录</li>
+<li>通过 <code>import jieba</code> 来引用</li>
+</ul>
+<h2 id="_4">算法<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>基于前缀词典实现高效的词图扫描，生成句子中汉字所有可能成词情况所构成的有向无环图 (DAG)</li>
+<li>采用了动态规划查找最大概率路径, 找出基于词频的最大切分组合</li>
+<li>对于未登录词，采用了基于汉字成词能力的 HMM 模型，使用了 Viterbi 算法</li>
+</ul>
+<h2 id="_5">主要功能<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ol>
+<li>分词<div class="codehilite"><pre><span></span>- `jieba.cut` 方法接受三个输入参数: 需要分词的字符串；cut_all 参数用来控制是否采用全模式；HMM 参数用来控制是否使用 HMM 模型
+- `jieba.cut_for_search` 方法接受两个参数：需要分词的字符串；是否使用 HMM 模型。该方法适合用于搜索引擎构建倒排索引的分词，粒度比较细
+- 待分词的字符串可以是 unicode 或 UTF-8 字符串、GBK 字符串。注意：不建议直接输入 GBK 字符串，可能无法预料地错误解码成 UTF-8
+- `jieba.cut` 以及 `jieba.cut_for_search` 返回的结构都是一个可迭代的 generator，可以使用 for 循环来获得分词后得到的每一个词语(unicode)，或者用
+- `jieba.lcut` 以及 `jieba.lcut_for_search` 直接返回 list
+- `jieba.Tokenizer(dictionary=DEFAULT_DICT)` 新建自定义分词器，可用于同时使用不同词典。`jieba.dt` 为默认分词器，所有全局分词相关函数都是该分词器的映射。
+</pre></div>
+
+
+</li>
+</ol>
+<p>代码示例</p>
+<div class="codehilite"><pre><span></span><span class="c1"># encoding=utf-8</span>
+<span class="kn">import</span> <span class="nn">jieba</span>
+
+<span class="n">seg_list</span> <span class="o">=</span> <span class="n">jieba</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="s2">&quot;我来到北京清华大学&quot;</span><span class="p">,</span> <span class="n">cut_all</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Full Mode: &quot;</span> <span class="o">+</span> <span class="s2">&quot;/ &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">seg_list</span><span class="p">))</span>  <span class="c1"># 全模式</span>
+
+<span class="n">seg_list</span> <span class="o">=</span> <span class="n">jieba</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="s2">&quot;我来到北京清华大学&quot;</span><span class="p">,</span> <span class="n">cut_all</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Default Mode: &quot;</span> <span class="o">+</span> <span class="s2">&quot;/ &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">seg_list</span><span class="p">))</span>  <span class="c1"># 精确模式</span>
+
+<span class="n">seg_list</span> <span class="o">=</span> <span class="n">jieba</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="s2">&quot;他来到了网易杭研大厦&quot;</span><span class="p">)</span>  <span class="c1"># 默认是精确模式</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">seg_list</span><span class="p">))</span>
+
+<span class="n">seg_list</span> <span class="o">=</span> <span class="n">jieba</span><span class="o">.</span><span class="n">cut_for_search</span><span class="p">(</span><span class="s2">&quot;小明硕士毕业于中国科学院计算所，后在日本京都大学深造&quot;</span><span class="p">)</span>  <span class="c1"># 搜索引擎模式</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">seg_list</span><span class="p">))</span>
+</pre></div>
+
+<p>输出:</p>
+<div class="codehilite"><pre><span></span>【全模式】: 我/ 来到/ 北京/ 清华/ 清华大学/ 华大/ 大学
+
+【精确模式】: 我/ 来到/ 北京/ 清华大学
+
+【新词识别】：他, 来到, 了, 网易, 杭研, 大厦    (此处，“杭研”并没有在词典中，但是也被Viterbi算法识别出来了)
+
+【搜索引擎模式】： 小明, 硕士, 毕业, 于, 中国, 科学, 学院, 科学院, 中国科学院, 计算, 计算所, 后, 在, 日本, 京都, 大学, 日本京都大学, 深造
+</pre></div>
+
+
+<ol>
+<li>添加自定义词典</li>
+</ol>
+<hr />
+<h3 id="_6">载入词典<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>开发者可以指定自己自定义的词典，以便包含 jieba 词库里没有的词。虽然 jieba 有新词识别能力，但是自行添加新词可以保证更高的正确率</li>
+<li>用法： jieba.load_userdict(file_name) # file_name 为文件类对象或自定义词典的路径</li>
+<li>词典格式和 <code>dict.txt</code> 一样，一个词占一行；每一行分三部分：词语、词频（可省略）、词性（可省略），用空格隔开，顺序不可颠倒。<code>file_name</code> 若为路径或二进制方式打开的文件，则文件必须为 UTF-8 编码。</li>
+<li>词频省略时使用自动计算的能保证分出该词的词频。</li>
+</ul>
+<p><strong>例如：</strong></p>
+<div class="codehilite"><pre><span></span>创新办 3 i
+云计算 5
+凱特琳 nz
+台中
+</pre></div>
+
+<ul>
+<li>
+<p>更改分词器（默认为 <code>jieba.dt</code>）的 <code>tmp_dir</code> 和 <code>cache_file</code> 属性，可分别指定缓存文件所在的文件夹及其文件名，用于受限的文件系统。</p>
+</li>
+<li>
+<p>范例：</p>
+</li>
+<li>
+<p>自定义词典：https://github.com/fxsjy/jieba/blob/master/test/userdict.txt</p>
+</li>
+<li>
+<p>用法示例：https://github.com/fxsjy/jieba/blob/master/test/test_userdict.py</p>
+<div class="codehilite"><pre><span></span>* 之前： 李小福 / 是 / 创新 / 办 / 主任 / 也 / 是 / 云 / 计算 / 方面 / 的 / 专家 /
+
+* 加载自定义词库后：　李小福 / 是 / 创新办 / 主任 / 也 / 是 / 云计算 / 方面 / 的 / 专家 /
+</pre></div>
+
+
+</li>
+</ul>
+<h3 id="_7">调整词典<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>使用 <code>add_word(word, freq=None, tag=None)</code> 和 <code>del_word(word)</code> 可在程序中动态修改词典。</li>
+<li>
+<p>使用 <code>suggest_freq(segment, tune=True)</code> 可调节单个词语的词频，使其能（或不能）被分出来。</p>
+</li>
+<li>
+<p>注意：自动计算的词频在使用 HMM 新词发现功能时可能无效。</p>
+</li>
+</ul>
+<p>代码示例：</p>
+<div class="codehilite"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">jieba</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="s1">&#39;如果放到post中将出错。&#39;</span><span class="p">,</span> <span class="n">HMM</span><span class="o">=</span><span class="bp">False</span><span class="p">)))</span>
+<span class="go">如果/放到/post/中将/出错/。</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">jieba</span><span class="o">.</span><span class="n">suggest_freq</span><span class="p">((</span><span class="s1">&#39;中&#39;</span><span class="p">,</span> <span class="s1">&#39;将&#39;</span><span class="p">),</span> <span class="bp">True</span><span class="p">)</span>
+<span class="go">494</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">jieba</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="s1">&#39;如果放到post中将出错。&#39;</span><span class="p">,</span> <span class="n">HMM</span><span class="o">=</span><span class="bp">False</span><span class="p">)))</span>
+<span class="go">如果/放到/post/中/将/出错/。</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">jieba</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="s1">&#39;「台中」正确应该不会被切开&#39;</span><span class="p">,</span> <span class="n">HMM</span><span class="o">=</span><span class="bp">False</span><span class="p">)))</span>
+<span class="go">「/台/中/」/正确/应该/不会/被/切开</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">jieba</span><span class="o">.</span><span class="n">suggest_freq</span><span class="p">(</span><span class="s1">&#39;台中&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+<span class="go">69</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">jieba</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="s1">&#39;「台中」正确应该不会被切开&#39;</span><span class="p">,</span> <span class="n">HMM</span><span class="o">=</span><span class="bp">False</span><span class="p">)))</span>
+<span class="go">「/台中/」/正确/应该/不会/被/切开</span>
+</pre></div>
+
+<ul>
+<li>
+<p>"通过用户自定义词典来增强歧义纠错能力" --- https://github.com/fxsjy/jieba/issues/14</p>
+</li>
+<li>
+<p>关键词提取</p>
+</li>
+</ul>
+<hr />
+<h3 id="tf-idf">基于 TF-IDF 算法的关键词抽取<a class="headerlink" href="#tf-idf" title="Permanent link">&para;</a></h3>
+<p><code>import jieba.analyse</code></p>
+<ul>
+<li>jieba.analyse.extract_tags(sentence, topK=20, withWeight=False, allowPOS=())</li>
+<li>sentence 为待提取的文本</li>
+<li>topK 为返回几个 TF/IDF 权重最大的关键词，默认值为 20</li>
+<li>withWeight 为是否一并返回关键词权重值，默认值为 False</li>
+<li>allowPOS 仅包括指定词性的词，默认值为空，即不筛选</li>
+<li>jieba.analyse.TFIDF(idf_path=None) 新建 TFIDF 实例，idf_path 为 IDF 频率文件</li>
+</ul>
+<p>代码示例 （关键词提取）</p>
+<p>https://github.com/fxsjy/jieba/blob/master/test/extract_tags.py</p>
+<p>关键词提取所使用逆向文件频率（IDF）文本语料库可以切换成自定义语料库的路径</p>
+<ul>
+<li>用法： jieba.analyse.set_idf_path(file_name) # file_name 为自定义语料库的路径</li>
+<li>自定义语料库示例：https://github.com/fxsjy/jieba/blob/master/extra_dict/idf.txt.big</li>
+<li>用法示例：https://github.com/fxsjy/jieba/blob/master/test/extract_tags_idfpath.py</li>
+</ul>
+<p>关键词提取所使用停止词（Stop Words）文本语料库可以切换成自定义语料库的路径</p>
+<ul>
+<li>用法： jieba.analyse.set_stop_words(file_name) # file_name 为自定义语料库的路径</li>
+<li>自定义语料库示例：https://github.com/fxsjy/jieba/blob/master/extra_dict/stop_words.txt</li>
+<li>用法示例：https://github.com/fxsjy/jieba/blob/master/test/extract_tags_stop_words.py</li>
+</ul>
+<p>关键词一并返回关键词权重值示例</p>
+<ul>
+<li>用法示例：https://github.com/fxsjy/jieba/blob/master/test/extract_tags_with_weight.py</li>
+</ul>
+<h3 id="textrank">基于 TextRank 算法的关键词抽取<a class="headerlink" href="#textrank" title="Permanent link">&para;</a></h3>
+<ul>
+<li>jieba.analyse.textrank(sentence, topK=20, withWeight=False, allowPOS=('ns', 'n', 'vn', 'v')) 直接使用，接口相同，注意默认过滤词性。</li>
+<li>jieba.analyse.TextRank() 新建自定义 TextRank 实例</li>
+</ul>
+<p>算法论文： <a href="http://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf">TextRank: Bringing Order into Texts</a></p>
+<h4 id="_8">基本思想:<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<ol>
+<li>将待抽取关键词的文本进行分词</li>
+<li>以固定窗口大小(默认为 5，通过 span 属性调整)，词之间的共现关系，构建图</li>
+<li>计算图中节点的 PageRank，注意是无向带权图</li>
+</ol>
+<h4 id="_9">使用示例:<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p>见 <a href="https://github.com/fxsjy/jieba/blob/master/test/demo.py">test/demo.py</a></p>
+<ol>
+<li>词性标注</li>
+</ol>
+<hr />
+<ul>
+<li><code>jieba.posseg.POSTokenizer(tokenizer=None)</code> 新建自定义分词器，<code>tokenizer</code> 参数可指定内部使用的 <code>jieba.Tokenizer</code> 分词器。<code>jieba.posseg.dt</code> 为默认词性标注分词器。</li>
+<li>标注句子分词后每个词的词性，采用和 ictclas 兼容的标记法。</li>
+<li>用法示例</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">jieba.posseg</span> <span class="kn">as</span> <span class="nn">pseg</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">words</span> <span class="o">=</span> <span class="n">pseg</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="s2">&quot;我爱北京天安门&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">flag</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+<span class="gp">... </span>   <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">flag</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="go">我 r</span>
+<span class="go">爱 v</span>
+<span class="go">北京 ns</span>
+<span class="go">天安门 ns</span>
+</pre></div>
+
+<ol>
+<li>并行分词</li>
+</ol>
+<hr />
+<ul>
+<li>原理：将目标文本按行分隔后，把各行文本分配到多个 Python 进程并行分词，然后归并结果，从而获得分词速度的可观提升</li>
+<li>基于 python 自带的 multiprocessing 模块，目前暂不支持 Windows</li>
+<li>
+<p>用法：</p>
+</li>
+<li>
+<p><code>jieba.enable_parallel(4)</code> # 开启并行分词模式，参数为并行进程数</p>
+</li>
+<li>
+<p><code>jieba.disable_parallel()</code> # 关闭并行分词模式</p>
+</li>
+<li>
+<p>例子：https://github.com/fxsjy/jieba/blob/master/test/parallel/test_file.py</p>
+</li>
+<li>
+<p>实验结果：在 4 核 3.4GHz Linux 机器上，对金庸全集进行精确分词，获得了 1MB/s 的速度，是单进程版的 3.3 倍。</p>
+</li>
+<li>
+<p><strong>注意</strong>：并行分词仅支持默认分词器 <code>jieba.dt</code> 和 <code>jieba.posseg.dt</code>。</p>
+</li>
+<li>
+<p>Tokenize：返回词语在原文的起止位置</p>
+</li>
+</ul>
+<hr />
+<ul>
+<li>注意，输入参数只接受 unicode</li>
+<li>默认模式</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">jieba</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;永和服装饰品有限公司&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">tk</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;word </span><span class="si">%s</span><span class="se">\t\t</span><span class="s2"> start: </span><span class="si">%d</span><span class="s2"> </span><span class="se">\t\t</span><span class="s2"> end:</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">tk</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">tk</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">tk</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span>word 永和                start: 0                end:2
+word 服装                start: 2                end:4
+word 饰品                start: 4                end:6
+word 有限公司            start: 6                end:10
+</pre></div>
+
+<ul>
+<li>搜索模式</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">jieba</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;永和服装饰品有限公司&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;search&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">tk</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;word </span><span class="si">%s</span><span class="se">\t\t</span><span class="s2"> start: </span><span class="si">%d</span><span class="s2"> </span><span class="se">\t\t</span><span class="s2"> end:</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">tk</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">tk</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">tk</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span>word 永和                start: 0                end:2
+word 服装                start: 2                end:4
+word 饰品                start: 4                end:6
+word 有限                start: 6                end:8
+word 公司                start: 8                end:10
+word 有限公司            start: 6                end:10
+</pre></div>
+
+<ol>
+<li>ChineseAnalyzer for Whoosh 搜索引擎</li>
+</ol>
+<hr />
+<ul>
+<li>引用： <code>from jieba.analyse import ChineseAnalyzer</code></li>
+<li>
+<p>用法示例：https://github.com/fxsjy/jieba/blob/master/test/test_whoosh.py</p>
+</li>
+<li>
+<p>命令行分词</p>
+</li>
+</ul>
+<hr />
+<p>使用示例：<code>python -m jieba news.txt &gt; cut_result.txt</code></p>
+<p>命令行选项（翻译）：</p>
+<div class="codehilite"><pre><span></span><span class="err">使用</span><span class="o">:</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">jieba</span> <span class="o">[</span><span class="n">options</span><span class="o">]</span> <span class="n">filename</span>
+
+<span class="err">结巴命令行界面。</span>
+
+<span class="err">固定参数</span><span class="o">:</span>
+  <span class="n">filename</span>              <span class="err">输入文件</span>
+
+<span class="err">可选参数</span><span class="o">:</span>
+  <span class="o">-</span><span class="n">h</span><span class="o">,</span> <span class="o">--</span><span class="n">help</span>            <span class="err">显示此帮助信息并退出</span>
+  <span class="o">-</span><span class="n">d</span> <span class="o">[</span><span class="n">DELIM</span><span class="o">],</span> <span class="o">--</span><span class="n">delimiter</span> <span class="o">[</span><span class="n">DELIM</span><span class="o">]</span>
+                        <span class="err">使用</span> <span class="n">DELIM</span> <span class="err">分隔词语，而不是用默认的</span><span class="s1">&#39; / &#39;</span><span class="err">。</span>
+                        <span class="err">若不指定</span> <span class="n">DELIM</span><span class="err">，则使用一个空格分隔。</span>
+  <span class="o">-</span><span class="n">p</span> <span class="o">[</span><span class="n">DELIM</span><span class="o">],</span> <span class="o">--</span><span class="n">pos</span> <span class="o">[</span><span class="n">DELIM</span><span class="o">]</span>
+                        <span class="err">启用词性标注；如果指定</span> <span class="n">DELIM</span><span class="err">，词语和词性之间</span>
+                        <span class="err">用它分隔，否则用</span> <span class="n">_</span> <span class="err">分隔</span>
+  <span class="o">-</span><span class="n">D</span> <span class="n">DICT</span><span class="o">,</span> <span class="o">--</span><span class="n">dict</span> <span class="n">DICT</span>  <span class="err">使用</span> <span class="n">DICT</span> <span class="err">代替默认词典</span>
+  <span class="o">-</span><span class="n">u</span> <span class="n">USER_DICT</span><span class="o">,</span> <span class="o">--</span><span class="n">user</span><span class="o">-</span><span class="n">dict</span> <span class="n">USER_DICT</span>
+                        <span class="err">使用</span> <span class="n">USER_DICT</span> <span class="err">作为附加词典，与默认词典或自定义词典配合使用</span>
+  <span class="o">-</span><span class="n">a</span><span class="o">,</span> <span class="o">--</span><span class="n">cut</span><span class="o">-</span><span class="n">all</span>         <span class="err">全模式分词（不支持词性标注）</span>
+  <span class="o">-</span><span class="n">n</span><span class="o">,</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">hmm</span>          <span class="err">不使用隐含马尔可夫模型</span>
+  <span class="o">-</span><span class="n">q</span><span class="o">,</span> <span class="o">--</span><span class="n">quiet</span>           <span class="err">不输出载入信息到</span> <span class="n">STDERR</span>
+  <span class="o">-</span><span class="n">V</span><span class="o">,</span> <span class="o">--</span><span class="n">version</span>         <span class="err">显示版本信息并退出</span>
+
+<span class="err">如果没有指定文件名，则使用标准输入。</span>
+</pre></div>
+
+
+<p><code>--help</code> 选项输出：</p>
+<div class="codehilite"><pre><span></span>$&amp;gt; python -m jieba --help
+Jieba command line interface.
+
+positional arguments:
+  filename              input file
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -d [DELIM], --delimiter [DELIM]
+                        use DELIM instead of &#39; / &#39; for word delimiter; or a
+                        space if it is used without DELIM
+  -p [DELIM], --pos [DELIM]
+                        enable POS tagging; if DELIM is specified, use DELIM
+                        instead of &#39;_&#39; for POS delimiter
+  -D DICT, --dict DICT  use DICT as dictionary
+  -u USER_DICT, --user-dict USER_DICT
+                        use USER_DICT together with the default dictionary or
+                        DICT (if specified)
+  -a, --cut-all         full pattern cutting (ignored with POS tagging)
+  -n, --no-hmm          don&#39;t use the Hidden Markov Model
+  -q, --quiet           don&#39;t print loading messages to stderr
+  -V, --version         show program&#39;s version number and exit
+
+If no filename specified, use STDIN instead.
+</pre></div>
+
+
+<h2 id="_10">延迟加载机制<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>jieba 采用延迟加载，<code>import jieba</code> 和 <code>jieba.Tokenizer()</code> 不会立即触发词典的加载，一旦有必要才开始加载词典构建前缀字典。如果你想手工初始 jieba，也可以手动初始化。</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">jieba</span>
+<span class="n">jieba</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>  <span class="c1"># 手动初始化（可选）</span>
+</pre></div>
+
+
+<p>在 0.28 之前的版本是不能指定主词典的路径的，有了延迟加载机制后，你可以改变主词典的路径:</p>
+<div class="codehilite"><pre><span></span>jieba.set_dictionary(&#39;data/dict.txt.big&#39;)
+</pre></div>
+
+
+<p>例子： https://github.com/fxsjy/jieba/blob/master/test/test_change_dictpath.py</p>
+<h2 id="_11">其他词典<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>占用内存较小的词典文件
+   https://github.com/fxsjy/jieba/raw/master/extra_dict/dict.txt.small</p>
+</li>
+<li>
+<p>支持繁体分词更好的词典文件
+   https://github.com/fxsjy/jieba/raw/master/extra_dict/dict.txt.big</p>
+</li>
+</ol>
+<p>下载你所需要的词典，然后覆盖 jieba/dict.txt 即可；或者用 <code>jieba.set_dictionary('data/dict.txt.big')</code></p>
+<h2 id="_12">其他语言实现<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<h3 id="java">结巴分词 Java 版本<a class="headerlink" href="#java" title="Permanent link">&para;</a></h3>
+<p>作者：piaolingxue
+地址：https://github.com/huaban/jieba-analysis</p>
+<h3 id="c">结巴分词 C++ 版本<a class="headerlink" href="#c" title="Permanent link">&para;</a></h3>
+<p>作者：yanyiwu
+地址：https://github.com/yanyiwu/cppjieba</p>
+<h3 id="nodejs">结巴分词 Node.js 版本<a class="headerlink" href="#nodejs" title="Permanent link">&para;</a></h3>
+<p>作者：yanyiwu
+地址：https://github.com/yanyiwu/nodejieba</p>
+<h3 id="erlang">结巴分词 Erlang 版本<a class="headerlink" href="#erlang" title="Permanent link">&para;</a></h3>
+<p>作者：falood
+地址：https://github.com/falood/exjieba</p>
+<h3 id="r">结巴分词 R 版本<a class="headerlink" href="#r" title="Permanent link">&para;</a></h3>
+<p>作者：qinwf
+地址：https://github.com/qinwf/jiebaR</p>
+<h3 id="ios">结巴分词 iOS 版本<a class="headerlink" href="#ios" title="Permanent link">&para;</a></h3>
+<p>作者：yanyiwu
+地址：https://github.com/yanyiwu/iosjieba</p>
+<h3 id="php">结巴分词 PHP 版本<a class="headerlink" href="#php" title="Permanent link">&para;</a></h3>
+<p>作者：fukuball
+地址：https://github.com/fukuball/jieba-php</p>
+<h3 id="netc">结巴分词 .NET(C#) 版本<a class="headerlink" href="#netc" title="Permanent link">&para;</a></h3>
+<p>作者：anderscui
+地址：https://github.com/anderscui/jieba.NET/</p>
+<h3 id="go">结巴分词 Go 版本<a class="headerlink" href="#go" title="Permanent link">&para;</a></h3>
+<ul>
+<li>作者: wangbin 地址: https://github.com/wangbin/jiebago</li>
+<li>作者: yanyiwu 地址: https://github.com/yanyiwu/gojieba</li>
+</ul>
+<h2 id="android">结巴分词 Android 版本<a class="headerlink" href="#android" title="Permanent link">&para;</a></h2>
+<ul>
+<li>作者 Dongliang.W 地址：https://github.com/452896915/jieba-android</li>
+</ul>
+<h2 id="_13">系统集成<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Solr: https://github.com/sing1ee/jieba-solr</li>
+</ol>
+<h2 id="_14">分词速度<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<ul>
+<li>1.5 MB / Second in Full Mode</li>
+<li>400 KB / Second in Default Mode</li>
+<li>测试环境: Intel(R) Core(TM) i7-2600 CPU @ 3.4GHz；《围城》.txt</li>
+</ul>
+<h2 id="_15">常见问题<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 模型的数据是如何生成的？<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>详见： https://github.com/fxsjy/jieba/issues/7</p>
+<h3 id="2">2. “台中”总是被切成“台 中”？（以及类似情况）<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>P(台中) ＜ P(台)×P(中)，“台中”词频不够导致其成词概率较低</p>
+<p>解决方法：强制调高词频</p>
+<p><code>jieba.add_word('台中')</code> 或者 <code>jieba.suggest_freq('台中', True)</code></p>
+<h3 id="3">3. “今天天气 不错”应该被切成“今天 天气 不错”？（以及类似情况）<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>解决方法：强制调低词频</p>
+<p><code>jieba.suggest_freq(('今天', '天气'), True)</code></p>
+<p>或者直接删除该词 <code>jieba.del_word('今天天气')</code></p>
+<h3 id="4">4. 切出了词典中没有的词语，效果不理想？<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>解决方法：关闭新词发现</p>
+<p><code>jieba.cut('丰田太省了', HMM=False)</code>
+<code>jieba.cut('我们中出了一个叛徒', HMM=False)</code></p>
+<p><strong>更多问题请点击</strong>：https://github.com/fxsjy/jieba/issues?sort=updated&amp;state=closed</p>
+<h2 id="_16">修订历史<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<p>https://github.com/fxsjy/jieba/blob/master/Changelog</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../jieba-en/" title="JieBa English Docs" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                JieBa English Docs
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../ltp/" title="哈工大-LTP" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                哈工大-LTP
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            @2018 nlp-docs.github.io
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.b41f3d20.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

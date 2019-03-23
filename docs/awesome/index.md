@@ -8,8 +8,6 @@
 
 **Maintainers** - [Keon](https://github.com/keon), [Martin](https://github.com/outpark), [Nirant](https://github.com/NirantK), [Dhruv](https://github.com/the-ethan-hunt)
 
-_Please read the [contribution guidelines](contributing.md) before contributing. Please feel free to create [pull requests](https://github.com/keonkim/awesome-nlp/pulls)._
-
 ## 内容
 
 - [Research Summaries and Trends](#research-summaries-and-trends)
@@ -59,5 +57,3 @@ _Please read the [contribution guidelines](contributing.md) before contributing.
 - [EMNLP 2017 的亮点: 令人兴奋的数据集，群集的返回等等！](http://blog.aylien.com/highlights-emnlp-2017-exciting-datasets-return-clusters/)
 - [自然语言处理的深度学习 (NLP): 进步与趋势](https://tryolabs.com/blog/2017/12/12/deep-learning-for-nlp-advancements-and-trends-in-2017/?utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=The%20Wild%20Week%20in%20AI)
 - [自然语言生成的现状调查](https://arxiv.org/abs/1703.09902)
-
-初始策展人和来源的[积分](./CREDITS.md)

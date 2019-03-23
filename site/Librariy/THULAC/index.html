@@ -1,0 +1,1525 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="自然语言处理文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
+    
+    
+      
+        <title>清华-THULAC - NLP Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.572ca0f0.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.8c900955.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#-thulac" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="NLP Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                NLP Docs
+              </span>
+              <span class="md-header-nav__topic">
+                清华-THULAC
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      nlp-docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="自然语言处理" class="md-tabs__link">
+        自然语言处理
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Author/" title="Author" class="md-tabs__link">
+          Author
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Corpus/" title="Corpus" class="md-tabs__link">
+          Corpus
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="Librariy" class="md-tabs__link md-tabs__link--active">
+          Librariy
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Paper/" title="Paper" class="md-tabs__link">
+          Paper
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../awesome/" title="Awesome" class="md-tabs__link">
+          Awesome
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../sensitive-word/" title="Sensitive word" class="md-tabs__link">
+          Sensitive word
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="NLP Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    NLP Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      nlp-docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="自然语言处理" class="md-nav__link">
+      自然语言处理
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Author
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Author
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/刘焕勇/" title="刘焕勇" class="md-nav__link">
+      刘焕勇
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/张华平/" title="张华平" class="md-nav__link">
+      张华平
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/杨洋/" title="杨洋" class="md-nav__link">
+      杨洋
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/王珊/" title="王珊" class="md-nav__link">
+      王珊
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Corpus
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Corpus
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/" title="语料库" class="md-nav__link">
+      语料库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/ChineseNLPCorpus/" title="Chinese NLP Corpus" class="md-nav__link">
+      Chinese NLP Corpus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/GlobalWordNetAssociation/" title="全球 WordNet 协会" class="md-nav__link">
+      全球 WordNet 协会
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/HowNet/" title="知网" class="md-nav__link">
+      知网
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/cow/" title="Chinese Open Wordnet" class="md-nav__link">
+      Chinese Open Wordnet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/funNLP/" title="funNLP" class="md-nav__link">
+      funNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/nlp-datasets/" title="nlp-datasets" class="md-nav__link">
+      nlp-datasets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/wordnet/" title="WordNet" class="md-nav__link">
+      WordNet
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Librariy
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Librariy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="常用分词工具包" class="md-nav__link">
+      常用分词工具包
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../FoolNLTK/" title="FoolNLTK" class="md-nav__link">
+      FoolNLTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../HanLP/" title="HanLP" class="md-nav__link">
+      HanLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Jiagu/" title="Jiagu" class="md-nav__link">
+      Jiagu
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../SnowNLP/" title="SnowNLP" class="md-nav__link">
+      SnowNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        清华-THULAC
+      </label>
+    
+    <a href="./" title="清华-THULAC" class="md-nav__link md-nav__link--active">
+      清华-THULAC
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="软件简介" class="md-nav__link">
+    软件简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="在线演示" class="md-nav__link">
+    在线演示
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="编译和安装" class="md-nav__link">
+    编译和安装
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="使用方式" class="md-nav__link">
+    使用方式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="与代表性分词软件的性能对比" class="md-nav__link">
+    与代表性分词软件的性能对比
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="词性标记集" class="md-nav__link">
+    词性标记集
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thulac" title="THULAC 的不同配置" class="md-nav__link">
+    THULAC 的不同配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="获取链接" class="md-nav__link">
+    获取链接
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="注意事项" class="md-nav__link">
+    注意事项
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" title="历史" class="md-nav__link">
+    历史
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" title="开源协议" class="md-nav__link">
+    开源协议
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" title="相关论文" class="md-nav__link">
+    相关论文
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" title="常见问题" class="md-nav__link">
+    常见问题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" title="致谢" class="md-nav__link">
+    致谢
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../awesome/" title="👍🏻 表库" class="md-nav__link">
+      👍🏻 表库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../bosonnlp/" title="玻森数据" class="md-nav__link">
+      玻森数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jieba-en/" title="JieBa English Docs" class="md-nav__link">
+      JieBa English Docs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jieba/" title="JieBa" class="md-nav__link">
+      JieBa
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ltp/" title="哈工大-LTP" class="md-nav__link">
+      哈工大-LTP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nlpair-ictclas/" title="中科院-NLPIR" class="md-nav__link">
+      中科院-NLPIR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nltk/" title="NLTK" class="md-nav__link">
+      NLTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pkuseg/" title="北大-pkuseg" class="md-nav__link">
+      北大-pkuseg
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Paper
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Paper
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/" title="论文 || 文章" class="md-nav__link">
+      论文 || 文章
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/chinese-segmenter/" title="细说中文分词" class="md-nav__link">
+      细说中文分词
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/milestone/" title="一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑" class="md-nav__link">
+      一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Awesome
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Awesome
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/" title="awesome-nlp" class="md-nav__link">
+      awesome-nlp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/multi-language/" title="其他语言" class="md-nav__link">
+      其他语言
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/techniques/" title="技术" class="md-nav__link">
+      技术
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/tutorials/" title="教程" class="md-nav__link">
+      教程
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Sensitive word
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Sensitive word
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sensitive-word/" title="敏感词" class="md-nav__link">
+      敏感词
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="软件简介" class="md-nav__link">
+    软件简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="在线演示" class="md-nav__link">
+    在线演示
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="编译和安装" class="md-nav__link">
+    编译和安装
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="使用方式" class="md-nav__link">
+    使用方式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="与代表性分词软件的性能对比" class="md-nav__link">
+    与代表性分词软件的性能对比
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="词性标记集" class="md-nav__link">
+    词性标记集
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thulac" title="THULAC 的不同配置" class="md-nav__link">
+    THULAC 的不同配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="获取链接" class="md-nav__link">
+    获取链接
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="注意事项" class="md-nav__link">
+    注意事项
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" title="历史" class="md-nav__link">
+    历史
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" title="开源协议" class="md-nav__link">
+    开源协议
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" title="相关论文" class="md-nav__link">
+    相关论文
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" title="常见问题" class="md-nav__link">
+    常见问题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" title="致谢" class="md-nav__link">
+    致谢
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="-thulac">清华-THULAC<a class="headerlink" href="#-thulac" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><a href="https://github.com/thunlp/THULAC-Python">THULAC</a>一个高效的中文词法分析工具包</p>
+</blockquote>
+<p>目录</p>
+<ul>
+<li>软件简介</li>
+<li>在线演示</li>
+<li>编译和安装</li>
+<li>使用方式</li>
+<li>与代表性分词软件的性能对比</li>
+<li>词性标记集</li>
+<li>THULAC 的不同配置</li>
+<li>获取链接</li>
+<li>注意事项</li>
+<li>历史</li>
+<li>开源协议</li>
+<li>相关论文</li>
+<li>作者</li>
+<li>常见问题</li>
+<li>致谢</li>
+</ul>
+<h2 id="_1">软件简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>THULAC（THU Lexical Analyzer for Chinese）由清华大学自然语言处理与社会人文计算实验室研制推出的一套中文词法分析工具包，具有中文分词和词性标注功能。THULAC 具有如下几个特点：</p>
+<p>能力强。利用我们集成的目前世界上规模最大的人工分词和词性标注中文语料库（约含 5800 万字）训练而成，模型标注能力强大。</p>
+<p>准确率高。该工具包在标准数据集 Chinese Treebank（CTB5）上分词的 F1 值可达 97.3％，词性标注的 F1 值可达到 92.9％，与该数据集上最好方法效果相当。</p>
+<p>速度较快。同时进行分词和词性标注速度为 300KB/s，每秒可处理约 15 万字。只进行分词速度可达到 1.3MB/s。</p>
+<h2 id="_2">在线演示<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>THULAC 在线演示平台 thulac.thunlp.org/demo</p>
+<h2 id="_3">编译和安装<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>C++版</p>
+<p>在当前路径下运行
+make
+会在当前目录下得到 thulac 和 train_c
+（thulac 需要模型的支持，需要将下载的模型放到当前目录下）
+java 版</p>
+<p>可直接按照分词程序命令格式运行可执行的 jar 包
+自行编译需要安装 Gradle, 然后在项目根目录执行 gradle build, 生成文件在 build/libs 下
+（thulac 需要模型的支持，需要将下载的模型放到当前目录下）
+python 版（兼容 python2.x 和 python3.x）</p>
+<p>源代码下载</p>
+<p>将 thulac 文件放到目录下，通过 import thulac 来引用
+thulac 需要模型的支持，需要将下载的模型放到 thulac 目录下。
+pip 下载</p>
+<p>sudo pip install thulac
+通过 import thulac 来引用</p>
+<h2 id="_4">使用方式<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>1.分词和词性标注程序
+1.1.命令格式
+C++版(接口调用参见 1.5)</p>
+<p>./thulac [-t2s][-seg_only] [-deli delimeter][-user userword.txt] 从命令行输入输出
+./thulac [-t2s][-seg_only] [-deli delimeter][-user userword.txt] outputfile 利用重定向从文本文件输入输出（注意均为 UTF8 文本）
+java 版</p>
+<p>java -jar THULAC_lite_java_run.jar [-t2s][-seg_only] [-deli delimeter][-user userword.txt] 从命令行输入输出
+java -jar THULAC_lite_java_run.jar [-t2s][-seg_only] [-deli delimeter][-user userword.txt] -input input_file -output output_file 从文本文件输入输出（注意均为 UTF8 文本）
+python 版（兼容 python2.x 和 python3.x）</p>
+<p>通过 python 程序 import thulac，新建 thulac.thulac(args)类，其中 args 为程序的参数。之后可以通过调用 thulac.cut()进行单句分词。</p>
+<p>具体接口参数可查看 python 版接口参数
+代码示例</p>
+<p>代码示例 1
+import thulac</p>
+<p>thu1 = thulac.thulac() #默认模式
+text = thu1.cut("我爱北京天安门", text=True) #进行一句话分词
+print(text)
+代码示例 2
+thu1 = thulac.thulac(seg<em>only=True) #只进行分词，不进行词性标注
+thu1.cut_f("input.txt", "output.txt") #对 input.txt 文件内容进行分词，输出到 output.txt
+1.2.通用参数（C++版、Java 版）
+-t2s 将句子从繁体转化为简体
+-seg_only 只进行分词，不进行词性标注
+-deli delimeter 设置词与词性间的分隔符，默认为下划线</em>
+-filter 使用过滤器去除一些没有意义的词语，例如“可以”。
+-user userword.txt 设置用户词典，用户词典中的词会被打上 uw 标签。词典中每一个词一行，UTF8 编码(python 版暂无)
+-model_dir dir 设置模型文件所在文件夹，默认为 models/
+1.3.Java 版特有的参数
+-input input_file 设置从文件读入，默认为命令行输入
+-output output_file 设置输出到文件中，默认为命令行输出
+1.4.python 版接口参数
+thulac(user_dict=None, model_path=None, T2S=False, seg_only=False, filt=False)初始化程序，进行自定义设置</p>
+<p>user_dict 设置用户词典，用户词典中的词会被打上 uw 标签。词典中每一个词一行，UTF8 编码
+T2S 默认 False, 是否将句子从繁体转化为简体
+seg_only 默认 False, 时候只进行分词，不进行词性标注
+filt 默认 False, 是否使用过滤器去除一些没有意义的词语，例如“可以”。
+model_path 设置模型文件所在文件夹，默认为 models/
+cut(文本, text=False) 对一句话进行分词</p>
+<p>text 默认为 False, 是否返回文本，不返回文本则返回一个二维数组([[word, tag]..]),tag_only 模式下 tag 为空字符。
+cut_f(输入文件, 输出文件) 对文件进行分词</p>
+<p>run() 命令行交互式分词(屏幕输入、屏幕输出)</p>
+<p>1.5.C++版接口参数(需 include "include/thulac.h")
+首先需要实例化 THULAC 类，然后可以调用以下接口：</p>
+<p>int init(const char<em> model_path = NULL, const char</em> user<em>path = NULL, int just_seg = 0, int t2s = 0, int ufilter = 0, char separator = '</em>');
+初始化程序，进行自定义设置
+user<em>path 设置用户词典，用户词典中的词会被打上 uw 标签。词典中每一个词一行，UTF8 编码
+t2s 默认 False, 是否将句子从繁体转化为简体
+just_seg 默认 False, 时候只进行分词，不进行词性标注
+ufilter 默认 False, 是否使用过滤器去除一些没有意义的词语，例如“可以”。
+model_path 设置模型文件所在文件夹，默认为 models/
+separator 默认为‘</em>’, 设置词与词性之间的分隔符
+1.5.分词和词性标注模型的使用
+THULAC 需要分词和词性标注模型的支持，用户可以在下载列表中下载 THULAC 模型 Models_v1.zip，并放到 THULAC 的根目录即可，或者使用参数-model_dir dir 指定模型的位置。</p>
+<p>2.模型训练程序
+THULAC 工具包提供模型训练程序 train_c，用户可以使用 train_c 训练获得 THULAC 的所需的模型。</p>
+<p>2.1.命令格式
+./train_c [-s separator][-b bigram_threshold] [-i iteration] training_filename model_filename
+使用 training_filename 为训练集，训练出来的模型名字为 model_filename
+2.2.参数意义
+-s 设置词与词性间的分隔符，默认为斜线/
+-b 设置二字串的阈值，默认为 1
+-i 设置训练迭代的轮数，默认为 15
+2.3.训练集格式
+我们使用默认的分隔符（斜线/）作为例子，训练集内容应为</p>
+<div class="codehilite"><pre><span></span>我/r 爱/vm 北京/ns 天安门/ns
+</pre></div>
+
+
+<p>类似的已经进行词性标注的句子。</p>
+<p>若要训练出只分词的模型，使用默认的分隔符（斜线/）作为例子，训练集内容应为</p>
+<div class="codehilite"><pre><span></span>我/ 爱/ 北京/ 天安门/
+</pre></div>
+
+
+<p>类似的句子。</p>
+<p>2.4.使用训练出的模型</p>
+<p>将训练出来的模型覆盖原来 models 中的对应模型，之后执行分词程序即可使用训练出来的模型。</p>
+<h2 id="_5">与代表性分词软件的性能对比<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>我们选择 LTP-3.2.0 、ICTCLAS(2015 版) 、jieba(C++版)等国内具代表性的分词软件与 THULAC 做性能比较。我们选择 Windows 作为测试环境，根据第二届国际汉语分词测评（The Second International Chinese Word Segmentation Bakeoff)发布的国际中文分词测评标准，对不同软件进行了速度和准确率测试。</p>
+<p>在第二届国际汉语分词测评中，共有四家单位提供的测试语料（Academia Sinica、 City University 、Peking University 、Microsoft Research）, 在评测提供的资源 icwb2-data 中包含了来自这四家单位的训练集（training）、测试集（testing）, 以及根据各自分词标准而提供的相应测试集的标准答案（icwb2-data/scripts/gold）．在 icwb2-data/scripts 目录下含有对分词进行自动评分的 perl 脚本 score。</p>
+<p>我们在统一测试环境下，对上述流行分词软件和 THULAC 进行了测试，使用的模型为各分词软件自带模型。THULAC 使用的是随软件提供的简单模型 Model_1。评测环境为 Intel Core i5 2.4 GHz 评测结果如下：</p>
+<p>msr_test（560KB）</p>
+<p>Algorithm Time Precision Recall F-Measure
+LTP-3.2.0 3.21s 0.867 0.896 0.881
+ICTCLAS(2015 版) 0.55s 0.869 0.914 0.891
+jieba(C++版) 0.26s 0.814 0.809 0.811
+THULAC_lite 0.62s 0.877 0.899 0.888
+pku_test（510KB）</p>
+<p>Algorithm Time Precision Recall F-Measure
+LTP-3.2.0 3.83s 0.960 0.947 0.953
+ICTCLAS(2015 版) 0.53s 0.939 0.944 0.941
+jieba(C++版) 0.23s 0.850 0.784 0.816
+THULAC_lite 0.51s 0.944 0.908 0.926</p>
+<p>除了以上在标准测试集上的评测，我们也对各个分词工具在大数据上的速度进行了评测，结果如下：</p>
+<p>CNKI_journal.txt（51 MB）</p>
+<p>Algorithm Time Speed
+LTP-3.2.0 348.624s 149.80KB/s
+ICTCLAS(2015 版) 106.461s 490.59KB/s
+jieba(C++版) 22.558s 2314.89KB/s
+THULAC_lite 42.625s 1221.05KB/s</p>
+<h2 id="_6">词性标记集<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>通用标记集（适用于所有版本）</p>
+<ul>
+<li>n/名词 np/人名 ns/地名 ni/机构名 nz/其它专名</li>
+<li>m/数词 q/量词 mq/数量词 t/时间词 f/方位词 s/处所词</li>
+<li>v/动词 a/形容词 d/副词 h/前接成分 k/后接成分 i/习语</li>
+<li>j/简称 r/代词 c/连词 p/介词 u/助词 y/语气助词</li>
+<li>e/叹词 o/拟声词 g/语素 w/标点 x/其它</li>
+</ul>
+<p>特殊标记集（适用于 lite_v1_2 版）
+为了方便在分词和词性标注后的过滤，在 v1_2 版本，我们增加了两种词性，如果需要可以下载使用。
+vm/能愿动词 vd/趋向动词</p>
+<h2 id="thulac">THULAC 的不同配置<a class="headerlink" href="#thulac" title="Permanent link">&para;</a></h2>
+<p>我们随 THULAC 源代码附带了简单的分词模型 Model_1，仅支持分词功能。该模型由人民日报分词语料库训练得到。</p>
+<p>我们随 THULAC 源代码附带了分词和词性标注联合模型 Model_2，支持同时分词和词性标注功能。该模型由人民日报分词和词性标注语料库训练得到。</p>
+<p>我们还提供更复杂、完善和精确的分词和词性标注联合模型 Model_3 和分词词表。该模型是由多语料联合训练训练得到（语料包括来自多文体的标注文本和人民日报标注文本等）。由于模型较大，如有机构或个人需要，请填写“资源申请表.doc”，并发送至 thunlp@gmail.com ，通过审核后我们会将相关资源发送给联系人。</p>
+<h2 id="_7">获取链接<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>THULAC 工具包分成两个部分组成。第一部分为算法源代码部分，可以通过网站上下载或者从 github 获取最新基础版代码，无需注册；第二部分为算法模型部分，THULAC 需要分词和词性标注模型的支持，可以从 2.算法模型注册后获得。</p>
+<p>算法源代码 lite 版</p>
+<ul>
+<li>Source Version Description Size Date Download</li>
+<li>THULAC_lite lite 版 THULAC_lite 分词源代码(C++版) 799KB 2017-04-11 download</li>
+<li>THULAC_lite 分词源代码(python 版) 44KB 2017-04-11</li>
+<li>THULAC_lite 分词源代码(java 版) 588KB 2017-01-13</li>
+<li>THULAC_lite 分词 java 版可执行的 jar 包 55KB 2017-04-11</li>
+<li>THULAC 模型，包括分词模型和词性标注模型（lite 版） 58.2MB 2016-01-10</li>
+<li>v1_2 THULAC_lite_v1_2 分词源代码(C++版) 799KB 2017-04-11 download</li>
+<li>THULAC_lite_v1_2 分词源代码(java 版) 588KB 2017-01-13</li>
+<li>THULAC_lite_v1_2 分词 java 版可执行的 jar 包 55KB 2017-04-11</li>
+<li>THULAC 模型，包括分词模型和词性标注模型（v1_2） 58.3MB 2016-07-10 2.算法源代码 lite 版(github)</li>
+<li>Source Description Link</li>
+<li>THULAC_lite_C++ THULAC_lite 分词源代码(C++版) link</li>
+<li>THULAC_lite_Python THULAC_lite 分词源代码(python 版) link</li>
+<li>THULAC_lite_Java THULAC_lite 分词源代码(java 版) link</li>
+<li>THULAC_lite.So THULAC_lite 分词源代码(So 版) link 3.算法模型</li>
+<li>Source Description Size Date Download</li>
+<li>THULAC_lite_Model THULAC 模型，包括分词模型和词性标注模型（lite 版） 58.2MB 2016-01-10 download</li>
+<li>THULAC_pro_c++_v1.zip THULAC 模型，包括更复杂完善的分词和词性标注模型以及分词词表 162MB 2016-01-10 download</li>
+</ul>
+<h2 id="_8">注意事项<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>该工具目前仅处理 UTF8 编码中文文本，之后会逐渐增加支持其他编码的功能，敬请期待。</p>
+<h2 id="_9">历史<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>更新时间 更新内容</p>
+<ul>
+<li>2017-01-17 在 pip 上发布 THULAC 分词 python 版本。</li>
+<li>2016-10-10 增加 THULAC 分词 so 版本。</li>
+<li>2016-03-31 增加 THULAC 分词 python 版本。</li>
+<li>2016-01-20 增加 THULAC 分词 Java 版本。</li>
+<li>2016-01-10 开源 THULAC 分词工具 C++版本。</li>
+</ul>
+<h2 id="_10">开源协议<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>THULAC 面向国内外大学、研究所、企业以及个人用于研究目的免费开放源代码。
+如有机构或个人拟将 THULAC 用于商业目的，请发邮件至 thunlp@gmail.com 洽谈技术许可协议。
+欢迎对该工具包提出任何宝贵意见和建议。请发邮件至 thunlp@gmail.com。
+如果您在 THULAC 基础上发表论文或取得科研成果，请您在发表论文和申报成果时声明“使用了清华大学 THULAC”，并按如下格式引用：</p>
+<p>中文： 孙茂松, 陈新雄, 张开旭, 郭志芃, 刘知远. THULAC：一个高效的中文词法分析工具包. 2016.</p>
+<p>英文： Maosong Sun, Xinxiong Chen, Kaixu Zhang, Zhipeng Guo, Zhiyuan Liu. THULAC: An Efficient Lexical Analyzer for Chinese. 2016.</p>
+<h2 id="_11">相关论文<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>Zhongguo Li, Maosong Sun. Punctuation as Implicit Annotations for Chinese Word Segmentation. Computational Linguistics, vol. 35, no. 4, pp. 505-512, 2009.</p>
+<p>作者</p>
+<p>Maosong Sun （孙茂松，导师）, Xinxiong Chen（陈新雄，博士生）, Kaixu Zhang (张开旭，硕士生）, Zhipeng Guo（郭志芃，本科生）, Junhua Ma （马骏骅，访问学生）, Zhiyuan Liu（刘知远，助理教授）.</p>
+<h2 id="_12">常见问题<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>THULAC 工具包提供的模型是如何得到的？</p>
+<p>THULAC 工具包随包附带的分词模型 Model_1 以及分词和词性标注模型 Model_2 是由人民日报语料库训练得到的。这份语料库中包含已标注的字数约为一千二百万字。</p>
+<p>同时，我们还提供更复杂、完善和精确的分词和词性标注联合模型 Model_3 和分词词表。该模型是由多语料联合训练训练得到（语料包括来自多文体的标注文本和人民日报标注文本等）。这份语料包含已标注的字数约为五千八百万字。由于模型较大，如有机构或个人需要，请填写“资源申请表.doc”，并发送至 thunlp@gmail.com ，通过审核后我们会将相关资源发送给联系人。</p>
+</li>
+<li>
+<p>能否提供工具包所带的模型的训练原始语料（如人民日报语料库）？</p>
+<p>THULAC 工具包中所带的模型的训练原始语料都是需要授权获得的。如果需要原始分词语料，如人民日报语料库，请联系北京大学计算语言学研究所授权获取。</p>
+</li>
+</ol>
+<h2 id="_13">致谢<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p>感谢清华大学的本科生潘星宇对 THULAC-Python 工具的支持和帮助。
+感谢付超群带领的看盘宝团队对 THULAC.so 工具的支持和帮助。
+使用者如有任何问题、建议和意见，欢迎发邮件至 thunlp@gmail.com 。</p>
+<p>版权所有：清华大学自然语言处理与社会人文计算实验室</p>
+<p>Copyright：Natural Language Processing and Computational Social Science Lab, Tsinghua University</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../SnowNLP/" title="SnowNLP" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                SnowNLP
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../awesome/" title="👍🏻 表库" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                👍🏻 表库
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            @2018 nlp-docs.github.io
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.b41f3d20.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

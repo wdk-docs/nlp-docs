@@ -536,10 +536,10 @@ time {"type": "timestamp", "timestamp": "2018-11-27 11:00:00"}
 
 ## 43. 自然语言生成方面
 
-[Ehud Reiter 教授的博客](https://ehudreiter.com) 北大万小军教授强力推荐，该博客对 NLG 技术、评价与应用进行了深入的探讨与反思。
-[文本生成相关资源大列表](https://github.com/ChenChengKuan/awesome-text-generation)
-[自然语言生成：让机器掌握自动创作的本领 - 开放域对话生成及在微软小冰中的实践](https://drive.google.com/file/d/1Mdna3q986k6OoJNsfAHznTtnMAEVzv5z/view)
-[文本生成控制](https://github.com/harvardnlp/Talk-Latent/blob/master/main.pdf)
+- [Ehud Reiter 教授的博客](https://ehudreiter.com) 北大万小军教授强力推荐，该博客对 NLG 技术、评价与应用进行了深入的探讨与反思。
+- [文本生成相关资源大列表](https://github.com/ChenChengKuan/awesome-text-generation)
+- [自然语言生成：让机器掌握自动创作的本领 - 开放域对话生成及在微软小冰中的实践](https://drive.google.com/file/d/1Mdna3q986k6OoJNsfAHznTtnMAEVzv5z/view)
+- [文本生成控制](https://github.com/harvardnlp/Talk-Latent/blob/master/main.pdf)
 
 ## 44. jieba
 
@@ -557,8 +557,8 @@ time {"type": "timestamp", "timestamp": "2018-11-27 11:00:00"}
 
 ## 46. 自动对联数据及机器人
 
-[70 万对联数据 link](https://github.com/wb14123/couplet-dataset)
-[代码 link](https://github.com/wb14123/seq2seq-couplet)
+- [70 万对联数据 link](https://github.com/wb14123/couplet-dataset)
+- [代码 link](https://github.com/wb14123/seq2seq-couplet)
 
 | 上联           | 下联           |
 | -------------- | -------------- |
@@ -618,8 +618,8 @@ mail1
 
 ## 52. 中文自然语言处理 语料/数据集
 
-[SophonPlus/ChineseNlpCorpus](https://github.com/SophonPlus/ChineseNlpCorpus)
-[竞品：THUOCL（THU Open Chinese Lexicon）中文词库](https://github.com/thunlp/THUOCL)
+- [SophonPlus/ChineseNlpCorpus](https://github.com/SophonPlus/ChineseNlpCorpus)
+- [竞品：THUOCL（THU Open Chinese Lexicon）中文词库](https://github.com/thunlp/THUOCL)
 
 ## 53. 变量命名神器
 
@@ -627,7 +627,7 @@ mail1
 
 ## 54. 分词语料库+代码
 
-[百度网盘链接](https://pan.baidu.com/s/1MXZONaLgeaw0_TxZZDAIYQ) 提取码: pea6
+- [百度网盘链接](https://pan.baidu.com/s/1MXZONaLgeaw0_TxZZDAIYQ) 提取码: pea6
 
 - [keras 实现的基于 Bi-LSTM + CRF 的中文分词+词性标注](https://github.com/GlassyWing/bi-lstm-crf)
 - [基于 Universal Transformer + CRF 的中文分词和词性标注](https://github.com/GlassyWing/transformer-word-segmenter)

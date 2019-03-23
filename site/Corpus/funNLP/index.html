@@ -1,0 +1,2723 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="自然语言处理文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
+    
+    
+      
+        <title>funNLP - NLP Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.572ca0f0.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.8c900955.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#funnlp" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="NLP Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                NLP Docs
+              </span>
+              <span class="md-header-nav__topic">
+                funNLP
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      nlp-docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="自然语言处理" class="md-tabs__link">
+        自然语言处理
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Author/" title="Author" class="md-tabs__link">
+          Author
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="Corpus" class="md-tabs__link md-tabs__link--active">
+          Corpus
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Librariy/" title="Librariy" class="md-tabs__link">
+          Librariy
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Paper/" title="Paper" class="md-tabs__link">
+          Paper
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../awesome/" title="Awesome" class="md-tabs__link">
+          Awesome
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../sensitive-word/" title="Sensitive word" class="md-tabs__link">
+          Sensitive word
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="NLP Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    NLP Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      nlp-docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="自然语言处理" class="md-nav__link">
+      自然语言处理
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Author
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Author
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/刘焕勇/" title="刘焕勇" class="md-nav__link">
+      刘焕勇
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/张华平/" title="张华平" class="md-nav__link">
+      张华平
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/杨洋/" title="杨洋" class="md-nav__link">
+      杨洋
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/王珊/" title="王珊" class="md-nav__link">
+      王珊
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Corpus
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Corpus
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="语料库" class="md-nav__link">
+      语料库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ChineseNLPCorpus/" title="Chinese NLP Corpus" class="md-nav__link">
+      Chinese NLP Corpus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../GlobalWordNetAssociation/" title="全球 WordNet 协会" class="md-nav__link">
+      全球 WordNet 协会
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../HowNet/" title="知网" class="md-nav__link">
+      知网
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cow/" title="Chinese Open Wordnet" class="md-nav__link">
+      Chinese Open Wordnet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        funNLP
+      </label>
+    
+    <a href="./" title="funNLP" class="md-nav__link md-nav__link--active">
+      funNLP
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 中英文敏感词过滤" class="md-nav__link">
+    1. 中英文敏感词过滤
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-97" title="2. 97 种语言检测" class="md-nav__link">
+    2. 97 种语言检测
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" title="3. 另一个语言检测" class="md-nav__link">
+    3. 另一个语言检测
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" title="4. 中国手机归属地查询" class="md-nav__link">
+    4. 中国手机归属地查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" title="5. 国际手机电话归属地查询" class="md-nav__link">
+    5. 国际手机电话归属地查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" title="6. 根据名字判断性别" class="md-nav__link">
+    6. 根据名字判断性别
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-email" title="7. 抽取 email 的正则表达式" class="md-nav__link">
+    7. 抽取 email 的正则表达式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" title="8. 抽取电话的正则表达式" class="md-nav__link">
+    8. 抽取电话的正则表达式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" title="9. 抽取身份证号的正则表达式" class="md-nav__link">
+    9. 抽取身份证号的正则表达式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" title="10. 人名语料库" class="md-nav__link">
+    10. 人名语料库
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" title="11. 中文缩写库" class="md-nav__link">
+    11. 中文缩写库
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" title="12. 汉语拆字词典" class="md-nav__link">
+    12. 汉语拆字词典
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" title="13. 词汇情感值" class="md-nav__link">
+    13. 词汇情感值
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" title="14. 中文停用词敏感词" class="md-nav__link">
+    14. 中文停用词敏感词
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" title="15. 汉字转拼音" class="md-nav__link">
+    15. 汉字转拼音
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" title="16. 中文繁简体互转" class="md-nav__link">
+    16. 中文繁简体互转
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" title="17. 英文模拟中文发音引擎" class="md-nav__link">
+    17. 英文模拟中文发音引擎
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18" title="18. 汪峰歌词生成器：" class="md-nav__link">
+    18. 汪峰歌词生成器：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19" title="19. 同义词库、反义词库、否定词库" class="md-nav__link">
+    19. 同义词库、反义词库、否定词库
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20" title="20. 无空格英文串分割、抽取单词" class="md-nav__link">
+    20. 无空格英文串分割、抽取单词
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-ip" title="21. IP 地址正则表达式" class="md-nav__link">
+    21. IP 地址正则表达式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-qq" title="22. 腾讯 QQ 号正则表达式" class="md-nav__link">
+    22. 腾讯 QQ 号正则表达式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23" title="23. 国内固话号码正则表达式" class="md-nav__link">
+    23. 国内固话号码正则表达式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24" title="24. 用户名正则表达式" class="md-nav__link">
+    24. 用户名正则表达式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25" title="25. 汽车品牌、汽车零件相关词汇" class="md-nav__link">
+    25. 汽车品牌、汽车零件相关词汇
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26" title="26. 时间抽取" class="md-nav__link">
+    26. 时间抽取
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27" title="27. 中文词向量" class="md-nav__link">
+    27. 中文词向量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28" title="28. 公司名字大全" class="md-nav__link">
+    28. 公司名字大全
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29" title="29. 古诗词库：" class="md-nav__link">
+    29. 古诗词库：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#30-thu" title="30. THU 整理的词库：" class="md-nav__link">
+    30. THU 整理的词库：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31" title="31. 中文聊天语料" class="md-nav__link">
+    31. 中文聊天语料
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32" title="32. 中文谣言数据" class="md-nav__link">
+    32. 中文谣言数据
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33" title="33. 情感波动分析" class="md-nav__link">
+    33. 情感波动分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-4242-2dva" title="34. 百度中文问答数据集**：链接 提取码: 2dva" class="md-nav__link">
+    34. 百度中文问答数据集**：链接 提取码: 2dva
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-qa-matchzoo" title="35. 句子、QA 相似度匹配:MatchZoo" class="md-nav__link">
+    35. 句子、QA 相似度匹配:MatchZoo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-bert" title="36. bert 资源" class="md-nav__link">
+    36. bert 资源
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37-texar" title="37. Texar" class="md-nav__link">
+    37. Texar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#38" title="38. 中文事件抽取" class="md-nav__link">
+    38. 中文事件抽取
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#39-coconlp" title="39. cocoNLP" class="md-nav__link">
+    39. cocoNLP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#40" title="40. 国内电话号码正则匹配（三大运营商+虚拟等）" class="md-nav__link">
+    40. 国内电话号码正则匹配（三大运营商+虚拟等）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#41-xlore" title="41. 清华大学 XLORE:中英文跨语言百科知识图谱" class="md-nav__link">
+    41. 清华大学 XLORE:中英文跨语言百科知识图谱
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42" title="42. 清华大学人工智能技术系列报告：" class="md-nav__link">
+    42. 清华大学人工智能技术系列报告：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43" title="43. 自然语言生成方面" class="md-nav__link">
+    43. 自然语言生成方面
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-jieba" title="44. jieba" class="md-nav__link">
+    44. jieba
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-nlp" title="45. NLP 太难了系列" class="md-nav__link">
+    45. NLP 太难了系列
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46" title="46. 自动对联数据及机器人" class="md-nav__link">
+    46. 自动对联数据及机器人
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#47" title="47. 用户名黑名单列表：" class="md-nav__link">
+    47. 用户名黑名单列表：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#48" title="48. 罪名法务名词及分类模型" class="md-nav__link">
+    48. 罪名法务名词及分类模型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#49" title="49. 微信公众号语料" class="md-nav__link">
+    49. 微信公众号语料
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#50-cs224n" title="50. cs224n 深度学习自然语言处理课程：" class="md-nav__link">
+    50. cs224n 深度学习自然语言处理课程：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#51" title="51. 中文手写汉字识别" class="md-nav__link">
+    51. 中文手写汉字识别
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52" title="52. 中文自然语言处理 语料/数据集" class="md-nav__link">
+    52. 中文自然语言处理 语料/数据集
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53" title="53. 变量命名神器" class="md-nav__link">
+    53. 变量命名神器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54" title="54. 分词语料库+代码" class="md-nav__link">
+    54. 分词语料库+代码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55-nlp" title="55. NLP 新书推荐" class="md-nav__link">
+    55. NLP 新书推荐
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56" title="56. 任务型对话英文数据集" class="md-nav__link">
+    56. 任务型对话英文数据集
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#57-asr" title="57. ASR 语音数据集 + 基于深度学习的中文语音识别系统：" class="md-nav__link">
+    57. ASR 语音数据集 + 基于深度学习的中文语音识别系统：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#58" title="58. 笑声检测器：" class="md-nav__link">
+    58. 笑声检测器：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#59-microsoft" title="59. Microsoft 多语言数字/单位/如日期时间识别包：" class="md-nav__link">
+    59. Microsoft 多语言数字/单位/如日期时间识别包：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#60-chinese-xinhua" title="60. chinese-xinhua" class="md-nav__link">
+    60. chinese-xinhua
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#61" title="61. 文档图谱自动生成" class="md-nav__link">
+    61. 文档图谱自动生成
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-spacy" title="62. SpaCy 中文模型" class="md-nav__link">
+    62. SpaCy 中文模型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-common-voice" title="63. Common Voice" class="md-nav__link">
+    63. Common Voice
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-pytorch" title="64. 神经网络关系抽取 pytorch" class="md-nav__link">
+    64. 神经网络关系抽取 pytorch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-bert-pytorch" title="65. 基于 bert 的命名实体识别 pytorch" class="md-nav__link">
+    65. 基于 bert 的命名实体识别 pytorch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-keyphrase-pke" title="66. 关键词(Keyphrase)抽取包 pke" class="md-nav__link">
+    66. 关键词(Keyphrase)抽取包 pke
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67" title="67. 基于医疗领域知识图谱的问答系统" class="md-nav__link">
+    67. 基于医疗领域知识图谱的问答系统
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#68" title="68. 基于依存句法与语义角色标注的事件三元组抽取" class="md-nav__link">
+    68. 基于依存句法与语义角色标注的事件三元组抽取
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nlp-datasets/" title="nlp-datasets" class="md-nav__link">
+      nlp-datasets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../wordnet/" title="WordNet" class="md-nav__link">
+      WordNet
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Librariy
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Librariy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/" title="常用分词工具包" class="md-nav__link">
+      常用分词工具包
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/FoolNLTK/" title="FoolNLTK" class="md-nav__link">
+      FoolNLTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/HanLP/" title="HanLP" class="md-nav__link">
+      HanLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/Jiagu/" title="Jiagu" class="md-nav__link">
+      Jiagu
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/SnowNLP/" title="SnowNLP" class="md-nav__link">
+      SnowNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/THULAC/" title="清华-THULAC" class="md-nav__link">
+      清华-THULAC
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/awesome/" title="👍🏻 表库" class="md-nav__link">
+      👍🏻 表库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/bosonnlp/" title="玻森数据" class="md-nav__link">
+      玻森数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/jieba-en/" title="JieBa English Docs" class="md-nav__link">
+      JieBa English Docs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/jieba/" title="JieBa" class="md-nav__link">
+      JieBa
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/ltp/" title="哈工大-LTP" class="md-nav__link">
+      哈工大-LTP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/nlpair-ictclas/" title="中科院-NLPIR" class="md-nav__link">
+      中科院-NLPIR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/nltk/" title="NLTK" class="md-nav__link">
+      NLTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/pkuseg/" title="北大-pkuseg" class="md-nav__link">
+      北大-pkuseg
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Paper
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Paper
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/" title="论文 || 文章" class="md-nav__link">
+      论文 || 文章
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/chinese-segmenter/" title="细说中文分词" class="md-nav__link">
+      细说中文分词
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/milestone/" title="一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑" class="md-nav__link">
+      一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Awesome
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Awesome
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/" title="awesome-nlp" class="md-nav__link">
+      awesome-nlp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/multi-language/" title="其他语言" class="md-nav__link">
+      其他语言
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/techniques/" title="技术" class="md-nav__link">
+      技术
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/tutorials/" title="教程" class="md-nav__link">
+      教程
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Sensitive word
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Sensitive word
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sensitive-word/" title="敏感词" class="md-nav__link">
+      敏感词
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1. 中英文敏感词过滤" class="md-nav__link">
+    1. 中英文敏感词过滤
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-97" title="2. 97 种语言检测" class="md-nav__link">
+    2. 97 种语言检测
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" title="3. 另一个语言检测" class="md-nav__link">
+    3. 另一个语言检测
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" title="4. 中国手机归属地查询" class="md-nav__link">
+    4. 中国手机归属地查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" title="5. 国际手机电话归属地查询" class="md-nav__link">
+    5. 国际手机电话归属地查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" title="6. 根据名字判断性别" class="md-nav__link">
+    6. 根据名字判断性别
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-email" title="7. 抽取 email 的正则表达式" class="md-nav__link">
+    7. 抽取 email 的正则表达式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" title="8. 抽取电话的正则表达式" class="md-nav__link">
+    8. 抽取电话的正则表达式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" title="9. 抽取身份证号的正则表达式" class="md-nav__link">
+    9. 抽取身份证号的正则表达式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" title="10. 人名语料库" class="md-nav__link">
+    10. 人名语料库
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" title="11. 中文缩写库" class="md-nav__link">
+    11. 中文缩写库
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" title="12. 汉语拆字词典" class="md-nav__link">
+    12. 汉语拆字词典
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" title="13. 词汇情感值" class="md-nav__link">
+    13. 词汇情感值
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" title="14. 中文停用词敏感词" class="md-nav__link">
+    14. 中文停用词敏感词
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15" title="15. 汉字转拼音" class="md-nav__link">
+    15. 汉字转拼音
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" title="16. 中文繁简体互转" class="md-nav__link">
+    16. 中文繁简体互转
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" title="17. 英文模拟中文发音引擎" class="md-nav__link">
+    17. 英文模拟中文发音引擎
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18" title="18. 汪峰歌词生成器：" class="md-nav__link">
+    18. 汪峰歌词生成器：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19" title="19. 同义词库、反义词库、否定词库" class="md-nav__link">
+    19. 同义词库、反义词库、否定词库
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20" title="20. 无空格英文串分割、抽取单词" class="md-nav__link">
+    20. 无空格英文串分割、抽取单词
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-ip" title="21. IP 地址正则表达式" class="md-nav__link">
+    21. IP 地址正则表达式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-qq" title="22. 腾讯 QQ 号正则表达式" class="md-nav__link">
+    22. 腾讯 QQ 号正则表达式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23" title="23. 国内固话号码正则表达式" class="md-nav__link">
+    23. 国内固话号码正则表达式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24" title="24. 用户名正则表达式" class="md-nav__link">
+    24. 用户名正则表达式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25" title="25. 汽车品牌、汽车零件相关词汇" class="md-nav__link">
+    25. 汽车品牌、汽车零件相关词汇
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26" title="26. 时间抽取" class="md-nav__link">
+    26. 时间抽取
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27" title="27. 中文词向量" class="md-nav__link">
+    27. 中文词向量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28" title="28. 公司名字大全" class="md-nav__link">
+    28. 公司名字大全
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29" title="29. 古诗词库：" class="md-nav__link">
+    29. 古诗词库：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#30-thu" title="30. THU 整理的词库：" class="md-nav__link">
+    30. THU 整理的词库：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31" title="31. 中文聊天语料" class="md-nav__link">
+    31. 中文聊天语料
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32" title="32. 中文谣言数据" class="md-nav__link">
+    32. 中文谣言数据
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33" title="33. 情感波动分析" class="md-nav__link">
+    33. 情感波动分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-4242-2dva" title="34. 百度中文问答数据集**：链接 提取码: 2dva" class="md-nav__link">
+    34. 百度中文问答数据集**：链接 提取码: 2dva
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-qa-matchzoo" title="35. 句子、QA 相似度匹配:MatchZoo" class="md-nav__link">
+    35. 句子、QA 相似度匹配:MatchZoo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-bert" title="36. bert 资源" class="md-nav__link">
+    36. bert 资源
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37-texar" title="37. Texar" class="md-nav__link">
+    37. Texar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#38" title="38. 中文事件抽取" class="md-nav__link">
+    38. 中文事件抽取
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#39-coconlp" title="39. cocoNLP" class="md-nav__link">
+    39. cocoNLP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#40" title="40. 国内电话号码正则匹配（三大运营商+虚拟等）" class="md-nav__link">
+    40. 国内电话号码正则匹配（三大运营商+虚拟等）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#41-xlore" title="41. 清华大学 XLORE:中英文跨语言百科知识图谱" class="md-nav__link">
+    41. 清华大学 XLORE:中英文跨语言百科知识图谱
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42" title="42. 清华大学人工智能技术系列报告：" class="md-nav__link">
+    42. 清华大学人工智能技术系列报告：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43" title="43. 自然语言生成方面" class="md-nav__link">
+    43. 自然语言生成方面
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-jieba" title="44. jieba" class="md-nav__link">
+    44. jieba
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-nlp" title="45. NLP 太难了系列" class="md-nav__link">
+    45. NLP 太难了系列
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46" title="46. 自动对联数据及机器人" class="md-nav__link">
+    46. 自动对联数据及机器人
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#47" title="47. 用户名黑名单列表：" class="md-nav__link">
+    47. 用户名黑名单列表：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#48" title="48. 罪名法务名词及分类模型" class="md-nav__link">
+    48. 罪名法务名词及分类模型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#49" title="49. 微信公众号语料" class="md-nav__link">
+    49. 微信公众号语料
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#50-cs224n" title="50. cs224n 深度学习自然语言处理课程：" class="md-nav__link">
+    50. cs224n 深度学习自然语言处理课程：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#51" title="51. 中文手写汉字识别" class="md-nav__link">
+    51. 中文手写汉字识别
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52" title="52. 中文自然语言处理 语料/数据集" class="md-nav__link">
+    52. 中文自然语言处理 语料/数据集
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53" title="53. 变量命名神器" class="md-nav__link">
+    53. 变量命名神器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54" title="54. 分词语料库+代码" class="md-nav__link">
+    54. 分词语料库+代码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55-nlp" title="55. NLP 新书推荐" class="md-nav__link">
+    55. NLP 新书推荐
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56" title="56. 任务型对话英文数据集" class="md-nav__link">
+    56. 任务型对话英文数据集
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#57-asr" title="57. ASR 语音数据集 + 基于深度学习的中文语音识别系统：" class="md-nav__link">
+    57. ASR 语音数据集 + 基于深度学习的中文语音识别系统：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#58" title="58. 笑声检测器：" class="md-nav__link">
+    58. 笑声检测器：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#59-microsoft" title="59. Microsoft 多语言数字/单位/如日期时间识别包：" class="md-nav__link">
+    59. Microsoft 多语言数字/单位/如日期时间识别包：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#60-chinese-xinhua" title="60. chinese-xinhua" class="md-nav__link">
+    60. chinese-xinhua
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#61" title="61. 文档图谱自动生成" class="md-nav__link">
+    61. 文档图谱自动生成
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-spacy" title="62. SpaCy 中文模型" class="md-nav__link">
+    62. SpaCy 中文模型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-common-voice" title="63. Common Voice" class="md-nav__link">
+    63. Common Voice
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-pytorch" title="64. 神经网络关系抽取 pytorch" class="md-nav__link">
+    64. 神经网络关系抽取 pytorch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-bert-pytorch" title="65. 基于 bert 的命名实体识别 pytorch" class="md-nav__link">
+    65. 基于 bert 的命名实体识别 pytorch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-keyphrase-pke" title="66. 关键词(Keyphrase)抽取包 pke" class="md-nav__link">
+    66. 关键词(Keyphrase)抽取包 pke
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67" title="67. 基于医疗领域知识图谱的问答系统" class="md-nav__link">
+    67. 基于医疗领域知识图谱的问答系统
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#68" title="68. 基于依存句法与语义角色标注的事件三元组抽取" class="md-nav__link">
+    68. 基于依存句法与语义角色标注的事件三元组抽取
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="funnlp">funNLP<a class="headerlink" href="#funnlp" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><a href="https://github.com/fighting41love/funNLP">funNLP</a></p>
+</blockquote>
+<p>最近需要从文本中抽取结构化信息，用到了很多 github 上的包，遂整理了一下，后续会不断更新。</p>
+<p>很多包非常有趣，值得收藏，满足大家的收集癖！</p>
+<p>如果觉得有用，请分享并 star，谢谢！</p>
+<p>涉及内容包括：</p>
+<ul>
+<li>中英文敏感词</li>
+<li>语言检测</li>
+<li>中外手机/电话归属地/运营商查询</li>
+<li>名字推断性别</li>
+<li>手机号抽取</li>
+<li>身份证抽取</li>
+<li>邮箱抽取</li>
+<li>中日文人名库</li>
+<li>中文缩写库</li>
+<li>拆字词典</li>
+<li>词汇情感值</li>
+<li>停用词</li>
+<li>反动词表</li>
+<li>暴恐词表</li>
+<li>繁简体转换</li>
+<li>英文模拟中文发音</li>
+<li>汪峰歌词生成器</li>
+<li>职业名称词库</li>
+<li>同义词库</li>
+<li>反义词库</li>
+<li>否定词库</li>
+<li>汽车品牌词库</li>
+<li>汽车零件词库</li>
+<li>连续英文切割</li>
+<li>各种中文词向量</li>
+<li>公司名字大全</li>
+<li>古诗词库</li>
+<li>IT 词库</li>
+<li>财经词库</li>
+<li>成语词库</li>
+<li>地名词库</li>
+<li>历史名人词库</li>
+<li>诗词词库</li>
+<li>医学词库</li>
+<li>饮食词库</li>
+<li>法律词库</li>
+<li>汽车词库</li>
+<li>动物词库</li>
+<li>中文聊天语料</li>
+<li>中文谣言数据</li>
+<li>百度中文问答数据集</li>
+<li>句子相似度匹配算法集合</li>
+<li>bert 资源</li>
+<li>文本生成&amp;摘要相关工具</li>
+<li>cocoNLP 信息抽取工具</li>
+<li>国内电话号码正则匹配</li>
+<li>清华大学 XLORE:中英文跨语言百科知识图谱</li>
+<li>清华大学人工智能技术系列报告</li>
+<li>自然语言生成</li>
+<li>NLU 太难了系列</li>
+<li>自动对联数据及机器人</li>
+<li>用户名黑名单列表</li>
+<li>罪名法务名词及分类模型</li>
+<li>微信公众号语料</li>
+<li>cs224n 深度学习自然语言处理课程</li>
+<li>中文手写汉字识别</li>
+<li>中文自然语言处理 语料/数据集</li>
+<li>变量命名神器</li>
+<li>分词语料库+代码</li>
+<li>任务型对话英文数据集</li>
+<li>ASR 语音数据集 + 基于深度学习的中文语音识别系统</li>
+<li>笑声检测器</li>
+<li>Microsoft 多语言数字/单位/如日期时间识别包</li>
+<li>中华新华字典数据库及 api(包括常用歇后语</li>
+<li>成语</li>
+<li>词语和汉字)</li>
+<li>文档图谱自动生成</li>
+<li>SpaCy 中文模型</li>
+<li>Common Voice 语音识别数据集新版</li>
+<li>神经网络关系抽取</li>
+<li>基于 bert 的命名实体识别</li>
+<li>关键词(Keyphrase)抽取包 pke。</li>
+</ul>
+<h2 id="1">1. 中英文敏感词过滤<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/observerss/textfilter">observerss/textfilter</a></p>
+<div class="codehilite"><pre><span></span> <span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">DFAFilter</span><span class="p">()</span>
+ <span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;sexy&quot;</span><span class="p">)</span>
+ <span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;hello sexy baby&quot;</span><span class="p">)</span>
+ <span class="n">hello</span> <span class="o">****</span> <span class="n">baby</span>
+</pre></div>
+
+<p>敏感词包括政治、脏话等话题词汇。其原理主要是基于词典的查找（项目中的 keyword 文件），内容很劲爆。。。</p>
+<h2 id="2-97">2. 97 种语言检测<a class="headerlink" href="#2-97" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/saffsd/langid.py">langid</a></p>
+<blockquote>
+<p>pip install langid</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">langid</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">langid</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="s2">&quot;This is a test&quot;</span><span class="p">)</span>
+<span class="p">(</span><span class="s1">&#39;en&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mf">54.41310358047485</span><span class="p">)</span>
+</pre></div>
+
+<h2 id="3">3. 另一个语言检测<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p><a href="https://code.google.com/archive/p/language-detection/">langdetect</a></p>
+<blockquote>
+<p>pip install langdetect</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">langdetect</span> <span class="kn">import</span> <span class="n">detect</span>
+<span class="kn">from</span> <span class="nn">langdetect</span> <span class="kn">import</span> <span class="n">detect_langs</span>
+
+<span class="n">s1</span> <span class="o">=</span> <span class="s2">&quot;本篇博客主要介绍两款语言探测工具，用于区分文本到底是什么语言，&quot;</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="s1">&#39;We are pleased to introduce today a new technology&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">detect</span><span class="p">(</span><span class="n">s1</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">detect</span><span class="p">(</span><span class="n">s2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">detect_langs</span><span class="p">(</span><span class="n">s3</span><span class="p">))</span>    <span class="c1"># detect_langs()输出探测出的所有语言类型及其所占的比例</span>
+</pre></div>
+
+<p>输出结果如下： 注：语言类型主要参考的是 ISO 639-1 语言编码标准，详见<a href="https://baike.baidu.com/item/ISO%20639-1">ISO 639-1 百度百科</a></p>
+<p>跟上一个语言检测比较，准确率低，效率高。</p>
+<h2 id="4">4. 中国手机归属地查询<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/ls0f/phone">ls0f/phone</a></p>
+<blockquote>
+<p>已集成到 python package <a href="https://github.com/fighting41love/cocoNLP">cocoNLP</a>中，欢迎试用</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">phone</span> <span class="kn">import</span> <span class="n">Phone</span>
+<span class="n">p</span>  <span class="o">=</span> <span class="n">Phone</span><span class="p">()</span>
+<span class="n">p</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">18100065143</span><span class="p">)</span>
+<span class="c1">#return {&#39;phone&#39;: &#39;18100065143&#39;, &#39;province&#39;: &#39;上海&#39;, &#39;city&#39;: &#39;上海&#39;, &#39;zip_code&#39;: &#39;200000&#39;, &#39;area_code&#39;: &#39;021&#39;, &#39;phone_type&#39;: &#39;电信&#39;}</span>
+</pre></div>
+
+<p>支持号段: 13<em>,15</em>,18*,14[5,7],17[0,6,7,8]</p>
+<p>记录条数: 360569 (updated:2017 年 4 月)</p>
+<p>作者提供了数据<a href="https://github.com/lovedboy/phone/raw/master/phone/phone.dat">phone.dat</a> 方便非 python 用户 Load 数据。</p>
+<h2 id="5">5. 国际手机电话归属地查询<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/AfterShip/phone">AfterShip/phone</a></p>
+<blockquote>
+<p>npm install phone</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">phone</span> <span class="nn">from</span> <span class="s1">&#39;phone&#39;</span><span class="p">;</span>
+<span class="n">phone</span><span class="p">(</span><span class="s1">&#39;+852 6569-8900&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;+85265698900&#39;</span><span class="p">,</span> <span class="s1">&#39;HKG&#39;</span><span class="p">]</span>
+<span class="n">phone</span><span class="p">(</span><span class="s1">&#39;(817) 569-8900&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;+18175698900, &#39;</span><span class="n">USA</span><span class="s1">&#39;]</span>
+</pre></div>
+
+<h2 id="6">6. 根据名字判断性别<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/observerss/ngender">observerss/ngender</a> 基于朴素贝叶斯计算的概率</p>
+<blockquote>
+<p>pip install ngender</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">ngender</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ngender</span><span class="o">.</span><span class="n">guess</span><span class="p">(</span><span class="s1">&#39;赵本山&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="s1">&#39;male&#39;</span><span class="p">,</span> <span class="mf">0.9836229687547046</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ngender</span><span class="o">.</span><span class="n">guess</span><span class="p">(</span><span class="s1">&#39;宋丹丹&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="s1">&#39;female&#39;</span><span class="p">,</span> <span class="mf">0.9759486128949907</span><span class="p">)</span>
+</pre></div>
+
+<h2 id="7-email">7. 抽取 email 的正则表达式<a class="headerlink" href="#7-email" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>已集成到 python package <a href="https://github.com/fighting41love/cocoNLP">cocoNLP</a>中，欢迎试用</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><span class="n">email_pattern</span> <span class="o">=</span> <span class="s1">&#39;^[*#</span><span class="se">\u4e00</span><span class="s1">-</span><span class="se">\u9fa5</span><span class="s1"> a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$&#39;</span>
+<span class="n">emails</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">email_pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+<h2 id="8">8. 抽取电话的正则表达式<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>已集成到 python package <a href="https://github.com/fighting41love/cocoNLP">cocoNLP</a>中，欢迎试用</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><span class="n">cellphone_pattern</span> <span class="o">=</span> <span class="s1">&#39;^((13[0-9])|(14[0-9])|(15[0-9])|(17[0-9])|(18[0-9]))\d{8}$&#39;</span>
+<span class="n">phoneNumbers</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">cellphone_pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+<h2 id="9">9. 抽取身份证号的正则表达式<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">IDCards_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;^([1-9]\d{5}[12]\d{3}(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])\d{3}[0-9xX])$&#39;</span>
+<span class="n">IDs</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">IDCards_pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+<h2 id="10">10. 人名语料库<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/wainshine/Chinese-Names-Corpus">wainshine/Chinese-Names-Corpus</a></p>
+<blockquote>
+<p>人名抽取功能 python package <a href="https://github.com/fighting41love/cocoNLP">cocoNLP</a>，欢迎试用</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>中文（现代、古代）名字、日文名字、中文的姓和名、称呼（大姨妈、小姨妈等）、英文-&gt;中文名字（李约翰）、成语词典
+</pre></div>
+
+<p>（可用于中文分词、姓名识别）</p>
+<h2 id="11">11. 中文缩写库<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/zhangyics/Chinese-abbreviation-dataset/blob/master/dev_set.txt">github</a></p>
+<div class="codehilite"><pre><span></span>全国人大: 全国/n 人民/n 代表大会/n
+中国: 中华人民共和国/ns
+女网赛: 女子/n 网球/n 比赛/vn
+</pre></div>
+
+<h2 id="12">12. 汉语拆字词典<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/kfcd/chaizi">kfcd/chaizi</a></p>
+<div class="codehilite"><pre><span></span>漢字 拆法 <span class="o">(</span>一<span class="o">)</span> 拆法 <span class="o">(</span>二<span class="o">)</span> 拆法 <span class="o">(</span>三<span class="o">)</span>
+拆 手 斥 扌 斥 才 斥
+</pre></div>
+
+<h2 id="13">13. 词汇情感值<a class="headerlink" href="#13" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/rainarch/SentiBridge/blob/master/Entity_Emotion_Express/CCF_data/pair_mine_result">rainarch/SentiBridge</a></p>
+<div class="codehilite"><pre><span></span>山泉水 充沛 <span class="m">0</span>.400704566541 <span class="m">0</span>.370067395878
+视野 宽广 <span class="m">0</span>.305762728932 <span class="m">0</span>.325320747491
+大峡谷 惊险 <span class="m">0</span>.312137906517 <span class="m">0</span>.378594957281
+</pre></div>
+
+<h2 id="14">14. 中文停用词敏感词<a class="headerlink" href="#14" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/fighting41love/Chinese_from_dongxiexidian">dongxiexidian/Chinese</a></p>
+<p>此 package 的敏感词库分类更细：</p>
+<p><a href="https://github.com/fighting41love/funNLP/tree/master/data/敏感词库">反动词库</a>， <a href="https://github.com/fighting41love/funNLP/tree/master/data/敏感词库">敏感词库表统计</a>， <a href="https://github.com/fighting41love/funNLP/tree/master/data/敏感词库">暴恐词库</a>， <a href="https://github.com/fighting41love/funNLP/tree/master/data/敏感词库">民生词库</a>， <a href="https://github.com/fighting41love/funNLP/tree/master/data/敏感词库">色情词库</a></p>
+<h2 id="15">15. 汉字转拼音<a class="headerlink" href="#15" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/mozillazg/python-pinyin">mozillazg/python-pinyin</a></p>
+<p>文本纠错会用到</p>
+<h2 id="16">16. 中文繁简体互转<a class="headerlink" href="#16" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/skydark/nstools/tree/master/zhtools">skydark/nstools</a></p>
+<h2 id="17">17. 英文模拟中文发音引擎<a class="headerlink" href="#17" title="Permanent link">&para;</a></h2>
+<p>funny chinese text to speech enginee：<a href="https://github.com/tinyfool/ChineseWithEnglish">tinyfool/ChineseWithEnglish</a></p>
+<div class="codehilite"><pre><span></span>say wo i ni
+<span class="c1">#说：我爱你</span>
+</pre></div>
+
+<p>相当于用英文音标，模拟中文发音。</p>
+<h2 id="18">18. 汪峰歌词生成器：<a class="headerlink" href="#18" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/phunterlau/wangfeng-rnn">phunterlau/wangfeng-rnn</a></p>
+<div class="codehilite"><pre><span></span>我在这里中的夜里
+就像一场是一种生命的意旪
+就像我的生活变得在我一样
+可我们这是一个知道
+我只是一天你会怎吗
+</pre></div>
+
+<h2 id="19">19. 同义词库、反义词库、否定词库<a class="headerlink" href="#19" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/guotong1988/chinese_dictionary">guotong1988/chinese_dictionary</a></p>
+<h2 id="20">20. 无空格英文串分割、抽取单词<a class="headerlink" href="#20" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/keredson/wordninja">wordinja</a></p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">wordninja</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">wordninja</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;derekanderson&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;derek&#39;</span><span class="p">,</span> <span class="s1">&#39;anderson&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">wordninja</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;imateapot&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;im&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;teapot&#39;</span><span class="p">]</span>
+</pre></div>
+
+<h2 id="21-ip">21. IP 地址正则表达式<a class="headerlink" href="#21-ip" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="o">(</span><span class="m">25</span><span class="o">[</span><span class="m">0</span>-5<span class="o">]</span><span class="p">|</span><span class="m">2</span><span class="o">[</span><span class="m">0</span>-4<span class="o">]</span><span class="se">\d</span><span class="p">|</span><span class="o">[</span><span class="m">0</span>-1<span class="o">]</span><span class="se">\d</span><span class="o">{</span><span class="m">2</span><span class="o">}</span><span class="p">|</span><span class="o">[</span><span class="m">1</span>-9<span class="o">]</span>?<span class="se">\d</span><span class="o">)</span><span class="se">\.</span><span class="o">(</span><span class="m">25</span><span class="o">[</span><span class="m">0</span>-5<span class="o">]</span><span class="p">|</span><span class="m">2</span><span class="o">[</span><span class="m">0</span>-4<span class="o">]</span><span class="se">\d</span><span class="p">|</span><span class="o">[</span><span class="m">0</span>-1<span class="o">]</span><span class="se">\d</span><span class="o">{</span><span class="m">2</span><span class="o">}</span><span class="p">|</span><span class="o">[</span><span class="m">1</span>-9<span class="o">]</span>?<span class="se">\d</span><span class="o">)</span><span class="se">\.</span><span class="o">(</span><span class="m">25</span><span class="o">[</span><span class="m">0</span>-5<span class="o">]</span><span class="p">|</span><span class="m">2</span><span class="o">[</span><span class="m">0</span>-4<span class="o">]</span><span class="se">\d</span><span class="p">|</span><span class="o">[</span><span class="m">0</span>-1<span class="o">]</span><span class="se">\d</span><span class="o">{</span><span class="m">2</span><span class="o">}</span><span class="p">|</span><span class="o">[</span><span class="m">1</span>-9<span class="o">]</span>?<span class="se">\d</span><span class="o">)</span><span class="se">\.</span><span class="o">(</span><span class="m">25</span><span class="o">[</span><span class="m">0</span>-5<span class="o">]</span><span class="p">|</span><span class="m">2</span><span class="o">[</span><span class="m">0</span>-4<span class="o">]</span><span class="se">\d</span><span class="p">|</span><span class="o">[</span><span class="m">0</span>-1<span class="o">]</span><span class="se">\d</span><span class="o">{</span><span class="m">2</span><span class="o">}</span><span class="p">|</span><span class="o">[</span><span class="m">1</span>-9<span class="o">]</span>?<span class="se">\d</span><span class="o">)</span>
+</pre></div>
+
+<h2 id="22-qq">22. 腾讯 QQ 号正则表达式<a class="headerlink" href="#22-qq" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="m">1</span>-9<span class="o">]([</span><span class="m">0</span>-9<span class="o">]{</span><span class="m">5</span>,11<span class="o">})</span>
+</pre></div>
+
+<h2 id="23">23. 国内固话号码正则表达式<a class="headerlink" href="#23" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="m">0</span>-9-<span class="o">()</span>（）<span class="o">]{</span><span class="m">7</span>,18<span class="o">}</span>
+</pre></div>
+
+<h2 id="24">24. 用户名正则表达式<a class="headerlink" href="#24" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="o">[</span>A-Za-z0-9_<span class="se">\-\u</span>4e00-<span class="se">\u</span>9fa5<span class="o">]</span>+
+</pre></div>
+
+<h2 id="25">25. 汽车品牌、汽车零件相关词汇<a class="headerlink" href="#25" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>见本repo的data文件 <span class="o">[</span>data<span class="o">](</span>https://github.com/fighting41love/funNLP/tree/master/data<span class="o">)</span>
+</pre></div>
+
+<h2 id="26">26. 时间抽取<a class="headerlink" href="#26" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>已集成到 python package <a href="https://github.com/fighting41love/cocoNLP">cocoNLP</a>中，欢迎试用</p>
+</blockquote>
+<p>在 2016 年 6 月 7 日 9:44 执行測試，结果如下</p>
+<div class="codehilite"><pre><span></span><span class="n">Hi</span><span class="err">，</span><span class="nb">all</span><span class="err">。下周一下午三点开会</span>
+
+<span class="o">&gt;&gt;</span> <span class="mi">2016</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mi">13</span> <span class="mi">15</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">00</span><span class="o">-</span><span class="n">false</span>
+
+<span class="err">周一开会</span>
+
+<span class="o">&gt;&gt;</span> <span class="mi">2016</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mi">13</span> <span class="mo">00</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">00</span><span class="o">-</span><span class="n">true</span>
+
+<span class="err">下下周一开会</span>
+
+<span class="o">&gt;&gt;</span> <span class="mi">2016</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mi">20</span> <span class="mo">00</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">00</span><span class="o">-</span><span class="n">true</span>
+</pre></div>
+
+<p><a href="https://github.com/shinyke/Time-NLP">java version</a></p>
+<p><a href="https://github.com/zhanzecheng/Time_NLP">python version</a></p>
+<h2 id="27">27. 中文词向量<a class="headerlink" href="#27" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/Embedding/Chinese-Word-Vectors">Embedding/Chinese-Word-Vectors</a></p>
+<p>中文词向量大全</p>
+<h2 id="28">28. 公司名字大全<a class="headerlink" href="#28" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/wainshine/Company-Names-Corpus">wainshine/Company-Names-Corpus</a></p>
+<h2 id="29">29. 古诗词库：<a class="headerlink" href="#29" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/panhaiqi/AncientPoetry">panhaiqi/AncientPoetry</a> <a href="https://github.com/chinese-poetry/chinese-poetry">更全的古诗词库</a></p>
+<h2 id="30-thu">30. THU 整理的词库：<a class="headerlink" href="#30-thu" title="Permanent link">&para;</a></h2>
+<p><a href="http://thuocl.thunlp.org/sendMessage">thuocl</a></p>
+<p>已整理到本 repo 的 data 文件夹中.</p>
+<div class="codehilite"><pre><span></span>IT词库、财经词库、成语词库、地名词库、历史名人词库、诗词词库、医学词库、饮食词库、法律词库、汽车词库、动物词库
+</pre></div>
+
+<h2 id="31">31. 中文聊天语料<a class="headerlink" href="#31" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/codemayq/chaotbot_corpus_Chinese">codemayq/chaotbot_corpus_Chinese</a></p>
+<div class="codehilite"><pre><span></span>该库搜集了包含:豆瓣多轮, PTT八卦语料, 青云语料, 电视剧对白语料, 贴吧论坛回帖语料,微博语料,小黄鸡语料
+</pre></div>
+
+<h2 id="32">32. 中文谣言数据<a class="headerlink" href="#32" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/thunlp/Chinese_Rumor_Dataset">thunlp/Chinese_Rumor_Dataset</a></p>
+<p>该数据文件中，每一行为一条 json 格式的谣言数据，字段释义如下：</p>
+<div class="codehilite"><pre><span></span><span class="n">rumorCode</span><span class="o">:</span> <span class="err">该条谣言的唯一编码，可以通过该编码直接访问该谣言举报页面。</span>
+<span class="n">title</span><span class="o">:</span> <span class="err">该条谣言被举报的标题内容</span>
+<span class="n">informerName</span><span class="o">:</span> <span class="err">举报者微博名称</span>
+<span class="n">informerUrl</span><span class="o">:</span> <span class="err">举报者微博链接</span>
+<span class="n">rumormongerName</span><span class="o">:</span> <span class="err">发布谣言者的微博名称</span>
+<span class="n">rumormongerUr</span><span class="o">:</span> <span class="err">发布谣言者的微博链接</span>
+<span class="n">rumorText</span><span class="o">:</span> <span class="err">谣言内容</span>
+<span class="n">visitTimes</span><span class="o">:</span> <span class="err">该谣言被访问次数</span>
+<span class="n">result</span><span class="o">:</span> <span class="err">该谣言审查结果</span>
+<span class="n">publishTime</span><span class="o">:</span> <span class="err">该谣言被举报时间</span>
+</pre></div>
+
+<h2 id="33">33. 情感波动分析<a class="headerlink" href="#33" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/CasterWx/python-girlfriend-mood/">CasterWx/python-girlfriend-mood</a></p>
+<p>词库已整理到本 repo 的 data 文件夹中.</p>
+<div class="codehilite"><pre><span></span>本repo项目是一个通过与人对话获得其情感值波动图谱, 内用词库在data文件夹中.
+</pre></div>
+
+<h2 id="34-4242-2dva">34. 百度中文问答数据集**：<a href="https://pan.baidu.com/s/1QUsKcFWZ7Tg1dk_AbldZ1A">链接</a> 提取码: 2dva<a class="headerlink" href="#34-4242-2dva" title="Permanent link">&para;</a></h2>
+<h2 id="35-qa-matchzoo">35. 句子、QA 相似度匹配:MatchZoo<a class="headerlink" href="#35-qa-matchzoo" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/NTMC-Community/MatchZoo">github</a></p>
+<p>文本相似度匹配算法的集合，包含多个深度学习的方法，值得尝试。</p>
+<h2 id="36-bert">36. bert 资源<a class="headerlink" href="#36-bert" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://pan.baidu.com/s/1OSPsIu2oh1iJ-bcXoDZpJQ">Bert 原作者的 slides</a> 提取码: iarj</li>
+<li><a href="https://github.com/NLPScott/bert-Chinese-classification-task">文本分类实践</a></li>
+<li><a href="https://github.com/Socialbird-AILab/BERT-Classification-Tutorial">bert tutorial 文本分类教程</a></li>
+<li><a href="https://github.com/huggingface/pytorch-pretrained-BERT">bert pytorch 实现</a></li>
+<li><a href="https://github.com/macanv/BERT-BiLSTM-CRF-NER">bert 用于中文命名实体识别 tensorflow 版本</a></li>
+<li><a href="https://github.com/BrikerMan/Kashgari">bert 基于 keras 的封装分类标注框架 Kashgari，几分钟即可搭建一个分类或者序列标注模型</a></li>
+<li><a href="https://jalammar.github.io/illustrated-bert/">bert、ELMO 的图解</a></li>
+<li><a href="https://github.com/asyml/texar/tree/master/examples/bert">BERT: Pre-trained models and downstream applications</a></li>
+</ul>
+<h2 id="37-texar">37. Texar<a class="headerlink" href="#37-texar" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/asyml/texar">Toolkit for Text Generation and Beyond</a></p>
+<p>基于 Tensorflow 的开源工具包，旨在支持广泛的机器学习，特别是文本生成任务，如机器翻译、对话、摘要、内容处置、语言建模等</p>
+<h2 id="38">38. 中文事件抽取<a class="headerlink" href="#38" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/liuhuanyong/ComplexEventExtraction">liuhuanyong/ComplexEventExtraction</a></p>
+<p>中文复合事件抽取，包括条件事件、因果事件、顺承事件、反转事件等事件抽取，并形成事理图谱。</p>
+<h2 id="39-coconlp">39. cocoNLP<a class="headerlink" href="#39-coconlp" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/fighting41love/cocoNLP">fighting41love/cocoNLP</a></p>
+<p>人名、地址、邮箱、手机号、手机归属地 等信息的抽取，rake 短语抽取算法。</p>
+<blockquote>
+<p>pip install cocoNLP</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">cocoNLP.extractor</span> <span class="kn">import</span> <span class="n">extractor</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">extractor</span><span class="p">()</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;急寻特朗普，男孩，于2018年11月27号11时在陕西省安康市汉滨区走失。丢失发型短发，...如有线索，请迅速与警方联系：18100065143，132-6156-2938，baizhantang@sina.com.cn 和yangyangfuture at gmail dot com&#39;</span>
+
+<span class="c1"># 抽取邮箱</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">emails</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">extract_email</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">emails</span><span class="p">)</span>
+
+<span class="p">[</span><span class="s1">&#39;baizhantang@sina.com.cn&#39;</span><span class="p">,</span> <span class="s1">&#39;yangyangfuture@gmail.com.cn&#39;</span><span class="p">]</span>
+<span class="c1"># 抽取手机号</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">cellphones</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">extract_cellphone</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="n">nation</span><span class="o">=</span><span class="s1">&#39;CHN&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">cellphones</span><span class="p">)</span>
+
+<span class="p">[</span><span class="s1">&#39;18100065143&#39;</span><span class="p">,</span> <span class="s1">&#39;13261562938&#39;</span><span class="p">]</span>
+<span class="c1"># 抽取手机归属地、运营商</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">cell_locs</span> <span class="o">=</span> <span class="p">[</span><span class="n">ex</span><span class="o">.</span><span class="n">extract_cellphone_location</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span><span class="s1">&#39;CHN&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">cellphones</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">cell_locs</span><span class="p">)</span>
+
+<span class="n">cellphone_location</span> <span class="p">[{</span><span class="s1">&#39;phone&#39;</span><span class="p">:</span> <span class="s1">&#39;18100065143&#39;</span><span class="p">,</span> <span class="s1">&#39;province&#39;</span><span class="p">:</span> <span class="s1">&#39;上海&#39;</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="s1">&#39;上海&#39;</span><span class="p">,</span> <span class="s1">&#39;zip_code&#39;</span><span class="p">:</span> <span class="s1">&#39;200000&#39;</span><span class="p">,</span> <span class="s1">&#39;area_code&#39;</span><span class="p">:</span> <span class="s1">&#39;021&#39;</span><span class="p">,</span> <span class="s1">&#39;phone_type&#39;</span><span class="p">:</span> <span class="s1">&#39;电信&#39;</span><span class="p">}]</span>
+<span class="c1"># 抽取地址信息</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">locations</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">extract_locations</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">locations</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;陕西省安康市汉滨区&#39;</span><span class="p">,</span> <span class="s1">&#39;安康市汉滨区&#39;</span><span class="p">,</span> <span class="s1">&#39;汉滨区&#39;</span><span class="p">]</span>
+<span class="c1"># 抽取时间点</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">times</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">extract_time</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
+<span class="n">time</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;timestamp&quot;</span><span class="p">,</span> <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-11-27 11:00:00&quot;</span><span class="p">}</span>
+<span class="c1"># 抽取人名</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">name</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">extract_name</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="err">特朗普</span>
+</pre></div>
+
+<h2 id="40">40. 国内电话号码正则匹配（三大运营商+虚拟等）<a class="headerlink" href="#40" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/VincentSit/ChinaMobilePhoneNumberRegex">VincentSit/ChinaMobilePhoneNumberRegex</a></p>
+<h2 id="41-xlore">41. 清华大学 XLORE:中英文跨语言百科知识图谱<a class="headerlink" href="#41-xlore" title="Permanent link">&para;</a></h2>
+<p><a href="https://xlore.org/download.html">xlore</a></p>
+<p>上述链接中包含了所有实体及关系的 TTL 文件，更多数据将在近期发布。
+概念，实例，属性和上下位关系数目</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>百度</th>
+<th>中文维基</th>
+<th>英文维基</th>
+<th>总数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>概念数量</td>
+<td>32,009</td>
+<td>150,241</td>
+<td>326,518</td>
+<td>508,768</td>
+</tr>
+<tr>
+<td>实例数量</td>
+<td>1,629,591</td>
+<td>640,622</td>
+<td>1,235,178</td>
+<td>3,505,391</td>
+</tr>
+<tr>
+<td>属性数量</td>
+<td>157,370</td>
+<td>45,190</td>
+<td>26,723</td>
+<td>229.283</td>
+</tr>
+<tr>
+<td>InstanceOf</td>
+<td>7,584,931</td>
+<td>1,449,925</td>
+<td>3,032,515</td>
+<td>12,067,371</td>
+</tr>
+<tr>
+<td>SubClassOf</td>
+<td>2,784</td>
+<td>191,577</td>
+<td>555,538</td>
+<td>749,899</td>
+</tr>
+</tbody>
+</table>
+<p>跨语言连接（概念/实例）</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>百度</th>
+<th>中文维基</th>
+<th>英文维基</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>百度</td>
+<td>-</td>
+<td>10,216/336,890</td>
+<td>4,846/303,108</td>
+</tr>
+<tr>
+<td>中文维基</td>
+<td>10,216/336,890</td>
+<td>-</td>
+<td>28,921/454,579</td>
+</tr>
+<tr>
+<td>英文维基</td>
+<td>4,846/303,108</td>
+<td>28,921/454,579</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="42">42. 清华大学人工智能技术系列报告：<a class="headerlink" href="#42" title="Permanent link">&para;</a></h2>
+<p><a href="https://reports.aminer.cn">aminer</a></p>
+<p>每年会出 AI 领域相关的报告，内容包含</p>
+<ul>
+<li>自然语言处理 <a href="https://static.aminer.cn/misc/article/nlp.pdf">link</a></li>
+<li>知识图谱 <a href="https://www.aminer.cn/research_report/5c3d5a8709%20e961951592a49d?download=true&amp;pathname=knowledgegraph.pdf">link</a></li>
+<li>数据挖掘 <a href="https://www.aminer.cn/research_report/5c3d5a5cecb160952fa10b76?download=true&amp;pathname=datamining.pdf">link</a></li>
+<li>自动驾驶 <a href="https://static.aminer.cn/misc/article/selfdriving.pdf">link</a></li>
+<li>机器翻译 <a href="https://static.aminer.cn/misc/article/translation.pdf">link</a></li>
+<li>区块链 <a href="https://static.aminer.cn/misc/article/blockchain_public.pdf">link</a></li>
+<li>机器人 <a href="https://static.aminer.cn/misc/article/robotics_beta.pdf">link</a></li>
+<li>计算机图形学 <a href="https://static.aminer.cn/misc/article/cg.pdf">link</a></li>
+<li>3D 打印 <a href="https://static.aminer.cn/misc/article/3d.pdf">link</a></li>
+<li>人脸识别 <a href="https://static.aminer.cn/misc/article/facerecognition.pdf">link</a></li>
+<li>人工智能芯片 <a href="https://static.aminer.cn/misc/article/aichip.pdf">link</a></li>
+<li>等等</li>
+</ul>
+<h2 id="43">43. 自然语言生成方面<a class="headerlink" href="#43" title="Permanent link">&para;</a></h2>
+<p><a href="https://ehudreiter.com">Ehud Reiter 教授的博客</a> 北大万小军教授强力推荐，该博客对 NLG 技术、评价与应用进行了深入的探讨与反思。
+<a href="https://github.com/ChenChengKuan/awesome-text-generation">文本生成相关资源大列表</a>
+<a href="https://drive.google.com/file/d/1Mdna3q986k6OoJNsfAHznTtnMAEVzv5z/view">自然语言生成：让机器掌握自动创作的本领 - 开放域对话生成及在微软小冰中的实践</a>
+<a href="https://github.com/harvardnlp/Talk-Latent/blob/master/main.pdf">文本生成控制</a></p>
+<h2 id="44-jieba">44. jieba<a class="headerlink" href="#44-jieba" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/fxsjy/jieba">jieba</a>和<a href="https://github.com/hankcs/pyhanlp">hanlp</a>就不必介绍了吧。</p>
+<h2 id="45-nlp">45. NLP 太难了系列<a class="headerlink" href="#45-nlp" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/fighting41love/hardNLP">github</a></p>
+<ul>
+<li>来到杨过曾经生活过的地方，小龙女动情地说：“我也想过过过儿过过的生活。” ​​​</li>
+<li>来到儿子等校车的地方，邓超对孙俪说：“我也想等等等等等过的那辆车。”</li>
+<li>赵敏说：我也想控忌忌己不想无忌。</li>
+<li>你也想犯范范范玮琪犯过的错吗</li>
+<li>对叙打击是一次性行为？</li>
+</ul>
+<h2 id="46">46. 自动对联数据及机器人<a class="headerlink" href="#46" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/wb14123/couplet-dataset">70 万对联数据 link</a>
+<a href="https://github.com/wb14123/seq2seq-couplet">代码 link</a></p>
+<table>
+<thead>
+<tr>
+<th>上联</th>
+<th>下联</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>殷勤怕负三春意</td>
+<td>潇洒难书一字愁</td>
+</tr>
+<tr>
+<td>如此清秋何吝酒</td>
+<td>这般明月不须钱</td>
+</tr>
+</tbody>
+</table>
+<h2 id="47">47. 用户名黑名单列表：<a class="headerlink" href="#47" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/marteinn/The-Big-Username-Blacklist">marteinn/The-Big-Username-Blacklist</a>
+包含了用户名禁用列表，比如: <a href="https://github.com/marteinn/The-Big-Username-Blacklist/blob/master/list_raw.txt">list_raw.txt</a></p>
+<div class="codehilite"><pre><span></span>administrator
+administration
+autoconfig
+autodiscover
+broadcasthost
+domain
+editor
+guest
+host
+hostmaster
+info
+keybase.txt
+localdomain
+localhost
+master
+mail
+mail0
+mail1
+</pre></div>
+
+<h2 id="48">48. 罪名法务名词及分类模型<a class="headerlink" href="#48" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/liuhuanyong/CrimeKgAssitant">liuhuanyong/CrimeKgAssitant</a></p>
+<div class="codehilite"><pre><span></span>包含856项罪名知识图谱, 基于280万罪名训练库的罪名预测,基于20W法务问答对的13类问题分类与法律资讯问答功能
+</pre></div>
+
+<h2 id="49">49. 微信公众号语料<a class="headerlink" href="#49" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/nonamestreet/weixin_public_corpus">nonamestreet/weixin_public_corpus</a></p>
+<p>3G 语料，包含部分网络抓取的微信公众号的文章，已经去除 HTML，只包含了纯文本。每行一篇，是 JSON 格式，name 是微信公众号名字，account 是微信公众号 ID，title 是题目，content 是正文</p>
+<h2 id="50-cs224n">50. cs224n 深度学习自然语言处理课程：<a class="headerlink" href="#50-cs224n" title="Permanent link">&para;</a></h2>
+<p><a href="http://web.stanford.edu/class/cs224n/">cs224n</a></p>
+<ul>
+<li><a href="https://github.com/DSKSD/DeepNLP-models-Pytorch">课程中模型的 pytorch 实现</a></li>
+<li><a href="https://github.com/graykode/nlp-tutorial">面向深度学习研究人员的自然语言处理实例教程</a></li>
+</ul>
+<h2 id="51">51. 中文手写汉字识别<a class="headerlink" href="#51" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/chizhanyuefeng/Chinese_OCR_CNN-RNN-CTC">chizhanyuefeng/Chinese_OCR_CNN-RNN-CTC</a></p>
+<h2 id="52">52. 中文自然语言处理 语料/数据集<a class="headerlink" href="#52" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/SophonPlus/ChineseNlpCorpus">SophonPlus/ChineseNlpCorpus</a>
+<a href="https://github.com/thunlp/THUOCL">竞品：THUOCL（THU Open Chinese Lexicon）中文词库</a></p>
+<h2 id="53">53. 变量命名神器<a class="headerlink" href="#53" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/unbug/codelf">unbug/codelf</a> <a href="https://unbug.github.io/codelf/">codelf</a></p>
+<h2 id="54">54. 分词语料库+代码<a class="headerlink" href="#54" title="Permanent link">&para;</a></h2>
+<p><a href="https://pan.baidu.com/s/1MXZONaLgeaw0_TxZZDAIYQ">百度网盘链接</a> 提取码: pea6</p>
+<ul>
+<li><a href="https://github.com/GlassyWing/bi-lstm-crf">keras 实现的基于 Bi-LSTM + CRF 的中文分词+词性标注</a></li>
+<li><a href="https://github.com/GlassyWing/transformer-word-segmenter">基于 Universal Transformer + CRF 的中文分词和词性标注</a></li>
+<li><a href="https://github.com/yaoguangluo/NeroParser">快速神经网络分词包 java version</a></li>
+</ul>
+<h2 id="55-nlp">55. NLP 新书推荐<a class="headerlink" href="#55-nlp" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/jacobeisenstein/gt-nlp-class/blob/master/notes/eisenstein-nlp-notes.pdf">《Natural Language Processing》by Jacob Eisenstein</a></p>
+<h2 id="56">56. 任务型对话英文数据集<a class="headerlink" href="#56" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/AtmaHou/Task-Oriented-Dialogue-Dataset-Survey">AtmaHou/Task-Oriented-Dialogue-Dataset-Survey</a>
+【最全任务型对话数据集】主要介绍了一份任务型对话数据集大全，这份数据集大全涵盖了到目前在任务型对话领域的所有常用数据集的主要信息。此外，为了帮助研究者更好的把握领域进展的脉络，我们以 Leaderboard 的形式给出了几个数据集上的 State-of-the-art 实验结果。</p>
+<h2 id="57-asr">57. ASR 语音数据集 + 基于深度学习的中文语音识别系统：<a class="headerlink" href="#57-asr" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/nl8590687/ASRT_SpeechRecognition">nl8590687/ASRT_SpeechRecognition</a></p>
+<ul>
+<li>
+<p>Data Sets 数据集</p>
+</li>
+<li>
+<p><strong>清华大学 THCHS30 中文语音数据集</strong></p>
+<p>data_thchs30.tgz
+<a href="http://cn-mirror.openslr.org/resources/18/data_thchs30.tgz">OpenSLR 国内镜像</a>
+<a href="http://www.openslr.org/resources/18/data_thchs30.tgz">OpenSLR 国外镜像</a></p>
+<p>test-noise.tgz
+<a href="http://cn-mirror.openslr.org/resources/18/test-noise.tgz">OpenSLR 国内镜像</a>
+<a href="http://www.openslr.org/resources/18/test-noise.tgz">OpenSLR 国外镜像</a></p>
+<p>resource.tgz
+<a href="http://cn-mirror.openslr.org/resources/18/resource.tgz">OpenSLR 国内镜像</a>
+<a href="http://www.openslr.org/resources/18/resource.tgz">OpenSLR 国外镜像</a></p>
+</li>
+<li>
+<p><strong>Free ST Chinese Mandarin Corpus</strong></p>
+<p>ST-CMDS-20170001_1-OS.tar.gz
+<a href="http://cn-mirror.openslr.org/resources/38/ST-CMDS-20170001_1-OS.tar.gz">OpenSLR 国内镜像</a>
+<a href="http://www.openslr.org/resources/38/ST-CMDS-20170001_1-OS.tar.gz">OpenSLR 国外镜像</a></p>
+</li>
+<li>
+<p><strong>AIShell-1 开源版数据集</strong></p>
+<p>data_aishell.tgz
+<a href="http://cn-mirror.openslr.org/resources/33/data_aishell.tgz">OpenSLR 国内镜像</a>
+<a href="http://www.openslr.org/resources/33/data_aishell.tgz">OpenSLR 国外镜像</a></p>
+</li>
+</ul>
+<p>注：数据集解压方法</p>
+<div class="codehilite"><pre><span></span>$ tar xzf data_aishell.tgz
+$ <span class="nb">cd</span> data_aishell/wav
+$ <span class="k">for</span> tar in *.tar.gz<span class="p">;</span>  <span class="k">do</span> tar xvf <span class="nv">$tar</span><span class="p">;</span> <span class="k">done</span>
+</pre></div>
+
+<ul>
+<li>
+<p><strong>Primewords Chinese Corpus Set 1</strong></p>
+<p>primewords_md_2018_set1.tar.gz
+<a href="http://cn-mirror.openslr.org/resources/47/primewords_md_2018_set1.tar.gz">OpenSLR 国内镜像</a>
+<a href="http://www.openslr.org/resources/47/primewords_md_2018_set1.tar.gz">OpenSLR 国外镜像</a></p>
+</li>
+</ul>
+<h2 id="58">58. 笑声检测器：<a class="headerlink" href="#58" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/ideo/LaughDetection">ideo/LaughDetection</a></p>
+<h2 id="59-microsoft">59. Microsoft 多语言数字/单位/如日期时间识别包：<a class="headerlink" href="#59-microsoft" title="Permanent link">&para;</a></h2>
+<p>[Microsoft/Recognizers-Text](https://github.com/Microsoft/Recognizers-Text</p>
+<h2 id="60-chinese-xinhua">60. chinese-xinhua<a class="headerlink" href="#60-chinese-xinhua" title="Permanent link">&para;</a></h2>
+<p>中华新华字典数据库及 api，包括常用歇后语、成语、词语和汉字</p>
+<p><a href="https://github.com/pwxcoo/chinese-xinhua">pwxcoo/chinese-xinhua</a></p>
+<h2 id="61">61. 文档图谱自动生成<a class="headerlink" href="#61" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/liuhuanyong/TextGrapher">liuhuanyong/TextGrapher</a></p>
+<ul>
+<li>TextGrapher - Text Content Grapher based on keyinfo extraction by NLP method。输入一篇文档，将文档进行关键信息提取，进行结构化，并最终组织成图谱组织形式，形成对文章语义信息的图谱化展示</li>
+</ul>
+<h2 id="62-spacy">62. SpaCy 中文模型<a class="headerlink" href="#62-spacy" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/howl-anderson/Chinese_models_for_SpaCy">howl-anderson/Chinese_models_for_SpaCy</a></p>
+<ul>
+<li>包含 Parser, NER, 语法树等功能。有一些英文 package 使用 spacy 的英文模型的，如果要适配中文，可能需要使用 spacy 中文模型。</li>
+</ul>
+<h2 id="63-common-voice">63. Common Voice<a class="headerlink" href="#63-common-voice" title="Permanent link">&para;</a></h2>
+<p>语音识别数据集新版</p>
+<p><a href="https://voice.mozilla.org/en/datasets">Common Voice</a></p>
+<ul>
+<li>包括来自 42,000 名贡献者超过 1,400 小时的语音样本，涵 github</li>
+</ul>
+<h2 id="64-pytorch">64. 神经网络关系抽取 pytorch<a class="headerlink" href="#64-pytorch" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/ShulinCao/OpenNRE-PyTorch">github</a></p>
+<ul>
+<li>暂不支持中文</li>
+</ul>
+<h2 id="65-bert-pytorch">65. 基于 bert 的命名实体识别 pytorch<a class="headerlink" href="#65-bert-pytorch" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/Kyubyong/bert_ner">github</a></p>
+<ul>
+<li>暂不支持中文</li>
+</ul>
+<h2 id="66-keyphrase-pke">66. 关键词(Keyphrase)抽取包 pke<a class="headerlink" href="#66-keyphrase-pke" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/boudinfl/pke">github</a>
+<a href="http://aclweb.org/anthology/C16-2015">pke: an open source python-based keyphrase extraction toolkit</a></p>
+<ul>
+<li>暂不支持中文，我于近期对其进行修改，使其适配中文。
+  请关注我的 github 动态，谢谢！</li>
+</ul>
+<h2 id="67">67. 基于医疗领域知识图谱的问答系统<a class="headerlink" href="#67" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/zhihao-chen/QASystemOnMedicalGraph">github</a></p>
+<ul>
+<li>该 repo 参考了<a href="https://github.com/liuhuanyong/QASystemOnMedicalKG">github</a></li>
+</ul>
+<h2 id="68">68. 基于依存句法与语义角色标注的事件三元组抽取<a class="headerlink" href="#68" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/liuhuanyong/EventTriplesExtraction">github</a></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../cow/" title="Chinese Open Wordnet" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                Chinese Open Wordnet
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../nlp-datasets/" title="nlp-datasets" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                nlp-datasets
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            @2018 nlp-docs.github.io
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.b41f3d20.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

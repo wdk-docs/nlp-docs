@@ -1,0 +1,1808 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="自然语言处理文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
+    
+    
+      
+        <title>Chinese NLP Corpus - NLP Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.572ca0f0.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.8c900955.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#chinese-nlp-corpus" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="NLP Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                NLP Docs
+              </span>
+              <span class="md-header-nav__topic">
+                Chinese NLP Corpus
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      nlp-docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="自然语言处理" class="md-tabs__link">
+        自然语言处理
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Author/" title="Author" class="md-tabs__link">
+          Author
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="Corpus" class="md-tabs__link md-tabs__link--active">
+          Corpus
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Librariy/" title="Librariy" class="md-tabs__link">
+          Librariy
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Paper/" title="Paper" class="md-tabs__link">
+          Paper
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../awesome/" title="Awesome" class="md-tabs__link">
+          Awesome
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../sensitive-word/" title="Sensitive word" class="md-tabs__link">
+          Sensitive word
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="NLP Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    NLP Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      nlp-docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="自然语言处理" class="md-nav__link">
+      自然语言处理
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Author
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Author
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/刘焕勇/" title="刘焕勇" class="md-nav__link">
+      刘焕勇
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/张华平/" title="张华平" class="md-nav__link">
+      张华平
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/杨洋/" title="杨洋" class="md-nav__link">
+      杨洋
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/王珊/" title="王珊" class="md-nav__link">
+      王珊
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Corpus
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Corpus
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="语料库" class="md-nav__link">
+      语料库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Chinese NLP Corpus
+      </label>
+    
+    <a href="./" title="Chinese NLP Corpus" class="md-nav__link md-nav__link--active">
+      Chinese NLP Corpus
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="介绍" class="md-nav__link">
+    介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="语言资源的分类" class="md-nav__link">
+    语言资源的分类
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" title="1. 领域语料库" class="md-nav__link">
+    1. 领域语料库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" title="2. 领域词库" class="md-nav__link">
+    2. 领域词库
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="语言资源的问题" class="md-nav__link">
+    语言资源的问题
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" title="1. 语言资源收集的问题。" class="md-nav__link">
+    1. 语言资源收集的问题。
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" title="2. 语言资源的融合标准化问题。" class="md-nav__link">
+    2. 语言资源的融合标准化问题。
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" title="3. 语言资源的动态更新问题。" class="md-nav__link">
+    3. 语言资源的动态更新问题。
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" title="4. 语言资源的共享与联盟问题。" class="md-nav__link">
+    4. 语言资源的共享与联盟问题。
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="语言资源的实践" class="md-nav__link">
+    语言资源的实践
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="语言资源构建现状" class="md-nav__link">
+    语言资源构建现状
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="语义知识库" class="md-nav__link">
+    语义知识库
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="领域词库" class="md-nav__link">
+    领域词库
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="领域语料库" class="md-nav__link">
+    领域语料库
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" title="评测语料库" class="md-nav__link">
+    评测语料库
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" title="总结" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../GlobalWordNetAssociation/" title="全球 WordNet 协会" class="md-nav__link">
+      全球 WordNet 协会
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../HowNet/" title="知网" class="md-nav__link">
+      知网
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cow/" title="Chinese Open Wordnet" class="md-nav__link">
+      Chinese Open Wordnet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../funNLP/" title="funNLP" class="md-nav__link">
+      funNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nlp-datasets/" title="nlp-datasets" class="md-nav__link">
+      nlp-datasets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../wordnet/" title="WordNet" class="md-nav__link">
+      WordNet
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Librariy
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Librariy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/" title="常用分词工具包" class="md-nav__link">
+      常用分词工具包
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/FoolNLTK/" title="FoolNLTK" class="md-nav__link">
+      FoolNLTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/HanLP/" title="HanLP" class="md-nav__link">
+      HanLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/Jiagu/" title="Jiagu" class="md-nav__link">
+      Jiagu
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/SnowNLP/" title="SnowNLP" class="md-nav__link">
+      SnowNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/THULAC/" title="清华-THULAC" class="md-nav__link">
+      清华-THULAC
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/awesome/" title="👍🏻 表库" class="md-nav__link">
+      👍🏻 表库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/bosonnlp/" title="玻森数据" class="md-nav__link">
+      玻森数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/jieba-en/" title="JieBa English Docs" class="md-nav__link">
+      JieBa English Docs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/jieba/" title="JieBa" class="md-nav__link">
+      JieBa
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/ltp/" title="哈工大-LTP" class="md-nav__link">
+      哈工大-LTP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/nlpair-ictclas/" title="中科院-NLPIR" class="md-nav__link">
+      中科院-NLPIR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/nltk/" title="NLTK" class="md-nav__link">
+      NLTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/pkuseg/" title="北大-pkuseg" class="md-nav__link">
+      北大-pkuseg
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Paper
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Paper
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/" title="论文 || 文章" class="md-nav__link">
+      论文 || 文章
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/chinese-segmenter/" title="细说中文分词" class="md-nav__link">
+      细说中文分词
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/milestone/" title="一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑" class="md-nav__link">
+      一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Awesome
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Awesome
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/" title="awesome-nlp" class="md-nav__link">
+      awesome-nlp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/multi-language/" title="其他语言" class="md-nav__link">
+      其他语言
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/techniques/" title="技术" class="md-nav__link">
+      技术
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/tutorials/" title="教程" class="md-nav__link">
+      教程
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Sensitive word
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Sensitive word
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sensitive-word/" title="敏感词" class="md-nav__link">
+      敏感词
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="介绍" class="md-nav__link">
+    介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="语言资源的分类" class="md-nav__link">
+    语言资源的分类
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" title="1. 领域语料库" class="md-nav__link">
+    1. 领域语料库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" title="2. 领域词库" class="md-nav__link">
+    2. 领域词库
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="语言资源的问题" class="md-nav__link">
+    语言资源的问题
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" title="1. 语言资源收集的问题。" class="md-nav__link">
+    1. 语言资源收集的问题。
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" title="2. 语言资源的融合标准化问题。" class="md-nav__link">
+    2. 语言资源的融合标准化问题。
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" title="3. 语言资源的动态更新问题。" class="md-nav__link">
+    3. 语言资源的动态更新问题。
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" title="4. 语言资源的共享与联盟问题。" class="md-nav__link">
+    4. 语言资源的共享与联盟问题。
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="语言资源的实践" class="md-nav__link">
+    语言资源的实践
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="语言资源构建现状" class="md-nav__link">
+    语言资源构建现状
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="语义知识库" class="md-nav__link">
+    语义知识库
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="领域词库" class="md-nav__link">
+    领域词库
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="领域语料库" class="md-nav__link">
+    领域语料库
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" title="评测语料库" class="md-nav__link">
+    评测语料库
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" title="总结" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="chinese-nlp-corpus">Chinese NLP Corpus<a class="headerlink" href="#chinese-nlp-corpus" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><a href="https://github.com/liuhuanyong/ChineseNLPCorpus">ChineseNLPcorpus</a></p>
+</blockquote>
+<p>An collection of Chinese nlp corpus including basic Chinese syntatic and semantic wordset, semantic wordset, historic corpus and evaluate corpus.</p>
+<p>中文自然语言处理的语料集合，包括语义词、领域共时、历时语料库、评测语料库等。
+本项目简单谈谈自己对语言资源的感想以及目前自己进行语言资源构建的现状。</p>
+<h2 id="_1">介绍<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>语言资源，本身是一个宽泛的概念，即语言+资源，语言指的是资源的限定域，资源=资+源，是资料的来源或者汇总，加在一起，也就形成了这样一种界定：任何语言单位形成的集合，都可以称为语言资源。</p>
+<p>语言资源是自然语言处理任务中的一个必不可少的组成部分，一方面语言资源是相关语言处理任务的支撑，为语言处理任务提供先验知识进行辅助，另一方面，语言处理任务也为语言资源提出了需求，并能够对语言资源的搭建、扩充起到技术性的支持作用。</p>
+<p>因此，随着自然语言处理技术的不断发展，自然语言处理需求在各个领域的不断扩张、应用，相关语言资源的构建占据了越来越为重要的地位。</p>
+<p>作者在硕士期间所在的研究机构为国家语言资源监测与研究平面媒体中心，深受导师所传授的语言资源观影响，毕业后在实际的学习、工作过程中，动手实践，形成了自己的一些浅薄的语言资源认识，现在写出来，供大家一起讨论，主要介绍一些自己对语言资源的搜索，搭建过程中的一些心得以及自己目前在语言资源建设上的一些工作。</p>
+<h2 id="_2">语言资源的分类<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>介绍中说到，任何语言单位的集合都可以称为语言资源，比如我有一个个人的口头禅集合，这个就可以称为一个语言资源库，在你实际生活中进行言语活动时，你其实就在使用这个语言资源库。</p>
+<p>再比如说，一个班级中的学生名单，其实也可以当作是一种语言资源，这个语言资源在进行班级学生点名、考核的时候也大有帮助。</p>
+<p>当然，此处所讨论的语言资源是从自然语言处理应用的角度上出发的。</p>
+<p>总的来说，我把它归为以下两种类型：</p>
+<h3 id="1">1. 领域语料库<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>领域语料库，是从语料的这个角度来讲的，这里的语料，界定成文本级别（以自然语句为基础级别形成的文本集合，即可以是句子、段落、篇章等）。
+领域语料库，可以根据不同的划分规则而形成不同的语料类别：</p>
+<ol>
+<li>根据所属领域，可以进一步细化成不同领域的语料库。 包括金融领域语料、医药领域语料、教育领域语料、文学领域语料等等。</li>
+<li>根据所属目的，可以进一步细化为：评测语料（为自然语言处理技术 pk 而人工构造的一些评测语料，如 ACE,MUC 等国际评测中所出现的如 semeval2014,snli 等）；工具语料（指供自然语言处理技术提供资源支撑的语料）</li>
+<li>根据语料加工程度的不同，可进一步分为：熟语料（指在自然语言单位上添加人工的标签标注，如经过分词、词性标注、命名实体识别、依存句法标注形成的语料），生语料（指直接收集而未经加工形成的语言资源集，如常见的微博语料，新闻语料等）</li>
+<li>根据语料语种的不同，可进一步分为：单语语料和多语语料，多语语料指的是平行语料，常见于机器翻译任务中的双语对齐语料（汉-阿平行语料库，汉-英平行语料库）等。</li>
+<li>根据语料规模的不同，可以进一步分为：小型语料库，中型语料库，大型语料库。至于小型、中型、大型的界定，可根据实际领域语料的规模而动态调整</li>
+</ol>
+<h3 id="2">2. 领域词库<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>领域词库，指以句级以下语言单位形成的语言资源库，这个层级的语言单位可以是笔画、偏旁部首、字、词、短语等。
+同样的，领域词库也可以进一步细分。</p>
+<ol>
+<li>
+<p>领域特征词库。</p>
+<p>这里所说的领域特征词库，指的是与领域强相关，具有领域区别能力形成的词语集合，如体育领域中常见的“篮球”、“足球”等词，文学领域常见的“令狐冲”、“鲁迅”等词，又如敏感词库等，这些词常常可作为分类特征而存在。</p>
+</li>
+<li>
+<p>语法语义词库。语义词库的侧重点在与语言的语法层面和语义层面：</p>
+<ol>
+<li>
+<p>语法词库：</p>
+<p>北大的语法信息词典，北大的实体概念词典、Hownet 语义词典这三类词典，这几个语法词库，在对词的语法功能上都做了不同的工作，对词的内部结构信息进行了详细的标注，如北大的语法信息词典，以词类为划分标准将汉语的常用词进行了划分，并对词性、搭配（前接成分和后接成分）进行了详细的标注；Hownet 语义词典从义项的角度对词的义元进行了分解和注释。</p>
+</li>
+<li>
+<p>语义词库：这类语义词，侧重点不在词语的内部语法结构，而在词语的整体语义上。</p>
+<p>这类词库，常见的词库有哈工大发布的同义词词林扩展版，这个词库将同义词按照语义的相近程度进行了不同层次的聚类，可以作为同义词扩展提供帮助。</p>
+<p>另一个是情感分析任务中常用的情感词典，这类词典主要公开的词典包括大连理工大学信息检索实验室公开的情感本体词库、hownet、香港中文大学、台湾清华大学公开的情感词库（具体包括情感词库、否定词库、强度词库）等。</p>
+<p>另外，工业界，有 boson 公开的微博情感词库（词的规模比较大，但标注信息不是很精准）。</p>
+<p>还有的，则是中文的反义词库等，这个可以参考我的 github 项目，里面对这些词库也有一些涉及。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="_3">语言资源的问题<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>语言资源的搭建，指的是语言资源的整个搭建过程。</p>
+<p>其实是要解决四个问题，</p>
+<ul>
+<li>一个是语言资源的收集问题；</li>
+<li>二是语言资源的融合标准化问题；</li>
+<li>三是语言资源的动态更新问题；</li>
+<li>四是语言资源的共享与联盟问题。</li>
+</ul>
+<p>下面就这四点展开阐述：</p>
+<h3 id="1_1">1. 语言资源收集的问题。<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<p>语言资源搜索过程中有三步走策略，在这个步骤完成之后，会得到一系列的词库。
+这些词库可能初期不会特别完善，往往还需要人工使用启发式规则进行人工去噪的工作。</p>
+<h3 id="2_1">2. 语言资源的融合标准化问题。<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<p>通过不同方式收集起来的语言资源，往往会存在一个格式不对称的问题，这有点像知识图谱中的知识融合问题。
+因此，为了解决这个问题，我们通常需要制定一个标准化的语言资源格式，例如，在构建情感词表的过程当中，有的情感词表没有强度标记，有的强度值范围不一样，有的情感词表的标记不一，这个时候往往需要标准化，给定一个标准化的样式，再将不同来源的情感词按照这个标记做相应的调整。
+我在实际的工作过程中，常常把这种问题类别成知识图谱构建过程中的 schema 搭建问题，信息抽取过程中的 slot-definition 问题。
+先把规范和标准搭好，再去统一标准化。</p>
+<h3 id="3">3. 语言资源的动态更新问题。<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>知识和信息的价值，在很大程度上都在于它的一种实时性，语言资源作为一种常识性知识库，能够保证自身的一种与时俱进，将能够最大限度地发挥自身的价值。
+而从实践的角度上来说，语言资源的动态更新，可以靠人工去维持，去动态及时更新，也可以建立一种动态监测和更新机制，让机器自动地去更新。
+这类其实可以参考知识图谱更新的相关工作。</p>
+<h3 id="4">4. 语言资源的共享与联盟问题。<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>语言资源是否共享，其实是一个与业务敏感以及开源意识想结合的一种决策，有的资源因为某种业务敏感或者开源意识不够 open 而无法共享，当然还有其他因素成分在，不过，语言资源最好是需要共享的，这样能够最大力度的发挥语言资源在各个领域的应用。
+语言资源的联盟问题，更像是对开源语言资源的一种链接与互联。
+这类问题是对当前的资源零散、碎片化问题的一个思考，前面也说到，目前情感分析的词表有很多个，语法和语义词库也有很多个，但每个人在构建时的出发点不同，构建者也分布在不同的高校或机构当中，这些资源虽然在个数上会有增长，但随着时间的推移，这种零散化的现象将会越来越严重。</p>
+<h2 id="_4">语言资源的实践<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>本项目以采集公开的人民日报与参考消息为例进行历时的新闻采集为例, 公开网站中公开了 1946-2003 年的人民日报语料,1957-2002 年的参考消息语料, 采集这种具有长远历史信息的语料对于历史人文研究以及语言演变有重大意义,本项目放在 newspaper 目录下。</p>
+<p>运行方式:</p>
+<div class="codehilite"><pre><span></span>scrapy crawl travel
+</pre></div>
+
+<p>主要函数包括:</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">TravelSpider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;travel&#39;</span>
+        <span class="sd">&#39;&#39;&#39;资讯采集主控函数&#39;&#39;&#39;</span>
+        <span class="k">def</span> <span class="nf">start_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">Data</span> <span class="o">=</span> <span class="n">BuildData</span><span class="p">()</span>
+    <span class="n">date_list</span> <span class="o">=</span> <span class="n">Data</span><span class="o">.</span><span class="n">create_dates</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">date_list</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+            <span class="n">date_url</span> <span class="o">=</span> <span class="s1">&#39;http://www.laoziliao.net/ckxx/</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">date</span>
+            <span class="n">param</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="n">date_url</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">date</span><span class="p">}</span>
+            <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">date_url</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="n">param</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_urllist</span><span class="p">,</span> <span class="n">dont_filter</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+        <span class="sd">&#39;&#39;&#39;获取页面新闻列表&#39;&#39;&#39;</span>
+        <span class="k">def</span> <span class="nf">get_urllist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+    <span class="n">selector</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">date_url</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span>
+    <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">selector</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//ul/li/a/@href&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">date_url</span> <span class="ow">in</span> <span class="n">i</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">urls</span><span class="p">):</span>
+            <span class="n">param</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;url&#39;</span><span class="p">:</span><span class="n">url</span> <span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]}</span>
+            <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="n">param</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">page_parser</span><span class="p">,</span> <span class="n">dont_filter</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+        <span class="sd">&#39;&#39;&#39;新闻字段内容解析&#39;&#39;&#39;</span>
+        <span class="k">def</span> <span class="nf">page_parser</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+    <span class="n">selector</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">articles</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//div[@class=&quot;article&quot;]&#39;</span><span class="p">)</span>
+    <span class="n">titles</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//h2/text()&#39;</span><span class="p">)</span>
+    <span class="n">contents</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">article</span> <span class="ow">in</span> <span class="n">articles</span><span class="p">:</span>
+            <span class="n">content</span> <span class="o">=</span> <span class="n">article</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;string(.)&#39;</span><span class="p">)</span>
+            <span class="n">contents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+    <span class="n">papers</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">titles</span><span class="p">,</span> <span class="n">contents</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">papers</span><span class="p">:</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="n">TravelspiderItem</span><span class="p">()</span>
+            <span class="n">item</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span>
+            <span class="n">item</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span>
+            <span class="n">item</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">item</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">yield</span> <span class="n">item</span>
+    <span class="k">return</span>
+</pre></div>
+
+<h2 id="_5">语言资源构建现状<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>作者在学习和工作之余，根据语言资源搭建策略，构建起了语义词库、领域词库、领域语料库、评测语料库。</p>
+<p>种类约 53 种，具体如下：</p>
+<h2 id="_6">语义知识库<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">名称</th>
+<th align="left">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">语义词库</td>
+<td align="left">语法信息词典</td>
+<td align="left">汉语词语的语法功能分类、词语的语法属性描述</td>
+</tr>
+<tr>
+<td align="left">语义词库</td>
+<td align="left">Hownet 义原词典</td>
+<td align="left">董振东老师研制，汉语词语义原分类</td>
+</tr>
+<tr>
+<td align="left">语义词库</td>
+<td align="left">程度副词词典</td>
+<td align="left">表示程度的词</td>
+</tr>
+<tr>
+<td align="left">语义词库</td>
+<td align="left">现代汉语词典</td>
+<td align="left">现代汉语词典, txt 版本</td>
+</tr>
+<tr>
+<td align="left">语义词库</td>
+<td align="left">否定词词典</td>
+<td align="left">对意义进行反转的词典</td>
+</tr>
+<tr>
+<td align="left">语义词库</td>
+<td align="left">同义词词林词典</td>
+<td align="left">哈工大同义词词典</td>
+</tr>
+<tr>
+<td align="left">语义词库</td>
+<td align="left">反义词词典</td>
+<td align="left">反义词词表，1.5W 对</td>
+</tr>
+<tr>
+<td align="left">语义词库</td>
+<td align="left">同义词词典</td>
+<td align="left">同义词词典，5.5W 对</td>
+</tr>
+<tr>
+<td align="left">语义词库</td>
+<td align="left">schema 概念词典</td>
+<td align="left">互动百科概念体系，百度百科概念体系</td>
+</tr>
+<tr>
+<td align="left">语义词库</td>
+<td align="left">停用词</td>
+<td align="left">自然语言处理用停用词词表</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_7">领域词库<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">名称</th>
+<th align="left">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">领域词库</td>
+<td align="left">搜狗输入法领域词库</td>
+<td align="left">超过 1W 个领域的搜狗输入法词库 txt 版本</td>
+</tr>
+<tr>
+<td align="left">领域词库</td>
+<td align="left">职位词典</td>
+<td align="left">基于百万级拉钩 JD 网抽取形成的职位词典</td>
+</tr>
+<tr>
+<td align="left">领域词库</td>
+<td align="left">敏感词词词库</td>
+<td align="left">敏感词词库，包括政治、反动等词</td>
+</tr>
+<tr>
+<td align="left">领域词库</td>
+<td align="left">情感词词库</td>
+<td align="left">大连理工、知网、港中大、台大、boson 等公开情感词典</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_8">领域语料库<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">名称</th>
+<th align="left">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">人民日报标注语料</td>
+<td align="left">1998 年人民日报分词语料库</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">20 类小说文本集合</td>
+<td align="left">20 个领域(武侠、恐怖等)小说集合，7K+小说文本</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">字幕网 70W 字幕文本语料</td>
+<td align="left">字幕网字幕文件解析，70W 字幕文本语料</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">内涵段子 50W 等语料</td>
+<td align="left">基于内涵段子采集，50W 短文本</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">歌词 14W 语料</td>
+<td align="left">基于公开歌词网采集，14W 首歌曲歌词</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">职位 JD 语料</td>
+<td align="left">基于公开职位采集，213W 职位 jd</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">古诗词语料</td>
+<td align="left">唐诗宋词语料集合，10W 篇</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">相声剧本语料</td>
+<td align="left">基于公开相声剧本网站采集，6K 篇</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">中文维基百科语料</td>
+<td align="left">中文简体版，98W 篇</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">法务问答语料</td>
+<td align="left">法务咨询问答对，22W</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">股票问答语料</td>
+<td align="left">股票相关咨询问答对，10W</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">中英文对齐语料</td>
+<td align="left">中英文翻译对齐句子，50W</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">携程攻略 50W</td>
+<td align="left">携程攻略文本集，50W 篇</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">法律案例语料 17W</td>
+<td align="left">17W 法律案例语料，带案例标签</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">法律罪名知识库</td>
+<td align="left">罪名知识库，867 项</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">疾病与医疗知识库</td>
+<td align="left">疾病与医疗知识库, 8K+疾病知识库</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">人民日报历时语料库 1946-2003</td>
+<td align="left">1946-2003，133W 篇</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">参考消息历时语料库 1957-2002</td>
+<td align="left">1957-2002，57W 篇</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">腾讯滚动新闻历时语料库 2009-2016</td>
+<td align="left">腾讯历时滚动新闻(13 板块)</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">酒店评论语料</td>
+<td align="left">酒店评论数据 7K 条</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">外卖点评语料</td>
+<td align="left">外卖评论数据 1.2W 条</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">京东商品评论语料</td>
+<td align="left">10 类商品 6W 条</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">新浪微博情感语料</td>
+<td align="left">正文及评论 10W 条</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">细粒度微博情感语料</td>
+<td align="left">喜悦、愤怒、厌恶、低落等标签共 36W 条</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">电影评论语料</td>
+<td align="left">电影评分评论语料，200W+条</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">餐馆点评语料</td>
+<td align="left">餐馆点评语料，440W 条</td>
+</tr>
+<tr>
+<td align="left">领域语料库</td>
+<td align="left">亚马逊商品评论语料</td>
+<td align="left">亚马逊商品评论语料，720W 条</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_9">评测语料库<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">名称</th>
+<th align="left">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">评测语料库</td>
+<td align="left">问句匹配</td>
+<td align="left">英文 question 相似问句 6.5W 对，中文微众银行问句集 1000 对</td>
+</tr>
+<tr>
+<td align="left">评测语料库</td>
+<td align="left">命名实体识别</td>
+<td align="left">中文电子病历命名实体识别、微软 MSR 命名实体识别 5W 条</td>
+</tr>
+<tr>
+<td align="left">评测语料库</td>
+<td align="left">情感分析</td>
+<td align="left">斯坦福 sentibank</td>
+</tr>
+<tr>
+<td align="left">评测语料库</td>
+<td align="left">实体关系抽取</td>
+<td align="left">中文人物关系数据集、英文 SEMEVAL2008 评测数据集(NYT,NYTfilter)</td>
+</tr>
+<tr>
+<td align="left">评测语料库</td>
+<td align="left">文本蕴含</td>
+<td align="left">英文 snli,multinli 数据集 116W，中文文本蕴含数据集 100W</td>
+</tr>
+<tr>
+<td align="left">评测语料库</td>
+<td align="left">音乐问句解析</td>
+<td align="left">音乐问句解析数据集 1.2W</td>
+</tr>
+<tr>
+<td align="left">评测语料库</td>
+<td align="left">幽默计算</td>
+<td align="left">中文幽默计算数据集（幽默类型、幽默等级、隐喻类型、隐喻等级分类等)</td>
+</tr>
+<tr>
+<td align="left">评测语料库</td>
+<td align="left">阅读理解</td>
+<td align="left">squad 数据集</td>
+</tr>
+<tr>
+<td align="left">评测语料库</td>
+<td align="left">知识图谱补全</td>
+<td align="left">知识图谱链接数据集(FB15K, FB40K, Freebase, WN18,WordNet)</td>
+</tr>
+<tr>
+<td align="left">评测语料库</td>
+<td align="left">中文实体链接</td>
+<td align="left">基于中文百科知识的实体链接数据集 1.3K</td>
+</tr>
+<tr>
+<td align="left">评测语料库</td>
+<td align="left">中文自动问答</td>
+<td align="left">中文智能问答数据集，两个任务(问句意图分类，航空、酒店、火车客服问答)</td>
+</tr>
+<tr>
+<td align="left">评测语料库</td>
+<td align="left">中文罪行分类</td>
+<td align="left">法律智能评测数据集，288W</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_10">总结<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<ol>
+<li>本项目阐述了语言资源的相关感想，并给出了目前语言资源的构建现状，目前为止收集了四个大类共 53 小类的语言资源数据集。</li>
+<li>本项目中所涉及到的报告内容均来源于网上公开资源，对此免责声明。</li>
+<li>如果有需要用到以上作者收集到的这些语料库，可以联系作者获取。</li>
+<li>自然语言处理，是人工智能皇冠上的一颗明珠，懂语言者得天下，语言资源在自然语言处理中扮演着举足轻重的作用，懂语言资源者，分得天下。</li>
+</ol>
+<p>目前开放的网络环境，对语言资源的大繁荣提供了很大的契机。
+语言资源构建是一门学问，也是一种手段，现在自然语言处理技术也对语言资源的构建提供了技术上的支持，如何把握语言资源搜索策略，搭建策略，重点解决语言资源的动态更新、共享与联盟问题，将是语言资源建设未来需要解决的问题。</p>
+<p>如有自然语言处理、知识图谱、事理图谱、社会计算、语言资源建设等问题或合作，可联系我：</p>
+<ol>
+<li>我的 github 项目介绍：<a href="https://liuhuanyong.github.io">https://liuhuanyong.github.io</a></li>
+<li>我的 csdn 博客：<a href="https://blog.csdn.net/lhy2014">https://blog.csdn.net/lhy2014</a></li>
+<li><a href="/Author/刘焕勇">刘焕勇</a>，中国科学院软件研究所，<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#108;&#104;&#121;&#95;&#105;&#110;&#95;&#98;&#108;&#99;&#117;&#64;&#49;&#50;&#54;&#46;&#99;&#111;&#109;">&#108;&#104;&#121;&#95;&#105;&#110;&#95;&#98;&#108;&#99;&#117;&#64;&#49;&#50;&#54;&#46;&#99;&#111;&#109;</a></li>
+</ol>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../" title="语料库" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                语料库
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../GlobalWordNetAssociation/" title="全球 WordNet 协会" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                全球 WordNet 协会
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            @2018 nlp-docs.github.io
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.b41f3d20.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
