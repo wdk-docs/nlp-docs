@@ -1,0 +1,2636 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="自然语言处理文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
+    
+    
+      
+        <title>计算所汉语词性标记集 - NLP Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.572ca0f0.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.8c900955.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="NLP Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                NLP Docs
+              </span>
+              <span class="md-header-nav__topic">
+                计算所汉语词性标记集
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      nlp-docs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="自然语言处理" class="md-tabs__link">
+        自然语言处理
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Author/" title="Author" class="md-tabs__link">
+          Author
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Cloud/aliyun/" title="Cloud" class="md-tabs__link">
+          Cloud
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="Corpus" class="md-tabs__link md-tabs__link--active">
+          Corpus
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Librariy/" title="Librariy" class="md-tabs__link">
+          Librariy
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Paper/" title="Paper" class="md-tabs__link">
+          Paper
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../awesome/" title="Awesome" class="md-tabs__link">
+          Awesome
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../sensitive-word/" title="Sensitive word" class="md-tabs__link">
+          Sensitive word
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="NLP Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    NLP Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      nlp-docs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="自然语言处理" class="md-nav__link">
+      自然语言处理
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Author
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Author
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/hankcs/" title="Hankcs" class="md-nav__link">
+      Hankcs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/刘焕勇/" title="刘焕勇" class="md-nav__link">
+      刘焕勇
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/吴延毅/" title="吴延毅" class="md-nav__link">
+      吴延毅
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/张华平/" title="张华平" class="md-nav__link">
+      张华平
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/张宇浩/" title="张宇浩" class="md-nav__link">
+      张宇浩
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/杨洋/" title="杨洋" class="md-nav__link">
+      杨洋
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/王珊/" title="王珊" class="md-nav__link">
+      王珊
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Cloud
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Cloud
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Cloud/aliyun/" title="阿里云自然语言处理" class="md-nav__link">
+      阿里云自然语言处理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Cloud/pai/" title="阿里机器学习平台 PAI 3.0" class="md-nav__link">
+      阿里机器学习平台 PAI 3.0
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Cloud/百度AI/" title="百度 AI" class="md-nav__link">
+      百度 AI
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Corpus
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Corpus
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="语料库" class="md-nav__link">
+      语料库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ChineseNLPCorpus/" title="Chinese NLP Corpus" class="md-nav__link">
+      Chinese NLP Corpus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../GlobalWordNetAssociation/" title="全球 WordNet 协会" class="md-nav__link">
+      全球 WordNet 协会
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../HowNet/" title="知网" class="md-nav__link">
+      知网
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../LabelStyle/" title="现代汉语语料库加工规范" class="md-nav__link">
+      现代汉语语料库加工规范
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../aihanyu/" title="爱汉语语料库" class="md-nav__link">
+      爱汉语语料库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cow/" title="Chinese Open Wordnet" class="md-nav__link">
+      Chinese Open Wordnet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../csdn/" title="CSDN 下载" class="md-nav__link">
+      CSDN 下载
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dianchacha/" title="店查查数据" class="md-nav__link">
+      店查查数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../funNLP/" title="funNLP" class="md-nav__link">
+      funNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nlp-datasets/" title="nlp-datasets" class="md-nav__link">
+      nlp-datasets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        计算所汉语词性标记集
+      </label>
+    
+    <a href="./" title="计算所汉语词性标记集" class="md-nav__link md-nav__link--active">
+      计算所汉语词性标记集
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="目录" class="md-nav__link">
+    目录
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0" title="0. 说明" class="md-nav__link">
+    0. 说明
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-1-7-5" title="1. 名词 (1 个一类，7 个二类，5 个三类)" class="md-nav__link">
+    1. 名词 (1 个一类，7 个二类，5 个三类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-1-1" title="2. 时间词(1 个一类，1 个二类)" class="md-nav__link">
+    2. 时间词(1 个一类，1 个二类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-1" title="3. 处所词(1 个一类)" class="md-nav__link">
+    3. 处所词(1 个一类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-1" title="4. 方位词(1 个一类)" class="md-nav__link">
+    4. 方位词(1 个一类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-1-9" title="5. 动词(1 个一类，9 个二类)" class="md-nav__link">
+    5. 动词(1 个一类，9 个二类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-1-4" title="6. 形容词(1 个一类，4 个二类)" class="md-nav__link">
+    6. 形容词(1 个一类，4 个二类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-1-2" title="7. 区别词(1 个一类，2 个二类)" class="md-nav__link">
+    7. 区别词(1 个一类，2 个二类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-1" title="8. 状态词(1 个一类)" class="md-nav__link">
+    8. 状态词(1 个一类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-1-4-6" title="9. 代词(1 个一类，4 个二类，6 个三类)" class="md-nav__link">
+    9. 代词(1 个一类，4 个二类，6 个三类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-1-1" title="10. 数词(1 个一类，1 个二类)" class="md-nav__link">
+    10. 数词(1 个一类，1 个二类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-1-2" title="11. 量词(1 个一类，2 个二类)" class="md-nav__link">
+    11. 量词(1 个一类，2 个二类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-1" title="12. 副词(1 个一类)" class="md-nav__link">
+    12. 副词(1 个一类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-1-2" title="13. 介词(1 个一类，2 个二类)" class="md-nav__link">
+    13. 介词(1 个一类，2 个二类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-1-1" title="14. 连词(1 个一类，1 个二类)" class="md-nav__link">
+    14. 连词(1 个一类，1 个二类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-1-15" title="15. 助词(1 个一类，15 个二类)" class="md-nav__link">
+    15. 助词(1 个一类，15 个二类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-1" title="16. 叹词(1 个一类)" class="md-nav__link">
+    16. 叹词(1 个一类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-1" title="17. 语气词(1 个一类)" class="md-nav__link">
+    17. 语气词(1 个一类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-1" title="18. 拟声词(1 个一类)" class="md-nav__link">
+    18. 拟声词(1 个一类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-1" title="19. 前缀(1 个一类)" class="md-nav__link">
+    19. 前缀(1 个一类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-1" title="20. 后缀(1 个一类)" class="md-nav__link">
+    20. 后缀(1 个一类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-1-2" title="21. 字符串(1 个一类，2 个二类)" class="md-nav__link">
+    21. 字符串(1 个一类，2 个二类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-1-16" title="22. 标点符号(1 个一类，16 个二类)" class="md-nav__link">
+    22. 标点符号(1 个一类，16 个二类)
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pku-opendata/" title="北京大学开发数据研究平台" class="md-nav__link">
+      北京大学开发数据研究平台
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../wikipedia/" title="维基百科语料库" class="md-nav__link">
+      维基百科语料库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../wordnet/" title="WordNet" class="md-nav__link">
+      WordNet
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Librariy
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Librariy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/" title="常用分词工具包" class="md-nav__link">
+      常用分词工具包
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/HanLP/" title="HanLP" class="md-nav__link">
+      HanLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/Jiagu/" title="Jiagu" class="md-nav__link">
+      Jiagu
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/Keras/" title="Keras" class="md-nav__link">
+      Keras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/PyTorch/" title="PyTorch" class="md-nav__link">
+      PyTorch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/SnowNLP/" title="SnowNLP" class="md-nav__link">
+      SnowNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/SpaCy/" title="spacy" class="md-nav__link">
+      spacy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/StanfordNLP/" title="斯坦福-StanfordNLP" class="md-nav__link">
+      斯坦福-StanfordNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/THULAC/" title="清华-THULAC" class="md-nav__link">
+      清华-THULAC
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/TensorFlow/" title="TensorFlow" class="md-nav__link">
+      TensorFlow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/awesome/" title="👍🏻 表库" class="md-nav__link">
+      👍🏻 表库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/bosonnlp/" title="玻森数据" class="md-nav__link">
+      玻森数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/ltp/" title="哈工大-LTP" class="md-nav__link">
+      哈工大-LTP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/nlpair-ictclas/" title="中科院-NLPIR" class="md-nav__link">
+      中科院-NLPIR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/nltk/" title="NLTK" class="md-nav__link">
+      NLTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/pkuseg/" title="北大-pkuseg" class="md-nav__link">
+      北大-pkuseg
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/scikit-learn/" title="scikit-learn" class="md-nav__link">
+      scikit-learn
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-18" type="checkbox" id="nav-5-18">
+    
+    <label class="md-nav__link" for="nav-5-18">
+      BERT
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-18">
+        BERT
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/BERT/" title="BERT" class="md-nav__link">
+      BERT
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/BERT/model/" title="模型" class="md-nav__link">
+      模型
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-19" type="checkbox" id="nav-5-19">
+    
+    <label class="md-nav__link" for="nav-5-19">
+      FoolNLTK
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-19">
+        FoolNLTK
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/FoolNLTK/" title="FoolNLTK" class="md-nav__link">
+      FoolNLTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/FoolNLTK/train/" title="Train" class="md-nav__link">
+      Train
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-20" type="checkbox" id="nav-5-20">
+    
+    <label class="md-nav__link" for="nav-5-20">
+      JieBa
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-20">
+        JieBa
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/JieBa/Jieba/" title="JieBa" class="md-nav__link">
+      JieBa
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/JieBa/JiebaCpp/" title="CppJieba" class="md-nav__link">
+      CppJieba
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/JieBa/JiebaNode/" title="NodeJieba" class="md-nav__link">
+      NodeJieba
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Paper
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Paper
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/" title="论文 || 文章" class="md-nav__link">
+      论文 || 文章
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/chinese-segmenter/" title="细说中文分词" class="md-nav__link">
+      细说中文分词
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/milestone/" title="一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑" class="md-nav__link">
+      一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Awesome
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Awesome
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/" title="awesome-nlp" class="md-nav__link">
+      awesome-nlp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/multi-language/" title="其他语言" class="md-nav__link">
+      其他语言
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/techniques/" title="技术" class="md-nav__link">
+      技术
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/tutorials/" title="教程" class="md-nav__link">
+      教程
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Sensitive word
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Sensitive word
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sensitive-word/" title="敏感词" class="md-nav__link">
+      敏感词
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sensitive-word/fastscan/" title="Fastscan" class="md-nav__link">
+      Fastscan
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="目录" class="md-nav__link">
+    目录
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0" title="0. 说明" class="md-nav__link">
+    0. 说明
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-1-7-5" title="1. 名词 (1 个一类，7 个二类，5 个三类)" class="md-nav__link">
+    1. 名词 (1 个一类，7 个二类，5 个三类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-1-1" title="2. 时间词(1 个一类，1 个二类)" class="md-nav__link">
+    2. 时间词(1 个一类，1 个二类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-1" title="3. 处所词(1 个一类)" class="md-nav__link">
+    3. 处所词(1 个一类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-1" title="4. 方位词(1 个一类)" class="md-nav__link">
+    4. 方位词(1 个一类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-1-9" title="5. 动词(1 个一类，9 个二类)" class="md-nav__link">
+    5. 动词(1 个一类，9 个二类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-1-4" title="6. 形容词(1 个一类，4 个二类)" class="md-nav__link">
+    6. 形容词(1 个一类，4 个二类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-1-2" title="7. 区别词(1 个一类，2 个二类)" class="md-nav__link">
+    7. 区别词(1 个一类，2 个二类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-1" title="8. 状态词(1 个一类)" class="md-nav__link">
+    8. 状态词(1 个一类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-1-4-6" title="9. 代词(1 个一类，4 个二类，6 个三类)" class="md-nav__link">
+    9. 代词(1 个一类，4 个二类，6 个三类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-1-1" title="10. 数词(1 个一类，1 个二类)" class="md-nav__link">
+    10. 数词(1 个一类，1 个二类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-1-2" title="11. 量词(1 个一类，2 个二类)" class="md-nav__link">
+    11. 量词(1 个一类，2 个二类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-1" title="12. 副词(1 个一类)" class="md-nav__link">
+    12. 副词(1 个一类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-1-2" title="13. 介词(1 个一类，2 个二类)" class="md-nav__link">
+    13. 介词(1 个一类，2 个二类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-1-1" title="14. 连词(1 个一类，1 个二类)" class="md-nav__link">
+    14. 连词(1 个一类，1 个二类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-1-15" title="15. 助词(1 个一类，15 个二类)" class="md-nav__link">
+    15. 助词(1 个一类，15 个二类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-1" title="16. 叹词(1 个一类)" class="md-nav__link">
+    16. 叹词(1 个一类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-1" title="17. 语气词(1 个一类)" class="md-nav__link">
+    17. 语气词(1 个一类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-1" title="18. 拟声词(1 个一类)" class="md-nav__link">
+    18. 拟声词(1 个一类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-1" title="19. 前缀(1 个一类)" class="md-nav__link">
+    19. 前缀(1 个一类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-1" title="20. 后缀(1 个一类)" class="md-nav__link">
+    20. 后缀(1 个一类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-1-2" title="21. 字符串(1 个一类，2 个二类)" class="md-nav__link">
+    21. 字符串(1 个一类，2 个二类)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-1-16" title="22. 标点符号(1 个一类，16 个二类)" class="md-nav__link">
+    22. 标点符号(1 个一类，16 个二类)
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">计算所汉语词性标记集<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><a href="http://ictclas.nlpir.org/nlpir/html/readme.htm">Version 3.0</a> Last-Modified: Fri, 15 May 2015 11:21:18 GMT</p>
+<p>制订人：刘群 张华平 张浩</p>
+<h2 id="_2">目录<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li>说明</li>
+<li>名词 (1 个一类，7 个二类，5 个三类)</li>
+<li>时间词(1 个一类，1 个二类)</li>
+<li>处所词(1 个一类)</li>
+<li>方位词(1 个一类)</li>
+<li>动词(1 个一类，9 个二类)</li>
+<li>形容词(1 个一类，4 个二类)</li>
+<li>区别词(1 个一类，2 个二类)</li>
+<li>状态词(1 个一类)</li>
+<li>代词(1 个一类，4 个二类，6 个三类)</li>
+<li>数词(1 个一类，1 个二类)</li>
+<li>量词(1 个一类，2 个二类)</li>
+<li>副词(1 个一类)</li>
+<li>介词(1 个一类，2 个二类)</li>
+<li>连词(1 个一类，1 个二类)</li>
+<li>助词(1 个一类，15 个二类)</li>
+<li>叹词(1 个一类)</li>
+<li>语气词(1 个一类)</li>
+<li>拟声词(1 个一类)</li>
+<li>前缀(1 个一类)</li>
+<li>后缀(1 个一类)</li>
+<li>字符串(1 个一类，2 个二类)</li>
+<li>标点符号(1 个一类，16 个二类)</li>
+</ol>
+<h2 id="0">0. 说明<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
+<p>计算所汉语词性标记集（共计 99 个，22 个一类，66 个二类，11 个三类）主要用于中国科学院计算技术研究所研制的汉语词法分析器、句法分析器和汉英机器翻译系统。本标记集主要参考了以下词性标记集：</p>
+<ol>
+<li>
+<p>北大《人民日报》语料库词性标记集；</p>
+</li>
+<li>
+<p>北大 2002 新版词性标记集（草稿）；</p>
+</li>
+<li>
+<p>清华大学汉语树库词性标记集；</p>
+</li>
+<li>
+<p>教育部语用所词性标记集（国家推荐标准草案 2002 版）；</p>
+</li>
+<li>
+<p>美国宾州大学中文树库（ChinesePennTreeBank）词性标记集；</p>
+</li>
+</ol>
+<p>由于计算所的汉语词法分析器主要采用北大《人民日报》语料库进行参数训练，因此本词性标记集主要以北大《人民日报》语料库的词性标记集为蓝本，并参考了北大《汉语语法信息词典》中给出的汉语词的语法信息。
+本标记集在制定过程中主要考虑了以下几方面的因素：</p>
+<ol>
+<li>有助于提高汉语词法分析器的切分和标注正确率；</li>
+<li>有助于提高汉语句法分析器的正确率；</li>
+<li>有助于汉英机器翻译系统进行翻译；</li>
+<li>易于从北大《人民日报》语料库词性标记集进行转换；</li>
+<li>对于语法功能不同的词，在不造成词法分析和句法分析歧义区分困难的情况下，尽可能细分子类。</li>
+</ol>
+<p>基于以上考虑，我们在标注过程中尽量避免那些容易出错的词性标记，而采用那些不容易出错、而对提高汉语词法句法分析正确率有明显作用的标记。例如，在动词的子类中，我们参考了宾州大学中文树库的做法，把汉语动词“是”和“有”分别做成单独的标记，而没有采用“系动词”的标记。因为同样是“是”这个动词，其句法功能很多，作“系动词”只是其中一种功能，而要区分这些功能是非常困难的，会导致词法分析的正确率下降。</p>
+<p>在名词子类中，我们区分了“汉语人名”、“日语人名”和“翻译人名”，这不仅仅是因为这三种人名要采用不同的参数进行训练与识别，而且在汉英机器翻译中也要采用不同的分析算法进行翻译。又如，我们把表示时间的“数词＋‘年’”（如“1995 年”）合并成一个时间词，而表示年头的“数词＋‘年’”分别标注为“数词”和“量词”，这是因为我们通过实验发现这种区分在词法分析阶段通过统计方法可以达到较高的正确率，而且这种区分对于后续的句法分析和机器翻译有非常重要的作用。</p>
+<p>对于某些词类（助词和标点符号），基本上是一个封闭集，而这些词类中各个词的语法功能相差很大，在这种情况下，我们尽可能地细分其子类。</p>
+<p>另外，与其他词性标记集类似，在我们的标记体系中，小类只是大类中一些有必要区分的一些特例，但小类的划分不满足完备性。</p>
+<h2 id="1-1-7-5">1. 名词 (1 个一类，7 个二类，5 个三类)<a class="headerlink" href="#1-1-7-5" title="Permanent link">&para;</a></h2>
+<p>名词分为以下子类：</p>
+<table>
+<thead>
+<tr>
+<th>一类</th>
+<th>二类</th>
+<th>三类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>n</td>
+<td></td>
+<td></td>
+<td>名词</td>
+</tr>
+<tr>
+<td></td>
+<td>nr</td>
+<td></td>
+<td>人名</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>nr1</td>
+<td>汉语姓氏</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>nr2</td>
+<td>汉语名字</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>nrj</td>
+<td>日语人名</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>nrf</td>
+<td>音译人名</td>
+</tr>
+<tr>
+<td></td>
+<td>ns</td>
+<td></td>
+<td>地名</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>nsf</td>
+<td>音译地名</td>
+</tr>
+<tr>
+<td></td>
+<td>nt</td>
+<td></td>
+<td>机构团体名</td>
+</tr>
+<tr>
+<td></td>
+<td>nz</td>
+<td></td>
+<td>其它专名</td>
+</tr>
+<tr>
+<td></td>
+<td>nl</td>
+<td></td>
+<td>名词性惯用语</td>
+</tr>
+<tr>
+<td></td>
+<td>ng</td>
+<td></td>
+<td>名词性语素</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-1-1">2. 时间词(1 个一类，1 个二类)<a class="headerlink" href="#2-1-1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>一类</th>
+<th>二类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>t</td>
+<td></td>
+<td>时间词</td>
+</tr>
+<tr>
+<td></td>
+<td>tg</td>
+<td>时间词性语素</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-1">3. 处所词(1 个一类)<a class="headerlink" href="#3-1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>一类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s</td>
+<td>处所词</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-1">4. 方位词(1 个一类)<a class="headerlink" href="#4-1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>一类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>f</td>
+<td>方位词</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-1-9">5. 动词(1 个一类，9 个二类)<a class="headerlink" href="#5-1-9" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>一类</th>
+<th>二类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v</td>
+<td></td>
+<td>动词</td>
+</tr>
+<tr>
+<td></td>
+<td>vd</td>
+<td>副动词</td>
+</tr>
+<tr>
+<td></td>
+<td>vn</td>
+<td>名动词</td>
+</tr>
+<tr>
+<td></td>
+<td>vshi</td>
+<td>动词“是”</td>
+</tr>
+<tr>
+<td></td>
+<td>vyou</td>
+<td>动词“有”</td>
+</tr>
+<tr>
+<td></td>
+<td>vf</td>
+<td>趋向动词</td>
+</tr>
+<tr>
+<td></td>
+<td>vx</td>
+<td>形式动词</td>
+</tr>
+<tr>
+<td></td>
+<td>vi</td>
+<td>不及物动词（内动词）</td>
+</tr>
+<tr>
+<td></td>
+<td>vl</td>
+<td>动词性惯用语</td>
+</tr>
+<tr>
+<td></td>
+<td>vg</td>
+<td>动词性语素</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-1-4">6. 形容词(1 个一类，4 个二类)<a class="headerlink" href="#6-1-4" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>一类</th>
+<th>二类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td></td>
+<td>形容词</td>
+</tr>
+<tr>
+<td></td>
+<td>ad</td>
+<td>副形词</td>
+</tr>
+<tr>
+<td></td>
+<td>an</td>
+<td>名形词</td>
+</tr>
+<tr>
+<td></td>
+<td>ag</td>
+<td>形容词性语素</td>
+</tr>
+<tr>
+<td></td>
+<td>al</td>
+<td>形容词性惯用语</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-1-2">7. 区别词(1 个一类，2 个二类)<a class="headerlink" href="#7-1-2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>一类</th>
+<th>二类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>b</td>
+<td></td>
+<td>区别词</td>
+</tr>
+<tr>
+<td></td>
+<td>bl</td>
+<td>区别词性惯用语</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-1">8. 状态词(1 个一类)<a class="headerlink" href="#8-1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>一类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>z</td>
+<td>状态词</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9-1-4-6">9. 代词(1 个一类，4 个二类，6 个三类)<a class="headerlink" href="#9-1-4-6" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>一类</th>
+<th>二类</th>
+<th>三类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r</td>
+<td></td>
+<td></td>
+<td>代词</td>
+</tr>
+<tr>
+<td></td>
+<td>rr</td>
+<td></td>
+<td>人称代词</td>
+</tr>
+<tr>
+<td></td>
+<td>rz</td>
+<td></td>
+<td>指示代词</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>rzt</td>
+<td>时间指示代词</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>rzs</td>
+<td>处所指示代词</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>rzv</td>
+<td>谓词性指示代词</td>
+</tr>
+<tr>
+<td></td>
+<td>ry</td>
+<td></td>
+<td>疑问代词</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>ryt</td>
+<td>时间疑问代词</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>rys</td>
+<td>处所疑问代词</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>ryv</td>
+<td>谓词性疑问代词</td>
+</tr>
+<tr>
+<td></td>
+<td>rg</td>
+<td></td>
+<td>代词性语素</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-1-1">10. 数词(1 个一类，1 个二类)<a class="headerlink" href="#10-1-1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>一类</th>
+<th>二类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>m</td>
+<td></td>
+<td>数词</td>
+</tr>
+<tr>
+<td></td>
+<td>mq</td>
+<td>数量词</td>
+</tr>
+</tbody>
+</table>
+<h2 id="11-1-2">11. 量词(1 个一类，2 个二类)<a class="headerlink" href="#11-1-2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>一类</th>
+<th>二类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>q</td>
+<td></td>
+<td>量词</td>
+</tr>
+<tr>
+<td></td>
+<td>qv</td>
+<td>动量词</td>
+</tr>
+<tr>
+<td></td>
+<td>qt</td>
+<td>时量词</td>
+</tr>
+</tbody>
+</table>
+<h2 id="12-1">12. 副词(1 个一类)<a class="headerlink" href="#12-1" title="Permanent link">&para;</a></h2>
+<p>d 副词</p>
+<h2 id="13-1-2">13. 介词(1 个一类，2 个二类)<a class="headerlink" href="#13-1-2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>一类</th>
+<th>二类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p</td>
+<td></td>
+<td>介词</td>
+</tr>
+<tr>
+<td></td>
+<td>pba</td>
+<td>介词“把”</td>
+</tr>
+<tr>
+<td></td>
+<td>pbei</td>
+<td>介词“被”</td>
+</tr>
+</tbody>
+</table>
+<h2 id="14-1-1">14. 连词(1 个一类，1 个二类)<a class="headerlink" href="#14-1-1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>一类</th>
+<th>二类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>c</td>
+<td></td>
+<td>连词</td>
+</tr>
+<tr>
+<td></td>
+<td>cc</td>
+<td>并列连词</td>
+</tr>
+</tbody>
+</table>
+<h2 id="15-1-15">15. 助词(1 个一类，15 个二类)<a class="headerlink" href="#15-1-15" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>一类</th>
+<th>二类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u</td>
+<td></td>
+<td>助词</td>
+</tr>
+<tr>
+<td></td>
+<td>uzhe</td>
+<td>着</td>
+</tr>
+<tr>
+<td></td>
+<td>ule</td>
+<td>了 喽</td>
+</tr>
+<tr>
+<td></td>
+<td>uguo</td>
+<td>过</td>
+</tr>
+<tr>
+<td></td>
+<td>ude1</td>
+<td>的 底</td>
+</tr>
+<tr>
+<td></td>
+<td>ude2</td>
+<td>地</td>
+</tr>
+<tr>
+<td></td>
+<td>ude3</td>
+<td>得</td>
+</tr>
+<tr>
+<td></td>
+<td>usuo</td>
+<td>所</td>
+</tr>
+<tr>
+<td></td>
+<td>udeng</td>
+<td>等 等等 云云</td>
+</tr>
+<tr>
+<td></td>
+<td>uyy</td>
+<td>一样 一般 似的 般</td>
+</tr>
+<tr>
+<td></td>
+<td>udh</td>
+<td>的话</td>
+</tr>
+<tr>
+<td></td>
+<td>uls</td>
+<td>来讲 来说 而言 说来</td>
+</tr>
+<tr>
+<td></td>
+<td>uzhi</td>
+<td>之</td>
+</tr>
+<tr>
+<td></td>
+<td>ulian</td>
+<td>连 （“连小学生都会”）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="16-1">16. 叹词(1 个一类)<a class="headerlink" href="#16-1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>一类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>e</td>
+<td>叹词</td>
+</tr>
+</tbody>
+</table>
+<h2 id="17-1">17. 语气词(1 个一类)<a class="headerlink" href="#17-1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>一类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>y</td>
+<td>语气词(delete yg)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="18-1">18. 拟声词(1 个一类)<a class="headerlink" href="#18-1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>一类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>o</td>
+<td>拟声词</td>
+</tr>
+</tbody>
+</table>
+<h2 id="19-1">19. 前缀(1 个一类)<a class="headerlink" href="#19-1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>一类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h</td>
+<td>前缀</td>
+</tr>
+</tbody>
+</table>
+<h2 id="20-1">20. 后缀(1 个一类)<a class="headerlink" href="#20-1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>一类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>k</td>
+<td>后缀</td>
+</tr>
+</tbody>
+</table>
+<h2 id="21-1-2">21. 字符串(1 个一类，2 个二类)<a class="headerlink" href="#21-1-2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>一类</th>
+<th>二类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td></td>
+<td>字符串</td>
+</tr>
+<tr>
+<td></td>
+<td>xe</td>
+<td>Email 字符串</td>
+</tr>
+<tr>
+<td></td>
+<td>xs</td>
+<td>微博会话分隔符</td>
+</tr>
+<tr>
+<td></td>
+<td>xm</td>
+<td>表情符合</td>
+</tr>
+<tr>
+<td></td>
+<td>xu</td>
+<td>网址 URL</td>
+</tr>
+</tbody>
+</table>
+<h2 id="22-1-16">22. 标点符号(1 个一类，16 个二类)<a class="headerlink" href="#22-1-16" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>一类</th>
+<th>二类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>w</td>
+<td></td>
+<td>标点符号</td>
+</tr>
+<tr>
+<td></td>
+<td>wkz</td>
+<td>左括号，全角：（ 〔 ［ ｛ 《 【 〖 〈 半角：( [ { &lt;</td>
+</tr>
+<tr>
+<td></td>
+<td>wky</td>
+<td>右括号，全角：） 〕 ］ ｝ 》 】 〗 〉 半角： ) ] { &gt;</td>
+</tr>
+<tr>
+<td></td>
+<td>wyz</td>
+<td>左引号，全角：“ ‘ 『</td>
+</tr>
+<tr>
+<td></td>
+<td>wyy</td>
+<td>右引号，全角：” ’ 』</td>
+</tr>
+<tr>
+<td></td>
+<td>wj</td>
+<td>句号，全角：。</td>
+</tr>
+<tr>
+<td></td>
+<td>ww</td>
+<td>问号，全角：？ 半角：?</td>
+</tr>
+<tr>
+<td></td>
+<td>wt</td>
+<td>叹号，全角：！ 半角：!</td>
+</tr>
+<tr>
+<td></td>
+<td>wd</td>
+<td>逗号，全角：， 半角：,</td>
+</tr>
+<tr>
+<td></td>
+<td>wf</td>
+<td>分号，全角：； 半角： ;</td>
+</tr>
+<tr>
+<td></td>
+<td>wn</td>
+<td>顿号，全角：、</td>
+</tr>
+<tr>
+<td></td>
+<td>wm</td>
+<td>冒号，全角：： 半角： :</td>
+</tr>
+<tr>
+<td></td>
+<td>ws</td>
+<td>省略号，全角：…… …</td>
+</tr>
+<tr>
+<td></td>
+<td>wp</td>
+<td>破折号，全角：―― －－ ――－ 半角：--- ----</td>
+</tr>
+<tr>
+<td></td>
+<td>wb</td>
+<td>百分号千分号，全角：％ ‰ 半角：%</td>
+</tr>
+<tr>
+<td></td>
+<td>wh</td>
+<td>单位符号，全角：￥ ＄ ￡ ° ℃ 半角：\$</td>
+</tr>
+</tbody>
+</table>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../nlp-datasets/" title="nlp-datasets" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                nlp-datasets
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../pku-opendata/" title="北京大学开发数据研究平台" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                北京大学开发数据研究平台
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            @2018 nlp-docs.github.io
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.b41f3d20.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
