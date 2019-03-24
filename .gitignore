@@ -1,3 +1,5 @@
 .vscode
 dicts
 stanfordnlp_resources
+.ipynb_checkpoints
+./demo/.ipynb_checkpoints
