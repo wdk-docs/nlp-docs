@@ -1,0 +1,2827 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="自然语言处理文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.0">
+    
+    
+      
+        <title>Jcseg - NLP Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.982221ab.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#jcseg" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="NLP Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              NLP Docs
+            </span>
+            <span class="md-header-nav__topic">
+              Jcseg
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    nlp-docs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="自然语言处理" class="md-tabs__link">
+        自然语言处理
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Algorithm/" title="Algorithm" class="md-tabs__link">
+          Algorithm
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Author/" title="Author" class="md-tabs__link">
+          Author
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Cloud/aliyun/" title="Cloud" class="md-tabs__link">
+          Cloud
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Corpus/" title="Corpus" class="md-tabs__link">
+          Corpus
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="Librariy" class="md-tabs__link md-tabs__link--active">
+          Librariy
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Online/" title="Online" class="md-tabs__link">
+          Online
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Paper/" title="Paper" class="md-tabs__link">
+          Paper
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../awesome/" title="Awesome" class="md-tabs__link">
+          Awesome
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../sensitive-word/" title="Sensitive word" class="md-tabs__link">
+          Sensitive word
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="NLP Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    NLP Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    nlp-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="自然语言处理" class="md-nav__link">
+      自然语言处理
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Algorithm
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Algorithm
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Algorithm/" title="算法汇总" class="md-nav__link">
+      算法汇总
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Algorithm/Conditional_Random_Field/" title="条件随机场 CRF（Conditional Random Field）" class="md-nav__link">
+      条件随机场 CRF（Conditional Random Field）
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Algorithm/Hidden_Markov_Model/" title="隐马尔可夫模型 HMM（Hidden Markov Model）" class="md-nav__link">
+      隐马尔可夫模型 HMM（Hidden Markov Model）
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Algorithm/MMSEG/" title="MMSEG" class="md-nav__link">
+      MMSEG
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Algorithm/MMSeg分词算法简述/" title="MMSeg分词算法简述" class="md-nav__link">
+      MMSeg分词算法简述
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Algorithm/Maximum-entropy_Markov_model/" title="最大熵马尔可夫模型 MEMM（Maximum-entropy Markov model）" class="md-nav__link">
+      最大熵马尔可夫模型 MEMM（Maximum-entropy Markov model）
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Algorithm/Maximum_Entropy/" title="最大熵模型 ME（Maximum Entropy）" class="md-nav__link">
+      最大熵模型 ME（Maximum Entropy）
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Algorithm/Statistical_Model/" title="统计模型" class="md-nav__link">
+      统计模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Algorithm/Viterbi/" title="Viterbi" class="md-nav__link">
+      Viterbi
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Author
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Author
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/hankcs/" title="Hankcs" class="md-nav__link">
+      Hankcs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/刘焕勇/" title="刘焕勇" class="md-nav__link">
+      刘焕勇
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/吴延毅/" title="吴延毅" class="md-nav__link">
+      吴延毅
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/张华平/" title="张华平" class="md-nav__link">
+      张华平
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/张宇浩/" title="张宇浩" class="md-nav__link">
+      张宇浩
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/杨洋/" title="杨洋" class="md-nav__link">
+      杨洋
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/王珊/" title="王珊" class="md-nav__link">
+      王珊
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/蔡志浩/" title="蔡志浩" class="md-nav__link">
+      蔡志浩
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Cloud
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Cloud
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Cloud/aliyun/" title="阿里云自然语言处理" class="md-nav__link">
+      阿里云自然语言处理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Cloud/pai/" title="阿里机器学习平台 PAI 3.0" class="md-nav__link">
+      阿里机器学习平台 PAI 3.0
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Cloud/百度AI/" title="百度 AI" class="md-nav__link">
+      百度 AI
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Corpus
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Corpus
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/" title="语料库" class="md-nav__link">
+      语料库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/ChineseNLPCorpus/" title="Chinese NLP Corpus" class="md-nav__link">
+      Chinese NLP Corpus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/GlobalWordNetAssociation/" title="全球 WordNet 协会" class="md-nav__link">
+      全球 WordNet 协会
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/HowNet/" title="知网" class="md-nav__link">
+      知网
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/LabelStyle/" title="现代汉语语料库加工规范" class="md-nav__link">
+      现代汉语语料库加工规范
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/aihanyu/" title="爱汉语语料库" class="md-nav__link">
+      爱汉语语料库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/cow/" title="Chinese Open Wordnet" class="md-nav__link">
+      Chinese Open Wordnet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/csdn/" title="CSDN 下载" class="md-nav__link">
+      CSDN 下载
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/dianchacha/" title="店查查数据" class="md-nav__link">
+      店查查数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/funNLP/" title="funNLP" class="md-nav__link">
+      funNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/nlp-datasets/" title="nlp-datasets" class="md-nav__link">
+      nlp-datasets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/nlpir/" title="计算所汉语词性标记集" class="md-nav__link">
+      计算所汉语词性标记集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/pku-opendata/" title="北京大学开发数据研究平台" class="md-nav__link">
+      北京大学开发数据研究平台
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/wikipedia/" title="维基百科语料库" class="md-nav__link">
+      维基百科语料库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/wordnet/" title="WordNet" class="md-nav__link">
+      WordNet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-16" type="checkbox" id="nav-5-16">
+    
+    <label class="md-nav__link" for="nav-5-16">
+      BERT
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-16">
+        BERT
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/BERT/" title="BERT 大规模预训练语言模型" class="md-nav__link">
+      BERT 大规模预训练语言模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/BERT/FAQ/" title="常问问题" class="md-nav__link">
+      常问问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/BERT/Fine-tuning_with_BERT/" title="使用 BERT 进行微调" class="md-nav__link">
+      使用 BERT 进行微调
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/BERT/Pre-trained_models/" title="预先训练的模型" class="md-nav__link">
+      预先训练的模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/BERT/Pre-training_with_BERT/" title="使用 BERT 进行预训练" class="md-nav__link">
+      使用 BERT 进行预训练
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/BERT/Using_BERT_in_Colab/" title="在 Colab 中使用 BERT" class="md-nav__link">
+      在 Colab 中使用 BERT
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/BERT/Using_BERT_to_extract_fixed_feature_vectors/" title="使用 BERT 提取固定的特征向量 (像 ELMo)" class="md-nav__link">
+      使用 BERT 提取固定的特征向量 (像 ELMo)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/BERT/What_is_BERT/" title="什么是 BERT？" class="md-nav__link">
+      什么是 BERT？
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/BERT/model/" title="模型" class="md-nav__link">
+      模型
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      Librariy
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Librariy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="常用分词工具包" class="md-nav__link">
+      常用分词工具包
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../HanLP/" title="HanLP" class="md-nav__link">
+      HanLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="Jcseg" class="md-nav__link md-nav__link--active">
+      Jcseg
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Jiagu/" title="Jiagu" class="md-nav__link">
+      Jiagu
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Keras/" title="Keras" class="md-nav__link">
+      Keras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../PyTorch/" title="PyTorch" class="md-nav__link">
+      PyTorch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../SnowNLP/" title="SnowNLP" class="md-nav__link">
+      SnowNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../SpaCy/" title="spacy" class="md-nav__link">
+      spacy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../StanfordNLP/" title="斯坦福-StanfordNLP" class="md-nav__link">
+      斯坦福-StanfordNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../THULAC/" title="清华-THULAC" class="md-nav__link">
+      清华-THULAC
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../TensorFlow/" title="TensorFlow" class="md-nav__link">
+      TensorFlow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ansj_seg/" title="Ansj 中文分词" class="md-nav__link">
+      Ansj 中文分词
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../awesome/" title="👍🏻 表库" class="md-nav__link">
+      👍🏻 表库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../bosonnlp/" title="玻森数据" class="md-nav__link">
+      玻森数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ltp/" title="哈工大-LTP" class="md-nav__link">
+      哈工大-LTP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nlpair-ictclas/" title="中科院-NLPIR" class="md-nav__link">
+      中科院-NLPIR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nltk/" title="NLTK" class="md-nav__link">
+      NLTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pkuseg/" title="北大-pkuseg" class="md-nav__link">
+      北大-pkuseg
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/" title="scikit-learn" class="md-nav__link">
+      scikit-learn
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../sego/" title="sego" class="md-nav__link">
+      sego
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-21" type="checkbox" id="nav-6-21">
+    
+    <label class="md-nav__link" for="nav-6-21">
+      FoolNLTK
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-21">
+        FoolNLTK
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../FoolNLTK/" title="FoolNLTK" class="md-nav__link">
+      FoolNLTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../FoolNLTK/train/" title="Train" class="md-nav__link">
+      Train
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-22" type="checkbox" id="nav-6-22">
+    
+    <label class="md-nav__link" for="nav-6-22">
+      JieBa
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-22">
+        JieBa
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../JieBa/Jieba/" title="JieBa" class="md-nav__link">
+      JieBa
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../JieBa/JiebaCpp/" title="CppJieba" class="md-nav__link">
+      CppJieba
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../JieBa/JiebaNode/" title="NodeJieba" class="md-nav__link">
+      NodeJieba
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Online
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Online
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Online/" title="在线分析工具" class="md-nav__link">
+      在线分析工具
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Paper
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Paper
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/" title="论文 || 文章" class="md-nav__link">
+      论文 || 文章
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/2018-nlp/" title="2018 年，NLP 研究与应用进展到什么水平了？" class="md-nav__link">
+      2018 年，NLP 研究与应用进展到什么水平了？
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/bert-jiqizhixin/" title="谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读" class="md-nav__link">
+      谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/chinese-segmenter/" title="细说中文分词" class="md-nav__link">
+      细说中文分词
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/milestone/" title="一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑" class="md-nav__link">
+      一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/nlp-gather/" title="自然语言处理（NLP）知识结构总结" class="md-nav__link">
+      自然语言处理（NLP）知识结构总结
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Paper/nlp.ict.ac.cn/" title="中国科学院计算技术研究所自然语言处理研究组" class="md-nav__link">
+      中国科学院计算技术研究所自然语言处理研究组
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Awesome
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Awesome
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/" title="awesome-nlp" class="md-nav__link">
+      awesome-nlp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/Awesome-Chinese-NLP/" title="awesome-chinese-nlp" class="md-nav__link">
+      awesome-chinese-nlp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/multi-language/" title="其他语言" class="md-nav__link">
+      其他语言
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/techniques/" title="技术" class="md-nav__link">
+      技术
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/tutorials/" title="教程" class="md-nav__link">
+      教程
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      Sensitive word
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        Sensitive word
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sensitive-word/" title="敏感词" class="md-nav__link">
+      敏感词
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sensitive-word/fastscan/" title="Fastscan" class="md-nav__link">
+      Fastscan
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p><img alt="Jcseg logo" src="http://dongyado.github.io/images/logo-x56.png" /></p>
+<h1 id="jcseg"><strong>Jcseg</strong>是什么？<a class="headerlink" href="#jcseg" title="Permanent link">&para;</a></h1>
+<hr />
+<p><strong><a href="https://github.com/lionsoul2014/jcseg">Jcseg</a></strong>是基于mmseg算法的一个轻量级中文分词器，同时集成了关键字提取，关键短语提取，关键句子提取和文章自动摘要等功能，并且提供了一个基于Jetty的web服务器，方便各大语言直接http调用，同时提供了最新版本的lucene, solr, elasticsearch的分词接口！<strong>Jcseg</strong>自带了一个 jcseg.properties文件用于快速配置而得到适合不同场合的分词应用，例如：最大匹配词长，是否开启中文人名识别，是否追加拼音，是否追加同义词等！</p>
+<h1 id="jcseg_1"><strong>Jcseg</strong>核心功能：<a class="headerlink" href="#jcseg_1" title="Permanent link">&para;</a></h1>
+<hr />
+<blockquote>
+<ul>
+<li>中文分词：mmseg算法 + <strong>Jcseg</strong> 独创的优化算法，四种切分模式。</li>
+<li>关键字提取：基于textRank算法。</li>
+<li>关键短语提取：基于textRank算法。</li>
+<li>关键句子提取：基于textRank算法。</li>
+<li>文章自动摘要：基于BM25+textRank算法。</li>
+<li>自动词性标注：基于词库+（统计歧义去除计划），目前效果不是很理想，对词性标注结果要求较高的应用不建议使用。</li>
+<li>命名实体标注：基于词库+（统计歧义去除计划），电子邮件，网址，大陆手机号码，地名，人名，货币，datetime时间，长度，面积，距离单位等。</li>
+<li>Restful api：嵌入jetty提供了一个绝对高性能的server模块，包含全部功能的http接口，标准化json输出格式，方便各种语言客户端直接调用。</li>
+</ul>
+</blockquote>
+<h1 id="jcseg_2"><strong>Jcseg</strong>中文分词：<a class="headerlink" href="#jcseg_2" title="Permanent link">&para;</a></h1>
+<hr />
+<p><strong>六种切分模式：</strong></p>
+<blockquote>
+<ul>
+<li>(1).简易模式：FMM算法，适合速度要求场合。</li>
+<li>(2).复杂模式：MMSEG四种过滤算法，具有较高的歧义去除，分词准确率达到了98.41%。</li>
+<li>(3).检测模式：只返回词库中已有的词条，很适合某些应用场合。</li>
+<li>(4).检索模式：细粒度切分，专为检索而生，除了中文处理外（不具备中文的人名，数字识别等智能功能）其他与复杂模式一致（英文，组合词等）。</li>
+<li>(5).分隔符模式：按照给定的字符切分词条，默认是空格，特定场合的应用。</li>
+<li>(6).NLP模式：继承自复杂模式，更改了数字，单位等词条的组合方式，增加电子邮件，大陆手机号码，网址，人名，地名，货币等以及无限种自定义实体的识别与返回。</li>
+</ul>
+</blockquote>
+<ol>
+<li>支持自定义词库。在lexicon文件夹下，可以随便添加/删除/更改词库和词库内容，并且对词库进行了分类。</li>
+<li>支持词库多目录加载. 配置lexicon.path中使用';'隔开多个词库目录.</li>
+<li>词库分为简体/繁体/简繁体混合词库: 可以专门适用于简体切分, 繁体切分, 简繁体混合切分, 并且可以利用下面提到的同义词实现,简繁体的相互检索,  <strong>Jcseg</strong>同时提供了词库两个简单的词库管理工具来进行简繁体的转换和词库的合并。</li>
+<li>中英文同义词追加/同义词匹配 + 中文词条拼音追加．词库整合了《现代汉语词典》和cc-cedict辞典中的词条，并且依据cc-cedict词典为词条标上了拼音，依据《中华同义词词典》为词条标上了同义词(尚未完成)。更改jcseg.properties配置文档可以在分词的时候加入拼音和同义词到分词结果中。</li>
+<li>中文数字和中文分数识别，例如："一百五十个人都来了，四十分之一的人。"中的"一百五十"和"四十分之一"。并且 <strong>Jcseg</strong>会自动将其转换为阿拉伯数字加入到分词结果中。如：150， 1/40。</li>
+<li>支持中英混合词和英中混合词的识别(维护词库可以识别任何一种组合)。例如：B超, x射线, 卡拉ok, 奇都ktv, 哆啦a梦。</li>
+<li>更好的英文支持，电子邮件，域名，小数，分数，百分数，字母和标点组合词（例如C++, c#）的识别。</li>
+<li>自定义切分保留标点. 例如: 保留&amp;, 就可以识别k&amp;r这种复杂词条。</li>
+<li>复杂英文切分结果的二次切分:  可以保留原组合，同时可以避免复杂切分带来的检索命中率下降的情况，例如QQ2013会被切分成: qq2013/ qq/ 2013,  chenxin619315@gmail.com会被切分成: chenxin619315@gmail.com/ chenxin/ 619315/ gmail/ com。</li>
+<li>支持阿拉伯数字/小数/中文数字基本单字单位的识别，例如2012年，1.75米，38.6℃，五折，并且 <strong>Jcseg</strong>会将其转换为“5折”加入分词结果中。</li>
+<li>智能圆角半角, 英文大小写转换。</li>
+<li>特殊字母识别：例如：Ⅰ，Ⅱ；特殊数字识别：例如：①，⑩。</li>
+<li>配对标点内容提取：例如：最好的Java书《java编程思想》，‘畅想杯黑客技术大赛’，被《,‘,“,『标点标记的内容。(1.6.8版开始支持)。</li>
+<li>智能中文人名/外文翻译人名识别。中文人名识别正确率达94%以上。（中文人名可以维护lex-lname.lex，lex-dname-1.lex，lex-dname-2.lex来提高准确率），(引入规则和词性后会达到98%以上的识别正确率)。</li>
+<li>自动中英文停止词过滤功能（需要在jcseg.properties中开启该选项，lex-stopwords.lex为停止词词库）。</li>
+<li>词库更新自动加载功能, 开启一个守护线程定时的检测词库的更新并且加载（<strong>注意需要有对应词库目录下的的lex-autoload.todo文件的写入权限</strong>）。</li>
+<li>自动词性标注（目前基于词库）。</li>
+<li>自动实体的识别，默认支持：电子邮件，网址，大陆手机号码，地名，人名，货币等；词库中可以自定义各种实体并且再切分中返回。</li>
+</ol>
+<h1 id="jcseg_3"><strong>Jcseg</strong>快速体验：<a class="headerlink" href="#jcseg_3" title="Permanent link">&para;</a></h1>
+<hr />
+<h4 id="_1">终端测试：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>cd到 <strong>Jcseg</strong>根目录。</li>
+<li>ant all(或者使用maven编译)</li>
+<li>运行：java -jar jcseg-core-{version}.jar</li>
+<li>你将看到如下的终端界面</li>
+<li>在光标处输入文本开始测试(输入:seg_mode参数切换可以体验各种切分算法)</li>
+</ol>
+<div class="codehilite"><pre><span></span>+--------Jcseg chinese word tokenizer demo---------------+
+|- @Author chenxin&lt;chenxin619315@gmail.com&gt;              |
+|- :seg_mode  : switch to specified tokenizer mode.      |
+|- (:complex,:simple,:search,:detect,:delimiter,:NLP)    |
+|- :keywords  : switch to keywords extract mode.         |
+|- :keyphrase : switch to keyphrase extract mode.        |
+|- :sentence  : switch to sentence extract mode.         |
+|- :summary   : switch to summary extract mode.          |
+|- :help      : print this help menu.                    |
+|- :quit      : to exit the program.                     |
++--------------------------------------------------------+
+jcseg~tokenizer:complex&gt;&gt;
+</pre></div>
+
+<h4 id="_2">测试样板：<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<h5 id="_3">分词文本<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span><span class="err">歧义和同义词</span><span class="o">:</span><span class="err">研究生命起源，混合词</span><span class="o">:</span> <span class="err">做</span><span class="n">B超检查身体</span><span class="err">，</span><span class="n">x射线本质是什么</span><span class="err">，今天去奇都</span><span class="n">ktv唱卡拉ok去</span><span class="err">，哆啦</span><span class="n">a梦是一个动漫中的主角</span><span class="err">，单位和全角</span><span class="o">:</span> <span class="mi">2009</span><span class="err">年８月６日开始大学之旅，岳阳今天的气温为</span><span class="mf">38.6</span><span class="err">℃</span><span class="o">,</span> <span class="err">也就是</span><span class="mf">101.48</span><span class="err">℉</span><span class="o">,</span> <span class="err">中文数字</span><span class="sr">/分数: 你分三十分之二, 小陈拿三十分之五,剩下的三十分之二十三全部是我的，那是一九九八年前的事了，四川麻辣烫很好吃，五四运动留下的五四精神。笔记本五折包邮亏本大甩卖。人名识别: 我是陈鑫，也是jcseg的作者，三国时期的诸葛亮是个天才，我们一起给刘翔加油，罗志高兴奋极了因为老吴送了他一台笔记本。外文名识别：冰岛时间7月1日，正在当地拍片的汤姆·克鲁斯通过发言人承认，他与第三任妻子凯蒂·赫尔墨斯（第一二任妻子分别为咪咪·罗杰斯、妮可·基德曼）的婚姻即将结束。配对标点: 本次『畅想杯』黑客技术大赛的得主为电信09-2BF的张三，奖励C++程序设计语言一书和【畅想网络】的『PHP教程』一套。特殊字母: 【Ⅰ】（Ⅱ），英文数字: bug report chenxin619315@gmail.com or visit http://code.google.com/p/</span><span class="n">jcseg</span><span class="o">,</span> <span class="n">we</span> <span class="n">all</span> <span class="n">admire</span> <span class="n">the</span> <span class="n">hacker</span> <span class="n">spirit</span><span class="o">!</span><span class="err">特殊数字</span><span class="o">:</span> <span class="err">①</span> <span class="err">⑩</span> <span class="err">⑽</span> <span class="err">㈩</span><span class="o">.</span>
+</pre></div>
+
+<h5 id="_4">分词结果：<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span>歧义/n 和/o 同义词/n :/w 研究/vn 琢磨/vn 研讨/vn 钻研/vn 生命/n 起源/n ，/w 混合词 :/w 做/v b超/n 检查/vn 身体/n ，/w x射线/n x光线/n 本质/n 是/a 什么/n ，/w 今天/t 去/q 奇都ktv/nz 唱/n 卡拉ok/nz 去/q ，/w 哆啦a梦/nz 是/a 一个/q 动漫/n 中/q 的/u 主角/n ，/w 单位/n 和/o 全角/nz :/w 2009年/m 8月/m 6日/m 开始/n 大学/n 之旅 ，/w 岳阳/ns 今天/t 的/u 气温/n 为/u 38.6℃/m ,/w 也就是/v 101.48℉/m ,/w 中文/n 国语/n 数字/n //w 分数/n :/w 你/r 分/h 三十分之二/m ,/w 小陈/nr 拿/nh 三十分之五/m ,/w 剩下/v 的/u 三十分之二十三/m 全部/a 是/a 我的/nt ，/w 那是/c 一九九八年/m 1998年/m 前/v 的/u 事/i 了/i ，/w 四川/ns 麻辣烫/n 很/m 好吃/v ，/w 五四运动/nz 留下/v 的/u 五四/m 54/m 精神/n 。/w 笔记本/n 五折/m 5折/m 包邮 亏本/v 大甩卖 甩卖 。/w 人名/n 识别/v :/w 我/r 是/a 陈鑫/nr ，/w 也/e 是/a jcseg/en 的/u 作者/n ，/w 三国/mq 时期/n 的/u 诸葛亮/nr 是个 天才/n ，/w 我们/r 一起/d 给/v 刘翔/nr 加油/v ，/w 罗志高/nr 兴奋/v 极了/u 因为/c 老吴/nr 送了 他/r 一台 笔记本/n 。/w 外文/n 名/j 识别/v ：/w 冰岛/ns 时间/n 7月/m 1日/m ，/w 正在/u 当地/s 拍片/vi 的/u 汤姆·克鲁斯/nr 阿汤哥/nr 通过/v 发言人/n 承认/v ，/w 他/r 与/u 第三/m 任/q 妻子/n 凯蒂·赫尔墨斯/nr （/w 第一/a 二/j 任/q 妻子/n 分别为 咪咪·罗杰斯/nr 、/w 妮可·基德曼/nr ）/w 的/u 婚姻/n 即将/d 结束/v 。/w 配对/v 标点/n :/w 本次/r 『/w 畅想杯/nz 』/w 黑客/n 技术/n 大赛/vn 的/u 得主/n 为/u 电信/nt 09/en -/w bf/en 2bf/en 的/u 张三/nr ，/w 奖励/vn c++/en 程序设计/gi 语言/n 一书/ns 和/o 【/w 畅想网络/nz 】/w 的/u 『/w PHP教程/nz 』/w 一套/m 。/w 特殊/a 字母/n :/w 【/w Ⅰ/nz 】/w （/w Ⅱ/m ）/w ，/w 英文/n 英语/n 数字/n :/w bug/en report/en chenxin/en 619315/en gmail/en com/en chenxin619315@gmail.com/en or/en visit/en http/en :/w //w //w code/en google/en com/en code.google.com/en //w p/en //w jcseg/en ,/w we/en all/en admire/en appreciate/en like/en love/en enjoy/en the/en hacker/en spirit/en mind/en !/w 特殊/a 数字/n :/w ①/m ⑩/m ⑽/m ㈩/m ./w
+</pre></div>
+
+<h1 id="jcseg-maven"><strong>Jcseg</strong> Maven仓库：<a class="headerlink" href="#jcseg-maven" title="Permanent link">&para;</a></h1>
+<p>Jcseg从1.9.8才开始上传到了maven仓库！</p>
+<ul>
+<li>
+<ol>
+<li>jcseg-core:</li>
+</ol>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.lionsoul<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>jcseg-core<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+
+<ul>
+<li>
+<ol>
+<li>jcseg-analyzer (lucene或者solr):</li>
+</ol>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.lionsoul<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>jcseg-analyzer<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+
+<ul>
+<li>
+<ol>
+<li>jcseg-elasticsearch</li>
+</ol>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.lionsoul<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>jcseg-elasticsearch<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+
+<ul>
+<li>
+<ol>
+<li>jcseg-server (独立的应用服务器)</li>
+</ol>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.lionsoul<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>jcseg-server<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+
+<h1 id="jcseg-lucene"><strong>Jcseg</strong> lucene分词接口：<a class="headerlink" href="#jcseg-lucene" title="Permanent link">&para;</a></h1>
+<hr />
+<ol>
+<li>导入jcseg-core-{version}.jar和jcseg-analyzer-{version}.jar</li>
+<li>demo代码：</li>
+</ol>
+<div class="codehilite"><pre><span></span><span class="c1">//lucene 5.x</span>
+<span class="c1">//Analyzer analyzer = new JcsegAnalyzer5X(JcsegTaskConfig.COMPLEX_MODE);</span>
+<span class="c1">//available constructor: since 1.9.8</span>
+<span class="c1">//1, JcsegAnalyzer5X(int mode)</span>
+<span class="c1">//2, JcsegAnalyzer5X(int mode, String proFile)</span>
+<span class="c1">//3, JcsegAnalyzer5X(int mode, JcsegTaskConfig config)</span>
+<span class="c1">//4, JcsegAnalyzer5X(int mode, JcsegTaskConfig config, ADictionary dic)</span>
+
+<span class="c1">//lucene 4.x版本</span>
+<span class="c1">//Analyzer analyzer = new JcsegAnalyzer4X(JcsegTaskConfig.COMPLEX_MODE);</span>
+
+<span class="c1">//lucene 6.3.0以及以上版本</span>
+<span class="n">Analyzer</span> <span class="n">analyzer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JcsegAnalyzer</span><span class="o">(</span><span class="n">JcsegTaskConfig</span><span class="o">.</span><span class="na">COMPLEX_MODE</span><span class="o">);</span>
+<span class="c1">//available constructor:</span>
+<span class="c1">//1, JcsegAnalyzer(int mode)</span>
+<span class="c1">//2, JcsegAnalyzer(int mode, String proFile)</span>
+<span class="c1">//3, JcsegAnalyzer(int mode, JcsegTaskConfig config)</span>
+<span class="c1">//4, JcsegAnalyzer(int mode, JcsegTaskConfig config, ADictionary dic)</span>
+
+<span class="c1">//非必须(用于修改默认配置): 获取分词任务配置实例</span>
+<span class="n">JcsegAnalyzer</span> <span class="n">jcseg</span> <span class="o">=</span> <span class="o">(</span><span class="n">JcsegAnalyzer</span><span class="o">)</span> <span class="n">analyzer</span><span class="o">;</span>
+<span class="n">JcsegTaskConfig</span> <span class="n">config</span> <span class="o">=</span> <span class="n">jcseg</span><span class="o">.</span><span class="na">getTaskConfig</span><span class="o">();</span>
+<span class="c1">//追加同义词, 需要在 jcseg.properties中配置jcseg.loadsyn=1</span>
+<span class="n">config</span><span class="o">.</span><span class="na">setAppendCJKSyn</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="c1">//追加拼音, 需要在jcseg.properties中配置jcseg.loadpinyin=1</span>
+<span class="n">config</span><span class="o">.</span><span class="na">setAppendCJKPinyin</span><span class="o">();</span>
+<span class="c1">//更多配置, 请查看 org.lionsoul.jcseg.tokenizer.core.JcsegTaskConfig</span>
+</pre></div>
+
+<h1 id="jcseg-solr"><strong>Jcseg</strong> solr分词接口：<a class="headerlink" href="#jcseg-solr" title="Permanent link">&para;</a></h1>
+<hr />
+<ol>
+<li>将jcseg-core-{version}.jar和jcseg-analyzer-{version}.jar 复制到solr 的类库目录中。</li>
+<li>在solr的scheme.xml加入如下两种配置之一：</li>
+</ol>
+<div class="codehilite"><pre><span></span><span class="c">&lt;!-- 复杂模式分词: --&gt;</span>
+<span class="nt">&lt;fieldtype</span> <span class="na">name=</span><span class="s">&quot;textComplex&quot;</span> <span class="na">class=</span><span class="s">&quot;solr.TextField&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;analyzer&gt;</span>
+        <span class="nt">&lt;tokenizer</span> <span class="na">class=</span><span class="s">&quot;org.lionsoul.jcseg.analyzer.JcsegTokenizerFactory&quot;</span> <span class="na">mode=</span><span class="s">&quot;complex&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/analyzer&gt;</span>
+<span class="nt">&lt;/fieldtype&gt;</span>
+<span class="c">&lt;!-- 简易模式分词: --&gt;</span>
+<span class="nt">&lt;fieldtype</span> <span class="na">name=</span><span class="s">&quot;textSimple&quot;</span> <span class="na">class=</span><span class="s">&quot;solr.TextField&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;analyzer&gt;</span>
+        <span class="nt">&lt;tokenizer</span> <span class="na">class=</span><span class="s">&quot;org.lionsoul.jcseg.analyzer.JcsegTokenizerFactory&quot;</span> <span class="na">mode=</span><span class="s">&quot;simple&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/analyzer&gt;</span>
+<span class="nt">&lt;/fieldtype&gt;</span>
+<span class="c">&lt;!-- 检测模式分词: --&gt;</span>
+<span class="nt">&lt;fieldtype</span> <span class="na">name=</span><span class="s">&quot;textDetect&quot;</span> <span class="na">class=</span><span class="s">&quot;solr.TextField&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;analyzer&gt;</span>
+        <span class="nt">&lt;tokenizer</span> <span class="na">class=</span><span class="s">&quot;org.lionsoul.jcseg.analyzer.JcsegTokenizerFactory&quot;</span> <span class="na">mode=</span><span class="s">&quot;detect&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/analyzer&gt;</span>
+<span class="nt">&lt;/fieldtype&gt;</span>
+<span class="c">&lt;!-- 检索模式分词: --&gt;</span>
+<span class="nt">&lt;fieldtype</span> <span class="na">name=</span><span class="s">&quot;textSearch&quot;</span> <span class="na">class=</span><span class="s">&quot;solr.TextField&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;analyzer&gt;</span>
+        <span class="nt">&lt;tokenizer</span> <span class="na">class=</span><span class="s">&quot;org.lionsoul.jcseg.analyzer.JcsegTokenizerFactory&quot;</span> <span class="na">mode=</span><span class="s">&quot;search&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/analyzer&gt;</span>
+<span class="nt">&lt;/fieldtype&gt;</span>
+<span class="c">&lt;!-- NLP模式分词: --&gt;</span>
+<span class="nt">&lt;fieldtype</span> <span class="na">name=</span><span class="s">&quot;textSearch&quot;</span> <span class="na">class=</span><span class="s">&quot;solr.TextField&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;analyzer&gt;</span>
+        <span class="nt">&lt;tokenizer</span> <span class="na">class=</span><span class="s">&quot;org.lionsoul.jcseg.analyzer.JcsegTokenizerFactory&quot;</span> <span class="na">mode=</span><span class="s">&quot;nlp&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/analyzer&gt;</span>
+<span class="nt">&lt;/fieldtype&gt;</span>
+<span class="c">&lt;!-- 空格分隔符模式分词: --&gt;</span>
+<span class="nt">&lt;fieldtype</span> <span class="na">name=</span><span class="s">&quot;textSearch&quot;</span> <span class="na">class=</span><span class="s">&quot;solr.TextField&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;analyzer&gt;</span>
+        <span class="nt">&lt;tokenizer</span> <span class="na">class=</span><span class="s">&quot;org.lionsoul.jcseg.analyzer.JcsegTokenizerFactory&quot;</span> <span class="na">mode=</span><span class="s">&quot;delimiter&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/analyzer&gt;</span>
+<span class="nt">&lt;/fieldtype&gt;</span>
+</pre></div>
+
+<p><b>备注：</b></p>
+<ol>
+<li>如果使用的是solr-4.x版本，请下载v1.9.7-release tag下的源码编译得到对应的jar，然后将上述xml中的v5x改成v4x即可。</li>
+<li>如果是使用的是solr-6.3.0以下版本，JcsegTokenizerFactory包名路径为：org.lionsoul.jcseg.analyzer.v5x.JcsegTokenizerFactory</li>
+</ol>
+<h1 id="jcseg-elasticsearch"><strong>Jcseg</strong> elasticsearch接口：<a class="headerlink" href="#jcseg-elasticsearch" title="Permanent link">&para;</a></h1>
+<hr />
+<h5 id="elasticsearchversion-2x-not-sure">elasticsearch.version &lt; 2.x (Not sure)<a class="headerlink" href="#elasticsearchversion-2x-not-sure" title="Permanent link">&para;</a></h5>
+<ol>
+<li>下载最新版本的 <strong>Jcseg</strong>源码。</li>
+<li>使用maven或者ant编译打包得到 <strong>Jcseg</strong>的系列jar包（建议使用maven，ant需要自己下载对应的依赖包）。</li>
+<li>拷贝jcseg-analyzer-{version}.jar,jcseg-core-{version}.jar,jcseg-elasticsearch-{version}.jar到{ES_HOME}/plugins/analysis-jcseg目录下（自己建立该文件夹，如果不存在）。</li>
+<li>拷贝一份jcseg.properties到{ES_HOME}/config/jcseg目录下（自己建立该文件夹，如果不存在）。</li>
+<li>配置好jcseg.properties,尤其是配置lexicon.path指向正确的词库（或者将jcseg目录下的lexicon文件夹拷贝到{ES_HOME}/plugins/jcseg目录下）。</li>
+<li>参考下载的源码中的 jcseg-elasticsearch 项目下的 config/elasticsearch.yml 配置文件,将对应的配置加到{ES_HOME}/config/elasticsearch.yml中去。</li>
+<li>配置elasticsearch.yml或者mapping来使用 <strong>Jcseg</strong>分词插件(或者在query中指定)。</li>
+</ol>
+<h5 id="elasticsearchversion-2x">elasticsearch.version &gt;= 2.x<a class="headerlink" href="#elasticsearchversion-2x" title="Permanent link">&para;</a></h5>
+<ol>
+<li>下载最新版本的 <strong>Jcseg</strong>源码。</li>
+<li>使用maven或者ant编译打包得到 <strong>Jcseg</strong>的系列jar包（建议使用maven，ant需要自己下载对应的依赖包）。</li>
+<li>拷贝jcseg-analyzer-{version}.jar,jcseg-core-{version}.jar,jcseg-elasticsearch-{version}.jar到{ES_HOME}/plugins/jcseg目录下（自己建立该文件夹，如果不存在）。</li>
+<li>拷贝一份jcseg.properties到{ES_HOME}/plugins/jcseg目录下（自己建立该文件夹，如果不存在）。</li>
+<li>拷贝一份jcseg-elasticsearch/plugin/plugin-descriptor.properties到{ES_HOME}/plugins/jcseg目录下（自己建立该文件夹，如果不存在）。</li>
+<li>配置好jcseg.properties,尤其是配置lexicon.path指向正确的词库（或者将jcseg目录下的lexicon文件夹拷贝到{ES_HOME}/plugins/jcseg目录下）。</li>
+<li>参考下载的源码中的 jcseg-elasticsearch 项目下的 config/elasticsearch.yml 配置文件,将对应的配置加到{ES_HOME}/config/elasticsearch.yml中去。</li>
+<li>配置elasticsearch.yml或者mapping来使用 <strong>Jcseg</strong>分词插件(或者在query中指定)。</li>
+</ol>
+<h5 id="elasticsearchversion-511">elasticsearch.version &gt;= 5.1.1<a class="headerlink" href="#elasticsearchversion-511" title="Permanent link">&para;</a></h5>
+<ol>
+<li>下载最新版本的 <strong>Jcseg</strong>源码。</li>
+<li>使用maven或者ant编译打包得到 <strong>Jcseg</strong>的系列jar包（建议使用maven，ant需要自己下载对应的依赖包）。</li>
+<li>拷贝jcseg-analyzer-{version}.jar,jcseg-core-{version}.jar,jcseg-elasticsearch-{version}.jar到{ES_HOME}/plugins/jcseg目录下（自己建立该文件夹，如果不存在）。</li>
+<li>拷贝一份jcseg.properties到{ES_HOME}/plugins/jcseg目录下（自己建立该文件夹，如果不存在）。</li>
+<li>拷贝一份jcseg-elasticsearch/plugin/plugin-descriptor.properties到{ES_HOME}/plugins/jcseg目录下（自己建立该文件夹，如果不存在）。</li>
+<li>配置好jcseg.properties,尤其是配置lexicon.path指向正确的词库（或者将jcseg目录下的lexicon文件夹拷贝到{ES_HOME}/plugins/jcseg目录下）。</li>
+<li>mapping指定来使用 <strong>Jcseg</strong>分词插件(或者在query中指定)。</li>
+</ol>
+<p>可选的analyzer名字：</p>
+<div class="codehilite"><pre><span></span><span class="n">jcseg</span>           <span class="o">:</span> <span class="err">对应</span><span class="n">Jcseg的检索模式切分算法</span>
+<span class="n">jcseg_complex</span>   <span class="o">:</span> <span class="err">对应</span><span class="n">Jcseg的复杂模式切分算法</span>
+<span class="n">jcseg_simple</span>    <span class="o">:</span> <span class="err">对应</span><span class="n">Jcseg的简易切分算法</span>
+<span class="n">jcseg_detect</span>    <span class="o">:</span> <span class="err">对应</span><span class="n">Jcseg的检测模式切分算法</span>
+<span class="n">jcseg_search</span>    <span class="o">:</span> <span class="err">对应</span><span class="n">Jcseg的检索模式切分算法</span>
+<span class="n">jcseg_nlp</span>       <span class="o">:</span> <span class="err">对应</span><span class="n">Jcseg的NLP模式切分算法</span>
+<span class="n">jcseg_delimiter</span> <span class="o">:</span> <span class="err">对应</span><span class="n">Jcseg的分隔符模式切分算法</span>
+</pre></div>
+
+<p>配置测试地址：</p>
+<div class="codehilite"><pre><span></span>http://localhost:9200/_analyze?analyzer=jcseg_search&amp;text=一百美元等于多少人民币
+</pre></div>
+
+<p>也可以直接使用集成了jcseg的elasticsearch运行包：<a href="http://git.oschina.net/lionsoul/elasticsearch-jcseg">elasticsearch-jcseg</a>，开封就可以使用。</p>
+<h1 id="jcseg_4"><strong>Jcseg</strong>分词服务器:<a class="headerlink" href="#jcseg_4" title="Permanent link">&para;</a></h1>
+<hr />
+<p>jcseg-server模块嵌入了jetty，实现了一个绝对高性能的服务器，给jcseg的全部Api功能都加上了restful接口，并且标准化了api结果的json输出格式，各大语言直接使用http客户端调用即可。</p>
+<h3 id="jcseg_5">编译jcseg:<a class="headerlink" href="#jcseg_5" title="Permanent link">&para;</a></h3>
+<h5 id="230">2.3.0之前的版本:<a class="headerlink" href="#230" title="Permanent link">&para;</a></h5>
+<ol>
+<li>maven编译jcseg，得到jcseg-server-{version}.jar, maven已经将依赖的jar包一起编译进去了，如果是ant编译运行时请将依赖包载入。</li>
+<li>启动jcseg server：
+<div class="codehilite"><pre><span></span><span class="c1"># 在最后传入jcseg-server.properties配置文件的路径</span>
+java -jar jcseg-server-<span class="o">{</span>version<span class="o">}</span>.jar ./jcseg-server.properties
+</pre></div></li>
+</ol>
+<h5 id="230_1">2.3.0之后的版本：<a class="headerlink" href="#230_1" title="Permanent link">&para;</a></h5>
+<ol>
+<li>maven编译jcseg，jcseg会在jcseg-server/target/jcseg-server目录下打包一个完整的项目，目录结构如下：
+<div class="codehilite"><pre><span></span><span class="m">01</span>, config: 配置目录，jcseg-server.properties管理服务器和词库的配置，jvm.options管理jvm的参数，例如内存分配等，默认1.5G
+<span class="m">02</span>, lib: 全部依赖的jar包目录
+<span class="m">03</span>, lexicon: jcseg词库目录，在此更改管理词库即可
+<span class="m">04</span>, jcseg-server: 启动管理脚本, 仅限linux 增加-d参数可以后台启动
+</pre></div></li>
+<li>启动jcseg server：
+<div class="codehilite"><pre><span></span><span class="c1"># 将jcseg-server/target/jcseg-server整个目录拷贝到安装目录，设为$JS_DIR</span>
+
+<span class="nb">cd</span> <span class="nv">$JS_DIR</span>
+
+<span class="c1"># 初次运行给jcseg-server增加+x权限</span>
+<span class="c1"># 同步运行</span>
+./jcseg-server
+
+<span class="c1"># 后台运行</span>
+./jcseg-server -d
+</pre></div></li>
+</ol>
+<h3 id="jcseg-serverproperties">jcseg-server.properties:<a class="headerlink" href="#jcseg-serverproperties" title="Permanent link">&para;</a></h3>
+<p>懒得翻译了，默默的多念几遍就会了！</p>
+<div class="codehilite"><pre><span></span># jcseg server configuration file with standard json syntax
+{
+    # jcseg server configuration
+    &quot;server_config&quot;: {
+        # server port
+        &quot;port&quot;: 1990,
+
+        # default conmunication charset
+        &quot;charset&quot;: &quot;utf-8&quot;,
+
+        # http idle timeout in ms
+        &quot;http_connection_idle_timeout&quot;: 60000,
+
+        # jetty maximum thread pool size
+        &quot;max_thread_pool_size&quot;: 200,
+
+        # thread idle timeout in ms
+        &quot;thread_idle_timeout&quot;: 30000,
+
+        # http output buffer size
+        &quot;http_output_buffer_size&quot;: 32768,
+
+        # request header size
+        &quot;http_request_header_size&quot;: 8192,
+
+        # response header size
+        &quot;http_response_header_size&quot;: 8192
+    },
+
+
+    # global setting for jcseg, yet another copy of the old
+    # configuration file jcseg.properties
+    &quot;jcseg_global_config&quot;: {
+        # maximum match length. (5-7)
+        &quot;jcseg_maxlen&quot;: 7,
+
+        # recognized the chinese name.
+        # (true to open and false to close it)
+        &quot;jcseg_icnname&quot;: true,
+
+        # maximum length for pair punctuation text.
+        # set it to 0 to close this function
+        &quot;jcseg_pptmaxlen&quot;: 7,
+
+        # maximum length for chinese last name andron.
+        &quot;jcseg_cnmaxlnadron&quot;: 1,
+
+        # Whether to clear the stopwords.
+        # (set true to clear stopwords and false to close it)
+        &quot;jcseg_clearstopword&quot;: false,
+
+        # Whether to convert the chinese numeric to arabic number.
+        # (set to true open it and false to close it) like &#39;\u4E09\u4E07&#39; to 30000.
+        &quot;jcseg_cnnumtoarabic&quot;: true,
+
+        # Whether to convert the chinese fraction to arabic fraction.
+        # @Note: for lucene,solr,elasticsearch eg.. close it.
+        &quot;jcseg_cnfratoarabic&quot;: false,
+
+        # Whether to keep the unrecognized word.
+        # (set true to keep unrecognized word and false to clear it)
+        &quot;jcseg_keepunregword&quot;: true,
+
+        # Whether to start the secondary segmentation for the complex english words.
+        &quot;jcseg_ensencondseg&quot;: true,
+
+        # min length of the secondary simple token.
+        # (better larger than 1)
+        &quot;jcseg_stokenminlen&quot;: 2,
+
+        #thrshold for chinese name recognize.
+        # better not change it before you know what you are doing.
+        &quot;jcseg_nsthreshold&quot;: 1000000,
+
+        #The punctuations that will be keep in an token.
+        # (Not the end of the token).
+        &quot;jcseg_keeppunctuations&quot;: &quot;@#%.&amp;+&quot;
+    },
+
+    # dictionary instance setting.
+    # add yours here with standard json syntax
+    &quot;jcseg_dict&quot;: {
+        &quot;master&quot;: {
+            &quot;path&quot;: [
+                &quot;{jar.dir}/lexicon&quot;
+                # absolute path here
+                #&quot;/java/JavaSE/jcseg/lexicon&quot;
+            ],
+
+            # Whether to load the part of speech of the words
+            &quot;loadpos&quot;: true,
+
+            # Whether to load the pinyin of the words.
+            &quot;loadpinyin&quot;: true,
+
+            # Whether to load the synoyms words of the words.
+            &quot;loadsyn&quot;: true,
+
+            # whether to load the entity of the words.
+            &quot;loadentity&quot;: true,
+
+            # Whether to load the modified lexicon file auto.
+            &quot;autoload&quot;: true,
+
+            # Poll time for auto load. (in seconds)
+            &quot;polltime&quot;: 300
+        }
+
+        # add more of yours here
+        # ,&quot;name&quot; : {
+        #   &quot;path&quot;: [
+        #       &quot;absolute jcseg standard lexicon path 1&quot;,
+        #       &quot;absolute jcseg standard lexicon path 2&quot;
+        #       ...
+        #   ],
+        #   &quot;autoload&quot;: 0,
+        #   &quot;polltime&quot;: 300
+        # }
+    },
+
+    # JcsegTaskConfig instance setting.
+    # @Note:
+    # All the config instance here is extends from the global_setting above.
+    # do nothing will extends all the setting from global_setting
+    &quot;jcseg_config&quot;: {
+        &quot;master&quot;: {
+            # extends and Override the global setting
+            &quot;jcseg_pptmaxlen&quot;: 0,
+            &quot;jcseg_cnfratoarabic&quot;: true,
+            &quot;jcseg_keepunregword&quot;: false
+        }
+
+        # this one is for keywords,keyphrase,sentence,summary extract
+        # @Note: do not delete this instance if u want jcseg to
+        # offset u extractor service
+        ,&quot;extractor&quot;: {
+            &quot;jcseg_pptmaxlen&quot;: 0,
+            &quot;jcseg_clearstopword&quot;: true,
+            &quot;jcseg_cnnumtoarabic&quot;: false,
+            &quot;jcseg_cnfratoarabic&quot;: false,
+            &quot;jcseg_keepunregword&quot;: false,
+            &quot;jcseg_ensencondseg&quot;: false
+        }
+
+        # well, this one is for NLP only
+        ,&quot;nlp&quot; : {
+            &quot;jcseg_ensencondseg&quot;: false,
+            &quot;jcseg_cnfratoarabic&quot;: true,
+            &quot;jcseg_cnnumtoarabic&quot;: true
+        }
+
+
+        # add more of yours here
+        # ,&quot;name&quot;: {
+        #   ...
+        # }
+    },
+
+    # jcseg tokenizer instance setting.
+    # Your could let the instance service for you by access:
+    # http://jcseg_server_host:port/tokenizer/instance_name
+    # instance_name is the name of instance you define here.
+    &quot;jcseg_tokenizer&quot;: {
+        &quot;master&quot;: {
+            # jcseg tokenizer algorithm, could be:
+            # 1: SIMPLE_MODE
+            # 2: COMPLEX_MODE
+            # 3: DETECT_MODE
+            # 4: SEARCH_MODE
+            # 5: DELIMITER_MODE
+            # 6: NLP_MODE
+            # see org.lionsoul.jcseg.tokenizer.core.JcsegTaskConfig for more info
+            &quot;algorithm&quot;: 2,
+
+            # dictionary instance name
+            # choose one of your defines above in the dict scope
+            &quot;dict&quot;: &quot;master&quot;,
+
+            # JcsegTaskConfig instance name
+            # choose one of your defines above in the config scope
+            &quot;config&quot;: &quot;master&quot;
+        }
+
+        # this tokenizer instance is for extractor service
+        # do not delete it if you want jcseg to offset you extractor service
+        ,&quot;extractor&quot;: {
+            &quot;algorithm&quot;: 2,
+            &quot;dict&quot;: &quot;master&quot;,
+            &quot;config&quot;: &quot;extractor&quot;
+        }
+
+        # this tokenizer instance of for NLP analysis
+        # keep it for you NLP project
+        ,&quot;nlp&quot; : {
+            &quot;algorithm&quot;: 6,
+            &quot;dict&quot;: &quot;master&quot;,
+            &quot;config&quot;: &quot;nlp&quot;
+        }
+
+        # add more of your here
+        # ,&quot;name&quot;: {
+        #   ...
+        # }
+    }
+}
+</pre></div>
+
+<h3 id="restful-api">restful api:<a class="headerlink" href="#restful-api" title="Permanent link">&para;</a></h3>
+<h5 id="1">1. 关键字提取：<a class="headerlink" href="#1" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p>api地址：http://jcseg_server_host:port/extractor/keywords?text=&amp;number=&amp;autoFilter=true|false</p>
+<p>api参数：
+<pre>
+    text: post或者get过来的文档文本
+    number: 要提取的关键词个数
+    autoFilter: 是否自动过滤掉低分数关键字
+</pre>
+api返回：</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>{
+    //api错误代号，0正常，1参数错误, -1内部错误
+    &quot;code&quot;: 0,
+    //api返回数据
+    &quot;data&quot;: {
+        //关键字数组
+        &quot;keywords&quot;: [],
+        //操作耗时
+        &quot;took&quot;: 0.001
+    }
+}
+</pre></div>
+
+<p>更多配置请参考：org.lionsoul.jcseg.server.controller.KeywordsController</p>
+<h5 id="2">2. 关键短语提取：<a class="headerlink" href="#2" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p>api地址：http://jcseg_server_host:port/extractor/keyphrase?text=&amp;number=</p>
+<p>api参数：
+<pre>
+    text: post或者get过来的文档文本
+    number: 要提取的关键短语个数
+</pre>
+api返回：</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>{
+    &quot;code&quot;: 0,
+    &quot;data&quot;: {
+        &quot;took&quot;: 0.0277,
+        //关键短语数组
+        &quot;keyphrase&quot;: []
+    }
+}
+</pre></div>
+
+<p>更多配置请参考：org.lionsoul.jcseg.server.controller.KeyphraseController</p>
+<h5 id="3">3. 关键句子提取：<a class="headerlink" href="#3" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p>api地址：http://jcseg_server_host:port/extractor/sentence?text=&amp;number=</p>
+<p>api参数：
+<pre>
+    text: post或者get过来的文档文本
+    number: 要提取的关键句子个数
+</pre>
+api返回：</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>{
+    &quot;code&quot;: 0,
+    &quot;data&quot;: {
+        &quot;took&quot;: 0.0277,
+        //关键句子数组
+        &quot;sentence&quot;: []
+    }
+}
+</pre></div>
+
+<p>更多配置请参考：org.lionsoul.jcseg.server.controller.SentenceController</p>
+<h5 id="4">4. 文章摘要提取：<a class="headerlink" href="#4" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p>api地址：http://jcseg_server_host:port/extractor/summary?text=&amp;length=</p>
+<p>api参数：
+<pre>
+    text: post或者get过来的文档文本
+    length: 要提取的摘要的长度
+</pre>
+api返回：</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>{
+    &quot;code&quot;: 0,
+    &quot;data&quot;: {
+        &quot;took&quot;: 0.0277,
+        //文章摘要
+        &quot;summary&quot;: &quot;&quot;
+    }
+}
+</pre></div>
+
+<p>更多配置请参考：org.lionsoul.jcseg.server.controller.SummaryController</p>
+<h5 id="5">5. 文章自动分词：<a class="headerlink" href="#5" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p>api地址：http://jcseg_server_host:port/tokenizer/tokenizer_instance?text=&amp;ret_pinyin=&amp;ret_pos=...</p>
+<p>api参数：
+<pre>
+    tokenizer_instance: 表示在jcseg-server.properties中定义的分词实例名称
+    text: post或者get过来的文章文本
+    ret_pinyin: 是否在分词结果中返回词条拼音(2.0.1版本后已经取消)
+    ret_pos: 是否在分词结果中返回词条词性(2.0.1版本后已经取消)
+</pre>
+api返回：</p>
+</blockquote>
+<div class="codehilite"><pre><span></span>{
+    &quot;code&quot;: 0,
+    &quot;data&quot;: {
+        &quot;took&quot;: 0.00885,
+        //词条对象数组
+        &quot;list&quot;: [
+            {
+                word: &quot;哆啦a梦&quot;,            //词条内容
+                position: 0,                //词条在原文中的索引位置
+                length: 4,                  //词条的词个数（非字节数）
+                pinyin: &quot;duo la a meng&quot;,    //词条的拼音
+                pos: &quot;nz&quot;,                  //词条的词性标注
+                entity: null                //词条的实体标注
+            }
+        ]
+    }
+}
+</pre></div>
+
+<p>更多配置请参考：org.lionsoul.jcseg.server.controller.TokenizerController</p>
+<h1 id="jcseg_6"><em>Jcseg</em>二次开发:<a class="headerlink" href="#jcseg_6" title="Permanent link">&para;</a></h1>
+<hr />
+<h3 id="1-jcsegapi">1. Jcseg中文分词Api:<a class="headerlink" href="#1-jcsegapi" title="Permanent link">&para;</a></h3>
+<p>Javadoc参考：<a href="https://apidoc.gitee.com/lionsoul/jcseg/">Jcseg Javadoc</a></p>
+<h5 id="1-jcsegtaskconfig">(1). 创建JcsegTaskConfig配置对象：<a class="headerlink" href="#1-jcsegtaskconfig" title="Permanent link">&para;</a></h5>
+<p>jcseg.properties查找步骤：</p>
+<ul>
+<li>1，寻找jcseg-core-{version}.jar目录下的jcseg.properties</li>
+<li>2，如果没找到继续寻找classpath下的jcseg.properties（默认已经打包了）</li>
+<li>3，如果没找到继续寻找user home下的jcseg.properties（除非把classpath下的jcseg.properties删除了，要不然不会到这）</li>
+</ul>
+<p>所以，默认情况下可以在jcseg-core-{version}.jar同目录下来放一份jcseg.properties来自定义配置。</p>
+<p>JcsegTaskConfig构造方法如下：</p>
+<div class="codehilite"><pre><span></span><span class="n">JcsegTaskConfig</span><span class="o">();</span>                          <span class="c1">//不做任何配置文件查找来初始化</span>
+<span class="n">JcsegTaskConfig</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">autoLoad</span><span class="o">);</span>          <span class="c1">//autoLoad=true会自动查找配置来初始化</span>
+<span class="n">JcsegTaskConfig</span><span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">String</span> <span class="n">proFile</span><span class="o">);</span>  <span class="c1">//从指定的配置文件中初始化配置对象</span>
+<span class="n">JcsegTaskConfig</span><span class="o">(</span><span class="n">InputStream</span> <span class="n">is</span><span class="o">);</span>            <span class="c1">//从指定的输入流中初始化配置对象</span>
+</pre></div>
+
+<p>demo代码：</p>
+<div class="codehilite"><pre><span></span><span class="c1">//创建JcsegTaskConfig使用默认配置，不做任何配置文件查找</span>
+<span class="n">JcsegTaskConfig</span> <span class="n">config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JcsegTaskConfig</span><span class="o">();</span>
+
+<span class="c1">//该方法会自动按照上述“jcseg.properties查找步骤”来寻找jcseg.properties并且初始化：</span>
+<span class="n">JcsegTaskConfig</span> <span class="n">config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JcsegTaskConfig</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+
+<span class="c1">//依据给定的jcseg.properties文件创建并且初始化JcsegTaskConfig</span>
+<span class="n">JcsegTaskConfig</span> <span class="n">config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JcsegTaskConfig</span><span class="o">(</span><span class="s">&quot;absolute or relative jcseg.properties path&quot;</span><span class="o">);</span>
+
+<span class="c1">//调用JcsegTaskConfig#load(String proFile)方法来从指定配置文件中初始化配置选项</span>
+<span class="n">config</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="s">&quot;absolute or relative jcseg.properties path&quot;</span><span class="o">);</span>
+</pre></div>
+
+<h5 id="2-adictionary">(2). 创建ADictionary词库对象：<a class="headerlink" href="#2-adictionary" title="Permanent link">&para;</a></h5>
+<p>ADictionary构造方法如下：</p>
+<div class="codehilite"><pre><span></span><span class="n">ADictionary</span><span class="o">(</span><span class="n">JcsegTaskConfig</span> <span class="n">config</span><span class="o">,</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Boolean</span> <span class="n">sync</span><span class="o">)</span>
+<span class="c1">//config：上述的JcsegTaskConfig实例</span>
+<span class="c1">//sync: 是否创建线程安全词库，如果你需要在运行时操作词库对象则指定true，</span>
+<span class="c1">//      如果jcseg.properties中autoload=1则会自动创建同步词库</span>
+</pre></div>
+
+<p>demo代码：</p>
+<div class="codehilite"><pre><span></span><span class="c1">//Jcseg提供org.lionsoul.jcseg.tokenzier.core.DictionaryFactory来方便词库的创建与往后的兼容</span>
+<span class="c1">//通常可以通过</span>
+<span class="c1">//  DictionaryFactory#createDefaultDictionary(JcsegTaskConfig)</span>
+<span class="c1">//  DictionaryFactory.createSingletonDictionary(JcsegTaskConfig)</span>
+<span class="c1">//两方法来创建词库对象并且加载词库文件，建议使用createSingletonDictionary来创建单例词库</span>
+
+<span class="c1">//config为上面创建的JcsegTaskConfig对象.</span>
+<span class="c1">//如果给定的JcsegTaskConfig里面的词库路径信息正确</span>
+<span class="c1">//ADictionary会依据config里面的词库信息加载全部有效的词库;</span>
+<span class="c1">//并且该方法会依据config.isAutoload()来决定词库的同步性还是非同步性,</span>
+<span class="c1">//config.isAutoload()为true就创建同步词库, 反之就创建非同步词库,</span>
+<span class="c1">//config.isAutoload()对应jcseg.properties中的lexicon.autoload;</span>
+<span class="c1">//如果config.getLexiconPath() = null，DictionaryFactory会自动加载classpath下的词库</span>
+<span class="c1">//如果不想让其自动加载lexicon下的词库</span>
+<span class="c1">//可以调用：DictionaryFactory.createSingletonDictionary(config, false)创建ADictionary即可；</span>
+<span class="n">ADictionary</span> <span class="n">dic</span> <span class="o">=</span> <span class="n">DictionaryFactory</span><span class="o">.</span><span class="na">createSingletonDictionary</span><span class="o">(</span><span class="n">config</span><span class="o">);</span>
+
+
+<span class="c1">//创建一个非同步的按照config.lexPath配置加载词库的ADictioanry.</span>
+<span class="n">ADictionary</span> <span class="n">dic</span> <span class="o">=</span> <span class="n">DictionaryFactory</span><span class="o">.</span><span class="na">createDefaultDictionary</span><span class="o">(</span><span class="n">config</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+<span class="c1">//创建一个同步的按照config.lexPath加载词库的ADictioanry.</span>
+<span class="n">ADictionary</span> <span class="n">dic</span> <span class="o">=</span> <span class="n">DictionaryFactory</span><span class="o">.</span><span class="na">createDefaultDictionary</span><span class="o">(</span><span class="n">config</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+<span class="c1">//依据 config.isAutoload()来决定同步性，默认按照config.lexPath来加载词库的ADictionary</span>
+<span class="n">ADictionary</span> <span class="n">dic</span> <span class="o">=</span> <span class="n">DictionaryFactory</span><span class="o">.</span><span class="na">createDefaultDictionary</span><span class="o">(</span><span class="n">config</span><span class="o">,</span> <span class="n">config</span><span class="o">.</span><span class="na">isAutoload</span><span class="o">());</span>
+
+
+<span class="c1">//指定ADictionary加载给定目录下的所有词库文件的词条.</span>
+<span class="c1">//config.getLexiconPath为词库文件存放有效目录数组.</span>
+<span class="k">for</span> <span class="o">(</span> <span class="n">String</span> <span class="n">path</span> <span class="o">:</span> <span class="n">config</span><span class="o">.</span><span class="na">getLexiconPath</span><span class="o">()</span> <span class="o">)</span> <span class="o">{</span>
+    <span class="n">dic</span><span class="o">.</span><span class="na">loadDirectory</span><span class="o">(</span><span class="n">path</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">//指定ADictionary加载给定词库文件的词条.</span>
+<span class="n">dic</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="s">&quot;/java/lex-main.lex&quot;</span><span class="o">);</span>
+<span class="n">dic</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;/java/lex-main.lex&quot;</span><span class="o">));</span>
+
+<span class="c1">//指定ADictionary加载给定输入流的词条</span>
+<span class="n">dic</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="s">&quot;/java/lex-main.lex&quot;</span><span class="o">));</span>
+
+<span class="c1">//阅读下面的“如果自定义使用词库”来获取更多信息</span>
+</pre></div>
+
+<h5 id="3-isegment">(3). 创建ISegment分词实例：<a class="headerlink" href="#3-isegment" title="Permanent link">&para;</a></h5>
+<p>ISegment接口核心分词方法：</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="n">IWord</span> <span class="nf">next</span><span class="o">();</span>
+<span class="c1">//返回下一个切分的词条</span>
+</pre></div>
+
+<p>demo代码：</p>
+<div class="codehilite"><pre><span></span><span class="c1">//依据给定的ADictionary和JcsegTaskConfig来创建ISegment</span>
+<span class="c1">//通常使用SegmentFactory#createJcseg来创建ISegment对象</span>
+<span class="c1">//将config和dic组成一个Object数组给SegmentFactory.createJcseg方法</span>
+<span class="c1">//JcsegTaskConfig.COMPLEX_MODE表示创建ComplexSeg复杂ISegment分词对象</span>
+<span class="c1">//JcsegTaskConfig.SIMPLE_MODE表示创建SimpleSeg简易Isegmengt分词对象.</span>
+<span class="c1">//JcsegTaskConfig.DETECT_MODE表示创建DetectSeg Isegmengt分词对象.</span>
+<span class="c1">//JcsegTaskConfig.SEARCH_MODE表示创建SearchSeg Isegmengt分词对象.</span>
+<span class="c1">//JcsegTaskConfig.DELIMITER_MODE表示创建DelimiterSeg Isegmengt分词对象.</span>
+<span class="c1">//JcsegTaskConfig.NLP_MODE表示创建NLPSeg Isegmengt分词对象.</span>
+<span class="n">ISegment</span> <span class="n">seg</span> <span class="o">=</span> <span class="n">SegmentFactory</span><span class="o">.</span><span class="na">createJcseg</span><span class="o">(</span>
+    <span class="n">JcsegTaskConfig</span><span class="o">.</span><span class="na">COMPLEX_MODE</span><span class="o">,</span>
+    <span class="k">new</span> <span class="n">Object</span><span class="o">[]{</span><span class="n">config</span><span class="o">,</span> <span class="n">dic</span><span class="o">}</span>
+<span class="o">);</span>
+
+<span class="c1">//设置要分词的内容</span>
+<span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&quot;研究生命起源。&quot;</span><span class="o">;</span>
+<span class="n">seg</span><span class="o">.</span><span class="na">reset</span><span class="o">(</span><span class="k">new</span> <span class="n">StringReader</span><span class="o">(</span><span class="n">str</span><span class="o">));</span>
+
+<span class="c1">//获取分词结果</span>
+<span class="n">IWord</span> <span class="n">word</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="k">while</span> <span class="o">(</span> <span class="o">(</span><span class="n">word</span> <span class="o">=</span> <span class="n">seg</span><span class="o">.</span><span class="na">next</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">getValue</span><span class="o">());</span>
+<span class="o">}</span>
+</pre></div>
+
+<h5 id="4_1">(4). 一个完整的例子：<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span><span class="c1">//创建JcsegTaskConfig分词配置实例，自动查找加载jcseg.properties配置项来初始化</span>
+<span class="n">JcsegTaskConfig</span> <span class="n">config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JcsegTaskConfig</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+
+<span class="c1">//创建默认单例词库实现，并且按照config配置加载词库</span>
+<span class="n">ADictionary</span> <span class="n">dic</span> <span class="o">=</span> <span class="n">DictionaryFactory</span><span class="o">.</span><span class="na">createSingletonDictionary</span><span class="o">(</span><span class="n">config</span><span class="o">);</span>
+
+<span class="c1">//依据给定的ADictionary和JcsegTaskConfig来创建ISegment</span>
+<span class="c1">//为了Api往后兼容，建议使用SegmentFactory来创建ISegment对象</span>
+<span class="n">ISegment</span> <span class="n">seg</span> <span class="o">=</span> <span class="n">SegmentFactory</span><span class="o">.</span><span class="na">createJcseg</span><span class="o">(</span>
+    <span class="n">JcsegTaskConfig</span><span class="o">.</span><span class="na">COMPLEX_MODE</span><span class="o">,</span>
+    <span class="k">new</span> <span class="n">Object</span><span class="o">[]{</span><span class="k">new</span> <span class="n">StringReader</span><span class="o">(</span><span class="n">str</span><span class="o">),</span> <span class="n">config</span><span class="o">,</span> <span class="n">dic</span><span class="o">}</span>
+<span class="o">);</span>
+
+
+<span class="c1">//备注：以下代码可以反复调用，seg为非线程安全</span>
+
+<span class="c1">//设置要被分词的文本</span>
+<span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&quot;研究生命起源。&quot;</span><span class="o">;</span>
+<span class="n">seg</span><span class="o">.</span><span class="na">reset</span><span class="o">(</span><span class="k">new</span> <span class="n">StringReader</span><span class="o">(</span><span class="n">str</span><span class="o">));</span>
+
+<span class="c1">//获取分词结果</span>
+<span class="n">IWord</span> <span class="n">word</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="k">while</span> <span class="o">(</span> <span class="o">(</span><span class="n">word</span> <span class="o">=</span> <span class="n">seg</span><span class="o">.</span><span class="na">next</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">word</span><span class="o">.</span><span class="na">getValue</span><span class="o">());</span>
+<span class="o">}</span>
+</pre></div>
+
+<h5 id="5_1">(5). 如何自定义使用词库：<a class="headerlink" href="#5_1" title="Permanent link">&para;</a></h5>
+<p>从1.9.9版本开始，Jcseg已经默认将jcseg.properties和lexicon全部词库打包进了jcseg-core-{version}.jar中，如果是通过JcsegTaskConfig(true)构造的JcsegTaskConfig或者调用了JcsegTaskConfig#autoLoad()方法，在找不到自定义配置文件情况下Jcseg会自动的加载classpath中的配置文件，如果config.getLexiconPath() = null DictionaryFactory默认会自动加载classpath下的词库。</p>
+<ul>
+<li>1)，通过JcsegTaskConfig设置词库路径：</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1">//1, 默认构造JcsegTaskConfig，不做任何配置文件寻找来初始化</span>
+<span class="n">JcsegTaskConfig</span> <span class="n">config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JcsegTaskConfig</span><span class="o">();</span>
+
+<span class="c1">//2, 设置自定义词库路径集合</span>
+<span class="n">config</span><span class="o">.</span><span class="na">setLexiconPath</span><span class="o">(</span><span class="k">new</span> <span class="n">String</span><span class="o">[]{</span>
+    <span class="s">&quot;relative or absolute lexicon path1&quot;</span><span class="o">,</span>
+    <span class="s">&quot;relative or absolute lexicon path2&quot;</span>
+    <span class="c1">//add more here</span>
+<span class="o">});</span>
+
+<span class="c1">//3, 通过config构造词库并且DictionaryFactory会按照上述设置的词库路径自动加载全部词库</span>
+<span class="n">ADictionary</span> <span class="n">dic</span> <span class="o">=</span> <span class="n">DictionaryFactory</span><span class="o">.</span><span class="na">createSingletonDictionary</span><span class="o">(</span><span class="n">config</span><span class="o">);</span>
+</pre></div>
+
+<ul>
+<li>2)，通过ADictionary手动加载词库：</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1">//1, 构造默认的JcsegTaskConfig，不做任何配置文件寻找来初始化</span>
+<span class="n">JcsegTaskConfig</span> <span class="n">config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JcsegTaskConfig</span><span class="o">();</span>
+
+<span class="c1">//2, 构造ADictionary词库对象</span>
+<span class="c1">//注意第二个参数为false，阻止DictionaryFactory自动检测config.getLexiconPath()来加载词库</span>
+<span class="n">ADictionary</span> <span class="n">dic</span> <span class="o">=</span> <span class="n">DictionaryFactory</span><span class="o">.</span><span class="na">createSingletonDictionary</span><span class="o">(</span><span class="n">config</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+
+<span class="c1">//3, 手动加载词库</span>
+<span class="n">dic</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;absolute or relative lexicon file path&quot;</span><span class="o">));</span>              <span class="c1">//加载指定词库文件下全部词条</span>
+<span class="n">dic</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="s">&quot;absolute or relative lexicon file path&quot;</span><span class="o">);</span>                        <span class="c1">//加载指定词库文件下全部词条</span>
+<span class="n">dic</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="s">&quot;absolute or relative lexicon file path&quot;</span><span class="o">));</span>   <span class="c1">//加载指定InputStream输入流下的全部词条</span>
+<span class="n">dic</span><span class="o">.</span><span class="na">loadDirectory</span><span class="o">(</span><span class="s">&quot;absolute or relative lexicon directory&quot;</span><span class="o">);</span>       <span class="c1">//加载指定目录下的全部词库文件的全部词条</span>
+<span class="n">dic</span><span class="o">.</span><span class="na">loadClassPath</span><span class="o">();</span>        <span class="c1">//加载classpath路径下的全部词库文件的全部词条（默认路径/lexicon）</span>
+</pre></div>
+
+<h3 id="2-jcsegapi">2. Jcseg关键字提取Api：<a class="headerlink" href="#2-jcsegapi" title="Permanent link">&para;</a></h3>
+<ul>
+<li>1)，TextRankKeywordsExtractor构造方法：</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="n">TextRankKeywordsExtractor</span><span class="o">(</span><span class="n">ISegment</span> <span class="n">seg</span><span class="o">);</span>
+<span class="c1">//seg: Jcseg ISegment分词对象</span>
+</pre></div>
+
+<ul>
+<li>2)，demo代码：</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1">//1, 创建Jcseg ISegment分词对象</span>
+<span class="n">JcsegTaskConfig</span> <span class="n">config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JcsegTaskConfig</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="n">config</span><span class="o">.</span><span class="na">setClearStopwords</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>     <span class="c1">//设置过滤停止词</span>
+<span class="n">config</span><span class="o">.</span><span class="na">setAppendCJKSyn</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>      <span class="c1">//设置关闭同义词追加</span>
+<span class="n">config</span><span class="o">.</span><span class="na">setKeepUnregWords</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>    <span class="c1">//设置去除不识别的词条</span>
+<span class="n">ADictionary</span> <span class="n">dic</span> <span class="o">=</span> <span class="n">DictionaryFactory</span><span class="o">.</span><span class="na">createSingletonDictionary</span><span class="o">(</span><span class="n">config</span><span class="o">);</span>
+<span class="n">ISegment</span> <span class="n">seg</span> <span class="o">=</span> <span class="n">SegmentFactory</span><span class="o">.</span><span class="na">createJcseg</span><span class="o">(</span>
+    <span class="n">JcsegTaskConfig</span><span class="o">.</span><span class="na">COMPLEX_MODE</span><span class="o">,</span>
+    <span class="k">new</span> <span class="n">Object</span><span class="o">[]{</span><span class="n">config</span><span class="o">,</span> <span class="n">dic</span><span class="o">}</span>
+<span class="o">);</span>
+
+<span class="c1">//2, 构建TextRankKeywordsExtractor关键字提取器</span>
+<span class="n">TextRankKeywordsExtractor</span> <span class="n">extractor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextRankKeywordsExtractor</span><span class="o">(</span><span class="n">seg</span><span class="o">);</span>
+<span class="n">extractor</span><span class="o">.</span><span class="na">setMaxIterateNum</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>        <span class="c1">//设置pagerank算法最大迭代次数，非必须，使用默认即可</span>
+<span class="n">extractor</span><span class="o">.</span><span class="na">setWindowSize</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>             <span class="c1">//设置textRank计算窗口大小，非必须，使用默认即可</span>
+<span class="n">extractor</span><span class="o">.</span><span class="na">setKeywordsNum</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>           <span class="c1">//设置最大返回的关键词个数，默认为10</span>
+
+<span class="c1">//3, 从一个输入reader输入流中获取关键字</span>
+<span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&quot;现有的分词算法可分为三大类：基于字符串匹配的分词方法、基于理解的分词方法和基于统计的分词方法。按照是否与词性标注过程相结合，又可以分为单纯分词方法和分词与标注相结合的一体化方法。&quot;</span><span class="o">;</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">keywords</span> <span class="o">=</span> <span class="n">extractor</span><span class="o">.</span><span class="na">getKeywords</span><span class="o">(</span><span class="k">new</span> <span class="n">StringReader</span><span class="o">(</span><span class="n">str</span><span class="o">));</span>
+
+<span class="c1">//4, output:</span>
+<span class="c1">//&quot;分词&quot;,&quot;方法&quot;,&quot;分为&quot;,&quot;标注&quot;,&quot;相结合&quot;,&quot;字符串&quot;,&quot;匹配&quot;,&quot;过程&quot;,&quot;大类&quot;,&quot;单纯&quot;</span>
+</pre></div>
+
+<ul>
+<li>3)，测试源码参考：org.lionsoul.jcseg.test.KeywordsExtractorTest源码</li>
+</ul>
+<h3 id="3-jcsegapi">3. Jcseg自动摘要/关键句子提取Api：<a class="headerlink" href="#3-jcsegapi" title="Permanent link">&para;</a></h3>
+<ul>
+<li>1)，TextRankSummaryExtractor构造方法：</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="n">TextRankSummaryExtractor</span><span class="o">(</span><span class="n">ISegment</span> <span class="n">seg</span><span class="o">,</span> <span class="n">SentenceSeg</span> <span class="n">sentenceSeg</span><span class="o">);</span>
+<span class="c1">//seg: Jcseg ISegment分词对象</span>
+<span class="c1">//sentenceSeg: Jcseg SentenceSeg句子切分对象</span>
+</pre></div>
+
+<ul>
+<li>2)，demo代码：</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1">//1, 创建Jcseg ISegment分词对象</span>
+<span class="n">JcsegTaskConfig</span> <span class="n">config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JcsegTaskConfig</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="n">config</span><span class="o">.</span><span class="na">setClearStopwords</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>     <span class="c1">//设置过滤停止词</span>
+<span class="n">config</span><span class="o">.</span><span class="na">setAppendCJKSyn</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>      <span class="c1">//设置关闭同义词追加</span>
+<span class="n">config</span><span class="o">.</span><span class="na">setKeepUnregWords</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>    <span class="c1">//设置去除不识别的词条</span>
+<span class="n">ADictionary</span> <span class="n">dic</span> <span class="o">=</span> <span class="n">DictionaryFactory</span><span class="o">.</span><span class="na">createSingletonDictionary</span><span class="o">(</span><span class="n">config</span><span class="o">);</span>
+<span class="n">ISegment</span> <span class="n">seg</span> <span class="o">=</span> <span class="n">SegmentFactory</span><span class="o">.</span><span class="na">createJcseg</span><span class="o">(</span>
+    <span class="n">JcsegTaskConfig</span><span class="o">.</span><span class="na">COMPLEX_MODE</span><span class="o">,</span>
+    <span class="k">new</span> <span class="n">Object</span><span class="o">[]{</span><span class="n">config</span><span class="o">,</span> <span class="n">dic</span><span class="o">}</span>
+<span class="o">);</span>
+
+<span class="c1">//2, 构造TextRankSummaryExtractor自动摘要提取对象</span>
+<span class="n">SummaryExtractor</span> <span class="n">extractor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextRankSummaryExtractor</span><span class="o">(</span><span class="n">seg</span><span class="o">,</span> <span class="k">new</span> <span class="n">SentenceSeg</span><span class="o">());</span>
+
+
+<span class="c1">//3, 从一个Reader输入流中获取length长度的摘要</span>
+<span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&quot;Jcseg是基于mmseg算法的一个轻量级开源中文分词器，同时集成了关键字提取，关键短语提取，关键句子提取和文章自动摘要等功能，并且提供了最新版本的lucene,%20solr,%20elasticsearch的分词接口。Jcseg自带了一个%20jcseg.properties文件用于快速配置而得到适合不同场合的分词应用。例如：最大匹配词长，是否开启中文人名识别，是否追加拼音，是否追加同义词等！&quot;</span><span class="o">;</span>
+<span class="n">String</span> <span class="n">summary</span> <span class="o">=</span> <span class="n">extractor</span><span class="o">.</span><span class="na">getSummary</span><span class="o">(</span><span class="k">new</span> <span class="n">StringReader</span><span class="o">(</span><span class="n">str</span><span class="o">),</span> <span class="mi">64</span><span class="o">);</span>
+
+<span class="c1">//4, output:</span>
+<span class="c1">//Jcseg是基于mmseg算法的一个轻量级开源中文分词器，同时集成了关键字提取，关键短语提取，关键句子提取和文章自动摘要等功能，并且提供了最新版本的lucene, solr, elasticsearch的分词接口。</span>
+
+
+<span class="c1">//-----------------------------------------------------------------</span>
+<span class="c1">//5, 从一个Reader输入流中提取n个关键句子</span>
+<span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&quot;you source string here&quot;</span><span class="o">;</span>
+<span class="n">extractor</span><span class="o">.</span><span class="na">setSentenceNum</span><span class="o">(</span><span class="mi">6</span><span class="o">);</span>        <span class="c1">//设置返回的关键句子个数</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">keySentences</span> <span class="o">=</span> <span class="n">extractor</span><span class="o">.</span><span class="na">getKeySentence</span><span class="o">(</span><span class="k">new</span> <span class="n">StringReader</span><span class="o">(</span><span class="n">str</span><span class="o">));</span>
+</pre></div>
+
+<ul>
+<li>3)，测试源码参考：org.lionsoul.jcseg.test.SummaryExtractorTest源码</li>
+</ul>
+<h3 id="4-jcsegapi">4. Jcseg关键短语提取Api：<a class="headerlink" href="#4-jcsegapi" title="Permanent link">&para;</a></h3>
+<ul>
+<li>1)，TextRankKeyphraseExtractor构造方法：</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="n">TextRankKeyphraseExtractor</span><span class="o">(</span><span class="n">ISegment</span> <span class="n">seg</span><span class="o">);</span>
+<span class="c1">//seg: Jcseg ISegment分词对象</span>
+</pre></div>
+
+<ul>
+<li>2)，demo代码：</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1">//1, 创建Jcseg ISegment分词对象</span>
+<span class="n">JcsegTaskConfig</span> <span class="n">config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JcsegTaskConfig</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="n">config</span><span class="o">.</span><span class="na">setClearStopwords</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>    <span class="c1">//设置不过滤停止词</span>
+<span class="n">config</span><span class="o">.</span><span class="na">setAppendCJKSyn</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>      <span class="c1">//设置关闭同义词追加</span>
+<span class="n">config</span><span class="o">.</span><span class="na">setKeepUnregWords</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>    <span class="c1">//设置去除不识别的词条</span>
+<span class="n">config</span><span class="o">.</span><span class="na">setEnSecondSeg</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>       <span class="c1">//关闭英文自动二次切分</span>
+<span class="n">ADictionary</span> <span class="n">dic</span> <span class="o">=</span> <span class="n">DictionaryFactory</span><span class="o">.</span><span class="na">createSingletonDictionary</span><span class="o">(</span><span class="n">config</span><span class="o">);</span>
+<span class="n">ISegment</span> <span class="n">seg</span> <span class="o">=</span> <span class="n">SegmentFactory</span><span class="o">.</span><span class="na">createJcseg</span><span class="o">(</span>
+    <span class="n">JcsegTaskConfig</span><span class="o">.</span><span class="na">COMPLEX_MODE</span><span class="o">,</span>
+    <span class="k">new</span> <span class="n">Object</span><span class="o">[]{</span><span class="n">config</span><span class="o">,</span> <span class="n">dic</span><span class="o">}</span>
+<span class="o">);</span>
+
+<span class="c1">//2, 构建TextRankKeyphraseExtractor关键短语提取器</span>
+<span class="n">TextRankKeyphraseExtractor</span> <span class="n">extractor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextRankKeyphraseExtractor</span><span class="o">(</span><span class="n">seg</span><span class="o">);</span>
+<span class="n">extractor</span><span class="o">.</span><span class="na">setMaxIterateNum</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>        <span class="c1">//设置pagerank算法最大迭代词库，非必须，使用默认即可</span>
+<span class="n">extractor</span><span class="o">.</span><span class="na">setWindowSize</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>             <span class="c1">//设置textRank窗口大小，非必须，使用默认即可</span>
+<span class="n">extractor</span><span class="o">.</span><span class="na">setKeywordsNum</span><span class="o">(</span><span class="mi">15</span><span class="o">);</span>           <span class="c1">//设置最大返回的关键词个数，默认为10</span>
+<span class="n">extractor</span><span class="o">.</span><span class="na">setMaxWordsNum</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>            <span class="c1">//设置最大短语词长，默认为5</span>
+
+<span class="c1">//3, 从一个输入reader输入流中获取短语</span>
+<span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&quot;支持向量机广泛应用于文本挖掘，例如，基于支持向量机的文本自动分类技术研究一文中很详细的介绍支持向量机的算法细节，文本自动分类是文本挖掘技术中的一种！&quot;</span><span class="o">;</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">keyphrases</span> <span class="o">=</span> <span class="n">extractor</span><span class="o">.</span><span class="na">getKeyphrase</span><span class="o">(</span><span class="k">new</span> <span class="n">StringReader</span><span class="o">(</span><span class="n">str</span><span class="o">));</span>
+
+<span class="c1">//4, output:</span>
+<span class="c1">//支持向量机, 自动分类</span>
+</pre></div>
+
+<ul>
+<li>3)，测试源码参考：org.lionsoul.jcseg.test.KeyphraseExtractorTest源码</li>
+</ul>
+<h1 id="_5">相关附录<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
+<h3 id="1jcseg">1，Jcseg的词性对照：<a class="headerlink" href="#1jcseg" title="Permanent link">&para;</a></h3>
+<p>名词n、时间词t、处所词s、方位词f、数词m、量词q、区别词b、代词r、动词v、形容词a、状态词z、副词d、介词p、连词c、助词u、语气词y、叹词e、拟声词o、成语i、习惯用语l、简称j、前接成分h、后接成分k、语素g、非语素字x、标点符号w）外，从语料库应用的角度，增加了专有名词（人名nr、地名ns、机构名称nt、其他专有名词nz）。</p>
+<h3 id="2jcseg">2，Jcseg同义词管理：<a class="headerlink" href="#2jcseg" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>01)，统一的词库分类:
+从2.2.0版本开始jcseg将同义词统一成了一个单独的类别-CJK_SYN，你可以将你的同义词定义直接追加到现有的同义词词库vendors/lexicons/lex-synonyms.lex中，也可以新建一个独立的词库，然后在首行增加CJK_SYN定义，将该词库归类为同义词词库，然后按照下面介绍的格式逐行或者分行增加同义词的定义。</p>
+</li>
+<li>
+<p>02)，统一的同义词格式：
+<div class="codehilite"><pre><span></span>格式：
+词根,同义词1[/可选拼音],同义词2[/可选拼音],...,同义词n[/可选拼音]
+
+例如：
+单行定义：
+研究,研讨,钻研,研磨/yan mo,研发
+
+多行定义：(只要词根一样，定义的全部同义词就都属于同一个集合)
+中央一台,央视一台,中央第一台
+中央一台,中央第一频道,央视第一台,央视第一频道
+</pre></div></p>
+</li>
+<li>
+<p>03)，格式和要求说明：
+<div class="codehilite"><pre><span></span>1，第一个词为同义词的根词条，这个词条必须是CJK_WORD词库中必须存在的词条，如果不存在，这条同义词定义会被忽略。
+2，根词会作为不同行同义词集合的区别，如果两行同义词定义的根词一样，会自动合并成一个同义词集合。
+3，jcseg中使用org.lionsoul.jcseg.tokenizer.core.SynonymsEntry来管理同义词集合，每个IWord词条对象都会有一个SynonymsEntry属性来指向自己的同义词集合。
+4，SynonymsEntry.rootWord存储了同义词集合的根词，同义词的合并建议统一替换成根词。
+5，除去根词外的其他同义词，jcseg会自动检测并且创建相关的IWord词条对象并且将其加入CJK_WORD词库中，也就是说其他同义词不一定要是CJK_WORD词库中存在的词条。
+6，其他同义词会自动继承词根的词性和实体定义，也会继承CJK_WORD词库中该词条的拼音定义（如果存在该词），也可以在词条后面通过增加&quot;/拼音&quot;来单独定义拼音。
+7，同一同义词定义的集合中的全部IWord词条都指向同一个SynonymsEntry对象，也就是同义词之间会自动相互引用。
+</pre></div></p>
+</li>
+</ul>
+<h3 id="3_1">3，技术交流分享<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>1，官方使用案例：<a href="http://yuanyu.ai">原语智能</a></li>
+<li>2，NLP交流分享：微信：lionsoul2014，ＱＱ：1187582057</li>
+</ul>
+<blockquote>
+<p>This is the end line and thanks for reading !!!</p>
+</blockquote>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../HanLP/" title="HanLP" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                HanLP
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Jiagu/" title="Jiagu" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                Jiagu
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            @2018 nlp-docs.github.io
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.2ba8dec4.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>

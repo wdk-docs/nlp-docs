@@ -1,0 +1,2291 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="自然语言处理文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.0">
+    
+    
+      
+        <title>使用 BERT 进行微调 - NLP Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.982221ab.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#bert" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="NLP Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              NLP Docs
+            </span>
+            <span class="md-header-nav__topic">
+              使用 BERT 进行微调
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    nlp-docs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../.." title="自然语言处理" class="md-tabs__link">
+        自然语言处理
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../Algorithm/" title="Algorithm" class="md-tabs__link">
+          Algorithm
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../Author/" title="Author" class="md-tabs__link">
+          Author
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../Cloud/aliyun/" title="Cloud" class="md-tabs__link">
+          Cloud
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../" title="Corpus" class="md-tabs__link md-tabs__link--active">
+          Corpus
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../Librariy/" title="Librariy" class="md-tabs__link">
+          Librariy
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../Online/" title="Online" class="md-tabs__link">
+          Online
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../Paper/" title="Paper" class="md-tabs__link">
+          Paper
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../awesome/" title="Awesome" class="md-tabs__link">
+          Awesome
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../sensitive-word/" title="Sensitive word" class="md-tabs__link">
+          Sensitive word
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="NLP Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    NLP Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    nlp-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="自然语言处理" class="md-nav__link">
+      自然语言处理
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Algorithm
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Algorithm
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Algorithm/" title="算法汇总" class="md-nav__link">
+      算法汇总
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Algorithm/Conditional_Random_Field/" title="条件随机场 CRF（Conditional Random Field）" class="md-nav__link">
+      条件随机场 CRF（Conditional Random Field）
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Algorithm/Hidden_Markov_Model/" title="隐马尔可夫模型 HMM（Hidden Markov Model）" class="md-nav__link">
+      隐马尔可夫模型 HMM（Hidden Markov Model）
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Algorithm/MMSEG/" title="MMSEG" class="md-nav__link">
+      MMSEG
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Algorithm/MMSeg分词算法简述/" title="MMSeg分词算法简述" class="md-nav__link">
+      MMSeg分词算法简述
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Algorithm/Maximum-entropy_Markov_model/" title="最大熵马尔可夫模型 MEMM（Maximum-entropy Markov model）" class="md-nav__link">
+      最大熵马尔可夫模型 MEMM（Maximum-entropy Markov model）
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Algorithm/Maximum_Entropy/" title="最大熵模型 ME（Maximum Entropy）" class="md-nav__link">
+      最大熵模型 ME（Maximum Entropy）
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Algorithm/Statistical_Model/" title="统计模型" class="md-nav__link">
+      统计模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Algorithm/Viterbi/" title="Viterbi" class="md-nav__link">
+      Viterbi
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Author
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Author
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Author/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Author/hankcs/" title="Hankcs" class="md-nav__link">
+      Hankcs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Author/刘焕勇/" title="刘焕勇" class="md-nav__link">
+      刘焕勇
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Author/吴延毅/" title="吴延毅" class="md-nav__link">
+      吴延毅
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Author/张华平/" title="张华平" class="md-nav__link">
+      张华平
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Author/张宇浩/" title="张宇浩" class="md-nav__link">
+      张宇浩
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Author/杨洋/" title="杨洋" class="md-nav__link">
+      杨洋
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Author/王珊/" title="王珊" class="md-nav__link">
+      王珊
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Author/蔡志浩/" title="蔡志浩" class="md-nav__link">
+      蔡志浩
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Cloud
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Cloud
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Cloud/aliyun/" title="阿里云自然语言处理" class="md-nav__link">
+      阿里云自然语言处理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Cloud/pai/" title="阿里机器学习平台 PAI 3.0" class="md-nav__link">
+      阿里机器学习平台 PAI 3.0
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Cloud/百度AI/" title="百度 AI" class="md-nav__link">
+      百度 AI
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Corpus
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Corpus
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="语料库" class="md-nav__link">
+      语料库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ChineseNLPCorpus/" title="Chinese NLP Corpus" class="md-nav__link">
+      Chinese NLP Corpus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../GlobalWordNetAssociation/" title="全球 WordNet 协会" class="md-nav__link">
+      全球 WordNet 协会
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../HowNet/" title="知网" class="md-nav__link">
+      知网
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LabelStyle/" title="现代汉语语料库加工规范" class="md-nav__link">
+      现代汉语语料库加工规范
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../aihanyu/" title="爱汉语语料库" class="md-nav__link">
+      爱汉语语料库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../cow/" title="Chinese Open Wordnet" class="md-nav__link">
+      Chinese Open Wordnet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../csdn/" title="CSDN 下载" class="md-nav__link">
+      CSDN 下载
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dianchacha/" title="店查查数据" class="md-nav__link">
+      店查查数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../funNLP/" title="funNLP" class="md-nav__link">
+      funNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../nlp-datasets/" title="nlp-datasets" class="md-nav__link">
+      nlp-datasets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../nlpir/" title="计算所汉语词性标记集" class="md-nav__link">
+      计算所汉语词性标记集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../pku-opendata/" title="北京大学开发数据研究平台" class="md-nav__link">
+      北京大学开发数据研究平台
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../wikipedia/" title="维基百科语料库" class="md-nav__link">
+      维基百科语料库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../wordnet/" title="WordNet" class="md-nav__link">
+      WordNet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-16" type="checkbox" id="nav-5-16" checked>
+    
+    <label class="md-nav__link" for="nav-5-16">
+      BERT
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-16">
+        BERT
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="BERT 大规模预训练语言模型" class="md-nav__link">
+      BERT 大规模预训练语言模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../FAQ/" title="常问问题" class="md-nav__link">
+      常问问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        使用 BERT 进行微调
+      </label>
+    
+    <a href="./" title="使用 BERT 进行微调" class="md-nav__link md-nav__link--active">
+      使用 BERT 进行微调
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tpu" title="使用云 TPU 进行微调" class="md-nav__link">
+    使用云 TPU 进行微调
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="句子（和句子对）分类任务" class="md-nav__link">
+    句子（和句子对）分类任务
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="从分类器预测" class="md-nav__link">
+    从分类器预测
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#squad-11" title="SQuAD 1.1" class="md-nav__link">
+    SQuAD 1.1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#squad-20" title="SQuAD 2.0" class="md-nav__link">
+    SQuAD 2.0
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="内存不足的问题" class="md-nav__link">
+    内存不足的问题
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Pre-trained_models/" title="预先训练的模型" class="md-nav__link">
+      预先训练的模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Pre-training_with_BERT/" title="使用 BERT 进行预训练" class="md-nav__link">
+      使用 BERT 进行预训练
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Using_BERT_in_Colab/" title="在 Colab 中使用 BERT" class="md-nav__link">
+      在 Colab 中使用 BERT
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Using_BERT_to_extract_fixed_feature_vectors/" title="使用 BERT 提取固定的特征向量 (像 ELMo)" class="md-nav__link">
+      使用 BERT 提取固定的特征向量 (像 ELMo)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../What_is_BERT/" title="什么是 BERT？" class="md-nav__link">
+      什么是 BERT？
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../model/" title="模型" class="md-nav__link">
+      模型
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Librariy
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Librariy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/" title="常用分词工具包" class="md-nav__link">
+      常用分词工具包
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/HanLP/" title="HanLP" class="md-nav__link">
+      HanLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/Jcseg/" title="Jcseg" class="md-nav__link">
+      Jcseg
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/Jiagu/" title="Jiagu" class="md-nav__link">
+      Jiagu
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/Keras/" title="Keras" class="md-nav__link">
+      Keras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/PyTorch/" title="PyTorch" class="md-nav__link">
+      PyTorch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/SnowNLP/" title="SnowNLP" class="md-nav__link">
+      SnowNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/SpaCy/" title="spacy" class="md-nav__link">
+      spacy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/StanfordNLP/" title="斯坦福-StanfordNLP" class="md-nav__link">
+      斯坦福-StanfordNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/THULAC/" title="清华-THULAC" class="md-nav__link">
+      清华-THULAC
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/TensorFlow/" title="TensorFlow" class="md-nav__link">
+      TensorFlow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/ansj_seg/" title="Ansj 中文分词" class="md-nav__link">
+      Ansj 中文分词
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/awesome/" title="👍🏻 表库" class="md-nav__link">
+      👍🏻 表库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/bosonnlp/" title="玻森数据" class="md-nav__link">
+      玻森数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/ltp/" title="哈工大-LTP" class="md-nav__link">
+      哈工大-LTP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/nlpair-ictclas/" title="中科院-NLPIR" class="md-nav__link">
+      中科院-NLPIR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/nltk/" title="NLTK" class="md-nav__link">
+      NLTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/pkuseg/" title="北大-pkuseg" class="md-nav__link">
+      北大-pkuseg
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/scikit-learn/" title="scikit-learn" class="md-nav__link">
+      scikit-learn
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/sego/" title="sego" class="md-nav__link">
+      sego
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-21" type="checkbox" id="nav-6-21">
+    
+    <label class="md-nav__link" for="nav-6-21">
+      FoolNLTK
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-21">
+        FoolNLTK
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/FoolNLTK/" title="FoolNLTK" class="md-nav__link">
+      FoolNLTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/FoolNLTK/train/" title="Train" class="md-nav__link">
+      Train
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-22" type="checkbox" id="nav-6-22">
+    
+    <label class="md-nav__link" for="nav-6-22">
+      JieBa
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-22">
+        JieBa
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/JieBa/Jieba/" title="JieBa" class="md-nav__link">
+      JieBa
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/JieBa/JiebaCpp/" title="CppJieba" class="md-nav__link">
+      CppJieba
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Librariy/JieBa/JiebaNode/" title="NodeJieba" class="md-nav__link">
+      NodeJieba
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Online
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Online
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Online/" title="在线分析工具" class="md-nav__link">
+      在线分析工具
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Paper
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Paper
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Paper/" title="论文 || 文章" class="md-nav__link">
+      论文 || 文章
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Paper/2018-nlp/" title="2018 年，NLP 研究与应用进展到什么水平了？" class="md-nav__link">
+      2018 年，NLP 研究与应用进展到什么水平了？
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Paper/bert-jiqizhixin/" title="谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读" class="md-nav__link">
+      谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Paper/chinese-segmenter/" title="细说中文分词" class="md-nav__link">
+      细说中文分词
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Paper/milestone/" title="一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑" class="md-nav__link">
+      一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Paper/nlp-gather/" title="自然语言处理（NLP）知识结构总结" class="md-nav__link">
+      自然语言处理（NLP）知识结构总结
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Paper/nlp.ict.ac.cn/" title="中国科学院计算技术研究所自然语言处理研究组" class="md-nav__link">
+      中国科学院计算技术研究所自然语言处理研究组
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Awesome
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Awesome
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../awesome/" title="awesome-nlp" class="md-nav__link">
+      awesome-nlp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../awesome/Awesome-Chinese-NLP/" title="awesome-chinese-nlp" class="md-nav__link">
+      awesome-chinese-nlp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../awesome/multi-language/" title="其他语言" class="md-nav__link">
+      其他语言
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../awesome/techniques/" title="技术" class="md-nav__link">
+      技术
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../awesome/tutorials/" title="教程" class="md-nav__link">
+      教程
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      Sensitive word
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        Sensitive word
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../sensitive-word/" title="敏感词" class="md-nav__link">
+      敏感词
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../sensitive-word/fastscan/" title="Fastscan" class="md-nav__link">
+      Fastscan
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tpu" title="使用云 TPU 进行微调" class="md-nav__link">
+    使用云 TPU 进行微调
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="句子（和句子对）分类任务" class="md-nav__link">
+    句子（和句子对）分类任务
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="从分类器预测" class="md-nav__link">
+    从分类器预测
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#squad-11" title="SQuAD 1.1" class="md-nav__link">
+    SQuAD 1.1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#squad-20" title="SQuAD 2.0" class="md-nav__link">
+    SQuAD 2.0
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="内存不足的问题" class="md-nav__link">
+    内存不足的问题
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="bert">使用 BERT 进行微调<a class="headerlink" href="#bert" title="Permanent link">&para;</a></h1>
+<div class="admonition important">
+<p>All results on the paper were fine-tuned on a single Cloud TPU,which has 64GB of RAM.
+It is currently not possible to re-produce most of the <code>BERT-Large</code> results on the paper using a GPU with 12GB - 16GB of RAM, because the maximum batch size that can fit in memory is too small.
+We are working on adding code to this repository which allows for much larger effective batch size
+on the GPU.
+See the section on <a href="#out-of-memory-issues">out-of-memory issues</a> for more details.</p>
+</div>
+<p>This code was tested with TensorFlow 1.11.0.
+It was tested with Python2 and Python3 (but more thoroughly with Python2, since this is what's used internally
+in Google).</p>
+<p>The fine-tuning examples which use <code>BERT-Base</code> should be able to run on a GPU that has at least 12GB of RAM using the hyperparameters given.</p>
+<h2 id="tpu">使用云 TPU 进行微调<a class="headerlink" href="#tpu" title="Permanent link">&para;</a></h2>
+<p>Most of the examples below assumes that you will be running training/evaluation on your local machine, using a GPU like a Titan X or GTX 1080.</p>
+<p>However, if you have access to a Cloud TPU that you want to train on, just add the following flags to <code>run_classifier.py</code> or <code>run_squad.py</code>:</p>
+<div class="codehilite"><pre><span></span>  --use_tpu<span class="o">=</span>True <span class="se">\</span>
+  --tpu_name<span class="o">=</span><span class="nv">$TPU_NAME</span>
+</pre></div>
+
+<p>Please see the <a href="https://cloud.google.com/tpu/docs/tutorials/mnist">Google Cloud TPU tutorial</a>
+for how to use Cloud TPUs.
+Alternatively, you can use the Google Colab notebook "<a href="https://colab.research.google.com/github/tensorflow/tpu/blob/master/tools/colab/bert_finetuning_with_cloud_tpus.ipynb">BERT FineTuning with Cloud TPUs</a>".</p>
+<p>On Cloud TPUs, the pretrained model and the output directory will need to be on Google Cloud Storage.
+For example, if you have a bucket named <code>some_bucket</code>, you might use the following flags instead:</p>
+<div class="codehilite"><pre><span></span>  --output_dir=gs://some_bucket/my_output_dir/
+</pre></div>
+
+<p>The unzipped pre-trained model files can also be found in the Google Cloud Storage folder <code>gs://bert_models/2018_10_18</code>.</p>
+<p>For example:</p>
+<div class="codehilite"><pre><span></span>export BERT_BASE_DIR=gs://bert_models/2018_10_18/uncased_L-12_H-768_A-12
+</pre></div>
+
+<h2 id="_1">句子（和句子对）分类任务<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Before running this example you must download the <a href="https://gluebenchmark.com/tasks">GLUE data</a> by running <a href="https://gist.github.com/W4ngatang/60c2bdb54d156a41194446737ce03e2e">this script</a> and unpack it to some directory <code>$GLUE_DIR</code>.</p>
+<p>Next, download the <code>BERT-Base</code> checkpoint and unzip it to some directory <code>$BERT_BASE_DIR</code>.</p>
+<p>This example code fine-tunes <code>BERT-Base</code> on the Microsoft Research Paraphrase Corpus (MRPC) corpus, which only contains 3,600 examples and can fine-tune in a few minutes on most GPUs.</p>
+<div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">BERT_BASE_DIR</span><span class="o">=</span>/path/to/bert/uncased_L-12_H-768_A-12
+<span class="nb">export</span> <span class="nv">GLUE_DIR</span><span class="o">=</span>/path/to/glue
+
+python run_classifier.py <span class="se">\</span>
+  --task_name<span class="o">=</span>MRPC <span class="se">\</span>
+  --do_train<span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
+  --do_eval<span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
+  --data_dir<span class="o">=</span><span class="nv">$GLUE_DIR</span>/MRPC <span class="se">\</span>
+  --vocab_file<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/vocab.txt <span class="se">\</span>
+  --bert_config_file<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/bert_config.json <span class="se">\</span>
+  --init_checkpoint<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/bert_model.ckpt <span class="se">\</span>
+  --max_seq_length<span class="o">=</span><span class="m">128</span> <span class="se">\</span>
+  --train_batch_size<span class="o">=</span><span class="m">32</span> <span class="se">\</span>
+  --learning_rate<span class="o">=</span>2e-5 <span class="se">\</span>
+  --num_train_epochs<span class="o">=</span><span class="m">3</span>.0 <span class="se">\</span>
+  --output_dir<span class="o">=</span>/tmp/mrpc_output/
+</pre></div>
+
+<p>You should see output like this:</p>
+<div class="codehilite"><pre><span></span>***** Eval results *****
+  eval_accuracy = 0.845588
+  eval_loss = 0.505248
+  global_step = 343
+  loss = 0.505248
+</pre></div>
+
+<p>This means that the Dev set accuracy was 84.55%.
+Small sets like MRPC have a high variance in the Dev set accuracy, even when starting from the same
+pre-training checkpoint.
+If you re-run multiple times (making sure to point to different <code>output_dir</code>), you should see results between 84% and 88%.</p>
+<p>A few other pre-trained models are implemented off-the-shelf in <code>run_classifier.py</code>, so it should be straightforward to follow those examples to use BERT for any single-sentence or sentence-pair classification task.</p>
+<p>Note: You might see a message <code>Running train on CPU</code>.
+This really just means that it's running on something other than a Cloud TPU, which includes a GPU.</p>
+<h3 id="_2">从分类器预测<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>Once you have trained your classifier you can use it in inference mode by using the --do_predict=true command.
+You need to have a file named test.tsv in the input folder.
+Output will be created in file called test_results.tsv in the output folder.
+Each line will contain output for each sample, columns are the class probabilities.</p>
+<div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">BERT_BASE_DIR</span><span class="o">=</span>/path/to/bert/uncased_L-12_H-768_A-12
+<span class="nb">export</span> <span class="nv">GLUE_DIR</span><span class="o">=</span>/path/to/glue
+<span class="nb">export</span> <span class="nv">TRAINED_CLASSIFIER</span><span class="o">=</span>/path/to/fine/tuned/classifier
+
+python run_classifier.py <span class="se">\</span>
+  --task_name<span class="o">=</span>MRPC <span class="se">\</span>
+  --do_predict<span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
+  --data_dir<span class="o">=</span><span class="nv">$GLUE_DIR</span>/MRPC <span class="se">\</span>
+  --vocab_file<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/vocab.txt <span class="se">\</span>
+  --bert_config_file<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/bert_config.json <span class="se">\</span>
+  --init_checkpoint<span class="o">=</span><span class="nv">$TRAINED_CLASSIFIER</span> <span class="se">\</span>
+  --max_seq_length<span class="o">=</span><span class="m">128</span> <span class="se">\</span>
+  --output_dir<span class="o">=</span>/tmp/mrpc_output/
+</pre></div>
+
+<h2 id="squad-11">SQuAD 1.1<a class="headerlink" href="#squad-11" title="Permanent link">&para;</a></h2>
+<p>The Stanford Question Answering Dataset (SQuAD) is a popular question answering benchmark dataset.
+BERT (at the time of the release) obtains state-of-the-art results on SQuAD with almost no task-specific network architecture modifications or data augmentation.
+However, it does require semi-complex data pre-processing and post-processing to deal with (a) the variable-length nature of SQuAD context paragraphs, and (b) the character-level answer annotations which are used for SQuAD training.
+This processing is implemented and documented in <code>run_squad.py</code>.</p>
+<p>To run on SQuAD, you will first need to download the dataset.
+The <a href="https://rajpurkar.github.io/SQuAD-explorer/">SQuAD website</a> does not seem to link to the v1.1 datasets any longer, but the necessary files can be found here:</p>
+<ul>
+<li><a href="https://rajpurkar.github.io/SQuAD-explorer/dataset/train-v1.1.json">train-v1.1.json</a></li>
+<li><a href="https://rajpurkar.github.io/SQuAD-explorer/dataset/dev-v1.1.json">dev-v1.1.json</a></li>
+<li><a href="https://github.com/allenai/bi-att-flow/blob/master/squad/evaluate-v1.1.py">evaluate-v1.1.py</a></li>
+</ul>
+<p>Download these to some directory <code>$SQUAD_DIR</code>.</p>
+<p>The state-of-the-art SQuAD results from the paper currently cannot be reproduced on a 12GB-16GB GPU due to memory constraints (in fact, even batch size 1 does not seem to fit on a 12GB GPU using <code>BERT-Large</code>).
+However, a reasonably strong <code>BERT-Base</code> model can be trained on the GPU with these hyperparameters:</p>
+<div class="codehilite"><pre><span></span>python run_squad.py <span class="se">\</span>
+  --vocab_file<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/vocab.txt <span class="se">\</span>
+  --bert_config_file<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/bert_config.json <span class="se">\</span>
+  --init_checkpoint<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/bert_model.ckpt <span class="se">\</span>
+  --do_train<span class="o">=</span>True <span class="se">\</span>
+  --train_file<span class="o">=</span><span class="nv">$SQUAD_DIR</span>/train-v1.1.json <span class="se">\</span>
+  --do_predict<span class="o">=</span>True <span class="se">\</span>
+  --predict_file<span class="o">=</span><span class="nv">$SQUAD_DIR</span>/dev-v1.1.json <span class="se">\</span>
+  --train_batch_size<span class="o">=</span><span class="m">12</span> <span class="se">\</span>
+  --learning_rate<span class="o">=</span>3e-5 <span class="se">\</span>
+  --num_train_epochs<span class="o">=</span><span class="m">2</span>.0 <span class="se">\</span>
+  --max_seq_length<span class="o">=</span><span class="m">384</span> <span class="se">\</span>
+  --doc_stride<span class="o">=</span><span class="m">128</span> <span class="se">\</span>
+  --output_dir<span class="o">=</span>/tmp/squad_base/
+</pre></div>
+
+<p>The dev set predictions will be saved into a file called <code>predictions.json</code> in the <code>output_dir</code>:</p>
+<div class="codehilite"><pre><span></span>python <span class="nv">$SQUAD_DIR</span>/evaluate-v1.1.py <span class="nv">$SQUAD_DIR</span>/dev-v1.1.json ./squad/predictions.json
+</pre></div>
+
+<p>Which should produce an output like this:</p>
+<div class="codehilite"><pre><span></span><span class="o">{</span><span class="s2">&quot;f1&quot;</span>: <span class="m">88</span>.41249612335034, <span class="s2">&quot;exact_match&quot;</span>: <span class="m">81</span>.2488174077578<span class="o">}</span>
+</pre></div>
+
+<p>You should see a result similar to the 88.5% reported in the paper for <code>BERT-Base</code>.</p>
+<p>If you have access to a Cloud TPU, you can train with <code>BERT-Large</code>.
+Here is a set of hyperparameters (slightly different than the paper) which consistently obtain around 90.5%-91.0% F1 single-system trained only on SQuAD:</p>
+<div class="codehilite"><pre><span></span>python run_squad.py <span class="se">\</span>
+  --vocab_file<span class="o">=</span><span class="nv">$BERT_LARGE_DIR</span>/vocab.txt <span class="se">\</span>
+  --bert_config_file<span class="o">=</span><span class="nv">$BERT_LARGE_DIR</span>/bert_config.json <span class="se">\</span>
+  --init_checkpoint<span class="o">=</span><span class="nv">$BERT_LARGE_DIR</span>/bert_model.ckpt <span class="se">\</span>
+  --do_train<span class="o">=</span>True <span class="se">\</span>
+  --train_file<span class="o">=</span><span class="nv">$SQUAD_DIR</span>/train-v1.1.json <span class="se">\</span>
+  --do_predict<span class="o">=</span>True <span class="se">\</span>
+  --predict_file<span class="o">=</span><span class="nv">$SQUAD_DIR</span>/dev-v1.1.json <span class="se">\</span>
+  --train_batch_size<span class="o">=</span><span class="m">24</span> <span class="se">\</span>
+  --learning_rate<span class="o">=</span>3e-5 <span class="se">\</span>
+  --num_train_epochs<span class="o">=</span><span class="m">2</span>.0 <span class="se">\</span>
+  --max_seq_length<span class="o">=</span><span class="m">384</span> <span class="se">\</span>
+  --doc_stride<span class="o">=</span><span class="m">128</span> <span class="se">\</span>
+  --output_dir<span class="o">=</span>gs://some_bucket/squad_large/ <span class="se">\</span>
+  --use_tpu<span class="o">=</span>True <span class="se">\</span>
+  --tpu_name<span class="o">=</span><span class="nv">$TPU_NAME</span>
+</pre></div>
+
+<p>For example, one random run with these parameters produces the following Dev scores:</p>
+<div class="codehilite"><pre><span></span><span class="o">{</span><span class="s2">&quot;f1&quot;</span>: <span class="m">90</span>.87081895814865, <span class="s2">&quot;exact_match&quot;</span>: <span class="m">84</span>.38978240302744<span class="o">}</span>
+</pre></div>
+
+<p>If you fine-tune for one epoch on <a href="http://nlp.cs.washington.edu/triviaqa/">TriviaQA</a> before this the results will be even better, but you will need to convert TriviaQA into the SQuAD json format.</p>
+<h2 id="squad-20">SQuAD 2.0<a class="headerlink" href="#squad-20" title="Permanent link">&para;</a></h2>
+<p>This model is also implemented and documented in <code>run_squad.py</code>.</p>
+<p>To run on SQuAD 2.0, you will first need to download the dataset.
+The necessary files can be found here:</p>
+<ul>
+<li><a href="https://rajpurkar.github.io/SQuAD-explorer/dataset/train-v2.0.json">train-v2.0.json</a></li>
+<li><a href="https://rajpurkar.github.io/SQuAD-explorer/dataset/dev-v2.0.json">dev-v2.0.json</a></li>
+<li><a href="https://worksheets.codalab.org/rest/bundles/0x6b567e1cf2e041ec80d7098f031c5c9e/contents/blob/">evaluate-v2.0.py</a></li>
+</ul>
+<p>Download these to some directory <code>$SQUAD_DIR</code>.</p>
+<p>On Cloud TPU you can run with BERT-Large as follows:</p>
+<div class="codehilite"><pre><span></span>python run_squad.py <span class="se">\</span>
+  --vocab_file<span class="o">=</span><span class="nv">$BERT_LARGE_DIR</span>/vocab.txt <span class="se">\</span>
+  --bert_config_file<span class="o">=</span><span class="nv">$BERT_LARGE_DIR</span>/bert_config.json <span class="se">\</span>
+  --init_checkpoint<span class="o">=</span><span class="nv">$BERT_LARGE_DIR</span>/bert_model.ckpt <span class="se">\</span>
+  --do_train<span class="o">=</span>True <span class="se">\</span>
+  --train_file<span class="o">=</span><span class="nv">$SQUAD_DIR</span>/train-v2.0.json <span class="se">\</span>
+  --do_predict<span class="o">=</span>True <span class="se">\</span>
+  --predict_file<span class="o">=</span><span class="nv">$SQUAD_DIR</span>/dev-v2.0.json <span class="se">\</span>
+  --train_batch_size<span class="o">=</span><span class="m">24</span> <span class="se">\</span>
+  --learning_rate<span class="o">=</span>3e-5 <span class="se">\</span>
+  --num_train_epochs<span class="o">=</span><span class="m">2</span>.0 <span class="se">\</span>
+  --max_seq_length<span class="o">=</span><span class="m">384</span> <span class="se">\</span>
+  --doc_stride<span class="o">=</span><span class="m">128</span> <span class="se">\</span>
+  --output_dir<span class="o">=</span>gs://some_bucket/squad_large/ <span class="se">\</span>
+  --use_tpu<span class="o">=</span>True <span class="se">\</span>
+  --tpu_name<span class="o">=</span><span class="nv">$TPU_NAME</span> <span class="se">\</span>
+  --version_2_with_negative<span class="o">=</span>True
+</pre></div>
+
+<p>We assume you have copied everything from the output directory to a local directory called ./squad/.
+The initial dev set predictions will be at ./squad/predictions.json and the differences between the score of no answer ("") and the best non-null answer for each question will be in the file ./squad/null_odds.json</p>
+<p>Run this script to tune a threshold for predicting null versus non-null answers:</p>
+<p>python $SQUAD_DIR/evaluate-v2.0.py $SQUAD_DIR/dev-v2.0.json ./squad/predictions.json --na-prob-file ./squad/null_odds.json</p>
+<p>Assume the script outputs "best_f1_thresh" THRESH.
+(Typical values are between -1.0 and -5.0).
+You can now re-run the model to generate predictions with the derived threshold or alternatively you can extract the appropriate answers from ./squad/nbest_predictions.json.</p>
+<div class="codehilite"><pre><span></span>python run_squad.py <span class="se">\</span>
+  --vocab_file<span class="o">=</span><span class="nv">$BERT_LARGE_DIR</span>/vocab.txt <span class="se">\</span>
+  --bert_config_file<span class="o">=</span><span class="nv">$BERT_LARGE_DIR</span>/bert_config.json <span class="se">\</span>
+  --init_checkpoint<span class="o">=</span><span class="nv">$BERT_LARGE_DIR</span>/bert_model.ckpt <span class="se">\</span>
+  --do_train<span class="o">=</span>False <span class="se">\</span>
+  --train_file<span class="o">=</span><span class="nv">$SQUAD_DIR</span>/train-v2.0.json <span class="se">\</span>
+  --do_predict<span class="o">=</span>True <span class="se">\</span>
+  --predict_file<span class="o">=</span><span class="nv">$SQUAD_DIR</span>/dev-v2.0.json <span class="se">\</span>
+  --train_batch_size<span class="o">=</span><span class="m">24</span> <span class="se">\</span>
+  --learning_rate<span class="o">=</span>3e-5 <span class="se">\</span>
+  --num_train_epochs<span class="o">=</span><span class="m">2</span>.0 <span class="se">\</span>
+  --max_seq_length<span class="o">=</span><span class="m">384</span> <span class="se">\</span>
+  --doc_stride<span class="o">=</span><span class="m">128</span> <span class="se">\</span>
+  --output_dir<span class="o">=</span>gs://some_bucket/squad_large/ <span class="se">\</span>
+  --use_tpu<span class="o">=</span>True <span class="se">\</span>
+  --tpu_name<span class="o">=</span><span class="nv">$TPU_NAME</span> <span class="se">\</span>
+  --version_2_with_negative<span class="o">=</span>True <span class="se">\</span>
+  --null_score_diff_threshold<span class="o">=</span><span class="nv">$THRESH</span>
+</pre></div>
+
+<h2 id="_3">内存不足的问题<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>All experiments in the paper were fine-tuned on a Cloud TPU, which has 64GB of device RAM.
+Therefore, when using a GPU with 12GB - 16GB of RAM, you are likely to encounter out-of-memory issues if you use the same hyperparameters described in the paper.</p>
+<p>The factors that affect memory usage are:</p>
+<ul>
+<li>
+<p><strong><code>max_seq_length</code></strong>: The released models were trained with sequence lengths up to 512, but you can fine-tune with a shorter max sequence length to save substantial memory.
+  This is controlled by the <code>max_seq_length</code> flag in our example code.</p>
+</li>
+<li>
+<p><strong><code>train_batch_size</code></strong>: The memory usage is also directly proportional to the batch size.</p>
+</li>
+<li>
+<p><strong>Model type, <code>BERT-Base</code> vs. <code>BERT-Large</code></strong>: The <code>BERT-Large</code> model requires significantly more memory than <code>BERT-Base</code>.</p>
+</li>
+<li>
+<p><strong>Optimizer</strong>: The default optimizer for BERT is Adam, which requires a lot of extra memory to store the <code>m</code> and <code>v</code> vectors.
+  Switching to a more memory efficient optimizer can reduce memory usage, but can also affect the
+  results.
+  We have not experimented with other optimizers for fine-tuning.</p>
+</li>
+</ul>
+<p>Using the default training scripts (<code>run_classifier.py</code> and <code>run_squad.py</code>), we benchmarked the maximum batch size on single Titan X GPU (12GB RAM) with TensorFlow 1.11.0:</p>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>Seq Length</th>
+<th>Max Batch Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BERT-Base</code></td>
+<td>64</td>
+<td>64</td>
+</tr>
+<tr>
+<td>...</td>
+<td>128</td>
+<td>32</td>
+</tr>
+<tr>
+<td>...</td>
+<td>256</td>
+<td>16</td>
+</tr>
+<tr>
+<td>...</td>
+<td>320</td>
+<td>14</td>
+</tr>
+<tr>
+<td>...</td>
+<td>384</td>
+<td>12</td>
+</tr>
+<tr>
+<td>...</td>
+<td>512</td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>BERT-Large</code></td>
+<td>64</td>
+<td>12</td>
+</tr>
+<tr>
+<td>...</td>
+<td>128</td>
+<td>6</td>
+</tr>
+<tr>
+<td>...</td>
+<td>256</td>
+<td>2</td>
+</tr>
+<tr>
+<td>...</td>
+<td>320</td>
+<td>1</td>
+</tr>
+<tr>
+<td>...</td>
+<td>384</td>
+<td>0</td>
+</tr>
+<tr>
+<td>...</td>
+<td>512</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Unfortunately, these max batch sizes for <code>BERT-Large</code> are so small that they will actually harm the model accuracy, regardless of the learning rate used.
+We are working on adding code to this repository which will allow much larger effective batch sizes to be used on the GPU.
+The code will be based on one (or both) of the following techniques:</p>
+<ul>
+<li>
+<p><strong>梯度积累</strong>: The samples in a minibatch are typically independent with respect to gradient computation (excluding batch normalization, which is not used here).
+  This means that the gradients of multiple smaller minibatches can be accumulated before performing the weight
+  update, and this will be exactly equivalent to a single larger update.</p>
+</li>
+<li>
+<p><a href="https://github.com/openai/gradient-checkpointing"><strong>梯度检查点</strong></a>:
+  The major use of GPU/TPU memory during DNN training is caching the intermediate activations in the forward pass that are necessary for efficient computation in the backward pass.
+  "Gradient checkpointing" trades memory for compute time by re-computing the activations in an intelligent way.</p>
+</li>
+</ul>
+<p><strong>However, this is not implemented in the current release.</strong></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../FAQ/" title="常问问题" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                常问问题
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Pre-trained_models/" title="预先训练的模型" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                预先训练的模型
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            @2018 nlp-docs.github.io
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.2ba8dec4.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>

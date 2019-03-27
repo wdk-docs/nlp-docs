@@ -1,0 +1,2142 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="自然语言处理文档">
+      
+      
+      
+        <meta name="author" content="Nosy">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.0">
+    
+    
+      
+        <title>2018 年，NLP 研究与应用进展到什么水平了？ - NLP Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.982221ab.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#2018-nlp" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="NLP Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              NLP Docs
+            </span>
+            <span class="md-header-nav__topic">
+              2018 年，NLP 研究与应用进展到什么水平了？
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    nlp-docs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="自然语言处理" class="md-tabs__link">
+        自然语言处理
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Algorithm/" title="Algorithm" class="md-tabs__link">
+          Algorithm
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Author/" title="Author" class="md-tabs__link">
+          Author
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Cloud/aliyun/" title="Cloud" class="md-tabs__link">
+          Cloud
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Corpus/" title="Corpus" class="md-tabs__link">
+          Corpus
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Librariy/" title="Librariy" class="md-tabs__link">
+          Librariy
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Online/" title="Online" class="md-tabs__link">
+          Online
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="Paper" class="md-tabs__link md-tabs__link--active">
+          Paper
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../awesome/" title="Awesome" class="md-tabs__link">
+          Awesome
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../sensitive-word/" title="Sensitive word" class="md-tabs__link">
+          Sensitive word
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="NLP Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    NLP Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/wohugb/nlp-docs" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    nlp-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="自然语言处理" class="md-nav__link">
+      自然语言处理
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Algorithm
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Algorithm
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Algorithm/" title="算法汇总" class="md-nav__link">
+      算法汇总
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Algorithm/Conditional_Random_Field/" title="条件随机场 CRF（Conditional Random Field）" class="md-nav__link">
+      条件随机场 CRF（Conditional Random Field）
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Algorithm/Hidden_Markov_Model/" title="隐马尔可夫模型 HMM（Hidden Markov Model）" class="md-nav__link">
+      隐马尔可夫模型 HMM（Hidden Markov Model）
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Algorithm/MMSEG/" title="MMSEG" class="md-nav__link">
+      MMSEG
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Algorithm/MMSeg分词算法简述/" title="MMSeg分词算法简述" class="md-nav__link">
+      MMSeg分词算法简述
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Algorithm/Maximum-entropy_Markov_model/" title="最大熵马尔可夫模型 MEMM（Maximum-entropy Markov model）" class="md-nav__link">
+      最大熵马尔可夫模型 MEMM（Maximum-entropy Markov model）
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Algorithm/Maximum_Entropy/" title="最大熵模型 ME（Maximum Entropy）" class="md-nav__link">
+      最大熵模型 ME（Maximum Entropy）
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Algorithm/Statistical_Model/" title="统计模型" class="md-nav__link">
+      统计模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Algorithm/Viterbi/" title="Viterbi" class="md-nav__link">
+      Viterbi
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Author
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Author
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/hankcs/" title="Hankcs" class="md-nav__link">
+      Hankcs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/刘焕勇/" title="刘焕勇" class="md-nav__link">
+      刘焕勇
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/吴延毅/" title="吴延毅" class="md-nav__link">
+      吴延毅
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/张华平/" title="张华平" class="md-nav__link">
+      张华平
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/张宇浩/" title="张宇浩" class="md-nav__link">
+      张宇浩
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/杨洋/" title="杨洋" class="md-nav__link">
+      杨洋
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/王珊/" title="王珊" class="md-nav__link">
+      王珊
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Author/蔡志浩/" title="蔡志浩" class="md-nav__link">
+      蔡志浩
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Cloud
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Cloud
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Cloud/aliyun/" title="阿里云自然语言处理" class="md-nav__link">
+      阿里云自然语言处理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Cloud/pai/" title="阿里机器学习平台 PAI 3.0" class="md-nav__link">
+      阿里机器学习平台 PAI 3.0
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Cloud/百度AI/" title="百度 AI" class="md-nav__link">
+      百度 AI
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Corpus
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Corpus
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/" title="语料库" class="md-nav__link">
+      语料库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/ChineseNLPCorpus/" title="Chinese NLP Corpus" class="md-nav__link">
+      Chinese NLP Corpus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/GlobalWordNetAssociation/" title="全球 WordNet 协会" class="md-nav__link">
+      全球 WordNet 协会
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/HowNet/" title="知网" class="md-nav__link">
+      知网
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/LabelStyle/" title="现代汉语语料库加工规范" class="md-nav__link">
+      现代汉语语料库加工规范
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/aihanyu/" title="爱汉语语料库" class="md-nav__link">
+      爱汉语语料库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/cow/" title="Chinese Open Wordnet" class="md-nav__link">
+      Chinese Open Wordnet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/csdn/" title="CSDN 下载" class="md-nav__link">
+      CSDN 下载
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/dianchacha/" title="店查查数据" class="md-nav__link">
+      店查查数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/funNLP/" title="funNLP" class="md-nav__link">
+      funNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/nlp-datasets/" title="nlp-datasets" class="md-nav__link">
+      nlp-datasets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/nlpir/" title="计算所汉语词性标记集" class="md-nav__link">
+      计算所汉语词性标记集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/pku-opendata/" title="北京大学开发数据研究平台" class="md-nav__link">
+      北京大学开发数据研究平台
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/wikipedia/" title="维基百科语料库" class="md-nav__link">
+      维基百科语料库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/wordnet/" title="WordNet" class="md-nav__link">
+      WordNet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-16" type="checkbox" id="nav-5-16">
+    
+    <label class="md-nav__link" for="nav-5-16">
+      BERT
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-16">
+        BERT
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/BERT/" title="BERT 大规模预训练语言模型" class="md-nav__link">
+      BERT 大规模预训练语言模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/BERT/FAQ/" title="常问问题" class="md-nav__link">
+      常问问题
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/BERT/Fine-tuning_with_BERT/" title="使用 BERT 进行微调" class="md-nav__link">
+      使用 BERT 进行微调
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/BERT/Pre-trained_models/" title="预先训练的模型" class="md-nav__link">
+      预先训练的模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/BERT/Pre-training_with_BERT/" title="使用 BERT 进行预训练" class="md-nav__link">
+      使用 BERT 进行预训练
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/BERT/Using_BERT_in_Colab/" title="在 Colab 中使用 BERT" class="md-nav__link">
+      在 Colab 中使用 BERT
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/BERT/Using_BERT_to_extract_fixed_feature_vectors/" title="使用 BERT 提取固定的特征向量 (像 ELMo)" class="md-nav__link">
+      使用 BERT 提取固定的特征向量 (像 ELMo)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/BERT/What_is_BERT/" title="什么是 BERT？" class="md-nav__link">
+      什么是 BERT？
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Corpus/BERT/model/" title="模型" class="md-nav__link">
+      模型
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Librariy
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Librariy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/" title="常用分词工具包" class="md-nav__link">
+      常用分词工具包
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/HanLP/" title="HanLP" class="md-nav__link">
+      HanLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/Jcseg/" title="Jcseg" class="md-nav__link">
+      Jcseg
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/Jiagu/" title="Jiagu" class="md-nav__link">
+      Jiagu
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/Keras/" title="Keras" class="md-nav__link">
+      Keras
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/PyTorch/" title="PyTorch" class="md-nav__link">
+      PyTorch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/SnowNLP/" title="SnowNLP" class="md-nav__link">
+      SnowNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/SpaCy/" title="spacy" class="md-nav__link">
+      spacy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/StanfordNLP/" title="斯坦福-StanfordNLP" class="md-nav__link">
+      斯坦福-StanfordNLP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/THULAC/" title="清华-THULAC" class="md-nav__link">
+      清华-THULAC
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/TensorFlow/" title="TensorFlow" class="md-nav__link">
+      TensorFlow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/ansj_seg/" title="Ansj 中文分词" class="md-nav__link">
+      Ansj 中文分词
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/awesome/" title="👍🏻 表库" class="md-nav__link">
+      👍🏻 表库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/bosonnlp/" title="玻森数据" class="md-nav__link">
+      玻森数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/ltp/" title="哈工大-LTP" class="md-nav__link">
+      哈工大-LTP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/nlpair-ictclas/" title="中科院-NLPIR" class="md-nav__link">
+      中科院-NLPIR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/nltk/" title="NLTK" class="md-nav__link">
+      NLTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/pkuseg/" title="北大-pkuseg" class="md-nav__link">
+      北大-pkuseg
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/scikit-learn/" title="scikit-learn" class="md-nav__link">
+      scikit-learn
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/sego/" title="sego" class="md-nav__link">
+      sego
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-21" type="checkbox" id="nav-6-21">
+    
+    <label class="md-nav__link" for="nav-6-21">
+      FoolNLTK
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-21">
+        FoolNLTK
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/FoolNLTK/" title="FoolNLTK" class="md-nav__link">
+      FoolNLTK
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/FoolNLTK/train/" title="Train" class="md-nav__link">
+      Train
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-22" type="checkbox" id="nav-6-22">
+    
+    <label class="md-nav__link" for="nav-6-22">
+      JieBa
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-22">
+        JieBa
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/JieBa/Jieba/" title="JieBa" class="md-nav__link">
+      JieBa
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/JieBa/JiebaCpp/" title="CppJieba" class="md-nav__link">
+      CppJieba
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Librariy/JieBa/JiebaNode/" title="NodeJieba" class="md-nav__link">
+      NodeJieba
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Online
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Online
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Online/" title="在线分析工具" class="md-nav__link">
+      在线分析工具
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+    
+    <label class="md-nav__link" for="nav-8">
+      Paper
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Paper
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="论文 || 文章" class="md-nav__link">
+      论文 || 文章
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        2018 年，NLP 研究与应用进展到什么水平了？
+      </label>
+    
+    <a href="./" title="2018 年，NLP 研究与应用进展到什么水平了？" class="md-nav__link md-nav__link--active">
+      2018 年，NLP 研究与应用进展到什么水平了？
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="导读" class="md-nav__link">
+    导读
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="学术研究" class="md-nav__link">
+    学术研究
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-unsupervised-mt" title="1. 无监督机器翻译（Unsupervised MT）" class="md-nav__link">
+    1. 无监督机器翻译（Unsupervised MT）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pretrained-language-models" title="2. 预训练语言模型（Pretrained language models）" class="md-nav__link">
+    2. 预训练语言模型（Pretrained language models）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-common-sense-inference-datasets" title="3. 常识推理数据集（Common sense inference datasets）" class="md-nav__link">
+    3. 常识推理数据集（Common sense inference datasets）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-meta-learning" title="4. 元学习（Meta-learning）" class="md-nav__link">
+    4. 元学习（Meta-learning）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-robust-unsupervised-methods" title="5. 稳健的无监督方法（Robust unsupervised methods）" class="md-nav__link">
+    5. 稳健的无监督方法（Robust unsupervised methods）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-understanding-representations" title="6. 理解表征（Understanding representations）" class="md-nav__link">
+    6. 理解表征（Understanding representations）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-clever-auxiliary-tasks" title="7. 巧妙的辅助任务（Clever auxiliary tasks）" class="md-nav__link">
+    7. 巧妙的辅助任务（Clever auxiliary tasks）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-combining-semi-supervised-learning-with-transfer-learning" title="8. 半监督学习和迁移学习结合（Combining semi-supervised learning with transfer learning）" class="md-nav__link">
+    8. 半监督学习和迁移学习结合（Combining semi-supervised learning with transfer learning）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-qa-qa-and-reasoning-with-large-documents" title="9. QA 和大型文档推理（QA and reasoning with large documents）" class="md-nav__link">
+    9. QA 和大型文档推理（QA and reasoning with large documents）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-inductive-bias" title="10. 归纳偏差（Inductive bias）" class="md-nav__link">
+    10. 归纳偏差（Inductive bias）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="商业应用" class="md-nav__link">
+    商业应用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="小结" class="md-nav__link">
+    小结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="作者介绍" class="md-nav__link">
+    作者介绍
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../bert-jiqizhixin/" title="谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读" class="md-nav__link">
+      谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../chinese-segmenter/" title="细说中文分词" class="md-nav__link">
+      细说中文分词
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../milestone/" title="一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑" class="md-nav__link">
+      一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nlp-gather/" title="自然语言处理（NLP）知识结构总结" class="md-nav__link">
+      自然语言处理（NLP）知识结构总结
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../nlp.ict.ac.cn/" title="中国科学院计算技术研究所自然语言处理研究组" class="md-nav__link">
+      中国科学院计算技术研究所自然语言处理研究组
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Awesome
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Awesome
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/" title="awesome-nlp" class="md-nav__link">
+      awesome-nlp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/Awesome-Chinese-NLP/" title="awesome-chinese-nlp" class="md-nav__link">
+      awesome-chinese-nlp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/multi-language/" title="其他语言" class="md-nav__link">
+      其他语言
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/techniques/" title="技术" class="md-nav__link">
+      技术
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../awesome/tutorials/" title="教程" class="md-nav__link">
+      教程
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      Sensitive word
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        Sensitive word
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sensitive-word/" title="敏感词" class="md-nav__link">
+      敏感词
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sensitive-word/fastscan/" title="Fastscan" class="md-nav__link">
+      Fastscan
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="导读" class="md-nav__link">
+    导读
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="学术研究" class="md-nav__link">
+    学术研究
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-unsupervised-mt" title="1. 无监督机器翻译（Unsupervised MT）" class="md-nav__link">
+    1. 无监督机器翻译（Unsupervised MT）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pretrained-language-models" title="2. 预训练语言模型（Pretrained language models）" class="md-nav__link">
+    2. 预训练语言模型（Pretrained language models）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-common-sense-inference-datasets" title="3. 常识推理数据集（Common sense inference datasets）" class="md-nav__link">
+    3. 常识推理数据集（Common sense inference datasets）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-meta-learning" title="4. 元学习（Meta-learning）" class="md-nav__link">
+    4. 元学习（Meta-learning）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-robust-unsupervised-methods" title="5. 稳健的无监督方法（Robust unsupervised methods）" class="md-nav__link">
+    5. 稳健的无监督方法（Robust unsupervised methods）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-understanding-representations" title="6. 理解表征（Understanding representations）" class="md-nav__link">
+    6. 理解表征（Understanding representations）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-clever-auxiliary-tasks" title="7. 巧妙的辅助任务（Clever auxiliary tasks）" class="md-nav__link">
+    7. 巧妙的辅助任务（Clever auxiliary tasks）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-combining-semi-supervised-learning-with-transfer-learning" title="8. 半监督学习和迁移学习结合（Combining semi-supervised learning with transfer learning）" class="md-nav__link">
+    8. 半监督学习和迁移学习结合（Combining semi-supervised learning with transfer learning）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-qa-qa-and-reasoning-with-large-documents" title="9. QA 和大型文档推理（QA and reasoning with large documents）" class="md-nav__link">
+    9. QA 和大型文档推理（QA and reasoning with large documents）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-inductive-bias" title="10. 归纳偏差（Inductive bias）" class="md-nav__link">
+    10. 归纳偏差（Inductive bias）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="商业应用" class="md-nav__link">
+    商业应用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="小结" class="md-nav__link">
+    小结
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="作者介绍" class="md-nav__link">
+    作者介绍
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="2018-nlp">2018 年，NLP 研究与应用进展到什么水平了？<a class="headerlink" href="#2018-nlp" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>https://infoq### . cn/article/Yzz7-xp7Derd1DsfTPgm</p>
+</blockquote>
+<h2 id="_1">导读<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>随着人工智能的再次兴起，尤其是深度学习的成功应用，自然语言处理（NLP）也逐渐受到了科研研所、高校以及相关企业的关注，也成为了人工智能重点研究的课题之一。NLP 的主要目标是解决人机对话中的各种困难，使得计算机能够理解人类的语言，让用户能用自己的语言与计算机沟通。</p>
+<p>最近几年 NLP 的高速发展，其相关技术和应用都取得辉煌的成绩，清华大学的 Aminer 团队在 2018 年 7 月发布了 NLP 研究报告，从 NLP 的概念、技术、人才、应用以及发展趋势五个方面总结 NLP 的发展历程和所取得成绩。那么，在过去这一年中，NLP 取得了哪些发展呢？</p>
+<p>提到 2018 年自然语言处理（NLP）的成就，BERT 将会首先映入眼帘，其性能横扫了多种不同的 NLP 测试，被誉为 NLP 新时代的开端。然而，2018 年并不是只有 BERT，无论是学术研究还是在企业应用，同样还有许多激动人心的想法和让人眼前一亮的应用。</p>
+<p>本文是 AI 前线年终盘点自然语言处理专题系列文章之技术与应用篇，我们将逐一盘点和总结这些想法和应用。</p>
+<p>更多优质内容请关注微信公众号“AI 前线”（ID：ai-front）</p>
+<h2 id="_2">学术研究<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>学术研究是技术发展的先行者，我们首先来看看 2018 年 NLP 学术研究都有哪些令人激动的想法。爱尔兰的 NLP 研究科学家 Sebastian Ruder 盘点了 2018 年 NLP 领域的十大想法，在保留其原文的框架基础上，我们对内容进行了重新编辑和补充。</p>
+<h3 id="1-unsupervised-mt">1. 无监督机器翻译（Unsupervised MT）<a class="headerlink" href="#1-unsupervised-mt" title="Permanent link">&para;</a></h3>
+<p>EMNLP 2018 上，Guillaume Lample 等人提炼出了无监督机器翻译的三个关键方法：良好的初始化、语言建模和逆向任务建模 (通过反向翻译)，大幅改进了之前的研究方法，无监督机器翻译获得了重大进展。这三个方法在其他无监督场景中也有用。逆向任务建模可以增强循环一致性，这种一致性已经在不同的方法中得到应用，在 CycleGAN 中最为突出。</p>
+<h3 id="2-pretrained-language-models">2. 预训练语言模型（Pretrained language models）<a class="headerlink" href="#2-pretrained-language-models" title="Permanent link">&para;</a></h3>
+<p>这是 NLP 领域今年最重要的发展趋势。有很多令人难忘的方法：ELMo、ULMFiT、OpenAI Transformer 和 BERT。这里主要介绍 ELMo 和 BERT 两个模型。
+ELMo（语言模型的词嵌入）：出自艾伦人工智能研究院和华盛顿大学的论文“Deep contextualized word representations”，NLP 顶会 NAACL HLT 2018 的优秀论文之一，受到了广泛好评。ELMo 用语言模型来获取词嵌入，同时也把词语所处句、段的语境考虑进来。这种语境化的词语表示，能够体现一个词在语法语义用法上的复杂特征，也能体现它在不同语境下如何变化。除了实证结果令人印象深刻之外，最引人注目的是论文的分析部分，它剔除了各种因素的影响，并对在表征中捕获的信息进行了分析。词义消歧分析执行得很好。两者都表明了，语言模型提供的词义消歧和词性标注表现都接近最先进的水平。</p>
+<p>BERT：它由 Google 推出，全称是 Bidirectional Encoder Representations from Transformers，意思是来自 Transformer 的双向编码器表示，也是一种预训练语言表示的方法。BERT 模型沿袭了 GPT 模型的结构，采用 Transfomer 的编码器作为主体模型结构。Transformer 舍弃了 RNN 的循环式网络结构，完全基于注意力机制来对一段文本进行建模。模型的主要创新点都在 pre-train 方法上，即用了 Masked LM 和 Next Sentence Prediction 两种方法分别捕捉词语和句子级别的 representation。从性能上来看，没有哪个模型能与 BERT 一战。目前，BERT 在 11 项 NLP 任务上都取得了最顶尖成绩。</p>
+<h3 id="3-common-sense-inference-datasets">3. 常识推理数据集（Common sense inference datasets）<a class="headerlink" href="#3-common-sense-inference-datasets" title="Permanent link">&para;</a></h3>
+<p>将常识融入到模型中，是 NLP 最重要的前进方向之一。然而，创建一个好的数据集并不容易，即便是流行的数据集，也存在很大的偏差。而来自于华盛顿大学 Event2Mind 和 SWAG 试图教模型一些常识，虽然 SWAG 很快被 BERT 超越了，但依然是一个很重要的想法。例如首个视觉 QA 数据集“Visual Commonsense Reasoning”，每个答案都包含对答案的解释，且每个问题需要复杂的推理。创作者想尽办法解决可能存在的偏差，确保每个答案的正确率为 25% (每个答案在整个数据集中出现 4 次，错误答案出现 3 次，正确答案出现 1 次)。在创建数据集的过程中，需要使用计算相关性和相似性的模型来解决约束优化问题，以防止可能出现的偏差会成为一个常识。</p>
+<h3 id="4-meta-learning">4. 元学习（Meta-learning）<a class="headerlink" href="#4-meta-learning" title="Permanent link">&para;</a></h3>
+<p>元学习在少样本学习、强化学习和机器人学习中得到了广泛的应用，最突出的例子是与模型无关的元学习 ( MAML )。但在 NLP 领域，元学习很少有成功的应用。其实在解决样本数量有限的问题上，元学习非常有用，尤其是将多语言迁移学习 (如多语言 BERT )、无监督学习和元学习相结合起来的时候，这是一个非常有希望取得进展的方向。发表于 EMNLP 2018 上的论文“Meta-Learning for Low-Resource Neural Machine Translation”就使用了 MAML，即将每一种“语言对 ”都视为单独的元任务。在 NLP 领域，用来适应资源较少的语言，可能是元学习的最佳用武之地了。</p>
+<h3 id="5-robust-unsupervised-methods">5. 稳健的无监督方法（Robust unsupervised methods）<a class="headerlink" href="#5-robust-unsupervised-methods" title="Permanent link">&para;</a></h3>
+<p>在迁移学习中，源和目标设置之间的差异 (例如，领域适应、持续学习和多任务学习中的任务) 会导致模型的效果变差或崩溃。即当语言不相似时，无监督的跨语言单词嵌入方法会导致模型崩溃。面对这种变化时，如何让模型更加稳健是很重要的。ACL 2018 的论文“A robust self-learning method for fully unsupervised cross-lingual mappings of word embeddings” 利用他们对问题的理解来设计更好的初始化，而不是将元学习应用到初始化上。比较亮眼的是，他们将两种语言中分布相似的单词配对。这一个例子证明了可以利用领域专业知识和分析见解使模型更加稳健。</p>
+<h3 id="6-understanding-representations">6. 理解表征（Understanding representations）<a class="headerlink" href="#6-understanding-representations" title="Permanent link">&para;</a></h3>
+<p>为了更好地理解表征，研究者已经做了很多努力。特别是“诊断分类器”（diagnostic classifiers）(旨在测量学习到的表征能否预测某些属性的任务) 已经变得非常普遍了。在理解表征方面，EMNLP 2018 上论文“Dissecting Contextual Word Embeddings: Architecture and Representation” 精心设计的无监督和有监督的任务中对单词和跨度表征进行了广泛的研究学习。实验结果表明预训练表征学习任务在较低层和较高层比较长的语义范围中，与低层次的形态与句法任务相关。这实际上表明，预训练语言模型，确实捕捉到了与在 ImageNet 上预处理的计算机视觉模型相似的特性。</p>
+<h3 id="7-clever-auxiliary-tasks">7. 巧妙的辅助任务（Clever auxiliary tasks）<a class="headerlink" href="#7-clever-auxiliary-tasks" title="Permanent link">&para;</a></h3>
+<p>在许多场景中，越来越多的学者使用多任务学习和精心选择的辅助任务。对于一项好的辅助任务来说，数据必须易于访问。一个最突出的例子是 BERT，它使用下一句预测 (在 Skip-thoughts 中使用过，最近在 Quick-thoughts 使用) 取得了很大的效果。除 BERT 外，发表于 EMNLP 2018 上论文“Syntactic Scaffolds for Semantic Structures” 提出了一个辅助任务，通过预测每个跨度对应的句法成分类型，来预处理跨度表征。尽管从概念上来说很简单，但是辅助任务在推动跨度预测任务出现大幅度改进方面很重要，例如语义角色标注和共指解析。这篇论文证明了，在目标任务所要求的水平上学习专门的表征非常有用。而论文“pair2vec: Compositional Word-Pair Embeddings for Cross-Sentence Inference (arXiv 2018)” 基于相似的脉络，通过最大化“词对”与其语境之间的点互信息来预训练“词对”表征。 这激励了模型去学习更多有意义的“词对”表征，而不是更通用的目标，比如语言建模。对于需要跨句子推理的任务，如 SQuAD MultiNLI，预训练表征是有效的。将来或许可以看到更多的预训练任务，能够捕捉特别适合于某些下游任务的属性，并与更多通用任务 (如语言建模) 相辅相成。</p>
+<h3 id="8-combining-semi-supervised-learning-with-transfer-learning">8. 半监督学习和迁移学习结合（Combining semi-supervised learning with transfer learning）<a class="headerlink" href="#8-combining-semi-supervised-learning-with-transfer-learning" title="Permanent link">&para;</a></h3>
+<p>实际上，预训练表征与许多半监督学习表征的方法是互补的。已经有学者探索了自我标注的方法，这是一种特殊类型的半监督学习。论文“Semi-Supervised Sequence Modeling with Cross-View Training (EMNLP 2018)” 展示了一个在概念上非常简单的想法，确保对不同输入观点的预测与主模型的预测一致，可以在不同的任务集合中获得收益。这个想法类似于单词 dropout，但是可以利用未标记的数据来使模型更加稳健。与其他自组合模型相比，它是专门为特定的 NLP 任务设计的。</p>
+<h3 id="9-qa-qa-and-reasoning-with-large-documents">9. QA 和大型文档推理（QA and reasoning with large documents）<a class="headerlink" href="#9-qa-qa-and-reasoning-with-large-documents" title="Permanent link">&para;</a></h3>
+<p>在问答系统中，除了对话式问答和多步推理，问答最具挑战性的方面是综合叙述和处理大体量信息。TACL 2018 上的论文“The NarrativeQA Reading Comprehension Challenge” 基于对整部电影剧本和书籍问题的回答，提出了一个具有挑战性的新 QA 数据集。虽然依靠目前的方法仍无法完成这项任务，但模型可以选择使用摘要 (而不是整本书) 作为语境来选择答案 (而不是生成答案)。这些变体使完成任务更加可行，并使模型能够逐步扩展到完整的语境。</p>
+<h3 id="10-inductive-bias">10. 归纳偏差（Inductive bias）<a class="headerlink" href="#10-inductive-bias" title="Permanent link">&para;</a></h3>
+<p>归纳偏差，如 CNN 中的卷积、正则化、dropout 和其他机制，是神经网络模型的核心部分，它们起到调节器的作用，使模型更具样本效率。然而，提出一个应用更加广泛的归纳偏差方法，并将其融入模型是一个挑战。有幸的是在 2018 的研究中有了这一类的相关成果。论文“Sequence classification with human attention (CoNLL 2018)”提出利用视觉跟踪语料库中的人类注意力来规范视觉神经网络中的注意力。考虑到当前许多模型（如 Transformers）也使用注意力，找到更有效地训练它的方法是一个重要的方向。另外， 论文还证明了人类语言学习可以帮助改进计算模型。而 2018 年 EMNLP 上的最佳论文之一“Linguistically-Informed Self-Attention for Semantic Role Labeling”提出了将 multi-head self-attention 与多任务学习相结合的模型，该模型可以仅使用原始的 token 对序列进行一次编码，来同时执行多个预测任务。论文中还通过训练一个注意力头来关注每个 token 的句法父项，使 Transformer 的多头注意力对句法更加敏感。</p>
+<p>总体说来，NLP 作为认知智能的重要组成部分，依然是人工智能领域研究的重要课题，而 2018 年也取得了成绩，也让我们对未来 NLP 研究充满了希望。</p>
+<h2 id="_3">商业应用<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>伴随着 NLP 研究的不断深入，其应用也变得越来越广泛，尤其是在知识图谱、机器翻译、阅读理解和智能写作等方面都有较为成熟的应用。</p>
+<p>由于知识图谱能够让人工智能具备认知能力和逻辑能力，进而实现智能分析、智能搜索、人机交互等场景应用，而这一优势使得知识图谱可以应用于科研、金融、医疗、司法、公共安全等各个领域。2018 年以来，百度应用知识图谱率，实现了智能搜索；阿里健康启动医学知识图谱，与国家级医疗健康大数据平台等机构在京宣布启动医学智库“医知鹿”，而腾讯也推出了首款医疗 AI 引擎“腾讯睿知”发力智能导诊；美团通过构建其知识图谱实现以实现智能化的生活服务；招商银行总行的知识图谱项目也成果落地上线，预示着知识图谱在金融领域的应用正不断成熟；而在汽车领域，汽车之家通过构建汽车领域知识图谱，为其 APP“家家小秘”实现了图谱问答。总之，知识图谱的行业应用，会让内容更加精准，服务更加智能，也逐渐成为了各领域的数据和技术核心。</p>
+<p>随着深度学习在机器翻译的成功应用，以及实时的语音转文字和文字转语音功能的成熟，模型翻译的水平得到了很大的提高，很大程度上的解决了对话中的翻译问题。为此，翻译机在 2018 年成为了人们关注的热点，除了之前我们熟悉的谷歌、百度、网易等在线翻译外，2018 年 6 月 13 日，谷歌发布离线神经机器翻译技术（ Neural Machine Translation），使得离线状态下 ，也能用 AI 翻译，且支持 59 种语言；2018 年 9 月，网易有道自研离线神经网络翻译技术，并应用于发布的翻译智能硬件“有道翻译王 ### 2. 0Pro”；2018 年 9 月，搜狗推出最新款时尚 AI 翻译机——搜狗翻译宝 Pro，支持 42 种语言实时互译及中英日韩 4 种语言离线翻译；2018 年 10 月，百度推出实时将英语翻译成中文和德语的人工智能即时翻译工具。机器翻译作为 NLP 最为人知的应用场景，其产品正逐渐成为人们生活的必需品，因此机器翻译任然蕴含着巨大的市场价值，让众多厂商为之心动，同时也必然会使得机器翻译越来越成熟。</p>
+<p>阅读理解方作为复杂的 NLP 技术之一，受到了广大学者和企业的关注，同时也已经开始商业化。2018 年 8 月，“考拉阅读”宣布完成融资 2000 万美金，并将此次融资用于考拉阅读原创“中文分级阅读系统 ER Framework”的优化升级、优质阅读内容的生产聚合及市场规模的扩大；在近期举办的 MS MARCO 文本阅读理解挑战赛中，阿里 AI 模型在英文阅读理解比赛中超过了微软、百度等研究机构，排名第一，而这一技术也已经大规模应用与淘宝、天猫以及东南亚电商 Lazada 等产品中。阅读理解作为继语音判断和语义理解之后的又一主要挑战，需要模型理解全文语境，同时还需要理解和关注词汇、语句、篇章结构、思维逻辑、辅助语句和关键句等元素，并可以直接作用于现实中的文本资料中，其价值不言而喻。也因为这个原因，使得 MS MARCO 文本阅读理解挑战赛变的如此激烈。</p>
+<p>智能创作通过深度学习模型获取创作的背景知识和创作方法，并根据主题自动生成作品，以辅助或替代人工创作。其中印象最为深刻的便是腾讯写稿机器人“Dreamwriter” ，在俄罗斯世界杯足球赛期间，Dreamwriter 生产一篇稿子平均只要 ### 0. 46 秒，而且写法越来越类人化，不再是冷冰冰的；除此之外，百度在 1 月的百家号内容创作者盛典上宣布推出人工智能写作辅助平台“创作大脑”，为人类作者提供纠错、提取信息等各种辅助工作，其基于语义的智能纠错功能识别准确率达到了 95% 以上，能实现相当于大学生平均水平的纠错能力；2018 年 5 月，微软小冰宣布“演唱深度学习模型完成第四次重大升级，演唱水平接近人类，且开始向作词、作曲、演唱全面发展；2018 年 6 月，IBM Research 推出 AI 系统 Project Debator，在旧金山 IBM 办公室，人工智能在一场辩论赛中击败了人类顶尖辩手，Project Debater 通过处理大量文本，就特定主题构建出有良好结构的演讲，提供清晰明确的目的，并反驳其对手，它的对手是以色列国际辩论协会主席 Dan Zafrir 和 2016 年以色列国家辩论冠军 Noa Ovadia。智能创作几乎需要集成目前所有的 NLP 技术，也侧面体现了各公司 NLP 技术综合实力，因此智能创造也备受各企业的关注。</p>
+<p>除了以上热门的应用之外，智能问答和语音处理依然是 NLP 的热门应用。2018 年以来，各厂商也都相继更新换代，例如腾讯在最近推出了一款全新的“腾讯叮当智能视听屏”，就成功打破了智能音箱和智能显示设备之间的隔膜，成功的将两者完美的结合在了一起；而在刚刚结束的 2018 年 AICon 上，智能对话和语音处理依然是人们主题之一。NLP 的成熟应用，让智能应用的关键一步，不仅可以解放人力，同时也带来了更好的用户体验。</p>
+<h2 id="_4">小结<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>2018 年，无论是 NLP 的研究还是应用，都十分热闹。NLP 研究的内容逐渐趋近于模型的可解释性和预训练，说明 NLP 的研究已经进入了深水区。而在应用方面，我们看到微软、谷歌、百度等巨头的竞争格局已经形成，同时各垂直领域也相继推出相应的产品，例如汽车之家的家家小秘、蔚来的 nomi 等，另外不少后起公司凭借自己的努力也有望向巨头发起挑战，例如竹间科技、思必驰等。</p>
+<p>NLP 涉及了计算机、数学、统计学、语言学以及脑神经科学等领域的知识，为了不断的提升 NLP 技术，我们仍然需要 NLP 相关方面和领域的研究人员和企业继续努力，讲求研究和应用并举，普及与提高同步。我们希望看到各领域、各企业的专家、学者、工程师通力合作，共同创作另一个辉煌的 NLP 时代。</p>
+<h2 id="_5">作者介绍<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>雷涛，高级算法工程师，汽车之家智能聊天机器人算法负责人。博士毕业于北京邮电大学大学网络技术学院，主要从事智能聊天机器人相关技术研发，致力于机器学习、深度学习、NLP 相关算法在智能聊天机器人领域的落地应用。</p>
+<p>文章版权归极客邦科技 InfoQ 所有，未经许可不得转载。</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../" title="论文 || 文章" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                论文 || 文章
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../bert-jiqizhixin/" title="谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            @2018 nlp-docs.github.io
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="http://wohugb.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/wohugb" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/wohugb" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/wohugb" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.2ba8dec4.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
