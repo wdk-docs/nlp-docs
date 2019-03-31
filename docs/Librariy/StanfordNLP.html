@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>斯坦福-StanfordNLP &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">论文 || 文章</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>斯坦福-StanfordNLP</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Librariy/StanfordNLP.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="stanfordnlp">
+<h1>斯坦福-StanfordNLP<a class="headerlink" href="#stanfordnlp" title="永久链接至标题">¶</a></h1>
+<p>适用于多种人类语言的 Python NLP 库
+<a class="reference external" href="https://github.com/stanfordnlp/stanfordnlp">https://github.com/stanfordnlp/stanfordnlp</a></p>
+<p><a class="reference external" href="https://travis-ci.com/stanfordnlp/stanfordnlp"><img alt="Travis Status" src="https://travis-ci.com/stanfordnlp/stanfordnlp.svg?token=RPNzRzNDQRoq2x3J2juj&amp;branch=master" /></a> <a class="reference external" href="https://pypi.org/project/stanfordnlp/"><img alt="PyPI version" src="https://img.shields.io/pypi/v/stanfordnlp.svg?colorB=blue" /></a></p>
+<p>斯坦福 NLP 集团的官方 Python NLP 库。 它包含用于运行 CoNLL 2018
+共享任务的最新完全神经管道以及访问 Java Stanford CoreNLP
+服务器的软件包。
+有关详细信息，请访问我们的<a class="reference external" href="https://stanfordnlp.github.io/stanfordnlp/">官方网站</a>.</p>
+<div class="section" id="id1">
+<h2>参考<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>如果您使用我们的神经管道，包括标记器，多字令牌扩展模型，解释器，POS
+/形态特征标记器或您研究中的依赖解析器，请引用我们的 CoNLL 2018
+共享任务<a class="reference external" href="https://nlp.stanford.edu/pubs/qi2018universal.pdf">系统描述文件</a>:</p>
+<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">qi2018universal</span><span class="p">,</span>
+ <span class="na">address</span> <span class="p">=</span> <span class="s">{Brussels, Belgium}</span><span class="p">,</span>
+ <span class="na">author</span> <span class="p">=</span> <span class="s">{Qi, Peng  and  Dozat, Timothy  and  Zhang, Yuhao  and  Manning, Christopher D.}</span><span class="p">,</span>
+ <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{Proceedings of the {CoNLL} 2018 Shared Task: Multilingual Parsing from Raw Text to Universal Dependencies}</span><span class="p">,</span>
+ <span class="na">month</span> <span class="p">=</span> <span class="s">{October}</span><span class="p">,</span>
+ <span class="na">pages</span> <span class="p">=</span> <span class="s">{160--170}</span><span class="p">,</span>
+ <span class="na">publisher</span> <span class="p">=</span> <span class="s">{Association for Computational Linguistics}</span><span class="p">,</span>
+ <span class="na">title</span> <span class="p">=</span> <span class="s">{Universal Dependency Parsing from Scratch}</span><span class="p">,</span>
+ <span class="na">url</span> <span class="p">=</span> <span class="s">{https://nlp.stanford.edu/pubs/qi2018universal.pdf}</span><span class="p">,</span>
+ <span class="na">year</span> <span class="p">=</span> <span class="s">{2018}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>PyTorch 在这个存储库中实现神经管道的原因是<a class="reference external" href="http://qipeng.me">Peng
+Qi</a>和<a class="reference external" href="http://yuhao.im">Yuhao
+Zhang</a>，在<a class="reference external" href="https://web.stanford.edu/~tdozat/">Tim
+Dozat</a>的帮助下和<a class="reference external" href="mailto:jebolton&#37;&#52;&#48;stanford&#46;edu">Jason
+Bolton</a>。</p>
+<p>此版本与斯坦福大学的 CoNLL 2018 共享任务系统不同。
+标记器，变形器，形态特征和多字词系统是共享任务代码的清理版本，但在竞争中我们使用<a class="reference external" href="https://github.com/tdozat/Parser-v3">Tensorflow
+版本</a> )<a class="reference external" href="https://web.stanford.edu/~tdozat/">Tim
+Dozat</a>的标记器和解析器，已在
+PyTorch 中大致复制(尽管与原始版本有一些偏差)。</p>
+<p>如果您使用 CoreNLP 服务器，请引用 CoreNLP
+软件包和相应模块<a class="reference external" href="https://stanfordnlp.github.io/CoreNLP/#citing-stanford-corenlp-in-papers">如此处</a>(“引用斯坦福大学”
+CoreNLP 在论文中“)。 CoreNLP 客户端主要由<a class="reference external" href="http://arun.chagantys.org/">Arun
+Chaganty</a>撰写，<a class="reference external" href="mailto:jebolton&#37;&#52;&#48;stanford&#46;edu">Jason
+Bolton</a>率先将这两个项目合并在一起。</p>
+</div>
+<div class="section" id="id2">
+<h2>问题和使用问答<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>请使用以下渠道提问和发布报告。</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>目的</p></th>
+<th class="head"><p>渠道</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>用法问答</p></td>
+<td><p><a class="reference external" href="https://groups.google.com/forum/#!forum/stanfordnlp">Google
+Group</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>错误报告和功能请求</p></td>
+<td><p><a class="reference external" href="https://github.com/stanfordnlp/stanfordnlp/issues">GitHub Issue
+Tracker</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h2>安装<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>StanfordNLP 支持 Python 3.6 或更高版本。我们强烈建议您从 PyPI 安装
+StanfordNLP。
+如果你已经安装了<a class="reference external" href="https://pip.pypa.io/en/stable/installing/">pip</a>,
+简单地跑</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install stanfordnlp
+</pre></div>
+</div>
+<p>这也应该有助于解决 StanfordNLP
+的所有依赖关系，例如<a class="reference external" href="https://pytorch.org/">PyTorch</a> 1.0.0
+或更高版本。</p>
+<p>或者，您也可以从这个 git
+存储库的源代码安装，这将为您提供更大的灵活性，可以在 StanfordNLP
+之上进行开发并培训您自己的模型。 对于此选项，请运行</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:stanfordnlp/stanfordnlp.git
+<span class="nb">cd</span> stanfordnlp
+pip install -e .
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>运行 StanfordNLP<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id5">
+<h3>神经管道入门<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>要运行您的第一个 StanfordNLP 管道，只需在 Python
+交互式解释器中执行这些步骤即可:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stanfordnlp</span>
+<span class="n">stanfordnlp</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;en&#39;</span><span class="p">)</span>   <span class="c1"># This downloads the English models for the neural pipeline</span>
+<span class="n">nlp</span> <span class="o">=</span> <span class="n">stanfordnlp</span><span class="o">.</span><span class="n">Pipeline</span><span class="p">()</span> <span class="c1"># This sets up a default neural pipeline in English</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="s2">&quot;Barack Obama was born in Hawaii.  He was elected president in 2008.&quot;</span><span class="p">)</span>
+<span class="n">doc</span><span class="o">.</span><span class="n">sentences</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">print_dependencies</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>最后一个命令将打印出输入字符串中第一个句子中的单词(或“Document”，因为它在
+StanfordNLP 中表示)，以及在该句子的 Universal Dependencies
+解析中管理它的单词的索引(它的“头”)，以及单词之间的依赖关系。
+输出应该是这样的:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="s1">&#39;Barack&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;nsubj:pass&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="s1">&#39;Obama&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;flat&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="s1">&#39;was&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;aux:pass&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="s1">&#39;born&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;root&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="s1">&#39;in&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;case&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="s1">&#39;Hawaii&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;obl&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;punct&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> 如果你遇到像’OSError:[Errno
+22]无效的参数`这样的问题，你很可能会受到<a class="reference external" href="https://bugs.python.org/issue24658">已知 Python
+问题</a>的影响，我们建议使用
+Python 3.6.8 或更高版本以及 Python 3.7.2 或更高版本。</p>
+<p>我们还提供了一个多语言<a class="reference external" href="https://github.com/stanfordnlp/stanfordnlp/blob/master/demo/pipeline_demo.py">演示脚本</a>，演示了如何使用除英语之外的其他语言的
+StanfordNLP，例如中文(传统)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python demo/pipeline_demo.py -l zh
+</pre></div>
+</div>
+<p>有关详细信息，请参阅<a class="reference external" href="https://stanfordnlp.github.io/stanfordnlp/installation_download.html#getting-started">我们的入门指南</a>。</p>
+</div>
+<div class="section" id="java-stanford-corenlp">
+<h3>访问 Java Stanford CoreNLP 服务器<a class="headerlink" href="#java-stanford-corenlp" title="永久链接至标题">¶</a></h3>
+<p>除了神经管道，该项目还包括一个官方包装器，用于使用 Python 代码访问 Java
+Stanford CoreNLP 服务器。</p>
+<p>有一些初始设置步骤。</p>
+<ul class="simple">
+<li><p>Download <a class="reference external" href="https://stanfordnlp.github.io/CoreNLP/">Stanford
+CoreNLP</a> and models for
+the language you wish to use.</p></li>
+<li><p>将模型罐放入分发文件夹中</p></li>
+<li><p>告诉 Stanford CoreNLP 所在的 python 代码:
+<code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">CORENLP_HOME=/path/to/stanford-corenlp-full-2018-10-05</span></code></p></li>
+</ul>
+<p>We provide another <a class="reference external" href="https://github.com/stanfordnlp/stanfordnlp/blob/master/demo/corenlp.py">demo
+script</a>
+that shows how one can use the CoreNLP client and extract various
+annotations from it.</p>
+</div>
+<div class="section" id="id6">
+<h3>神经管道的训练模型<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>我们目前为 CoNLL 2018 共享任务中的所有树库提供模型。
+你可以找到下载和使用这些模型的说明<a class="reference external" href="https://stanfordnlp.github.io/stanfordnlp/installation_download.html#models-for-human-languages">这里</a>.</p>
+</div>
+<div class="section" id="id7">
+<h3>批量管理以最大化管道速度<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>要最大限度地提高速度性能，必须在批量文档上运行管道。
+一次在一个句子上运行 for 循环将非常缓慢。
+此时最好的方法是将文档连接在一起，每个文档用空行分隔(即两个换行符<code class="docutils literal notranslate"><span class="pre">\n\n\n</span></code>)。
+标记器将空行识别为句子中断。 我们正在积极致力于改进多文档处理。</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>训练自己的神经管道<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>该库中的所有神经模块，包括标记器，多字令牌(MWT)扩展器，POS
+/形态特征标记器，变形器和依赖解析器，都可以使用您自己的`CoNLL-U &lt;<a class="reference external" href="https://universaldependencies.org/format.html">https://universaldependencies.org/format.html</a>&gt;`__格式数据进行训练。
+目前，我们不支持通过<code class="docutils literal notranslate"><span class="pre">Pipeline</span></code>界面进行模型培训。
+因此，要训练自己的模型，您需要克隆此 git 存储库并从源设置。</p>
+<p>有关如何培训和评估您自己的模型的详细分步指导，请访问我们的<a class="reference external" href="https://stanfordnlp.github.io/stanfordnlp/training.html">培训文档</a>.</p>
+</div>
+<div class="section" id="id9">
+<h2>执照<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p>StanfordNLP 是在 Apache License 2.0 版下发布的。
+有关详细信息，请参阅<a class="reference external" href="https://github.com/stanfordnlp/stanfordnlp/blob/master/LICENSE">LICENSE</a>文件。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

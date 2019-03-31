@@ -1,0 +1,411 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Jiagu &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">论文 || 文章</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>Jiagu</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Librariy/Jiagu.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="jiagu">
+<h1>Jiagu<a class="headerlink" href="#jiagu" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="https://github.com/ownthink/Jiagu">甲骨</a>自然语言处理工具</p>
+<blockquote>
+<div><p>Jiagu 以 BiLSTM
+等模型为基础，使用大规模语料训练而成。将提供中文分词、词性标注、命名实体识别、情感分析、知识图谱关系抽取、关键词抽取、文本摘要、新词发现等常用自然语言处理功能。参考了各大工具优缺点制作，将
+Jiagu 回馈给大家。</p>
+</div></blockquote>
+<div class="section" id="id1">
+<h2>目录<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="#安装方式">安装方式</a></p></li>
+<li><p><a class="reference external" href="#使用方式">使用方式</a></p></li>
+<li><p><a class="reference external" href="#评价标准">评价标准</a></p></li>
+<li><p><a class="reference external" href="#附录">附录说明</a></p></li>
+</ul>
+<hr class="docutils" />
+<p>提供的功能有：</p>
+<ul class="simple">
+<li><p>中文分词</p></li>
+<li><p>词性标注</p></li>
+<li><p>命名实体识别</p></li>
+<li><p>情感分析 (模型训练中)</p></li>
+<li><p>知识图谱关系抽取 （模型训练中）</p></li>
+<li><p>关键词提取</p></li>
+<li><p>文本摘要</p></li>
+<li><p>新词发现</p></li>
+<li><p>等等。。。。</p></li>
+</ul>
+<hr class="docutils" />
+<div class="section" id="id2">
+<h3>安装方式<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>pip 安装</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install jiagu
+</pre></div>
+</div>
+<p>源码安装</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/ownthink/Jiagu
+<span class="nb">cd</span> Jiagu
+python3 setup.py install
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>使用方式<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<ol class="arabic simple">
+<li><p>快速上手：分词、词性标注、命名实体识别</p></li>
+</ol>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jiagu</span>
+
+<span class="c1">#jiagu.init() # 可手动初始化，也可以动态初始化</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;厦门明天会不会下雨&#39;</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="n">jiagu</span><span class="o">.</span><span class="n">seg</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="c1"># 分词</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+
+<span class="n">pos</span> <span class="o">=</span> <span class="n">jiagu</span><span class="o">.</span><span class="n">pos</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="c1"># 词性标注</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+
+<span class="n">ner</span> <span class="o">=</span> <span class="n">jiagu</span><span class="o">.</span><span class="n">ner</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="c1"># 命名实体识别</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ner</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>中文分词</p></li>
+</ol>
+<p>分词各种模式使用方式</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jiagu</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;汉服和服装&#39;</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="n">jiagu</span><span class="o">.</span><span class="n">seg</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="c1"># 默认分词</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="n">jiagu</span><span class="o">.</span><span class="n">seg</span><span class="p">([</span><span class="n">text</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">text</span><span class="p">],</span> <span class="nb">input</span><span class="o">=</span><span class="s1">&#39;batch&#39;</span><span class="p">)</span> <span class="c1"># 批量分词，加快速度。</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="n">jiagu</span><span class="o">.</span><span class="n">seg</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;mmseg&#39;</span><span class="p">)</span> <span class="c1"># 使用mmseg算法进行分词</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">words</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>自定义分词模型（将单独提供 msr、pku、cnc 等分词标准）</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jiagu</span>
+
+<span class="c1"># 独立标准模型路径</span>
+<span class="c1"># msr：test/extra_data/model/msr.model</span>
+<span class="c1"># pku：test/extra_data/model/pku.model</span>
+<span class="c1"># cnc：test/extra_data/model/cnc.model</span>
+
+<span class="n">jiagu</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s1">&#39;test/extra_data/model/cnc.model&#39;</span><span class="p">)</span> <span class="c1"># 使用国家语委分词标准</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="n">jiagu</span><span class="o">.</span><span class="n">seg</span><span class="p">(</span><span class="s1">&#39;结婚的和尚未结婚的&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>关键词提取</p></li>
+</ol>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jiagu</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">该研究主持者之一、波士顿大学地球与环境科学系博士陈池（音）表示，“尽管中国和印度国土面积仅占全球陆地的9%，但两国为这一绿化过程贡献超过三分之一。考虑到人口过多的国家一般存在对土地过度利用的问题，这个发现令人吃惊。”</span>
+<span class="s1">NASA埃姆斯研究中心的科学家拉玛·内曼尼（Rama Nemani）说，“这一长期数据能让我们深入分析地表绿化背后的影响因素。我们一开始以为，植被增加是由于更多二氧化碳排放，导致气候更加温暖、潮湿，适宜生长。”</span>
+<span class="s1">“MODIS的数据让我们能在非常小的尺度上理解这一现象，我们发现人类活动也作出了贡献。”</span>
+<span class="s1">NASA文章介绍，在中国为全球绿化进程做出的贡献中，有42%来源于植树造林工程，对于减少土壤侵蚀、空气污染与气候变化发挥了作用。</span>
+<span class="s1">据观察者网过往报道，2017年我国全国共完成造林736.2万公顷、森林抚育830.2万公顷。其中，天然林资源保护工程完成造林26万公顷，退耕还林工程完成造林91.2万公顷。京津风沙源治理工程完成造林18.5万公顷。三北及长江流域等重点防护林体系工程完成造林99.1万公顷。完成国家储备林建设任务68万公顷。</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="n">keywords</span> <span class="o">=</span> <span class="n">jiagu</span><span class="o">.</span><span class="n">keywords</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c1"># 关键词</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">keywords</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>文本摘要</p></li>
+</ol>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">fin</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;input.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">fin</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">fin</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">summarize</span> <span class="o">=</span> <span class="n">jiagu</span><span class="o">.</span><span class="n">summarize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># 摘要</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">summarize</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>新词发现</p></li>
+</ol>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jiagu</span>
+
+<span class="n">jiagu</span><span class="o">.</span><span class="n">findword</span><span class="p">(</span><span class="s1">&#39;input.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;output.txt&#39;</span><span class="p">)</span> <span class="c1"># 根据文本，利用信息熵做新词发现。</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>评价标准<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<ol class="arabic simple">
+<li><p>msr 测试结果</p></li>
+</ol>
+<div class="figure align-center" id="id8">
+<img alt="msr" src="https://github.com/ownthink/evaluation/blob/master/images/2.png" />
+<p class="caption"><span class="caption-text">msr</span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>附录<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>词性标注说明</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>n　　　普通名词
+nt　 　时间名词
+nd　 　方位名词
+nl　 　处所名词
+nh　 　人名
+nhf　　姓
+nhs　　名
+ns　 　地名
+nn 　　族名
+ni 　　机构名
+nz 　　其他专名
+v　　 动词
+vd　　趋向动词
+vl　　联系动词
+vu　　能愿动词
+a　 　形容词
+f　 　区别词
+m　 　数词
+q　 　量词
+d　 　副词
+r　 　代词
+p　　 介词
+c　 　连词
+u　　 助词
+e　 　叹词
+o　 　拟声词
+i　 　习用语
+j　　 缩略语
+h　　 前接成分
+k　　 后接成分
+g　 　语素字
+x　 　非语素字
+w　 　标点符号
+ws　　非汉字字符串
+wu　　其他未知的符号
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>命名实体说明（采用 BIO 标记方式）</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>B-PER、I-PER   人名
+B-LOC、I-LOC   地名
+B-ORG、I-ORG   机构名
+</pre></div>
+</div>
+<div class="section" id="id6">
+<h3>加入我们<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>思知人工智能群 QQ
+群：90780053，微信群联系作者微信：MrYener，作者邮箱联系方式：<a class="reference external" href="mailto:help&#37;&#52;&#48;ownthink&#46;com">help<span>&#64;</span>ownthink<span>&#46;</span>com</a></p>
+<p><p>捐赠作者(您的鼓励是作者开源最大的动力！！！)：捐赠致谢</p>
+</p><div class="figure align-center" id="id9">
+<img alt="收款码" src="https://github.com/ownthink/KnowledgeGraph/raw/master/img/%E6%94%B6%E6%AC%BE%E7%A0%81.jpg" />
+<p class="caption"><span class="caption-text">收款码</span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>贡献者：<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://github.com/ownthink">Yener</a></p></li>
+<li><p><a class="reference external" href="https://github.com/zengbin93">zengbin93</a></p></li>
+<li><p><a class="reference external" href="https://github.com/dirtdust">dirtdust</a></p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

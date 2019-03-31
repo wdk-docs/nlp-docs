@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>预先训练的模型 &#8212; nlp-docs v2019.03.19 文档</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>预先训练的模型<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>We are releasing the <code class="docutils literal notranslate"><span class="pre">BERT-Base</span></code> and <code class="docutils literal notranslate"><span class="pre">BERT-Large</span></code> models from the
+paper. <code class="docutils literal notranslate"><span class="pre">Uncased</span></code> means that the text has been lowercased before
+WordPiece tokenization, e.g., <code class="docutils literal notranslate"><span class="pre">John</span> <span class="pre">Smith</span></code> becomes <code class="docutils literal notranslate"><span class="pre">john</span> <span class="pre">smith</span></code>. The
+<code class="docutils literal notranslate"><span class="pre">Uncased</span></code> model also strips out any accent markers. <code class="docutils literal notranslate"><span class="pre">Cased</span></code> means
+that the true case and accent markers are preserved. Typically, the
+<code class="docutils literal notranslate"><span class="pre">Uncased</span></code> model is better unless you know that case information is
+important for your task (e.g., Named Entity Recognition or
+Part-of-Speech tagging).</p>
+<p>These models are all released under the same license as the source code
+(Apache 2.0).</p>
+<p>For information about the Multilingual and Chinese model, see the
+<a class="reference external" href="https://github.com/google-research/bert/blob/master/multilingual.md">Multilingual
+README</a>.</p>
+<p><strong>When using a cased model, make sure to pass ``–do_lower=False`` to
+the training scripts. (Or pass ``do_lower_case=False`` directly to
+``FullTokenizer`` if you’re using your own script.)</strong></p>
+<p>The links to the models are here (right-click, ‘Save link as…’ on the
+name):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">`BERT-Base,</span> <span class="pre">Uncased</span></code> &lt;<a class="reference external" href="https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip">https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip</a>&gt;`__:
+12-layer, 768-hidden, 12-heads, 110M parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">`BERT-Large,</span> <span class="pre">Uncased</span></code> &lt;<a class="reference external" href="https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-24_H-1024_A-16.zip">https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-24_H-1024_A-16.zip</a>&gt;`__:
+24-layer, 1024-hidden, 16-heads, 340M parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">`BERT-Base,</span> <span class="pre">Cased</span></code> &lt;<a class="reference external" href="https://storage.googleapis.com/bert_models/2018_10_18/cased_L-12_H-768_A-12.zip">https://storage.googleapis.com/bert_models/2018_10_18/cased_L-12_H-768_A-12.zip</a>&gt;`__:
+12-layer, 768-hidden, 12-heads , 110M parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">`BERT-Large,</span> <span class="pre">Cased</span></code> &lt;<a class="reference external" href="https://storage.googleapis.com/bert_models/2018_10_18/cased_L-24_H-1024_A-16.zip">https://storage.googleapis.com/bert_models/2018_10_18/cased_L-24_H-1024_A-16.zip</a>&gt;`__:
+24-layer, 1024-hidden, 16-heads, 340M parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">`BERT-Base,</span> <span class="pre">Multilingual</span> <span class="pre">Cased</span> <span class="pre">(New,</span> <span class="pre">recommended)</span></code> &lt;<a class="reference external" href="https://storage.googleapis.com/bert_models/2018_11_23/multi_cased_L-12_H-768_A-12.zip">https://storage.googleapis.com/bert_models/2018_11_23/multi_cased_L-12_H-768_A-12.zip</a>&gt;`__:
+104 languages, 12-layer, 768-hidden, 12-heads, 110M parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">`BERT-Base,</span> <span class="pre">Multilingual</span> <span class="pre">Uncased</span> <span class="pre">(Orig,</span> <span class="pre">not</span> <span class="pre">recommended)</span></code> &lt;<a class="reference external" href="https://storage.googleapis.com/bert_models/2018_11_03/multilingual_L-12_H-768_A-12.zip">https://storage.googleapis.com/bert_models/2018_11_03/multilingual_L-12_H-768_A-12.zip</a>&gt;`__<strong>(Not
+recommended, use ``Multilingual Cased`` instead)</strong>: 102 languages,
+12-layer, 768-hidden, 12-heads, 110M parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">`BERT-Base,</span> <span class="pre">Chinese</span></code> &lt;<a class="reference external" href="https://storage.googleapis.com/bert_models/2018_11_03/chinese_L-12_H-768_A-12.zip">https://storage.googleapis.com/bert_models/2018_11_03/chinese_L-12_H-768_A-12.zip</a>&gt;`__:
+Chinese Simplified and Traditional, 12-layer, 768-hidden, 12-heads,
+110M parameters</p></li>
+</ul>
+<p>Each .zip file contains three items:</p>
+<ul class="simple">
+<li><p>A TensorFlow checkpoint (<code class="docutils literal notranslate"><span class="pre">bert_model.ckpt</span></code>) containing the
+pre-trained weights (which is actually 3 files).</p></li>
+<li><p>A vocab file (<code class="docutils literal notranslate"><span class="pre">vocab.txt</span></code>) to map WordPiece to word id.</p></li>
+<li><p>A config file (<code class="docutils literal notranslate"><span class="pre">bert_config.json</span></code>) which specifies the
+hyperparameters of the model.</p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">nlp-docs</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Nosy.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.0+/2f5204b</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/Corpus/BERT/Pre-trained_models.md.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

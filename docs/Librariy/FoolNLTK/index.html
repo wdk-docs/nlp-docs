@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FoolNLTK &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Author/index.html">自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/index.html">算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../awesome/index.html">awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/index.html">论文 || 文章</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+      <li>FoolNLTK</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Librariy/FoolNLTK/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="foolnltk">
+<h1>FoolNLTK<a class="headerlink" href="#foolnltk" title="永久链接至标题">¶</a></h1>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/rockyzhengwu/FoolNLTK">FoolNLTK</a>中文处理工具包</p>
+</div></blockquote>
+<div class="section" id="id1">
+<h2>特点<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>可能不是最快的开源中文分词，但很可能是最准的开源中文分词</p></li>
+<li><p>基于<a class="reference external" href="http://www.aclweb.org/anthology/N16-1030">BiLSTM
+模型</a>训练而成</p></li>
+<li><p>包含分词，词性标注，实体识别,　都有比较高的准确率</p></li>
+<li><p>用户自定义词典</p></li>
+<li><p>可训练自己的模型</p></li>
+<li><p>批量处理</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>定制自己的模型<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>get clone https://github.com/rockyzhengwu/FoolNLTK.git
+<span class="nb">cd</span> FoolNLTK/train
+</pre></div>
+</div>
+<p>详细训练步骤可参考<a class="reference external" href="./train.md">文档</a></p>
+<p>仅在 linux Python3 　环境测试通过</p>
+</div>
+<div class="section" id="id3">
+<h2>安装<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install foolnltk
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>使用说明<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id5">
+<h3>分词<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fool</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;一个傻子在北京&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fool</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+<span class="c1"># [&#39;一个&#39;, &#39;傻子&#39;, &#39;在&#39;, &#39;北京&#39;]</span>
+</pre></div>
+</div>
+<p>命令行分词, 可指定<code class="docutils literal notranslate"><span class="pre">-b</span></code>参数，每次切割的行数能加快分词速度</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m fool <span class="o">[</span>filename<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>用户自定义词典<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>词典格式格式如下，词的权重越高，词的长度越长就越越可能出现,　权重值请大于
+1</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>难受香菇 <span class="m">10</span>
+什么鬼 <span class="m">10</span>
+分词工具 <span class="m">10</span>
+北京 <span class="m">10</span>
+北京天安门 <span class="m">10</span>
+</pre></div>
+</div>
+<p>加载词典</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fool</span>
+<span class="n">fool</span><span class="o">.</span><span class="n">load_userdict</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;我在北京天安门看你难受香菇&quot;</span><span class="p">,</span> <span class="s2">&quot;我在北京晒太阳你在非洲看雪&quot;</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">fool</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+<span class="c1">#[[&#39;我&#39;, &#39;在&#39;, &#39;北京&#39;, &#39;天安门&#39;, &#39;看&#39;, &#39;你&#39;, &#39;难受&#39;, &#39;香菇&#39;],</span>
+<span class="c1"># [&#39;我&#39;, &#39;在&#39;, &#39;北京&#39;, &#39;晒太阳&#39;, &#39;你&#39;, &#39;在&#39;, &#39;非洲&#39;, &#39;看&#39;, &#39;雪&#39;]]</span>
+</pre></div>
+</div>
+<p>删除词典</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fool</span><span class="o">.</span><span class="n">delete_userdict</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>词性标注<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fool</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;一个傻子在北京&quot;</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">fool</span><span class="o">.</span><span class="n">pos_cut</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+<span class="c1">#[[(&#39;一个&#39;, &#39;m&#39;), (&#39;傻子&#39;, &#39;n&#39;), (&#39;在&#39;, &#39;p&#39;), (&#39;北京&#39;, &#39;ns&#39;)]]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>实体识别<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fool</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;一个傻子在北京&quot;</span><span class="p">,</span><span class="s2">&quot;你好啊&quot;</span><span class="p">]</span>
+<span class="n">words</span><span class="p">,</span> <span class="n">ners</span> <span class="o">=</span> <span class="n">fool</span><span class="o">.</span><span class="n">analysis</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ners</span><span class="p">)</span>
+<span class="c1">#[[(5, 8, &#39;location&#39;, &#39;北京&#39;)]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>其他语言版本<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/rockyzhengwu/JFoolNLTK">Java 版</a></p>
+</div>
+<div class="section" id="id10">
+<h2>注意<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>有找不到模型文件的,
+可以看下<code class="docutils literal notranslate"><span class="pre">sys.prefix</span></code>,一般默认为<code class="docutils literal notranslate"><span class="pre">/usr/local/</span></code></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

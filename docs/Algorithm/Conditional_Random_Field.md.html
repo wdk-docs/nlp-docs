@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>条件随机场 CRF（Conditional Random Field） &#8212; nlp-docs v2019.03.19 文档</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="crf-conditional-random-field">
+<h1>条件随机场 CRF（Conditional Random Field）<a class="headerlink" href="#crf-conditional-random-field" title="永久链接至标题">¶</a></h1>
+<p>MEMM
+的不足之处就是马尔可夫链的不足之处，马尔可夫链的假设是每个状态只与他前面的状态有关，这样的假设显然是有偏差的，所以就有了
+CRF
+模型，使得每个状态不止与他前面的状态有关，还与他后面的状态有关，从最开始的图片也能看出，HMM
+是基于贝叶斯网络的有向图，而 CRF 是无向图。</p>
+<p>P(Yv∣∣Yw,w≠v)=P(Yv,Yw,w∼v) where w~v means that w and v are neighbors in
+G.</p>
+<p>上式是条件随机场的定义，一个图被称为条件随机场，是说图中的结点只和他相邻的结点有关。最后由于不是贝叶斯网络的有向图，所以
+CRF 利用团的概念来求，最后公式如下</p>
+<p>P(y∣∣x,λ)=1Z(x)∗exp(Σλj∗Fj(y,x))</p>
+<p>因为条件随机场既可以像最大熵模型那样加各种
+feature，又没有马尔可夫链那样的偏执假设， 所以近年来 CRF
+已知是被公认的最好的分词算法 StanfordNLP 里就有良好的中文分词的 CRF
+实现，在他们的这篇论文提到，他们把字典作为 feature 加入到 CRF
+中，可以很好的提高分词的 performance。</p>
+<p>最近看到这篇论文，已经有人用 deep learning
+的方法来尝试解决分词的算法，也取得了不错的效果。</p>
+<p>总之现在的中文分词技术相对来说还是比较成熟了，所以如果没有必要用这些开源的分词实现已经足够了，不过鉴于学习的目的，自己去实现一个分词算法还是很有趣的。</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">nlp-docs</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Nosy.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.0+/2f5204b</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/Algorithm/Conditional_Random_Field.md.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

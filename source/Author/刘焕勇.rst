@@ -1,0 +1,11 @@
+刘焕勇
+======
+
+   `刘焕勇 <>`__\ 作者
+
+1. github 项目介绍：\ https://liuhuanyong.github.io
+   https://github.com/liuhuanyong
+2. csdn 博客：\ https://blog.csdn.net/lhy2014
+3. 刘焕勇，中国科学院软件研究所，\ lhy_in_blcu@126.com
+
+作者只是理论上整理了语料库的结构并没有实质的内容。

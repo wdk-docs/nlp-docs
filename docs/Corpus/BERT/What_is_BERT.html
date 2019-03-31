@@ -1,0 +1,249 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>什么是 BERT？ &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Author/index.html">自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/index.html">算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../awesome/index.html">awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/index.html">常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/index.html">论文 || 文章</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+      <li>什么是 BERT？</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Corpus/BERT/What_is_BERT.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bert">
+<h1>什么是 BERT？<a class="headerlink" href="#bert" title="永久链接至标题">¶</a></h1>
+<p>BERT
+是一种预训练语言表示的方法，这意味着我们在大型文本语料库(如维基百科)上训练通用的<code class="docutils literal notranslate"><span class="pre">语言理解</span></code>模型，然后将该模型用于我们关心的下游
+NLP 任务(如问题)接听)。 BERT 优于以前的方法，因为它是第一个用于预训练
+NLP 的<em>unsupervised</em>，<em>deeply bidirectional</em>系统。</p>
+<p><em>Unsupervised</em>意味着 BERT
+仅使用纯文本语料库进行训练，这很重要，因为大量的纯文本数据可以在网络上以多种语言公开获得。</p>
+<p>预先训练的表示也可以是<em>context-free</em>或<em>contextual</em>，上下文表示可以进一步是<em>unidirectional</em>或<em>bidirectional</em>。</p>
+<p>无上下文模型，如<a class="reference external" href="https://www.tensorflow.org/tutorials/representation/word2vec">word2vec</a>或<a class="reference external" href="https://nlp.stanford.edu/projects/glove/">GloVe</a>生成单个<code class="docutils literal notranslate"><span class="pre">单词嵌入</span></code>词汇表中每个单词的表示，所以<code class="docutils literal notranslate"><span class="pre">bank</span></code>在<code class="docutils literal notranslate"><span class="pre">bank</span> <span class="pre">deposit</span></code>和<code class="docutils literal notranslate"><span class="pre">river</span> <span class="pre">bank</span></code>中具有相同的表示。
+相反，上下文模型生成基于句子中其他单词的每个单词的表示。</p>
+<p>BERT 建立在最近培训上下文表示的基础上 -
+包括<a class="reference external" href="https://arxiv.org/abs/1511.01432">半监督序列学习</a>，<a class="reference external" href="https：//blog.openai。%20com%20/%20language-unsupervised%20/">Generative
+Pre-Training</a>，<a class="reference external" href="https://allennlp.org/elmo">ELMo</a>和<a class="reference external" href="http://nlp.fast.ai/classification/2018/05/15/introducting-ulmfit。%20html">ULMFit</a>
+- 但至关重要的是这些模型都是<em>unidirectional</em>或<em>shallowly
+bidirectional</em>。 这意味着每个单词仅使用左侧(或右侧)的单词进行语境化。
+例如，在<code class="docutils literal notranslate"><span class="pre">我做了银行存款</span></code>这句话中，<code class="docutils literal notranslate"><span class="pre">银行</span></code>的单向表示只是基于<code class="docutils literal notranslate"><span class="pre">我做了</span></code>而不是<code class="docutils literal notranslate"><span class="pre">存款</span></code>。
+之前的一些工作确实结合了来自单独的左上下文和右上下文模型的表示，但仅以<code class="docutils literal notranslate"><span class="pre">浅层</span></code>方式。
+BERT 代表<code class="docutils literal notranslate"><span class="pre">银行</span></code>使用它的左右上下文 - <code class="docutils literal notranslate"><span class="pre">我做了...存款</span></code> -
+从深度神经网络的最底部开始，所以它是<em>deeply bidirectional</em>。</p>
+<p>BERT 使用一种简单的方法：我们屏蔽输入中
+15％的单词，通过深度双向<a class="reference external" href="https://arxiv.org/abs/1706.03762">Transformer</a>编码器运行整个序列，然后仅预测蒙面的话。</p>
+<p>F 或者示例：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">:</span> <span class="n">the</span> <span class="n">man</span> <span class="n">went</span> <span class="n">to</span> <span class="n">the</span> <span class="p">[</span><span class="n">MASK1</span><span class="p">]</span> <span class="o">.</span>
+<span class="n">he</span> <span class="n">bought</span> <span class="n">a</span> <span class="p">[</span><span class="n">MASK2</span><span class="p">]</span> <span class="n">of</span> <span class="n">milk</span><span class="o">.</span>
+<span class="n">Labels</span><span class="p">:</span> <span class="p">[</span><span class="n">MASK1</span><span class="p">]</span> <span class="o">=</span> <span class="n">store</span><span class="p">;</span> <span class="p">[</span><span class="n">MASK2</span><span class="p">]</span> <span class="o">=</span> <span class="n">gallon</span>
+</pre></div>
+</div>
+<p>为了学习句子之间的关系，我们还训练一个简单的任务，可以从任何单语语料库中生成：给出两个句子<code class="docutils literal notranslate"><span class="pre">A</span></code>和<code class="docutils literal notranslate"><span class="pre">B</span></code>，<code class="docutils literal notranslate"><span class="pre">B</span></code>是<code class="docutils literal notranslate"><span class="pre">A</span></code>之后的实际下一个句子，或者只是语料库中的随机句子？</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sentence</span> <span class="n">A</span><span class="p">:</span> <span class="n">the</span> <span class="n">man</span> <span class="n">went</span> <span class="n">to</span> <span class="n">the</span> <span class="n">store</span> <span class="o">.</span>
+<span class="n">Sentence</span> <span class="n">B</span><span class="p">:</span> <span class="n">he</span> <span class="n">bought</span> <span class="n">a</span> <span class="n">gallon</span> <span class="n">of</span> <span class="n">milk</span> <span class="o">.</span>
+<span class="n">Label</span><span class="p">:</span> <span class="n">IsNextSentence</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sentence</span> <span class="n">A</span><span class="p">:</span> <span class="n">the</span> <span class="n">man</span> <span class="n">went</span> <span class="n">to</span> <span class="n">the</span> <span class="n">store</span> <span class="o">.</span>
+<span class="n">Sentence</span> <span class="n">B</span><span class="p">:</span> <span class="n">penguins</span> <span class="n">are</span> <span class="n">flightless</span> <span class="o">.</span>
+<span class="n">Label</span><span class="p">:</span> <span class="n">NotNextSentence</span>
+</pre></div>
+</div>
+<p>然后，我们在大型语料库(维基百科+<a class="reference external" href="http://yknzhu.wixsite.com/mbweb">BookCorpus</a>)上训练大型模型(12
+层到 24 层变换器)很长一段时间(1M 更新步骤)，那就是 BERT。</p>
+<p>使用 BERT 有两个阶段：<em>Pre-training</em>和<em>fine-tuning</em>。</p>
+<p><strong>预训练</strong>相当昂贵(4 到 16 个云 TPU 为 4
+天)，但是每种语言都是一次性程序(目前的型号仅限英语，但多语言型号将在不久的将来发布)
+。 我们正在发布一些预先培训的模型，这些模型是在谷歌预先培训过的。 大多数
+NLP 研究人员永远不需要从头开始训练他们自己的模型。</p>
+<p><strong>微调</strong>价格便宜。 本文中的所有结果可以在单个云 TPU 上最多 1
+小时复制，或者在 GPU 上几小时复制，从完全相同的预训练模型开始。
+例如，SQUAD 可以在单个 Cloud TPU 上训练大约 30 分钟，以获得 91.0％的 Dev
+F1 得分，这是单系统最先进的。</p>
+<p>BERT 的另一个重要方面是它可以非常容易地适应许多类型的 NLP 任务。
+在本文中，我们展示了句子级别(例如，SST-2)，句子对级别(例如，MultiNLI)，词级别的最新结果。</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

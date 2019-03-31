@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>scikit-learn &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">论文 || 文章</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>scikit-learn</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Librariy/scikit-learn.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="scikit-learn">
+<h1>scikit-learn<a class="headerlink" href="#scikit-learn" title="永久链接至标题">¶</a></h1>
+<p>scikit-learn 是一个用于机器学习的 Python 模块，建立在 SciPy 之上，并根据
+3-Clause BSD 许可证进行分发。</p>
+<p>The project was started in 2007 by David Cournapeau as a Google Summer
+of Code project, and since then many volunteers have contributed. See
+the <a class="reference external" href="http://scikit-learn.org/dev/about.html#authors">About us</a> page
+for a list of core contributors.</p>
+<p>It is currently maintained by a team of volunteers.</p>
+<p>Website: <a class="reference external" href="http://scikit-learn.org">http://scikit-learn.org</a></p>
+<div class="section" id="id1">
+<h2>安装<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>依赖</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>scikit-learn requires:
+
+- Python <span class="o">(</span>&gt;<span class="o">=</span> <span class="m">3</span>.5<span class="o">)</span>
+- NumPy <span class="o">(</span>&gt;<span class="o">=</span> <span class="m">1</span>.11.0<span class="o">)</span>
+- SciPy <span class="o">(</span>&gt;<span class="o">=</span> <span class="m">0</span>.17.0<span class="o">)</span>
+
+**Scikit-learn <span class="m">0</span>.20 was the last version to support Python2.7.**
+Scikit-learn <span class="m">0</span>.21 and later require Python <span class="m">3</span>.5 or newer.
+
+For running the examples Matplotlib &gt;<span class="o">=</span> <span class="m">1</span>.5.1 is required.
+A few examples
+require scikit-image &gt;<span class="o">=</span> <span class="m">0</span>.12.3, a few examples require pandas &gt;<span class="o">=</span> <span class="m">0</span>.18.0
+and a few example require joblib &gt;<span class="o">=</span> <span class="m">0</span>.11.
+
+scikit-learn also uses CBLAS, the C interface to the Basic Linear Algebra
+Subprograms library.
+scikit-learn comes with a reference implementation, but
+the system CBLAS will be detected by the build system and used <span class="k">if</span> present.
+CBLAS exists in many implementations<span class="p">;</span> see <span class="sb">`</span>Linear algebra libraries
+&lt;http://scikit-learn.org/stable/modules/computing#linear-algebra-libraries&gt;<span class="sb">`</span>_
+<span class="k">for</span> known issues.
+
+User installation
+</pre></div>
+</div>
+<p>如果您已经安装了 numpy 和 scipy，安装 scikit-learn
+的最简单方法是使用<code class="docutils literal notranslate"><span class="pre">pip</span></code> :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span>
+</pre></div>
+</div>
+<p>或者<code class="docutils literal notranslate"><span class="pre">conda</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span>
+</pre></div>
+</div>
+<p>该文档包含更详细的<a class="reference external" href="http://scikit-learn.org/stable/install.html">安装说明</a>.</p>
+</div>
+<div class="section" id="id2">
+<h2>更新日志<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>See the <a class="reference external" href="http://scikit-learn.org/dev/whats_new.html">changelog</a> for a
+history of notable changes to scikit-learn.</p>
+</div>
+<div class="section" id="id3">
+<h2>发展<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>We welcome new contributors of all experience levels. The scikit-learn
+community goals are to be helpful, welcoming, and effective. The
+<a class="reference external" href="http://scikit-learn.org/stable/developers/index.html">Development
+Guide</a> has
+detailed information about contributing code, documentation, tests, and
+more. We’ve included some basic information in this README.</p>
+<p>重要链接</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">Official</span> <span class="n">source</span> <span class="n">code</span> <span class="n">repo</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">scikit</span><span class="o">-</span><span class="n">learn</span><span class="o">/</span><span class="n">scikit</span><span class="o">-</span><span class="n">learn</span>
+<span class="o">-</span> <span class="n">Download</span> <span class="n">releases</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">pypi</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">project</span><span class="o">/</span><span class="n">scikit</span><span class="o">-</span><span class="n">learn</span><span class="o">/</span>
+<span class="o">-</span> <span class="n">Issue</span> <span class="n">tracker</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">scikit</span><span class="o">-</span><span class="n">learn</span><span class="o">/</span><span class="n">scikit</span><span class="o">-</span><span class="n">learn</span><span class="o">/</span><span class="n">issues</span>
+
+<span class="n">源代码</span>
+<span class="o">~~~~~~~~~~~</span>
+
+<span class="n">You</span> <span class="n">can</span> <span class="n">check</span> <span class="n">the</span> <span class="n">latest</span> <span class="n">sources</span> <span class="k">with</span> <span class="n">the</span> <span class="n">command</span><span class="p">:</span>
+
+    <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">scikit</span><span class="o">-</span><span class="n">learn</span><span class="o">/</span><span class="n">scikit</span><span class="o">-</span><span class="n">learn</span><span class="o">.</span><span class="n">git</span>
+
+<span class="n">Setting</span> <span class="n">up</span> <span class="n">a</span> <span class="n">development</span> <span class="n">environment</span>
+</pre></div>
+</div>
+<p>Quick tutorial on how to go about setting up your environment to
+contribute to scikit-learn:
+<a class="reference external" href="https://github.com/scikit-learn/scikit-learn/blob/master/CONTRIBUTING.md">https://github.com/scikit-learn/scikit-learn/blob/master/CONTRIBUTING.md</a></p>
+<p>测试</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>After installation, you can launch the test suite from outside the
+source directory (you will need to have ``pytest`` &gt;= 3.3.0 installed):
+
+    pytest sklearn
+
+See the web page http://scikit-learn.org/dev/developers/advanced_installation.html#testing
+for more information.
+
+    Random number generation can be controlled during testing by setting
+    the ``SKLEARN_SEED`` environment variable.
+
+Submitting a Pull Request
+</pre></div>
+</div>
+<p>Before opening a Pull Request, have a look at the full Contributing page
+to make sure your code complies with our guidelines:
+<a class="reference external" href="http://scikit-learn.org/stable/developers/index.html">http://scikit-learn.org/stable/developers/index.html</a></p>
+</div>
+<div class="section" id="id4">
+<h2>项目历史<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>The project was started in 2007 by David Cournapeau as a Google Summer
+of Code project, and since then many volunteers have contributed. See
+the <a class="reference external" href="http://scikit-learn.org/dev/about.html#authors">About us</a> page
+for a list of core contributors.</p>
+<p>The project is currently maintained by a team of volunteers.</p>
+<p><strong>Note</strong>: <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> was previously referred to as
+<code class="docutils literal notranslate"><span class="pre">scikits.learn</span></code>.</p>
+</div>
+<div class="section" id="id5">
+<h2>帮助和支持<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>文档</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">HTML</span> <span class="n">documentation</span> <span class="p">(</span><span class="n">stable</span> <span class="n">release</span><span class="p">):</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">scikit</span><span class="o">-</span><span class="n">learn</span><span class="o">.</span><span class="n">org</span>
+<span class="o">-</span> <span class="n">HTML</span> <span class="n">documentation</span> <span class="p">(</span><span class="n">development</span> <span class="n">version</span><span class="p">):</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">scikit</span><span class="o">-</span><span class="n">learn</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span>
+<span class="o">-</span> <span class="n">FAQ</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">scikit</span><span class="o">-</span><span class="n">learn</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">stable</span><span class="o">/</span><span class="n">faq</span><span class="o">.</span><span class="n">html</span>
+
+<span class="n">通讯</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Mailing list: <a class="reference external" href="https://mail.python.org/mailman/listinfo/scikit-learn">https://mail.python.org/mailman/listinfo/scikit-learn</a></p></li>
+<li><p>IRC channel: <code class="docutils literal notranslate"><span class="pre">#scikit-learn</span></code> at <code class="docutils literal notranslate"><span class="pre">webchat.freenode.net</span></code></p></li>
+<li><p>Stack Overflow:
+<a class="reference external" href="https://stackoverflow.com/questions/tagged/scikit-learn">https://stackoverflow.com/questions/tagged/scikit-learn</a></p></li>
+<li><p>Website: <a class="reference external" href="http://scikit-learn.org">http://scikit-learn.org</a></p></li>
+</ul>
+<p>引文</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">If</span> <span class="n">you</span> <span class="n">use</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">scientific</span> <span class="n">publication</span><span class="p">,</span> <span class="n">we</span> <span class="n">would</span> <span class="n">appreciate</span> <span class="n">citations</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">scikit</span><span class="o">-</span><span class="n">learn</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">stable</span><span class="o">/</span><span class="n">about</span><span class="o">.</span><span class="n">html</span><span class="c1">#citing-scikit-learn</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>敏感词 &#8212; nlp-docs v2019.03.19 文档</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>敏感词<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="textfilter">
+<h2>textfilter<a class="headerlink" href="#textfilter" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/observerss/textfilter">textfilter</a></p>
+<p>很短但是觉得挺有用的东东 所以单独立了个项目备份一下</p>
+<p>USAGE:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">DFAFilter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;sexy&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;hello sexy baby&quot;</span><span class="p">)</span>
+<span class="go">hello **** baby</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sensitive">
+<h2>sensitive<a class="headerlink" href="#sensitive" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/importcjj/sensitive">sensitive</a></p>
+<p>敏感词查找,验证,过滤和替换 🤓 FindAll, Validate, Filter and Replace
+words.</p>
+</div>
+<div class="section" id="sensitive-word-filter">
+<h2>sensitive-word-filter<a class="headerlink" href="#sensitive-word-filter" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/gaohuifeng/sensitive-word-filter">sensitive-word-filter</a></p>
+<p>天朝敏感词过滤 🤓 支持替换敏感词，已收录 1w+可自行添加</p>
+</div>
+<div class="section" id="fastscan">
+<h2>fastscan<a class="headerlink" href="#fastscan" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/pyloque/fastscan">fastscan</a></p>
+<p>苦于没有找到一个比较合适的敏感词过滤库，所以我自己花了点时间撸了一个。
+它基于广为人知的 ahocorasick 字符串匹配算法，使用原生的 js
+实现，浏览器和服务端都可以使用。</p>
+</div>
+<div class="section" id="ouch-words-cn">
+<h2>ouch-words-cn<a class="headerlink" href="#ouch-words-cn" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/bobauto/ouch-words-cn">ouch-words-cn</a></p>
+<p>中文敏感词库</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">nlp-docs</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Nosy.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.0+/2f5204b</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/sensitive-word/index.md.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

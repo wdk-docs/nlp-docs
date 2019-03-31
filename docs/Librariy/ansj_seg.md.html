@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ansj 中文分词 &#8212; nlp-docs v2019.03.19 文档</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="ansj">
+<h1>Ansj 中文分词<a class="headerlink" href="#ansj" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="https://github.com/NLPchina/ansj_seg">Ansj</a></p>
+<p><a class="reference external" href="https://travis-ci.org/NLPchina/ansj_seg"><img alt="1.X Build Status" src="https://travis-ci.org/NLPchina/ansj_seg.svg?branch=master" /></a> <a class="reference external" href="https://gitter.im/NLPchina/ansj_seg?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img alt="Gitter" src="https://badges.gitter.im/NLPchina/ansj_seg.svg" /></a></p>
+<p>#####使用帮助 : <a class="reference external" href="http://nlpchina.github.io/ansj_seg/">3.x 版本及之前</a>
+, <a class="reference external" href="https://github.com/NLPchina/ansj_seg/wiki">5.x 版本及之后</a>
+在线测试地址 : <a class="reference external" href="http://demo.nlpcn.org">http://demo.nlpcn.org</a></p>
+<div class="section" id="id1">
+<h2>摘要<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><p>这是一个基于 n-Gram+CRF+HMM 的中文分词的 java 实现.</p>
+</div></blockquote>
+<blockquote>
+<div><p>分词速度达到每秒钟大约 200 万字左右（mac air 下测试），准确率能达到
+96%以上</p>
+<p>目前实现了.中文分词. 中文姓名识别 .
+用户自定义词典,关键字提取，自动摘要，关键字标记等功能</p>
+</div></blockquote>
+<blockquote>
+<div><p>可以应用到自然语言处理等方面,适用于对分词效果要求高的各种项目.</p>
+</div></blockquote>
+</div>
+<div class="section" id="jar">
+<h2>下载 jar<a class="headerlink" href="#jar" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>访问
+<a class="reference external" href="https://oss.sonatype.org/content/repositories/releases/org/ansj/ansj_seg/">http://maven.nlpcn.org/org/ansj/</a>
+最好下载最新版 ansj_seg/</p>
+<ul>
+<li><p>同时下载<a class="reference external" href="https://oss.sonatype.org/content/repositories/releases/org/nlpcn/nlp-lang/">nlp-lang.jar</a>
+需要和 ansj_seg 配套..配套关系可以看 jar 包中的 maven
+依赖,一般最新的 ansj 配最新的 nlp-lang 不会有错。</p></li>
+</ul>
+</li>
+<li><p>导入到 eclipse ，开始你的程序吧</p></li>
+</ul>
+</div>
+<div class="section" id="maven">
+<h2>maven<a class="headerlink" href="#maven" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="n">ansj</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">ansj_seg</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">5.1</span><span class="o">.</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="demo">
+<h2>调用 demo<a class="headerlink" href="#demo" title="永久链接至标题">¶</a></h2>
+<p>如果你第一次下载只想测试测试效果可以调用这个简易接口</p>
+<pre><code>
+ String str = "欢迎使用ansj_seg,(ansj中文分词)在这里如果你遇到什么问题都可以联系我.我一定尽我所能.帮助大家.ansj_seg更快,更准,更自由!" ;
+ System.out.println(ToAnalysis.parse(str));
+
+ ﻿欢迎/v,使用/v,ansj/en,_,seg/en,,,(,ansj/en,中文/nz,分词/n,),在/p,这里/r,如果/c,你/r,遇到/v,什么/r,问题/n,都/d,可以/v,联系/v,我/r,./m,我/r,一定/d,尽我所能/l,./m,帮助/v,大家/r,./m,ansj/en,_,seg/en,更快/d,,,更/d,准/a,,,更/d,自由/a,!
+</code></pre></div>
+<div class="section" id="join-us">
+<h2>Join Us<a class="headerlink" href="#join-us" title="永久链接至标题">¶</a></h2>
+<p>心思了很久，不管有没有人帮忙把。我写上来，如果你有兴趣，有热情可以联系我。</p>
+<ul class="simple">
+<li><p>补充文档,增加调用实例和说明</p></li>
+<li><p>增加一些规则性
+Recognition，举例<a class="reference external" href="https://github.com/NLPchina/ansj_seg/blob/master/src/main/java/org/ansj/recognition/impl/IDCardRecognition.java">身份证号码识别</a>，目前未完成的有
+<code class="docutils literal notranslate"><span class="pre">时间识别</span></code>，<code class="docutils literal notranslate"><span class="pre">IP地址识别</span></code>，<code class="docutils literal notranslate"><span class="pre">邮箱识别</span></code>,<code class="docutils literal notranslate"><span class="pre">网址识别</span></code>，<code class="docutils literal notranslate"><span class="pre">词性识别</span></code>等…</p></li>
+<li><p>提供更加优化的 CRF 模型。替换 ansj 的默认模型。</p></li>
+<li><p>补充测试用例，n 多地方测试不完全。如果你有兴趣可以帮忙啦！</p></li>
+<li><p>重构人名识别模型。增加机构名识别等模型。</p></li>
+<li><p>增加句法文法分析</p></li>
+<li><p>实现 lstm 的分词方式</p></li>
+<li><p>拾遗补漏…</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">nlp-docs</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Nosy.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.0+/2f5204b</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/Librariy/ansj_seg.md.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

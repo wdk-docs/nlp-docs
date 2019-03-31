@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>常问问题 &#8212; nlp-docs v2019.03.19 文档</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>常问问题<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>??? faq “此代码是否与 Cloud TPU 兼容？ GPU 怎么样？”</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>是的，此存储库中的所有代码都与 CPU，GPU 和云 TPU 一起开箱即用。
+但是，GPU 培训仅适用于单 GPU。
+</pre></div>
+</div>
+<p>??? faq “我得到了内存错误，出了什么问题？”</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>有关更多信息，请参阅[内存不足问题](#内存不足问题)部分。
+</pre></div>
+</div>
+<p>??? faq “有 PyTorch 版本吗？”</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>没有正式的 PyTorch 实现。
+然而，HuggingFace 的 NLP 研究人员制作了[PyTorch 版本的 BERT](https://github.com/huggingface/pytorch-pretrained-BERT)，它与我们预先训练好的检查点兼容，并能够重现我们的结果。
+我们没有参与 PyTorch 实现的创建或维护，因此请向该存储库的作者提出任何问题。
+</pre></div>
+</div>
+<p>??? faq “有 Chainer 版本吗？”</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>没有正式的 Chainer 实施。
+然而，Sosuke Kobayashi制作了[Biner版本的BERT](https://github.com/soskek/bert-chainer) ，它与我们预先训练好的检查点兼容，并能够重现我们的结果。
+我们没有参与Chainer实施的创建或维护，因此请向该存储库的作者提出任何问题。
+</pre></div>
+</div>
+<p>??? faq “是否会发布其他语言的模型？”</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>是的，我们计划在不久的将来发布多语言 BERT 模型。
+我们无法确定将包含哪些语言，但它可能是一个单一的模型，其中包括具有大小维基百科的大多数语言。
+</pre></div>
+</div>
+<p>??? faq “是否会发布比“BERT-Large”更大的模型？”</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>到目前为止，我们还没有尝试过比“BERT-Large”更大的训练。
+如果我们能够获得重大改进，我们可能会发布更大的模型。
+</pre></div>
+</div>
+<p>??? faq “该库发布的许可证是什么？”</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>所有代码_和_模型都是在 `Apache 2.0` 许可下发布的。
+有关更多信息，请参阅`LICENSE`文件。
+</pre></div>
+</div>
+<p>??? faq “我怎么引用 BERT？”</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>现在，引用[Arxiv 论文](https://arxiv.org/abs/1810.04805):
+
+```
+@article{devlin2018bert,
+  title={BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding},
+  author={Devlin, Jacob and Chang, Ming-Wei and Lee, Kenton and Toutanova, Kristina},
+  journal={arXiv preprint arXiv:1810.04805},
+  year={2018}
+}
+```
+
+如果我们将论文提交给会议或期刊，我们将更新 BibTeX。
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">nlp-docs</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Nosy.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.0+/2f5204b</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/Corpus/BERT/FAQ.md.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

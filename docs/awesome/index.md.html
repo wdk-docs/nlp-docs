@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>awesome-nlp &#8212; nlp-docs v2019.03.19 文档</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="awesome-nlp">
+<h1>awesome-nlp<a class="headerlink" href="#awesome-nlp" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="https://github.com/sindresorhus/awesome"><img alt="Awesome" src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" /></a></p>
+<blockquote>
+<div><p>专门用于自然语言处理的精选资源列表</p>
+</div></blockquote>
+<p><a class="reference external" href="https://github.com/keon/awesome-nlp"><img alt="Awesome NLP Logo" src="../_images/logo.jpg" /></a></p>
+<p><strong>Maintainers</strong> - <a class="reference external" href="https://github.com/keon">Keon</a>,
+<a class="reference external" href="https://github.com/outpark">Martin</a>,
+<a class="reference external" href="https://github.com/NirantK">Nirant</a>,
+<a class="reference external" href="https://github.com/the-ethan-hunt">Dhruv</a></p>
+<div class="section" id="id1">
+<h2>内容<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p><a class="reference external" href="#research-summaries-and-trends">Research Summaries and Trends</a></p></li>
+<li><p><a class="reference external" href="#tutorials">Tutorials</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="p">[</span><span class="n">Reading</span> <span class="n">Content</span><span class="p">](</span><span class="c1">#reading-content)</span>
+<span class="o">-</span> <span class="p">[</span><span class="n">Videos</span> <span class="ow">and</span> <span class="n">Courses</span><span class="p">](</span><span class="c1">#videos-and-online-courses)</span>
+<span class="o">-</span> <span class="p">[</span><span class="n">Books</span><span class="p">](</span><span class="c1">#books)</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference external" href="#libraries">Libraries</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="p">[</span><span class="n">Node</span><span class="o">.</span><span class="n">js</span><span class="p">](</span><span class="c1">#user-content-node-js)</span>
+<span class="o">-</span> <span class="p">[</span><span class="n">Python</span><span class="p">](</span><span class="c1">#user-content-python)</span>
+<span class="o">-</span> <span class="p">[</span><span class="n">C</span><span class="o">++</span><span class="p">](</span><span class="c1">#user-content-c++)</span>
+<span class="o">-</span> <span class="p">[</span><span class="n">Java</span><span class="p">](</span><span class="c1">#user-content-java)</span>
+<span class="o">-</span> <span class="p">[</span><span class="n">Kotlin</span><span class="p">](</span><span class="c1">#user-content-kotlin)</span>
+<span class="o">-</span> <span class="p">[</span><span class="n">Scala</span><span class="p">](</span><span class="c1">#user-content-scala)</span>
+<span class="o">-</span> <span class="p">[</span><span class="n">R</span><span class="p">](</span><span class="c1">#user-content-R)</span>
+<span class="o">-</span> <span class="p">[</span><span class="n">Clojure</span><span class="p">](</span><span class="c1">#user-content-clojure)</span>
+<span class="o">-</span> <span class="p">[</span><span class="n">Ruby</span><span class="p">](</span><span class="c1">#user-content-ruby)</span>
+<span class="o">-</span> <span class="p">[</span><span class="n">Rust</span><span class="p">](</span><span class="c1">#user-content-rust)</span>
+<span class="o">-</span> <span class="p">[</span><span class="n">Services</span><span class="p">](</span><span class="c1">#services)</span>
+<span class="o">-</span> <span class="p">[</span><span class="n">Annotation</span> <span class="n">Tools</span><span class="p">](</span><span class="c1">#annotation-tools)</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference external" href="#datasets">Datasets</a></p></li>
+<li><p><a class="reference external" href="#nlp-in-korean">NLP in Korean</a></p></li>
+<li><p><a class="reference external" href="#nlp-in-arabic">NLP in Arabic</a></p></li>
+<li><p><a class="reference external" href="#nlp-in-chinese">NLP in Chinese</a></p></li>
+<li><p><a class="reference external" href="#nlp-in-german">NLP in German</a></p></li>
+<li><p><a class="reference external" href="#nlp-in-spanish">NLP in Spanish</a></p></li>
+<li><p><a class="reference external" href="#nlp-in-indic-languages">NLP in Indic Languages</a></p></li>
+<li><p><a class="reference external" href="#nlp-in-thai">NLP in Thai</a></p></li>
+<li><p><a class="reference external" href="#nlp-in-vietnamese">NLP in Vietnamese</a></p></li>
+<li><p><a class="reference external" href="#nlp-in-danish">NLP in Danish</a></p></li>
+<li><p><a class="reference external" href="#nlp-in-indonesian">NLP in Indonesian</a></p></li>
+<li><p><a class="reference external" href="#other-languages">Other Languages</a></p></li>
+<li><p><a class="reference external" href="#credits">Credits</a></p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>研究摘要和趋势<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://nlpoverview.com/">NLP-概观</a> 是应用于 NLP
+的深度学习技术的最新概述，包括理论，实现，应用和最先进的结果。
+对于研究人员来说，这是一个伟大的 Deep NLP 简介。</p></li>
+<li><p><a class="reference external" href="https://nlpprogress.com/">NLP-进展</a> 跟踪自然语言处理的进展,
+包括数据集和最常见的 NLP 任务的当前最新技术</p></li>
+<li><p><a class="reference external" href="https://thegradient.pub/nlp-imagenet/">NLP 的 ImageNet
+时刻已经到来</a></p></li>
+<li><p><a class="reference external" href="http://ruder.io/acl-2018-highlights/">ACL 2018 亮点:
+在更具挑战性的设置中理解表示和评估</a></p></li>
+<li><p><a class="reference external" href="https://www.abigailsee.com/2017/08/30/four-deep-learning-trends-from-acl-2017-part-1.html">ACL 2017 的四个深度学习趋势。第一部分:
+语言结构和词嵌入</a></p></li>
+<li><p><a class="reference external" href="https://www.abigailsee.com/2017/08/30/four-deep-learning-trends-from-acl-2017-part-2.html">ACL 2017 的四个深度学习趋势。第二部分:
+可解释性和注意力</a></p></li>
+<li><p><a class="reference external" href="http://blog.aylien.com/highlights-emnlp-2017-exciting-datasets-return-clusters/">EMNLP 2017 的亮点:
+令人兴奋的数据集，群集的返回等等！</a></p></li>
+<li><p><a class="reference external" href="https://tryolabs.com/blog/2017/12/12/deep-learning-for-nlp-advancements-and-trends-in-2017/?utm_campaign=Revue%20newsletter&amp;utm_medium=Newsletter&amp;utm_source=The%20Wild%20Week%20in%20AI">自然语言处理的深度学习 (NLP):
+进步与趋势</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/1703.09902">自然语言生成的现状调查</a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">nlp-docs</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Nosy.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.0+/2f5204b</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/awesome/index.md.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

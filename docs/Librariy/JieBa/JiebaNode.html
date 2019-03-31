@@ -1,0 +1,371 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>NodeJieba &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Author/index.html">自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/index.html">算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../awesome/index.html">awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/index.html">论文 || 文章</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+      <li>NodeJieba</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Librariy/JieBa/JiebaNode.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nodejieba">
+<h1>NodeJieba<a class="headerlink" href="#nodejieba" title="永久链接至标题">¶</a></h1>
+<p>“结巴”分词的 Node.js 版本</p>
+<div class="section" id="id1">
+<h2>介绍<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">NodeJieba</span></code>是“结巴”中文分词的 Node.js
+版本实现，由<a class="reference external" href="https://github.com/yanyiwu/cppjieba.git">CppJieba</a>提供底层分词算法实现，
+是兼具高性能和易用性两者的 Node.js 中文分词组件。</p>
+</div>
+<div class="section" id="id2">
+<h2>特点<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>词典载入方式灵活，无需配置词典路径也可使用，需要定制自己的词典路径时也可灵活定制。</p></li>
+<li><p>底层算法实现是 C++，性能高效。</p></li>
+<li><p>支持多种分词算法，各种分词算法见<a class="reference external" href="https://github.com/yanyiwu/cppjieba.git">CppJieba</a>的
+README.md 介绍。</p></li>
+<li><p>支持动态补充词库。</p></li>
+</ul>
+<p>对实现细节感兴趣的请看如下博文：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://yanyiwu.com/work/2014/02/22/nodejs-cpp-addon-nodejieba.html">node.js 的 C++扩展初体验之
+nodejieba</a></p></li>
+<li><p><a class="reference external" href="http://yanyiwu.com/work/2015/03/21/nodejs-asynchronous-insight.html">由 nodejieba 谈谈 node.js
+异步实现</a></p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>下载<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install nodejieba
+</pre></div>
+</div>
+<p>因为<code class="docutils literal notranslate"><span class="pre">npm</span></code>速度很慢而且经常因为墙的原因出现莫名其妙的问题，可以试试使用<a class="reference external" href="http://cnpmjs.org">cnpm</a>，命令如下：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm --registry<span class="o">=</span>http://r.cnpmjs.org install nodejieba
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>用法<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">nodejieba</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;nodejieba&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">nodejieba</span><span class="p">.</span><span class="nx">cut</span><span class="p">(</span><span class="s2">&quot;南京市长江大桥&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+<span class="c1">//[&quot;南京市&quot;,&quot;长江大桥&quot;]</span>
+</pre></div>
+</div>
+<p>更详细的其他用法请看 &lt;test/demo.js&gt;</p>
+<div class="section" id="id5">
+<h3>词典载入<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>如果没有主动调用词典函数时，则会在第一次调用 cut
+等功能函数时，自动载入默认词典。</p>
+<p>如果要主动触发词典载入，则使用以下函数主动触发。</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">nodejieba</span><span class="p">.</span><span class="nx">load</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>以上用法会自动载入所有默认词典，如果需要载入自己的词典，而不是默认词典。
+比如想要载入自己的用户词典，则使用以下函数：</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">nodejieba</span><span class="p">.</span><span class="nx">load</span><span class="p">({</span>
+  <span class="nx">userDict</span><span class="o">:</span> <span class="s2">&quot;./test/testdata/userdict.utf8&quot;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>字典载入函数 load
+的参数项都是可选的，如果没有对应的项则自动填充默认参数。
+所以上面这段代码和下面这代代码是等价的。</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">nodejieba</span><span class="p">.</span><span class="nx">load</span><span class="p">({</span>
+  <span class="nx">dict</span><span class="o">:</span> <span class="nx">nodejieba</span><span class="p">.</span><span class="nx">DEFAULT_DICT</span><span class="p">,</span>
+  <span class="nx">hmmDict</span><span class="o">:</span> <span class="nx">nodejieba</span><span class="p">.</span><span class="nx">DEFAULT_HMM_DICT</span><span class="p">,</span>
+  <span class="nx">userDict</span><span class="o">:</span> <span class="s2">&quot;./test/testdata/userdict.utf8&quot;</span><span class="p">,</span>
+  <span class="nx">idfDict</span><span class="o">:</span> <span class="nx">nodejieba</span><span class="p">.</span><span class="nx">DEFAULT_IDF_DICT</span><span class="p">,</span>
+  <span class="nx">stopWordDict</span><span class="o">:</span> <span class="nx">nodejieba</span><span class="p">.</span><span class="nx">DEFAULT_STOP_WORD_DICT</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>【词典说明】</p>
+<ul class="simple">
+<li><p>dict: 主词典，带权重和词性标签，建议使用默认词典。</p></li>
+<li><p>hmmDict: 隐式马尔科夫模型，建议使用默认词典。</p></li>
+<li><p>userDict: 用户词典，建议自己根据需要定制。</p></li>
+<li><p>idfDict: 关键词抽取所需的 idf 信息。</p></li>
+<li><p>stopWordDict: 关键词抽取所需的停用词列表。</p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>词性标注<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">nodejieba</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;nodejieba&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">nodejieba</span><span class="p">.</span><span class="nx">tag</span><span class="p">(</span><span class="s2">&quot;红掌拨清波&quot;</span><span class="p">));</span>
+<span class="c1">//[ { word: &#39;红掌&#39;, tag: &#39;n&#39; },</span>
+<span class="c1">//  { word: &#39;拨&#39;, tag: &#39;v&#39; },</span>
+<span class="c1">//  { word: &#39;清波&#39;, tag: &#39;n&#39; } ]</span>
+</pre></div>
+</div>
+<p>更详细的其他用法请看 &lt;test/demo.js&gt;</p>
+</div>
+<div class="section" id="id7">
+<h3>关键词抽取<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">nodejieba</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;nodejieba&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">topN</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">nodejieba</span><span class="p">.</span><span class="nx">extract</span><span class="p">(</span><span class="s2">&quot;升职加薪，当上CEO，走上人生巅峰。&quot;</span><span class="p">,</span> <span class="nx">topN</span><span class="p">));</span>
+<span class="c1">//[ { word: &#39;CEO&#39;, weight: 11.739204307083542 },</span>
+<span class="c1">//  { word: &#39;升职&#39;, weight: 10.8561552143 },</span>
+<span class="c1">//  { word: &#39;加薪&#39;, weight: 10.642581114 },</span>
+<span class="c1">//  { word: &#39;巅峰&#39;, weight: 9.49395840471 } ]</span>
+</pre></div>
+</div>
+<p>更详细的其他用法请看 &lt;test/demo.js&gt;</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>测试<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>以下版本中测试通过:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">node</span> <span class="pre">v0.10.2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">node</span> <span class="pre">v0.12.1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iojs</span> <span class="pre">v1.3.0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iojs</span> <span class="pre">v2.2.1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">node</span> <span class="pre">v4.0.0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">node</span> <span class="pre">v5.7.0</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h2>应用<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>支持中文搜索的 gitbook 插件:
+<a class="reference external" href="https://plugins.gitbook.com/plugin/search-pro">gitbook-plugin-search-pro</a></p></li>
+<li><p>汉字拼音转换工具: <a class="reference external" href="https://github.com/hotoo/pinyin">pinyin</a></p></li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h2>性能评测<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<p>性能杠杠的，应该是目前性能最好的 Node.js 中文分词库，没有之一。详见:
+<a class="reference external" href="http://yanyiwu.com/work/2015/06/14/jieba-series-performance-test.html">jieba
+中文分词系列性能评测</a></p>
+</div>
+<div class="section" id="id11">
+<h2>在线演示<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://cppjieba-webdemo.herokuapp.com/">http://cppjieba-webdemo.herokuapp.com/</a>(chrome is suggested)</p>
+</div>
+<div class="section" id="windows">
+<h2>Windows 安转<a class="headerlink" href="#windows" title="永久链接至标题">¶</a></h2>
+<p>NodeJieba 在 Windows 上面的一系列安装问题和斗争成功过程参考</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/yanyiwu/nodejieba/issues/65">win10 X64, VS2013, nodejieba&#64;2.2.2
+编译不成功</a></p></li>
+<li><p><a class="reference external" href="https://github.com/yanyiwu/nodejieba/issues/64">version 2.2.2 Can’t build on Win 10
+x64</a></p></li>
+<li><p><a class="reference external" href="http://www.jianshu.com/p/d541c8585479">nodejieba 在 win7
+下的安装问题，有进展了</a></p></li>
+<li><p><a class="reference external" href="https://github.com/yanyiwu/nodejieba/issues/70">win10 npm
+安装报错</a></p></li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h2>客服<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<p>Email: <code class="docutils literal notranslate"><span class="pre">i&#64;yanyiwu.com</span></code></p>
+<p>QQ: 64162451</p>
+<div class="figure align-center" id="id16">
+<img alt="image" src="http://7viirv.com1.z0.glb.clouddn.com/5a7d1b5c0d_yanyiwu_personal_qrcodes.jpg" />
+<p class="caption"><span class="caption-text">image</span><a class="headerlink" href="#id16" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id13">
+<h2>许可证<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<p>MIT <a class="reference external" href="http://yanyiwu.mit-license.org">http://yanyiwu.mit-license.org</a></p>
+</div>
+<div class="section" id="id14">
+<h2>鸣谢<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/fxsjy/jieba">jieba 中文分词</a></p>
+</div>
+<div class="section" id="id15">
+<h2>作者<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://yanyiwu.com">YanyiWu</a></p></li>
+<li><p><a class="reference external" href="https://github.com/yanyiwu/nodejieba/graphs/contributors">contributors</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

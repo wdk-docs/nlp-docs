@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>使用 BERT 进行预训练 &#8212; nlp-docs v2019.03.19 文档</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="bert">
+<h1>使用 BERT 进行预训练<a class="headerlink" href="#bert" title="永久链接至标题">¶</a></h1>
+<p>我们正在发布代码，在任意文本语料库上做“蒙面 LM”和“下一句话预测”。
+请注意，这不是用于论文的确切代码（原始代码是用 C
+++编写的，并且有一些额外的复杂性），但是此代码确实生成了本文所述的预训练数据。</p>
+<p>Here’s how to run the data generation. The input is a plain text file,
+with one sentence per line. (It is important that these be actual
+sentences for the “next sentence prediction” task). Documents are
+delimited by empty lines. The output is a set of <code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code>s
+serialized into <code class="docutils literal notranslate"><span class="pre">TFRecord</span></code> file format.</p>
+<p>You can perform sentence segmentation with an off-the-shelf NLP toolkit
+such as <a class="reference external" href="https://spacy.io/">spaCy</a>. The
+<code class="docutils literal notranslate"><span class="pre">create_pretraining_data.py</span></code> script will concatenate segments until
+they reach the maximum sequence length to minimize computational waste
+from padding (see the script for more details). However, you may want to
+intentionally add a slight amount of noise to your input data (e.g.,
+randomly truncate 2% of input segments) to make it more robust to
+non-sentential input during fine-tuning.</p>
+<p>This script stores all of the examples for the entire input file in
+memory, so for large data files you should shard the input file and call
+the script multiple times. (You can pass in a file glob to
+<code class="docutils literal notranslate"><span class="pre">run_pretraining.py</span></code>, e.g., <code class="docutils literal notranslate"><span class="pre">tf_examples.tf_record*</span></code>.)</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">max_predictions_per_seq</span></code> is the maximum number of masked LM
+predictions per sequence. You should set this to around
+<code class="docutils literal notranslate"><span class="pre">max_seq_length</span></code> * <code class="docutils literal notranslate"><span class="pre">masked_lm_prob</span></code> (the script doesn’t do that
+automatically because the exact value needs to be passed to both
+scripts).</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python create_pretraining_data.py <span class="se">\</span>
+  --input_file<span class="o">=</span>./sample_text.txt <span class="se">\</span>
+  --output_file<span class="o">=</span>/tmp/tf_examples.tfrecord <span class="se">\</span>
+  --vocab_file<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/vocab.txt <span class="se">\</span>
+  --do_lower_case<span class="o">=</span>True <span class="se">\</span>
+  --max_seq_length<span class="o">=</span><span class="m">128</span> <span class="se">\</span>
+  --max_predictions_per_seq<span class="o">=</span><span class="m">20</span> <span class="se">\</span>
+  --masked_lm_prob<span class="o">=</span><span class="m">0</span>.15 <span class="se">\</span>
+  --random_seed<span class="o">=</span><span class="m">12345</span> <span class="se">\</span>
+  --dupe_factor<span class="o">=</span><span class="m">5</span>
+</pre></div>
+</div>
+<p>Here’s how to run the pre-training. Do not include <code class="docutils literal notranslate"><span class="pre">init_checkpoint</span></code>
+if you are pre-training from scratch. The model configuration (including
+vocab size) is specified in <code class="docutils literal notranslate"><span class="pre">bert_config_file</span></code>. This demo code only
+pre-trains for a small number of steps (20), but in practice you will
+probably want to set <code class="docutils literal notranslate"><span class="pre">num_train_steps</span></code> to 10000 steps or more. The
+<code class="docutils literal notranslate"><span class="pre">max_seq_length</span></code> and <code class="docutils literal notranslate"><span class="pre">max_predictions_per_seq</span></code> parameters passed to
+<code class="docutils literal notranslate"><span class="pre">run_pretraining.py</span></code> must be the same as
+<code class="docutils literal notranslate"><span class="pre">create_pretraining_data.py</span></code>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python run_pretraining.py <span class="se">\</span>
+  --input_file<span class="o">=</span>/tmp/tf_examples.tfrecord <span class="se">\</span>
+  --output_dir<span class="o">=</span>/tmp/pretraining_output <span class="se">\</span>
+  --do_train<span class="o">=</span>True <span class="se">\</span>
+  --do_eval<span class="o">=</span>True <span class="se">\</span>
+  --bert_config_file<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/bert_config.json <span class="se">\</span>
+  --init_checkpoint<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/bert_model.ckpt <span class="se">\</span>
+  --train_batch_size<span class="o">=</span><span class="m">32</span> <span class="se">\</span>
+  --max_seq_length<span class="o">=</span><span class="m">128</span> <span class="se">\</span>
+  --max_predictions_per_seq<span class="o">=</span><span class="m">20</span> <span class="se">\</span>
+  --num_train_steps<span class="o">=</span><span class="m">20</span> <span class="se">\</span>
+  --num_warmup_steps<span class="o">=</span><span class="m">10</span> <span class="se">\</span>
+  --learning_rate<span class="o">=</span>2e-5
+</pre></div>
+</div>
+<p>This will produce an output like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*****</span> <span class="n">Eval</span> <span class="n">results</span> <span class="o">*****</span>
+  <span class="n">global_step</span> <span class="o">=</span> <span class="mi">20</span>
+  <span class="n">loss</span> <span class="o">=</span> <span class="mf">0.0979674</span>
+  <span class="n">masked_lm_accuracy</span> <span class="o">=</span> <span class="mf">0.985479</span>
+  <span class="n">masked_lm_loss</span> <span class="o">=</span> <span class="mf">0.0979328</span>
+  <span class="n">next_sentence_accuracy</span> <span class="o">=</span> <span class="mf">1.0</span>
+  <span class="n">next_sentence_loss</span> <span class="o">=</span> <span class="mf">3.45724e-05</span>
+</pre></div>
+</div>
+<p>Note that since our <code class="docutils literal notranslate"><span class="pre">sample_text.txt</span></code> file is very small, this example
+training will overfit that data in only a few steps and produce
+unrealistically high accuracy numbers.</p>
+<div class="section" id="id1">
+<h2>预训练提示和警告<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><strong>If using your own vocabulary, make sure to change ``vocab_size`` in
+``bert_config.json``. If you use a larger vocabulary without changing
+this, you will likely get NaNs when training on GPU or TPU due to
+unchecked out-of-bounds access.</strong></p></li>
+<li><p>If your task has a large domain-specific corpus available (e.g.,
+“movie reviews” or “scientific papers”), it will likely be beneficial
+to run additional steps of pre-training on your corpus, starting from
+the BERT checkpoint.</p></li>
+<li><p>The learning rate we used in the paper was 1e-4. However, if you are
+doing additional steps of pre-training starting from an existing BERT
+checkpoint, you should use a smaller learning rate (e.g., 2e-5).</p></li>
+<li><p>Current BERT models are English-only, but we do plan to release a
+multilingual model which has been pre-trained on a lot of languages
+in the near future (hopefully by the end of November 2018).</p></li>
+<li><p>Longer sequences are disproportionately expensive because attention
+is quadratic to the sequence length. In other words, a batch of 64
+sequences of length 512 is much more expensive than a batch of 256
+sequences of length 128. The fully-connected/convolutional cost is
+the same, but the attention cost is far greater for the 512-length
+sequences. Therefore, one good recipe is to pre-train for, say,
+90,000 steps with a sequence length of 128 and then for 10,000
+additional steps with a sequence length of 512. The very long
+sequences are mostly needed to learn positional embeddings, which can
+be learned fairly quickly. Note that this does require generating the
+data twice with different values of <code class="docutils literal notranslate"><span class="pre">max_seq_length</span></code>.</p></li>
+<li><p>If you are pre-training from scratch, be prepared that pre-training
+is computationally expensive, especially on GPUs. If you are
+pre-training from scratch, our recommended recipe is to pre-train a
+<code class="docutils literal notranslate"><span class="pre">BERT-Base</span></code> on a single <a class="reference external" href="https://cloud.google.com/tpu/docs/pricing">preemptible Cloud TPU
+v2</a>, which takes about
+2 weeks at a cost of about $500 USD (based on the pricing in October
+2018). You will have to scale down the batch size when only training
+on a single Cloud TPU, compared to what was used in the paper. It is
+recommended to use the largest batch size that fits into TPU memory.</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>预训练数据<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>We will <strong>not</strong> be able to release the pre-processed datasets used in
+the paper. For Wikipedia, the recommended pre-processing is to download
+<a class="reference external" href="https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2">the latest
+dump</a>,
+extract the text with
+<code class="docutils literal notranslate"><span class="pre">`WikiExtractor.py</span></code> &lt;<a class="reference external" href="https://github.com/attardi/wikiextractor">https://github.com/attardi/wikiextractor</a>&gt;`__, and
+then apply any necessary cleanup to convert it into plain text.</p>
+<p>Unfortunately the researchers who collected the
+<a class="reference external" href="http://yknzhu.wixsite.com/mbweb">BookCorpus</a> no longer have it
+available for public download. The <a class="reference external" href="https://web.eecs.umich.edu/~lahiri/gutenberg_dataset.html">Project Guttenberg
+Dataset</a>
+is a somewhat smaller (200M word) collection of older books that are
+public domain.</p>
+<p><a class="reference external" href="http://commoncrawl.org/">Common Crawl</a> is another very large
+collection of text, but you will likely have to do substantial
+pre-processing and cleanup to extract a usable corpus for pre-training
+BERT.</p>
+</div>
+<div class="section" id="wordpiece">
+<h2>学习一个新的 WordPiece 词汇表<a class="headerlink" href="#wordpiece" title="永久链接至标题">¶</a></h2>
+<p>This repository does not include code for <em>learning</em> a new WordPiece
+vocabulary. The reason is that the code used in the paper was
+implemented in C++ with dependencies on Google’s internal libraries. For
+English, it is almost always better to just start with our vocabulary
+and pre-trained models. For learning vocabularies of other languages,
+there are a number of open source options available. However, keep in
+mind that these are not compatible with our <code class="docutils literal notranslate"><span class="pre">tokenization.py</span></code> library:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/google/sentencepiece">Google’s SentencePiece
+library</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tensorflow/tensor2tensor/blob/master/tensor2tensor/data_generators/text_encoder_build_subword.py">tensor2tensor’s WordPiece generation
+script</a></p></li>
+<li><p><a class="reference external" href="https://github.com/rsennrich/subword-nmt">Rico Sennrich’s Byte Pair Encoding
+library</a></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">nlp-docs</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Nosy.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.0+/2f5204b</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/Corpus/BERT/Pre-training_with_BERT.md.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

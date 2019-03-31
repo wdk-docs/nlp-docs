@@ -1,0 +1,667 @@
+王珊
+====
+
+   `王珊 <>`__\ 作者
+
+访问专业人士
+------------
+
+美国布兰迪斯大学访问科学家
+
+美国科罗拉多大学博尔德分校短期学者
+
+工作经验
+--------
+
+新加坡南洋理工大学研究员
+
+– QS 世界大学排名 2018 - 11 世界排名
+
+研究兴趣
+--------
+
+-  应用语言学
+-  语料库语言学
+-  语义
+-  句法
+-  词汇学和词典学
+-  计算语言学
+-  翻译
+
+研究项目
+--------
+
+1.  中国二语学习者的高频汉语成语
+2.  汉语作为国际语言教学中的中级双音词多义词
+3.  多词表达及其在汉语作为第二语言学习中的应用
+4.  口语研究：谈话节目案例研究
+5.  汉语多义词的句法 - 语义界面
+6.  在汉语教师培训中开发和实施教学游戏
+7.  根据流行的脱口秀节目开发视听教科书
+8.  海峡两岸学术汉语对比研究
+9.  用于调查论证的跨语言方面的注释双语语料广告和宣传材料
+10. 课程设计与香港中学古典文字教学
+
+资源
+----
+
+首席开发人员，中文开放 Wordnet（COW）
+
+主编，脱口秀中文：中级和高级视听 - 口语教材
+(脫口秀漢語：中高級漢語視聽說課本)
+
+出版物
+------
+
+期刊论文和书籍章节:
+~~~~~~~~~~~~~~~~~~~
+
+(1)  Wang, S. (2007). Explorations of Dictionary Users Guides
+     (凡例顯示辭書的性質、內容與特色). Lexicographical Studies
+     (辭書研究)(5), 78-80. `ISSN: 1000-6125; CN: 31-1997/G2 <B-level>`__
+
+(2)  Educational and Teaching Materials Research Center (Bian, C., Du,
+     J., Guan, J., Hong, G., Jiang, Y., Jiang, Y., Li, A., Li, S., Li,
+     Y., Liu, Y., Su, X., Tian, L., Wang, S., Wang, Y., Wu, C., Yuan,
+     R., Zhang, Y., Zheng, Z., & Zhou, M.) (2008). 3000 Basic Words of
+     the New Curriculum-based Chinese Textbooks (語文新課標教材 3000
+     基本詞語表). In N. L. M. a. R. Center (Ed.), Language Situation in
+     China: 2007 (II) (中國語言生活狀况報告：2007) (Vol. 2,
+     pp. 475-515). Beijing: The Commercial Press (商務印書館). (Note:
+     the author order is according to pinyin) [ISBN: 9787100059053]
+     (B-level publisher)
+
+(3)  Educational and Teaching Materials Research Center (Bian, C., Du,
+     J., Guan, J., Hong, G., Jiang, Y., Jiang, Y., Li, A., Li, S., Li,
+     Y., Liu, Y., Su, X., Tian, L., Wang, S., Wang, Y., Wu, C., Yuan,
+     R., Zhang, Y., Zheng, Z., & Zhou, M.) (2008). An Investigation of
+     the Usage of Characters and Words in the New Curriculum-based
+     Chinese Textbooks (基礎教育語文新課標教材用字用語調查). In N. L. M.
+     a. R. Center (Ed.), Language Situation in China: 2007 (II)
+     (中國語言生活狀况報告：2007) (Vol. 2, pp. 437-474). Beijing: The
+     Commercial Press (商務印書館). (Note: the author order is according
+     to pinyin) [ISBN: 9787100059053] (B-level publisher)
+
+(4)  Wang, S. (2008). A Study on Vocabulary Interpretation of CFL
+     Comprehensive Textbooks–Taking Boya Chinese as an Example
+     (對外漢語綜合課教材生詞釋義研究——以《博雅漢語》爲例). In H. Wang,
+     M. Zhang, M. Dong & K. T. Lua (Eds.), Word Meaning and Computing
+     (pp. 449-464). National University of Singapore, Singapore: Chinese
+     and Oriental Languages Information Processing Society (COLIPS)
+     Publication. [ISBN: 978-981-08-0972-0]
+
+(5)  Wang, S. (2010). A Study on Annotation Languages of the Glossary in
+     Boya Chinese (《博雅漢語》的生詞表注釋語種研究). Journal of Jiangxi
+     Science & Technology Normal University (4), 41-46. [ISSN:
+     1007-3558; CN: 36-1325/Z]
+
+(6)  Wang, S. (2010). Ideas on Improving the Sense Definitions of
+     Chinese as a Foreign Language Dictionaries
+     (對外漢語學習詞典釋義改進的設想). In The Academic Committee of
+     Chinese Lexicography Society (Ed.), Selected papers of Chinese
+     lexicography (中國辭書論集) (Vol. 8, pp. 157-173). Wuhan: Chongwen
+     Publishing House, Hubei Changjiang Publishing Group. [ISBN:
+     978-7-5403-1801-7]
+
+(7)  Wang, S., & Huang, C.-R. (2010). Adjectival Modification to Nouns
+     in Mandarin Chinese: Case Studies on “cháng+noun” and
+     “adjective+túshūguǎn. In R. Otoguro, K. Ishikawa, H. Umemoto, K.
+     Yoshimoto & Y. Harada (Eds.), Proceedings of The 24th Pacific Asia
+     Conference on Language, Information and Computation (PACLIC-24)
+     (pp. 701-705). Tohoku University, Sendai, Japan. [ISBN:
+     978-4-905166-00-9] (EI index)
+
+(8)  Wang, S., & Huang, C.-R. (2010). Compositional Operations of
+     Mandarin Chinese Perception Verb “kàn”: A Generative Lexicon
+     Approach. In R. Otoguro, K. Ishikawa, H. Umemoto, K. Yoshimoto & Y.
+     Harada (Eds.), Proceedings of The 24th Pacific Asia Conference on
+     Language, Information and Computation (PACLIC-24) (pp. 707-714).
+     Tohoku University, Sendai, Japan. [ISBN: 978-4-905166-00-9] (EI
+     index)
+
+(9)  Wang, S., & Huang, C.-R. (2010). Sense Representation in MARVS–A
+     Case Study on the Polysemy of chī. In Q. Zhu, D. Ji & G. Zhou
+     (Eds.), Proceedings of The 11th Chinese Lexical Semantics Workshop
+     (pp. 22-29). Singapore: Chinese and Oriental Languages Information
+     Processing Society (COLIPS) Publications. [ISBN: 978-981-08-8260-0]
+     (Inspec index)
+
+(10) Wang, S., & Huang, C.-R. (2011). Sense Representation in MARVS: A
+     Case Study on the Polysemy of chī. International Journal of
+     Computer Processing Of Languages (IJCPOL), 23(3), 285-306. [Print
+     ISSN: 1793-8406; Online ISSN: 2010-0205][index: dblp computer
+     science bibliography; inspec; linguistics and language behavior
+     abstracts (csa)] (B-level at PolyU)
+
+(11) Wang, S. (2011). The Role of Corpora in Vocabulary Assessment of
+     Chinese as a Foreign Language Textbooks
+     (論語料庫在對外漢語教材生詞評估中的作用). In Z. Xia (Ed.),
+     Proceedings of Language Use of Educational and Teaching Materials
+     (教育教材語言論集) (pp. 103-113). Beijing: China Social Sciences
+     Press (中國社會科學出版社). [ISBN: 9787500494669]
+
+(12) Wang, S., & Huang, C.-R. (2011). Compound Event Nouns of the
+     ‘Modifier-head’ Type in Mandarin Chinese. In H. H. Gao & M. Dong
+     (Eds.), Proceedings of The 25th Pacific Asia Conference on
+     Language, Information and Computation (PACLIC-25) (pp. 511-518).
+     Nanyang Technological University, Singapore. [ISBN:
+     978-4-905166-02-3] (EI index)
+
+(13) Wang, S., & Huang, C.-R. (2012). Type Construction of Event Nouns
+     in Mandarin Chinese Proceedings of The First Workshop on Generative
+     Lexicon for Asian Languages (GLAL-1), Workshop of The 26th Pacific
+     Asia Conference on Language, Information and Computation
+     (PACLIC-26) (pp. 582-591). Bali: Faculty of Computer Science,
+     Universitas Indonesia. [ISBN: 978-979-1421-17-1] (EI index)
+
+(14) Wang, S., Huang, C.-R., & Xu, H. (2012). Compositionality of NN
+     Compounds: A Case Study on [N1+Artifactual-Type Event Nouns]
+     Proceedings of The 26th Pacific Asia Conference on Language,
+     Information and Computation (PACLIC-26) (pp. 70-79). Bali: Faculty
+     of Computer Science, Universitas Indonesia. [ISBN:
+     978-979-1421-17-1] (EI index)
+
+(15) Wang, S. (2013). Corpus-based Assessment of New Words in Textbooks
+     of Chinese as a Foreign Language
+     (基於語料庫的對外漢語教材生詞評估). Newsletter of Chinese Language
+     (中國語文通訊), 92(2), 91-102. `ISSN: 1726-9245 <B-level>`__
+
+(16) Bond, F., Wang, S., Gao, H., Mok, S., & Tan, Y. (2013). Developing
+     Parallel Sense-tagged Corpora with Wordnets Proceedings of the 7th
+     Linguistic Annotation Workshop & Interoperability with Discourse
+     (LAW-7), Workshop of The 51st Annual Meeting of the Association for
+     Computational Linguistics (ACL-51) (pp. 149-158). Sofia, Bulgaria.
+     [ISBN: 978-1-937284-58-9]
+
+(17) Wang, S., & Bond, F. (2013). Building the Chinese Open Wordnet
+     (COW): Starting from Core Synsets Proceedings of The 11th Workshop
+     on Asian Language Resources, Workshop of The 6th International
+     Joint Conference on Natural Language Processing (IJCNLP-6)
+     (pp. 10-18). Nagoya, Japan. [ISBN: 978-4-9907348-4-8]
+
+(18) Wang, S., & Huang, C.-R. (2013). The Semantic Type System of Event
+     Nouns. In S. Z. Jing (Ed.), Increased Empiricism: Recent Advances
+     in Chinese Linguistics (Vol. 2, pp. 205-221). Amsterdam /
+     Philadelphia: John Benjamins Publishing Company. `ISBN:
+     9789027201812; 9789027271419 <C-level>`__
+
+(19) Wang, S., & Huang, C.-R. (2013). Towards an Event-Based
+     Classification System for Non-Natural Kind Nouns. In D. Ji & G.
+     Xiao (Eds.), Chinese Lexical Semantics (pp. 381-395). Berlin
+     Heidelberg: Springer. [Print ISBN: 978-3-642-36336-8; Online ISBN:
+     978-3-642-36337-5; Series ISSN: 0302-9743] (EI index) (A-level
+     publisher)
+
+(20) Wang, S., & Huang, C.-R. (2013). Inchoative State of Emotions. In
+     P. Liu & Q. Su (Eds.), Chinese Lexical Semantics (pp. 135-142).
+     Berlin Heidelberg: Springer. [ISBN: 978-3-642-45184-3] (EI index)
+     (A-level)
+
+(21) Wang, S., & Huang, C.-R. (2013). A Generative Lexicon Approach to
+     Possessive Relations in Mandarin Chinese. In Y. Shen (Ed.), Towards
+     the Contemporary Cutting-edge Science of Modern Chinese Grammar
+     (走向當代前沿科學的現代漢語語法研究) (pp. 329-353). Beijing: The
+     Commercial Press (商務印書館). [ISBN: 978-7-100-09289-0] (B-level
+     publisher)
+
+(22) Bond, F., & Wang, S. (2014). Issues in Building English-Chinese
+     Parallel Corpora with WordNets. In Heili Orav, C. Fellbaum & P.
+     Vossen (Eds.), Proceedings of The Seventh Global WordNet Conference
+     (GWC-7) (pp. 391-399). Tartu, Estonia. [ISBN: 978–9949–32–492–7]
+
+(23) Ho, W.-Y., Kng, C., Wang, S., & Bond, F. (2014). Identify Idioms in
+     Chinese Translations. In C. Nicoletta, C. Khalid, D. Thierry, L.
+     Hrafn, M. Bente, M. Joseph, M. Asuncion, O. Jan & P. Stelios
+     (Eds.), Proceedings of The 9th edition of the Language Resources
+     and Evaluation Conference (LREC) (pp. 716-721). Reykjavik, Iceland.
+     [ISBN: 978-2-9517408-8-4; EAN: 9782951740884]
+
+(24) Wang, S., & Bond, F. (2014). Building The Sense-Tagged Multilingual
+     Parallel Corpus. In C. Nicoletta, C. Khalid, D. Thierry, L. Hrafn,
+     M. Bente, M. Joseph, M. Asuncion, O. Jan & P. Stelios (Eds.),
+     Proceedings of The 9th edition of the Language Resources and
+     Evaluation Conference (LREC) (pp. 2403-2409). Reykjavik, Iceland.
+     [ISBN: 978-2-9517408-8-4; EAN: 9782951740884]
+
+(25) An, Y., & Wang, S. \* (2015). Narrative Idioms for Elementary-level
+     Chinese as a Second Language Learners. In Q. Lu & H. H. Gao (Eds.),
+     Chinese Lexical Semantics (pp. 457-464). Switzerland: Springer.
+     [Print ISBN: 978-3-319-27193-4; Online ISBN: 978-3-319-27194-1] (EI
+     index) (A-level rated by RDO)
+
+(26) Wang, S. \*, & Wu, Y. (2015). The Design of an App for Learning
+     Chinese Idioms. In L. Li, J. Mckeown & L. Liu (Eds.), Words,
+     Dictionaries and Corpora: Innovations in Reference Science
+     (pp. 460-468). Hong Kong: The Hong Kong Polytechnic University.
+     [ISBN: 978-962-367-790-5]
+
+(27) Wang, S. (2016). Innovations in the Definitions of Chinese
+     Learners’ Dictionaries (漢語學習詞典釋義的創新). In C.-M. Si (Ed.),
+     The New Exploration to Chinese Teaching and Research
+     (漢語教學與研究新探) (pp. 169-182). Hong Kong: Chung Hwa Book Co.
+     (HK) Ltd. [ISBN: 978-988-8420-07-0] (B-level rated by RDO)
+
+(28) Wang, S.*, & Liu, R. (2016). The Construction and Analysis of a
+     Chinese Talk Shows Corpus (漢語談話節目語料庫的構建與分析). Journal
+     of Chinese Information Processing (中文信息學報), 30(6), 140-146.
+     `ISSN: 1003-0077; CN: 11-2325/N <B-Level%20at%20PolyU>`__
+
+(29) Wu, Y., & Wang, S.\* (2016). Applying Chinese Word Sketch Engine to
+     Distinguish Commonly Confused Words. In M. Dong, J. Lin & X. Tang
+     (Eds.), Chinese Lexical Semantics (pp. 625-644). Switzerland:
+     Springer. [ISSN 0302-9743, ISSN 1611-3349 (electronic); ISBN
+     978-3-319-49507-1, ISBN 978-3-319-49508-8 (eBook)] (EI index)
+     (A-level publisher)
+
+(30) An, Y., & Wang, S. \* (2017). The Cultural Items of Chinese
+     Language Textbooks in International Schools: Chinese Made Easy as
+     an Example
+     (國際學校華語文教材的文化項目設置——以《輕鬆學漢語》爲例). Chinese
+     Teaching in the World (世界華文教學). (accepted)
+
+(31) Huang, R., & Wang, S.\* (2017). Autonomous Learning in Chinse
+     Extensive Reading. Third International Conference on Linguistics
+     and Language Studies. The Open University of Hong Kong, Hong Kong.
+     (accepted)
+
+(32) Liu, R., Sun, B., Long, Y., & Wang, S. (2017). The distributive
+     feature of lexical frequency order difference and the lexical
+     similarities and differences between texts
+     (詞語序差的分布特點與文本間詞匯异同). Journal of Chinese
+     Information Processing (中文信息學報). (B-Level at PolyU)
+     (accepted)
+
+(33) Wang, S., & Huang, C.-R. (2017). Word Sketch Lexicography: New
+     Perspectives on Lexicographic Studies of Chinese Near Synonyms.
+     Lingua Sinica. (accepted) (B-level at PolyU)
+
+(34) Wang, S.*, & Li, X. (2017). Autonomous Vocabulary Learning beyond
+     the Classroom: New Media for Learners of Chinese as a Second
+     Language. In S. C. Kong, T. L. Wong, M. Yang, C. F. Chow & K. H.
+     Tse (Eds.), Emerging Practices in Scholarship of Learning and
+     Teaching in a Digital Era (pp. 199-217). Singapore: Springer. [ISBN
+     978-981-10-3342-1, ISBN 978-981-10-3344-5 (eBook)] (EI index)
+     (A-level publisher)
+
+(35) Wu, C., & Wang, S.\* (2017). The Selection and Application of the
+     Example Sentences of Idioms in International Chinese Language
+     Teaching (面向國際漢語教學的成語例句選取及應用). Newsletter of
+     Chinese Language (中國語文通訊). (accepted) (B-level)
+
+(36) Chen, C., & Wang, S.\* Sense Arrangement and Illustrations of
+     Polysemy Words in Chinese Learners’ Dictionaries
+     (外向型漢語學習詞典中多義詞義項的排列及例證研究). Newsletter of
+     Chinese Language (中國語文通訊). (accepted) (B-level)
+
+(37) Wang, S., & Huang, C.-R. The Type System Construction of The
+     Generative Lexicon (生成詞庫理論的類型系統建構). In Z. Song & C.-R.
+     Huang (Eds.), The Generative Lexicon and Chinese Studies
+     (生成詞庫理論與漢語研究). Beijing: The Commercial Press
+     (商務印書館). (accepted)(B-level)
+
+字典:
+~~~~~
+
+(39) Wang, S. (2006). Words from w to z (學生造句詞典). In X. Su (Ed.),
+     Sentence-making Dictionary for Students. Shanghai: Shanghai
+     Lexicographical Publishing House. [ISBN: 7532620557]
+
+(40) Wang, S. (2009). Words from w to z. In X. Su (Ed.), Sentence Making
+     Dictionary of Modern Chinese (現代漢語造句詞典). Shanghai: Shanghai
+     Lexicographical Publishing House. [ISBN: 9787532628520]
+
+(41) Wang, S. (2013). Social Activities. In X. Su (Ed.), A Thesaurus of
+     Modern Chinese / Modern Chinese Concept Dictionary
+     (現代漢語分類詞典). Beijing: The Commercial Press (商務印書館).
+     [ISBN: 9787100088688] (B-level publisher)
+
+TCSL 教科书:
+~~~~~~~~~~~~
+
+Funded by Knowledge Transfer Funds
+
+(42) Wang, S.*, & Liu, R. (2017). Talk Show Chinese: Intermediate and
+     Advanced Level Audiovisual-Oral Textbook (I)
+     (脫口秀漢語：中高級漢語視聽說課本). Hong Kong: The Education
+     University of Hong Kong. (Chief Editor: Shan Wang)
+
+(43) Wang, S.*, & Liu, R. (2017). Talk Show Chinese: Intermediate and
+     Advanced Level Audiovisual-Oral Textbook (II)
+     (脫口秀漢語：中高級漢語視聽說課本). Hong Kong: The Education
+     University of Hong Kong. (Chief Editor: Shan Wang)
+
+会议论文集（无 ISBN）:
+~~~~~~~~~~~~~~~~~~~~~~
+
+(44) Su, X., Du, J., Guan, J., Liu, Y., Zhou, M., Dong, Y., Lin, J.,
+     Yuan, R., Wang, S., Yang, Y., Ke, L., Tian, L., & Li, A. (2006).
+     Research on Language Use of Educational and Teaching Materials
+     Revisited (教育教材語言研究的再探討). Proceedings of The First
+     National Symposium on Language Use of Educational and Teaching
+     Materials (首届全國教育教材語言專題學術研討會論文集) (pp. 6-10).
+     Xiamen, China.
+
+(45) Yuan, R., Zhou, M., & Wang, S. (2007). A Statistical Study on
+     Character Use Condition of Chinese Textbooks for Primary Schools
+     The Summit Forum on National Language Resources and Applied
+     Linguistics. Beijing, China.
+
+(46) Zhou, M., Han, J., Yuan, R., & Wang, S. (2007). Statistical
+     Analysis and Reflection on the Distribution of New Characters and
+     New Words in the First Stage of Elementary Schools: A Study on New
+     Curriculum-based Chinese Textbooks of People’s Education Press and
+     Jiangsu Education Press The Summit Forum on National Language
+     Resources and Applied Linguistics. Beijing, China.
+
+(47) Wang, S., Lee, Y.-M., & Huang, C.-R. (2011). A Corpus-based
+     Analysis of Semantic Type System of Event Nouns: A Case Study on
+     huìyì ‘conference’. In S. Z. Jing (Ed.), Proceedings of the 23rd
+     North American Conference on Chinese Lingusitics (NACCL-23) (Vol.
+     I, pp. 18-34). Eugene, Oregon, USA.
+
+(48) Wang, S., & Huang, C.-R. (2011). A Generative Lexicon Perspective
+     to Possessive Relation in Mandarin Chinese. Proceedings of The 12th
+     Chinese Lexical Semantics Workshop (CLSW-12) (pp. 201-213).
+     National Taiwan University, Taipei.
+
+(49) Wang, S., & Huang, C.-R. (2012). A Preliminary Study of An
+     Event-based Noun Classification System. In Y. He & D. Ji (Eds.),
+     The 13th Chinese Lexical Semantics Workshop (CLSW-13) (pp. 4-9).
+     Wuhan University, China.
+
+(50) Wang, S., & Huang, C.-R. (2013). Inchoation of Emotions.
+     Proceedings of The 14th Chinese Lexical Semantics Workshop
+     (CLSW-14) (pp. 195-202). Zhengzhou University, China.
+
+(51) Wang, S., & Huang, C.-R. (2013). Apply Chinese Word Sketch Engine
+     to Facilitate Lexicography. In D. A. Kwary, N. Wulan & L. Musyahda
+     (Eds.), Lexicography and Dictionaries in the Information Age:
+     Selected papers from the 8th ASIALEX International Conference
+     (pp. 285-292). Bali, Indonesia.
+
+(52) An, Y., & Wang, S.\* (2015). A Study on Common Narrative Idioms in
+     Primary-level TCFL Proceedings of The 16th Chinese Lexical
+     Semantics Workshop (pp. 573-578). Beijing Normal University,
+     Beijing.
+
+(53) Wu, Y., & Wang, S.\* (2016). Apply Chinese Word Sketch Engine to
+     Discriminate Confusing Words. In M. Dong, J. Lin & Z. Zhang (Eds.),
+     Proceedings of The 17th Chinese Lexical Semantics Workshop
+     (CLSW-17) (pp. 417-431). Singapore: Nanyang Technological
+     University.
+
+会议报告（仅列出没有全文论文的会议）:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+(54)  Wang, S. (2008). Ideas on Improving the Sense Definitions of
+      Chinese as a Foreign Language Dictionaries
+      (對外漢語詞典釋義改進的設想). Paper presented at The Fifth
+      Lexicography Symposium for Young and Middle-aged Researchers,
+      Chongwen Publishing House, Wuhan, China.
+
+(55)  Wang, S. (2008). A Study on Vocabulary Interpretation of CFL
+      Comprehensive Textbooks–Taking Boya Chinese as an Example
+      (對外漢語綜合課教材生詞釋義研究——以《博雅漢語》爲例). Paper
+      presented at The 9th Chinese Lexical Semantics Workshop (CLSW-9),
+      National University of Singapore, Singapore
+
+(56)  Wang, S., & Huang, C.-R. (2010). A Generative Lexicon Approach to
+      Possessive Relation of Mandarin Chinese. Paper presented at The
+      Symposium Commemorating the 90th Anniversary of the Birth of
+      Prof. Dexi Zhu and the 50th Anniversary of Prof. Jianming Lu’s
+      Teaching, Peking University, Beijing, China.
+
+(57)  Wang, S., & Huang, C.-R. (2010). Mechanism of Composition of
+      Mandarin Perception Verb kàn. Paper presented at The 16th
+      Symposium on Modern Chinese Grammar, City University of Hong Kong,
+      Hong Kong.
+
+(58)  Wang, S., & Huang, C.-R. (2010). Semantic and Temporal Features of
+      Event Nouns. Paper presented at the Annual Research Forum,
+      Linguistic Society of Hong Kong (LSHK-ARF), Chinese University of
+      Hong Kong, Hong Kong.
+
+(59)  Wang, S., & Huang, C.-R. (2010). Sense Representation in MARVS–A
+      Case Study on the Polysemy of chī. Paper presented at The 11th
+      Chinese Lexical Semantics Workshop (CLSW-11), Soochow University,
+      Suzhou, China.
+
+(60)  Wang, S. (2011). The Concept System Construction: A Case Study on
+      the “Economy and Trade” Category. Paper presented at the 19th
+      Annual Conference of the International Association of Chinese
+      Linguistics (IACL-19), Nankai University, Tianjin, China.
+
+(61)  Wang, S., & Huang, C.-R. (2011). A Generative Lexicon Perspective
+      to Possessive Relation in Mandarin Chinese. Paper presented The
+      12th Chinese Lexical Semantics Workshop (CLSW-12), National Taiwan
+      University, Taipei.
+
+(62)  Wang, S., & Huang, C.-R. (2011). Derived Event Nouns in Mandarin
+      Chinese. Paper presented at The 7th LSHK Postgraduate Research
+      Forum on Linguistics (PRFL-7), City University of Hong Kong.
+
+(63)  Wang, S., & Huang, C.-R. (2011). Domain Relevance of Event
+      Coercion in Compound Nouns. Paper presented at The 6th
+      International Conference on Contemporary Chinese Grammar
+      (ICCCG-6), I-Shou University, Kaohsiung, Taiwan.
+
+(64)  Wang, S., & Huang, C.-R. (2011). Event Classifiers and Their
+      Selected Nouns. Paper presented at The 19th Annual Conference of
+      the International Association of Chinese Linguistics (IACL-19),
+      Nankai University, Tianjin, China.
+
+(65)  Wang, S., & Huang, C.-R. (2012). A Constraint-based Linguistic
+      Model for Event Nouns. Paper presented at the Forum on “Y. R. Chao
+      and Linguistics”, Workshop of The 20th Annual Conference of the
+      International Association of Chinese Linguistics (IACL-20), The
+      Hong Kong Institute of Education, Hong Kong.
+
+(66)  Wang, S., & Huang, C.-R. (2012). A Preliminary Study of An
+      Event-based Noun Classification System. Paper presented at The
+      13th Chinese Lexical Semantics Workshop (CLSW-13), Wuhan
+      University, China.
+
+(67)  Wang, S., & Huang, C.-R. (2012). Light Verbs and Their Selected
+      Nouns. Paper presented at the XIX Biennial Conference of the
+      European Association of Chinese Studies (EACS-19), Paris, France.
+
+(68)  Wang, S., & Huang, C.-R. (2012). Qualia Structure of Event Nouns
+      in Mandarin Chinese. Paper presented at The Second International
+      Symposium on Chinese Language and Discourse, Nanyang Technological
+      University, Singapore.
+
+(69)  Xu, H., & Wang, S. (2012). Restrictive and Descriptive Attributes
+      of Chinese Modifiers (漢語定語的限制性與描寫性). Paper presented
+      at The 20th Annual Conference of the International Association of
+      Chinese Linguistics (IACL-20), The Hong Kong Polytechnic
+      University, Hong Kong.
+
+(70)  Wang, S., & Huang, C.-R. (2012). Temporal Properties of Event
+      Nouns in Mandarin Chinese. Paper presented at The 57th Annual
+      International Linguistic Association Conference (ILA-57), Borough
+      of Manhattan Community College, City University of New York, New
+      York, USA.
+
+(71)  Wang, S., & Bond, F. (2013). Theoretical and Practical Issues in
+      Creating Chinese Open Wordnet (COW). Paper presented at The 7th
+      International Conference on Contemporary Chinese Grammar
+      (ICCCG-7), Nanyang Technological University, Singapore.
+
+(72)  Wang, S., & Huang, C.-R. (2013). Aspectualizers and Their Selected
+      Nouns. Paper presented at The 21st Annual Conference of the
+      International Association of Chinese Linguistics (IACL-21),
+      National Taiwan Normal University, Taiwan.
+
+(73)  Wang, S., & Huang, C.-R. (2013). Inchoation of Emotions. Paper
+      presented at The 14th Chinese Lexical Semantics Workshop
+      (CLSW-14), Zhengzhou University, China.
+
+(74)  Wang, S., & Bond, F. (2014). A Multilingual Corpus: Its
+      Construction and Application. Paper presented at the Annual
+      Research Forum, Linguistic Society of Hong Kong (LSHK-ARF), City
+      University of Hong Kong, Hong Kong.
+
+(75)  An, Y., & Wang, S. \* (2015). The Cultural Items of Chinese
+      Language Textbooks in International Schools: Chinese Made Easy as
+      an Example
+      (國際學校華語文教材的文化項目設置——以《輕鬆學漢語》爲例). Paper
+      presented at The First International Chinese Language Teaching
+      Conference, Huaqiao University, Xiamen Campus, China.
+
+(76)  An, Y., & Wang, S. \* (2015). Exploring “Children Standard” in
+      TCSL textbooks: Chinese Made Easy (Kids Version) as an Example
+      (淺論“兒童本位”
+      在對外華語文教材中的體現——以《輕鬆學漢語（少兒版）》與為例). Paper
+      presented at The 14th International Annual Conference of Teaching
+      Chinese as a Second Language, National Taitung University, Taiwan.
+
+(77)  Tu, C., & Wang, S. \* (2015). Exploring the elementary-level Words
+      in “International Curriculum for Chinese Language Education” from
+      the Perspective of “Six Writings”
+      (從六書角度解讀《國際漢語通用課程大綱》初級常用字表). Paper
+      presented at The 14th International Annual Conference of Teaching
+      Chinese as a Second Language, National Taitung University, Taiwan.
+
+(78)  Wang, S. (2015). Chinese Disyllabic Polysemous Words of the
+      Intermediate Level. Paper presented at the International
+      Conference on Corpus Linguistics and Technology Advancement, The
+      Hong Kong Institute of Education, Hong Kong.
+
+(79)  Wang, S. (2015). Innovation in Compiling the Senses of Chinese
+      Learners’ Dictionary (談漢語學習詞典釋義的創新). Paper presented
+      at The Symposium of Chinese Language Research and Teaching
+      (中國語言研究與教學學術研討會), The Hong Kong Institute of
+      Education, Hong Kong.
+
+(80)  Wang, S. \*, & Wu, Y. (2015). The Design of an App for Learning
+      Chinese Idioms. Paper presented at The 9th International
+      Conference of Asian Association of Lexicography, The Hong Kong
+      Polytechnic University, Hong Kong.
+
+(81)  Winterstein, G. A., Wang, S., & Li, W.-Y. S. (2015). Building an
+      English-Chinese Advertisement Corpus. Paper presented at the
+      International Conference on Corpus Linguistics and Technology
+      Advancement, The Hong Kong Institute of Education, Hong Kong.
+
+(82)  Wu, Y., & Wang, S. \* (2015). A Psychology Perspective on the Use
+      of New Media Software in Teaching Chinese Characters
+      (心理學角度論新媒體軟件在漢字教學中的運用). Paper presented at The
+      4th International Conference on Nationalized TCSL Textbooks,
+      Chongqing University, China.
+
+(83)  Chen, C., & Wang, S. \* (2016). Examples for Intermediate-level
+      Polysemy in International Chinese Teaching
+      (國際漢語教學中級多義詞的例證研究). Paper presented at The
+      International Conference on Lexicology & The Eleventh National
+      Conference on Chinese Lexicology, Peking University, China.
+
+(84)  Chen, C., & Wang, S. \* (2016). Concise and Practical Senses for
+      Learners of Chinese as a Second Language. Paper presented at The
+      4th International Conference on Chinese as a Second Language
+      Research, East China Normal University, Shanghai.
+
+(85)  Lam, K.-H., & Wang, S. \* (2016). The Word Arrangement of Chinese
+      Textbooks in Primary Schools in Hong Kong: A Case Study of
+      “Learning Chinese Language Well” and “New Chinese Language”
+      (香港小學語文教材的詞語安排研究——以《學好中國語文》和《新語文》為例).
+      Paper presented at The Sixth National Conference on Educational
+      and teaching materials & The Summit Meeting on the Promotion and
+      Development of Outcomes of National Language Resources Monitoring
+      and Research, Beihua University, China.
+
+(86)  Tu, C., & Wang, S. \* (2016). Listening and Speaking Errors of
+      “Hong Kong-style Mandarin”: Taking the Case of Tone Errors as an
+      Example (“港式普通話”聽說問題研究——以實例聲調錯誤為例). Paper
+      presented at The 4th International Conference on Chinese as a
+      Second Language Research, East China Normal University, China.
+
+(87)  Wang, S. (2016). Creating a Sense-annotated Corpus of Chinese
+      Polysemous Words for Teaching Chinese as a Second Language. Paper
+      presented at The 24th Annual Conference of the International
+      Association of Chinese Linguistics (IACL-24), Beijing Language and
+      Culture University, Beijing.
+
+(88)  Wang, S. \*, & Chen, C. (2016). Teacher Training in Teaching
+      Chinese as a Second Language. Paper presented at the Annual
+      Conference of the Comparative Education Society of Hong Kong
+      (CESHK) 2016 “Learning to Live Together & Comparative Education”
+      and Third Across-Strait Four Region Forum on Comparative
+      Education, The Hong Kong Institute of Education, Hong Kong.
+
+(89)  Wang, S. \*, & Liu, R. (2016). Learning and Teaching of Advanced
+      Spoken Chinese (漢語高級口語教學研究). Paper presented at The
+      Second International Conference on Teaching Chinese as a Second
+      Language——The IB Philosophy and Chinese Language Teaching, The
+      Education University of Hong Kong, Hong Kong.
+
+(90)  Wang, S. \*, & Liu, R. (2016). The Construction and Analysis of a
+      Chinese Talk Shows Corpus (漢語談話節目語料庫的構建與分析). Poster
+      presented at The 15th China National Conference on Computational
+      Linguistics, Ludong University, China.
+
+(91)  Zhang, R., & Wang, S. \* (2016). A Comparative Study on the
+      Teaching of Chinese Characters in Mother Tongue Teaching and
+      International Chinese Teaching: Taking the Primary Stage as an
+      Example
+      (漢字教學在母語教學與國際漢語教學中的對比研究——以初級階段爲例).
+      Paper presented at The Second International Forum on Linguistics
+      in Chinese Education (IFOLICE-2), Beijing Language and Culture
+      University, Beijing.
+
+(92)  Cheung, K.-Y., & Wang, S.\* (2017). An Analysis of Teachers’
+      Discourse Functions in International Chinese Teacher Training
+      (國際漢語師資培訓中教師的話語功能分析). Paper presented at The
+      Sixth Language Education, Ideology and Culture Conference
+      (第六屆語文教育與思想文化學術研討會), The Education University of
+      Hong Kong, Hong Kong.
+
+(93)  Huang, R. & Wang, S.\* (2017). Autonomous Learning in Chinese
+      Extensive Reading, paper presented at The Third International
+      Conference on Linguistics and Language Studies (ICLLS 2017), The
+      Open University of Hong Kong, Hong Kong.
+
+(94)  Liu, R., & Wang, S.\* (2017). A Cross-strait Contrastive Study of
+      Common Chinese Academic Words (兩岸中文學術常用詞對比研究). Paper
+      presented at The Third International Conference on Teaching
+      Chinese as a Second Language, The Education University of Hong
+      Kong, Hong Kong.
+
+(95)  Luo, H., & Wang, S.\* (2017). The Construction and Application of
+      The Legal Corpus of Mainland China
+      (中國大陸法律語料庫建設及其應用研究). Paper presented at The 18th
+      Chinese Lexical Semantics Workshop (CLSW2017), Leshan Normal
+      University, Leshan, Sichuan, China.
+
+(96)  Luo, H, & Wang, S.\* (2017). The Transitional Sentences in The
+      Legislative Language. Paper presented at The International
+      Linguistic Association 62nd Annual Conference, City Uiversity of
+      Hong Kong, Hong Kong.
+
+(97)  Luo, W., & Wang, S.\* (2017). Teachers’ Discourse in Game-based
+      Teaching Method (遊戲教學法中的教師話語分析). Paper presented at
+      the International Symposium on Chinese in the Maritime Silk Road,
+      The Chinese University of Hong Kong, Hong Kong.
+
+(98)  Ren, Y., & Wang, S.\* (2017). Teachers’ Feedback Discourse in
+      International Chinese Teaching (國際漢語教學教師反饋話語研究).
+      Paper presented at The 14th International Conference on Chinese
+      Language Pedagogy, The University of Macau, Macau.
+
+(99)  Tang, Q., & Wang, S.\* (2017). The Application of Questioning in
+      Spoken Chinese Teaching of TCIL
+      (提問模式在國際漢語口語教學中的應用). Paper presented at the
+      International Symposium on Chinese in the Maritime Silk Road, The
+      Chinese University of Hong Kong, Hong Kong.
+
+(100) Wei, W., & Wang, S.\* (2017). A Study on the Homonyms in the
+      Advanced-level of International Chinese Teaching. Paper presented
+      at The 11th International Conference of the Asian Association for
+      Lexicography (AsiaLex 2017), Guangdong University of Foreign
+      Studies, China.
+
+链接
+----
+
+研究门: http://www.researchgate.net/profile/Shan_Wang5/publications/
+
+谷歌学术: http://scholar.google.com.sg/citations?user=D8kS3pIAAAAJ&hl=en
