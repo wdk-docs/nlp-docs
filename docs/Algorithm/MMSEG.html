@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>MMSEG &mdash; nlp-docs v2019.03.19 文档</title>
+  <title>3.5. MMSEG &mdash; nlp-docs v2019.03.19 文档</title>
   
 
   
@@ -37,7 +37,9 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜索" href="../search.html" /> 
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="3.6. MMSeg 分词算法简述" href="MMSeg_description.html" />
+    <link rel="prev" title="3.4. 最大熵马尔可夫模型 MEMM（Maximum-entropy Markov model）" href="Maximum-entropy_Markov_model.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -81,13 +83,52 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">自然语言处理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">自然语言处理作者</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html">算法汇总</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">awesome-nlp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Librariy/index.html">常用分词工具包</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">论文 || 文章</a></li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">3. 算法汇总</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ConditionalRandomField.html">3.1. 条件随机场 CRF（Conditional Random Field）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hidden_Markov_Model.html">3.2. 隐马尔可夫模型 HMM（Hidden Markov Model）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Maximum_Entropy.html">3.3. 最大熵模型 ME（Maximum Entropy）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Maximum-entropy_Markov_model.html">3.4. 最大熵马尔可夫模型 MEMM（Maximum-entropy Markov model）</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.5. MMSEG</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">3.5.1. 什么是新的？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">3.5.2. 抽象</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.5.3. 介绍</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">3.5.3.1. 词识别过程中的困难</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">3.5.3.2. 最大匹配算法及其变种</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">3.5.3.3. 其他消歧算法</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">3.5.4. MMSEG 系统概述</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">3.5.4.1. 词典</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">3.5.4.2. 匹配算法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">3.5.4.3. 歧义解决规则</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">3.5.4.4. 执行</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">3.5.5. 讨论</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">3.5.6. 可用性和可移植性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mmseg-libtabe-xcin">3.5.7. MMSEG，Libtabe 和 XCIN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">3.5.8. 参考</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">3.5.9. 安装和执行 MMSEG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">3.5.10. 作者说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id23">3.5.11. 链接</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MMSeg_description.html">3.6. MMSeg 分词算法简述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Statistical_Model.html">3.7. 统计模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Viterbi.html">3.8. Viterbi</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/index.html">6. 语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/index.html">7. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">9. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">11. 术语表</a></li>
 </ul>
 
             
@@ -133,7 +174,9 @@
     
       <li><a href="../contents.html">Docs</a> &raquo;</li>
         
-      <li>MMSEG</li>
+          <li><a href="index.html">3. 算法汇总</a> &raquo;</li>
+        
+      <li>3.5. MMSEG</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -153,7 +196,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="mmseg">
-<h1>MMSEG<a class="headerlink" href="#mmseg" title="永久链接至标题">¶</a></h1>
+<h1>3.5. MMSEG<a class="headerlink" href="#mmseg" title="永久链接至标题">¶</a></h1>
 <blockquote>
 <div><p>本文翻译自作者<a class="reference external" href="../Author/蔡志浩.md">蔡志浩</a>的论文:
 <a class="reference external" href="http://technology.chtsai.org/mmseg/">http://technology.chtsai.org/mmseg/</a></p>
@@ -167,14 +210,14 @@
 <p>Copyright © 1996-2006 <a class="reference external" href="http://chtsai.org/">Chih-Hao Tsai</a> (Email:
 <a class="reference external" href="mailto:hao520&#37;&#52;&#48;yahoo&#46;com">hao520<span>&#64;</span>yahoo<span>&#46;</span>com</a>)</p>
 <div class="section" id="id1">
-<h2>什么是新的？<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<h2>3.5.1. 什么是新的？<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>2000-03-12: 我在一个可能更有用的程序中重新分析并重新实现了 MMSEG
 中使用的算法：中文词法扫描程序。
 有关详细信息，请访问以下页面:<a class="reference external" href="http://technology.chtsai.org/cscanner/">CScanner
 -中文词汇扫描仪</a></p>
 </div>
 <div class="section" id="id2">
-<h2>抽象<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2>3.5.2. 抽象<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>中文文本的计算分析存在的问题是常规打印文本中没有单词边界。
 由于这个词是一个基本的语言单位，因此有必要识别中文文本中的单词，以便进行更高级别的分析。
 本研究的目的是开发一种基于最大匹配算法的两种变体的单词识别系统。
@@ -183,7 +226,7 @@
 本文还将讨论该系统的潜在应用。</p>
 </div>
 <div class="section" id="id3">
-<h2>介绍<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2>3.5.3. 介绍<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>Hung 和 Tzeng（1981）和
 DeFrancis（1984）指出，中文书写系统在语素和音节层面上映射到口语。
 结果，字符在书面中文中是不同的。
@@ -193,7 +236,7 @@ DeFrancis（1984）指出，中文书写系统在语素和音节层面上映射�
 <p class="caption"><span class="caption-text">Chinese example</span><a class="headerlink" href="#id24" title="永久链接至图片">¶</a></p>
 </div>
 <div class="section" id="id4">
-<h3>词识别过程中的困难<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<h3>3.5.3.1. 词识别过程中的困难<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
 <p>由于这个词是一个基本的语言单位，因此有必要识别中文文本中的单词，以便进行中文文本的计算分析和处理。
 由于该词是基本语言单元，因此有必要识别中文文本中的单词，以进行计算分析和处理中文文本。</p>
 <div class="figure align-center" id="id25">
@@ -213,7 +256,7 @@ Liu，1992; Fan＆Tsai，1988; Yeh＆李，1991）。
 由于通常只有一个正确的分割，因此需要解决歧义。</p>
 </div>
 <div class="section" id="id5">
-<h3>最大匹配算法及其变种<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<h3>3.5.3.2. 最大匹配算法及其变种<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
 <p>不同的研究在模糊度分辨率算法上有所不同。
 已经证明非常有效的一个非常简单的是最大匹配算法（Chen 和 Liu，1992）。
 最大匹配可以采用多种形式。</p>
@@ -247,7 +290,7 @@ Liu（1992）所做的最大匹配的另一种变体比基本形式更复杂。
 99.69％的准确率，93.21％的歧义通过这条规则得到了解决。</p>
 </div>
 <div class="section" id="id6">
-<h3>其他消歧算法<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<h3>3.5.3.3. 其他消歧算法<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
 <p>除了最大匹配之外，还提出了许多其他消歧算法。
 在消除歧义的过程中使用各种信息。 例如，概率和统计（Chen 和 Liu，1992;
 Fan＆Tsai，1988），语法（Yeh＆Lee，1991）和形态学（Chen 和 Liu，1992）。
@@ -255,7 +298,7 @@ Fan＆Tsai，1988），语法（Yeh＆Lee，1991）和形态学（Chen 和 Liu�
 </div>
 </div>
 <div class="section" id="id7">
-<h2>MMSEG 系统概述<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<h2>3.5.4. MMSEG 系统概述<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
 <p>MMSEG 系统实现了前面讨论的最大匹配算法的简单和复杂形式。
 此外，为了解决复杂的最大匹配算法未解决的模糊性，已经实现了另外三个模糊度解析规则。</p>
 <p>其中一个由 Chen 和 Liu（1992）提出，其余两个是新的。
@@ -267,7 +310,7 @@ Fan＆Tsai，1988），语法（Yeh＆Lee，1991）和形态学（Chen 和 Liu�
 然而，我们将看到即使是当前版本的 MMSEG
 也达到了很高的准确率，这与学术期刊上发布的一致。</p>
 <div class="section" id="id8">
-<h3>词典<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<h3>3.5.4.1. 词典<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
 <p>词典的第一部分包括 124,499 个多字符条目。
 词条的长度从两个字符到八个字符不等。 有关字长的分布，请参见附录 A.
 词典很简单，是一个有组织的字符串列表。 没有与每个字符串相关的其他信息。
@@ -277,7 +320,7 @@ Fan＆Tsai，1988），语法（Yeh＆Lee，1991）和形态学（Chen 和 Liu�
 字符频率用于最后的模糊度解析规则。</p>
 </div>
 <div class="section" id="id9">
-<h3>匹配算法<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<h3>3.5.4.2. 匹配算法<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
 <p><strong>简单:</strong> 对于字符串中的字符 Cn，将以 Cn
 开头的子字符串与词典匹配，并查找所有可能的匹配项。</p>
 <p><strong>复杂:</strong> 对于字符串中的字符 Cn，找到以 Cn
@@ -285,12 +328,12 @@ Fan＆Tsai，1988），语法（Yeh＆Lee，1991）和形态学（Chen 和 Liu�
 只有在第一个单词含糊不清时才会形成三个字的块。</p>
 </div>
 <div class="section" id="id10">
-<h3>歧义解决规则<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<h3>3.5.4.3. 歧义解决规则<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
 <p>使用了四个模糊度解析规则。
 最大匹配规则应用于简单和复杂匹配算法的模糊分段。
 其余三个规则没有（也不能）应用于简单匹配算法的模糊分割。</p>
 <div class="section" id="id11">
-<h4>规则 1：最大匹配<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h4>
+<h4>3.5.4.3.1. 规则 1：最大匹配<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h4>
 <p>（Chen 和 Liu 1992）。</p>
 <ol class="arabic simple">
 <li><p>简单的最大匹配：选择具有最大长度的单词。</p></li>
@@ -298,7 +341,7 @@ Fan＆Tsai，1988），语法（Yeh＆Lee，1991）和形态学（Chen 和 Liu�
 </ol>
 </div>
 <div class="section" id="id12">
-<h4>规则 2：最大平均字长<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
+<h4>3.5.4.3.2. 规则 2：最大平均字长<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
 <p>（Chen＆Liu，1992）。</p>
 <p>在每个字符串的末尾，很可能只有一个或两个单词的块。
 例如，以下块具有相同的长度和相同的字长方差。</p>
@@ -319,7 +362,7 @@ Fan＆Tsai，1988），语法（Yeh＆Lee，1991）和形态学（Chen 和 Liu�
 因此，我们需要另一种解决</p>
 </div>
 <div class="section" id="id13">
-<h4>规则 3：字长的最小变化<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h4>
+<h4>3.5.4.3.3. 规则 3：字长的最小变化<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h4>
 <p>（Chen 和 Liu，1992）。</p>
 <p>规则 1 和规则 2 无法解决相当多的模糊条件。
 例如，这两个块具有相同的长度：</p>
@@ -338,7 +381,7 @@ Liu（1992）提出的规则完全相同（但是，它们在规则 1
 如果有多个块具有相同的字长方差值，则应用下一个规则。</p>
 </div>
 <div class="section" id="id14">
-<h4>规则 4：单字词的语素自由度的最大总和。<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h4>
+<h4>3.5.4.3.4. 规则 4：单字词的语素自由度的最大总和。<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h4>
 <p>此示例显示了两个具有相同长度，方差和平均字长的块：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">_C1_</span> <span class="n">_C2_</span> <span class="n">_C3C4_</span>
 <span class="mf">2.</span> <span class="n">_C1_</span> <span class="n">_C2C3_</span> <span class="n">_C4_</span>
@@ -361,14 +404,14 @@ Liu（1992）提出的规则完全相同（但是，它们在规则 1
 </div>
 </div>
 <div class="section" id="id15">
-<h3>执行<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+<h3>3.5.4.4. 执行<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
 <p>MMSEG 系统是用 C 编程语言编写的。</p>
 <p>硬件和软件环境。 MMSEG 在 IBM 兼容 PC（486DX-33）上运行，主内存为 1
 MB，扩展内存为 12 MB。 操作系统是 MS-DOS。 用于构建 MMSEG 的编译器是
 Turbo C ++ 3.0。 包括可执行文件，源代码，词典，索引和测试数据，整个
 MMSEG 系统占用了大约 1.5 MB 的磁盘空间。</p>
 <div class="section" id="id16">
-<h4>结果<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h4>
+<h4>3.5.4.4.1. 结果<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h4>
 <p>由 1013 个单词组成的测试样本用于测试 MMSEG 的两组单词识别算法。 表 1
 显示了初步测试结果。</p>
 <p>表 1 测试结果</p>
@@ -462,7 +505,7 @@ MMSEG 系统占用了大约 1.5 MB 的磁盘空间。</p>
 </div>
 </div>
 <div class="section" id="id17">
-<h4>错误的例子<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h4>
+<h4>3.5.4.4.2. 错误的例子<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h4>
 <p>最大匹配:</p>
 <div class="figure align-center" id="id30">
 <img alt="Chinese example" src="http://technology.chtsai.org/mmseg/blk7.gif" />
@@ -487,7 +530,7 @@ MMSEG 系统占用了大约 1.5 MB 的磁盘空间。</p>
 </div>
 </div>
 <div class="section" id="id18">
-<h2>讨论<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
+<h2>3.5.5. 讨论<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
 <p>MMSEG 系统的准确性与学术期刊上发布的准确性一样高。 这一发现表明 MMSEG
 是一个成功的中文单词识别系统。</p>
 <p>已经证明四个模糊度解析规则非常有效。 规则
@@ -506,7 +549,7 @@ MMSEG 系统占用了大约 1.5 MB 的磁盘空间。</p>
 通过比较计算机程序和人类受试者的表现，我可以（希望）确定每种算法的心理现实。</p>
 </div>
 <div class="section" id="id19">
-<h2>可用性和可移植性<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h2>
+<h2>3.5.6. 可用性和可移植性<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h2>
 <p>MMSEG 的源代码和可执行文件以 zip 存档的形式提供。 点击下面的链接下载:</p>
 <p><a class="reference external" href="http://technology.chtsai.org/mmseg/mmseg.zip">mmseg.zip</a> (532KB)</p>
 <p>mmseg 的源代码可以使用 gcc 编译而无需修改，因此它基本上与平台无关。</p>
@@ -515,7 +558,7 @@ MMSEG 系统占用了大约 1.5 MB 的磁盘空间。</p>
 并向我发送您的软件副本。 但是，MMSEG 的任何商业用途都需要个人许可。</p>
 </div>
 <div class="section" id="mmseg-libtabe-xcin">
-<h2>MMSEG，Libtabe 和 XCIN<a class="headerlink" href="#mmseg-libtabe-xcin" title="永久链接至标题">¶</a></h2>
+<h2>3.5.7. MMSEG，Libtabe 和 XCIN<a class="headerlink" href="#mmseg-libtabe-xcin" title="永久链接至标题">¶</a></h2>
 <p><a class="reference external" href="http://xcin.linux.org.tw/libtabe">Libtabe</a> 是由 [Pai-Hsiang Hsiao]
 <a class="reference external" href="mailto:shawn&#37;&#52;&#48;iis&#46;sinica&#46;edu&#46;tw">shawn<span>&#64;</span>iis<span>&#46;</span>sinica<span>&#46;</span>edu<span>&#46;</span>tw</a> 领导的 TaBE 项目发布的 C 库。 Libtabe
 提供统一的界面和支持功能，用于处理汉字，声音，单词和句子。</p>
@@ -529,7 +572,7 @@ MMSEG 系统占用了大约 1.5 MB 的磁盘空间。</p>
 集成，提供智能语音输入模块。 事实证明，这个模块和商业产品一样好。</p>
 </div>
 <div class="section" id="id20">
-<h2>参考<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h2>
+<h2>3.5.8. 参考<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h2>
 <p>Chen，K.J。，Liu，S.H。（1992）。汉语句子的语言识别。 第 15
 届南特计算语言学国际会议论文集：COLING-92。</p>
 <p>中国知识信息处理集团（1993a）。 基于语料库的中文期刊人物频率统计（CKIP
@@ -555,7 +598,7 @@ MMSEG 系统占用了大约 1.5 MB 的磁盘空间。</p>
 一种统一的方法。 中国和东方语言的计算机处理，5,97-118。</p>
 </div>
 <div class="section" id="id21">
-<h2>安装和执行 MMSEG<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h2>
+<h2>3.5.9. 安装和执行 MMSEG<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h2>
 <p>MMSEG 的当前实现不会将词典加载到计算机存储器中。
 它只将索引加载到内存中并在硬盘上搜索词典。
 因此，建议安装快速硬盘并安装磁盘缓存磁盘缓存。 而快速的奔腾 PC
@@ -590,7 +633,7 @@ Example: MMSEG in.txt out.txt .<span class="se">\l</span>exicon<span class="se">
 </div>
 </div>
 <div class="section" id="id22">
-<h2>作者说明<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h2>
+<h2>3.5.10. 作者说明<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h2>
 <p>本文结合了伊利诺伊大学厄巴纳 - 香槟分校的 Chin-Chuan Cheng
 教授的“计算语言学专题”和“中国语言学研讨会”两个学期项目。 1995
 年，当我提出编写中文单词识别程序的想法时，我对计算语言学知之甚少。
@@ -603,7 +646,7 @@ Huang 教授，AT＆T 贝尔实验室的 Richard Sproat 教授以及 Cheng Cheng
 的计算机科学研究生李一如 - 台湾功夫大学提出的富有洞察力的建议。</p>
 </div>
 <div class="section" id="id23">
-<h2>链接<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h2>
+<h2>3.5.11. 链接<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://atm.bdc.com.tw/~rocling/">ROCLING（计算语言学与中文语言处理协会）</a>,
 Taiwan</p></li>
@@ -634,6 +677,15 @@ Taiwan</p></li>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MMSeg_description.html" class="btn btn-neutral float-right" title="3.6. MMSeg 分词算法简述" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Maximum-entropy_Markov_model.html" class="btn btn-neutral float-left" title="3.4. 最大熵马尔可夫模型 MEMM（Maximum-entropy Markov model）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

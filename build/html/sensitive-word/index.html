@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>10. 敏感词 &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="10.6.1. FastScan" href="fastscan.html" />
+    <link rel="prev" title="9.6. 中国科学院计算技术研究所自然语言处理研究组" href="../Paper/nlp.ict.ac.cn.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/index.html">6. 语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/index.html">7. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">9. 论文 || 文章</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">10. 敏感词</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#textfilter">10.1. textfilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sensitive">10.2. sensitive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sensitive-word-filter">10.3. sensitive-word-filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fastscan">10.4. fastscan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ouch-words-cn">10.5. ouch-words-cn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">10.6. 菜单</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fastscan.html">10.6.1. FastScan</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">11. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>10. 敏感词</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/sensitive-word/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>10. 敏感词<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="textfilter">
+<h2>10.1. textfilter<a class="headerlink" href="#textfilter" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/observerss/textfilter">textfilter</a></p>
+<p>很短但是觉得挺有用的东东 所以单独立了个项目备份一下</p>
+<p>USAGE:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">DFAFilter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;sexy&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;hello sexy baby&quot;</span><span class="p">)</span>
+<span class="go">hello **** baby</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sensitive">
+<h2>10.2. sensitive<a class="headerlink" href="#sensitive" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/importcjj/sensitive">sensitive</a></p>
+<p>敏感词查找,验证,过滤和替换 🤓 FindAll, Validate, Filter and Replace
+words.</p>
+</div>
+<div class="section" id="sensitive-word-filter">
+<h2>10.3. sensitive-word-filter<a class="headerlink" href="#sensitive-word-filter" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/gaohuifeng/sensitive-word-filter">sensitive-word-filter</a></p>
+<p>天朝敏感词过滤 🤓 支持替换敏感词，已收录 1w+可自行添加</p>
+</div>
+<div class="section" id="fastscan">
+<h2>10.4. fastscan<a class="headerlink" href="#fastscan" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/pyloque/fastscan">fastscan</a></p>
+<p>苦于没有找到一个比较合适的敏感词过滤库，所以我自己花了点时间撸了一个。
+它基于广为人知的 ahocorasick 字符串匹配算法，使用原生的 js
+实现，浏览器和服务端都可以使用。</p>
+</div>
+<div class="section" id="ouch-words-cn">
+<h2>10.5. ouch-words-cn<a class="headerlink" href="#ouch-words-cn" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/bobauto/ouch-words-cn">ouch-words-cn</a></p>
+<p>中文敏感词库</p>
+</div>
+<div class="section" id="id2">
+<h2>10.6. 菜单<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="fastscan.html">10.6.1. FastScan</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fastscan.html#id1">10.6.1.1. 演示地址</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fastscan.html#id2">10.6.1.2. 安装方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fastscan.html#id3">10.6.1.3. 使用方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fastscan.html#api">10.6.1.4. API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fastscan.html#id4">10.6.1.5. 性能</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="fastscan.html" class="btn btn-neutral float-right" title="10.6.1. FastScan" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Paper/nlp.ict.ac.cn.html" class="btn btn-neutral float-left" title="9.6. 中国科学院计算技术研究所自然语言处理研究组" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6.3. 预先训练的模型 &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="6.4. 使用 BERT 进行预训练" href="Pre-training_with_BERT.html" />
+    <link rel="prev" title="6.2. 使用 BERT 进行微调" href="Fine-tuning_with_BERT.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">6. 语料库</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="FAQ.html">6.1. 常问问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fine-tuning_with_BERT.html">6.2. 使用 BERT 进行微调</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.3. 预先训练的模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pre-training_with_BERT.html">6.4. 使用 BERT 进行预训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using_BERT_in_Colab.html">6.5. 在 Colab 中使用 BERT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using_BERT_to_extract_fixed_feature_vectors.html">6.6. 使用 BERT 提取固定的特征向量 (像 ELMo)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="What_is_BERT.html">6.7. 什么是 BERT？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html">6.8. BERT 大规模预训练语言模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">6.9. 模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/Agricultural_Knowledge_Graph.html">6.10. 农业知识图谱(AgriKG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/ChineseNLPCorpus.html">6.11. Chinese NLP Corpus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/cnSchema.html">6.12. cnSchema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/index.html">6.13. 知识图谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/openkg.html">6.14. openkg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/LabelStyle.html">6.15. 现代汉语语料库加工规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/index.html">6.16. 标注规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/nation.html">6.17. 信息处理用现代汉语词类标记规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/nlpir.html">6.18. 计算所汉语词性标记集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GlobalWordNetAssociation.html">6.19. 全球 WordNet 协会</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HowNet.html">6.20. 知网</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Schema.html">6.21. Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aihanyu.html">6.22. 爱汉语语料库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cow.html">6.23. Chinese Open Wordnet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../csdn.html">6.24. CSDN 下载</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dianchacha.html">6.25. 店查查数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../funNLP.html">6.26. funNLP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nlp-datasets.html">6.27. nlp-datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pku-opendata.html">6.28. 北京大学开发数据研究平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wikipedia.html">6.29. 维基百科语料库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wordnet.html">6.30. WordNet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/index.html">7. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/index.html">9. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">6. 语料库</a> &raquo;</li>
+        
+      <li>6.3. 预先训练的模型</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Corpus/BERT/Pre-trained_models.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>6.3. 预先训练的模型<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>We are releasing the <code class="docutils literal notranslate"><span class="pre">BERT-Base</span></code> and <code class="docutils literal notranslate"><span class="pre">BERT-Large</span></code> models from the
+paper. <code class="docutils literal notranslate"><span class="pre">Uncased</span></code> means that the text has been lowercased before
+WordPiece tokenization, e.g., <code class="docutils literal notranslate"><span class="pre">John</span> <span class="pre">Smith</span></code> becomes <code class="docutils literal notranslate"><span class="pre">john</span> <span class="pre">smith</span></code>. The
+<code class="docutils literal notranslate"><span class="pre">Uncased</span></code> model also strips out any accent markers. <code class="docutils literal notranslate"><span class="pre">Cased</span></code> means
+that the true case and accent markers are preserved. Typically, the
+<code class="docutils literal notranslate"><span class="pre">Uncased</span></code> model is better unless you know that case information is
+important for your task (e.g., Named Entity Recognition or
+Part-of-Speech tagging).</p>
+<p>These models are all released under the same license as the source code
+(Apache 2.0).</p>
+<p>For information about the Multilingual and Chinese model, see the
+<a class="reference external" href="https://github.com/google-research/bert/blob/master/multilingual.md">Multilingual
+README</a>.</p>
+<p><strong>When using a cased model, make sure to pass ``–do_lower=False`` to
+the training scripts. (Or pass ``do_lower_case=False`` directly to
+``FullTokenizer`` if you’re using your own script.)</strong></p>
+<p>The links to the models are here (right-click, ‘Save link as…’ on the
+name):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">`BERT-Base,</span> <span class="pre">Uncased</span></code> &lt;<a class="reference external" href="https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip">https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-12_H-768_A-12.zip</a>&gt;`__:
+12-layer, 768-hidden, 12-heads, 110M parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">`BERT-Large,</span> <span class="pre">Uncased</span></code> &lt;<a class="reference external" href="https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-24_H-1024_A-16.zip">https://storage.googleapis.com/bert_models/2018_10_18/uncased_L-24_H-1024_A-16.zip</a>&gt;`__:
+24-layer, 1024-hidden, 16-heads, 340M parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">`BERT-Base,</span> <span class="pre">Cased</span></code> &lt;<a class="reference external" href="https://storage.googleapis.com/bert_models/2018_10_18/cased_L-12_H-768_A-12.zip">https://storage.googleapis.com/bert_models/2018_10_18/cased_L-12_H-768_A-12.zip</a>&gt;`__:
+12-layer, 768-hidden, 12-heads , 110M parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">`BERT-Large,</span> <span class="pre">Cased</span></code> &lt;<a class="reference external" href="https://storage.googleapis.com/bert_models/2018_10_18/cased_L-24_H-1024_A-16.zip">https://storage.googleapis.com/bert_models/2018_10_18/cased_L-24_H-1024_A-16.zip</a>&gt;`__:
+24-layer, 1024-hidden, 16-heads, 340M parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">`BERT-Base,</span> <span class="pre">Multilingual</span> <span class="pre">Cased</span> <span class="pre">(New,</span> <span class="pre">recommended)</span></code> &lt;<a class="reference external" href="https://storage.googleapis.com/bert_models/2018_11_23/multi_cased_L-12_H-768_A-12.zip">https://storage.googleapis.com/bert_models/2018_11_23/multi_cased_L-12_H-768_A-12.zip</a>&gt;`__:
+104 languages, 12-layer, 768-hidden, 12-heads, 110M parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">`BERT-Base,</span> <span class="pre">Multilingual</span> <span class="pre">Uncased</span> <span class="pre">(Orig,</span> <span class="pre">not</span> <span class="pre">recommended)</span></code> &lt;<a class="reference external" href="https://storage.googleapis.com/bert_models/2018_11_03/multilingual_L-12_H-768_A-12.zip">https://storage.googleapis.com/bert_models/2018_11_03/multilingual_L-12_H-768_A-12.zip</a>&gt;`__<strong>(Not
+recommended, use ``Multilingual Cased`` instead)</strong>: 102 languages,
+12-layer, 768-hidden, 12-heads, 110M parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">`BERT-Base,</span> <span class="pre">Chinese</span></code> &lt;<a class="reference external" href="https://storage.googleapis.com/bert_models/2018_11_03/chinese_L-12_H-768_A-12.zip">https://storage.googleapis.com/bert_models/2018_11_03/chinese_L-12_H-768_A-12.zip</a>&gt;`__:
+Chinese Simplified and Traditional, 12-layer, 768-hidden, 12-heads,
+110M parameters</p></li>
+</ul>
+<p>Each .zip file contains three items:</p>
+<ul class="simple">
+<li><p>A TensorFlow checkpoint (<code class="docutils literal notranslate"><span class="pre">bert_model.ckpt</span></code>) containing the
+pre-trained weights (which is actually 3 files).</p></li>
+<li><p>A vocab file (<code class="docutils literal notranslate"><span class="pre">vocab.txt</span></code>) to map WordPiece to word id.</p></li>
+<li><p>A config file (<code class="docutils literal notranslate"><span class="pre">bert_config.json</span></code>) which specifies the
+hyperparameters of the model.</p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Pre-training_with_BERT.html" class="btn btn-neutral float-right" title="6.4. 使用 BERT 进行预训练" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Fine-tuning_with_BERT.html" class="btn btn-neutral float-left" title="6.2. 使用 BERT 进行微调" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

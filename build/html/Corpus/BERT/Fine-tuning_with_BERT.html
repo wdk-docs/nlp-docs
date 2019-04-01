@@ -1,0 +1,635 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6.2. 使用 BERT 进行微调 &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="6.3. 预先训练的模型" href="Pre-trained_models.html" />
+    <link rel="prev" title="6.1. 常问问题" href="FAQ.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">6. 语料库</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="FAQ.html">6.1. 常问问题</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.2. 使用 BERT 进行微调</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tpu">6.2.1. 使用云 TPU 进行微调</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">6.2.2. 句子（和句子对）分类任务</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">6.2.2.1. 从分类器预测</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#squad-1-1">6.2.3. SQuAD 1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#squad-2-0">6.2.4. SQuAD 2.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">6.2.5. 内存不足的问题</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Pre-trained_models.html">6.3. 预先训练的模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pre-training_with_BERT.html">6.4. 使用 BERT 进行预训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using_BERT_in_Colab.html">6.5. 在 Colab 中使用 BERT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using_BERT_to_extract_fixed_feature_vectors.html">6.6. 使用 BERT 提取固定的特征向量 (像 ELMo)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="What_is_BERT.html">6.7. 什么是 BERT？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html">6.8. BERT 大规模预训练语言模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">6.9. 模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/Agricultural_Knowledge_Graph.html">6.10. 农业知识图谱(AgriKG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/ChineseNLPCorpus.html">6.11. Chinese NLP Corpus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/cnSchema.html">6.12. cnSchema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/index.html">6.13. 知识图谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/openkg.html">6.14. openkg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/LabelStyle.html">6.15. 现代汉语语料库加工规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/index.html">6.16. 标注规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/nation.html">6.17. 信息处理用现代汉语词类标记规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/nlpir.html">6.18. 计算所汉语词性标记集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GlobalWordNetAssociation.html">6.19. 全球 WordNet 协会</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HowNet.html">6.20. 知网</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Schema.html">6.21. Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aihanyu.html">6.22. 爱汉语语料库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cow.html">6.23. Chinese Open Wordnet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../csdn.html">6.24. CSDN 下载</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dianchacha.html">6.25. 店查查数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../funNLP.html">6.26. funNLP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nlp-datasets.html">6.27. nlp-datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pku-opendata.html">6.28. 北京大学开发数据研究平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wikipedia.html">6.29. 维基百科语料库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wordnet.html">6.30. WordNet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/index.html">7. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/index.html">9. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">6. 语料库</a> &raquo;</li>
+        
+      <li>6.2. 使用 BERT 进行微调</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Corpus/BERT/Fine-tuning_with_BERT.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bert">
+<h1>6.2. 使用 BERT 进行微调<a class="headerlink" href="#bert" title="永久链接至标题">¶</a></h1>
+<p>!!! important “”</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>All results on the paper were fine-tuned on a single Cloud TPU,which has 64GB of RAM.
+It is currently not possible to re-produce most of the `BERT-Large` results on the paper using a GPU with 12GB - 16GB of RAM, because the maximum batch size that can fit in memory is too small.
+We are working on adding code to this repository which allows for much larger effective batch size
+on the GPU.
+See the section on [out-of-memory issues](#out-of-memory-issues) for more details.
+</pre></div>
+</div>
+<p>This code was tested with TensorFlow 1.11.0. It was tested with Python2
+and Python3 (but more thoroughly with Python2, since this is what’s used
+internally in Google).</p>
+<p>The fine-tuning examples which use <code class="docutils literal notranslate"><span class="pre">BERT-Base</span></code> should be able to run
+on a GPU that has at least 12GB of RAM using the hyperparameters given.</p>
+<div class="section" id="tpu">
+<h2>6.2.1. 使用云 TPU 进行微调<a class="headerlink" href="#tpu" title="永久链接至标题">¶</a></h2>
+<p>Most of the examples below assumes that you will be running
+training/evaluation on your local machine, using a GPU like a Titan X or
+GTX 1080.</p>
+<p>However, if you have access to a Cloud TPU that you want to train on,
+just add the following flags to <code class="docutils literal notranslate"><span class="pre">run_classifier.py</span></code> or
+<code class="docutils literal notranslate"><span class="pre">run_squad.py</span></code>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>--use_tpu<span class="o">=</span>True <span class="se">\</span>
+--tpu_name<span class="o">=</span><span class="nv">$TPU_NAME</span>
+</pre></div>
+</div>
+<p>Please see the <a class="reference external" href="https://cloud.google.com/tpu/docs/tutorials/mnist">Google Cloud TPU
+tutorial</a> for how
+to use Cloud TPUs. Alternatively, you can use the Google Colab notebook
+“<a class="reference external" href="https://colab.research.google.com/github/tensorflow/tpu/blob/master/tools/colab/bert_finetuning_with_cloud_tpus.ipynb">BERT FineTuning with Cloud
+TPUs</a>”.</p>
+<p>On Cloud TPUs, the pretrained model and the output directory will need
+to be on Google Cloud Storage. For example, if you have a bucket named
+<code class="docutils literal notranslate"><span class="pre">some_bucket</span></code>, you might use the following flags instead:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">output_dir</span><span class="o">=</span><span class="n">gs</span><span class="p">:</span><span class="o">//</span><span class="n">some_bucket</span><span class="o">/</span><span class="n">my_output_dir</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>The unzipped pre-trained model files can also be found in the Google
+Cloud Storage folder <code class="docutils literal notranslate"><span class="pre">gs://bert_models/2018_10_18</span></code>.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">BERT_BASE_DIR</span><span class="o">=</span><span class="n">gs</span><span class="p">:</span><span class="o">//</span><span class="n">bert_models</span><span class="o">/</span><span class="mi">2018_10_18</span><span class="o">/</span><span class="n">uncased_L</span><span class="o">-</span><span class="mi">12</span><span class="n">_H</span><span class="o">-</span><span class="mi">768</span><span class="n">_A</span><span class="o">-</span><span class="mi">12</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>6.2.2. 句子（和句子对）分类任务<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>Before running this example you must download the <a class="reference external" href="https://gluebenchmark.com/tasks">GLUE
+data</a> by running <a class="reference external" href="https://gist.github.com/W4ngatang/60c2bdb54d156a41194446737ce03e2e">this
+script</a>
+and unpack it to some directory <code class="docutils literal notranslate"><span class="pre">$GLUE_DIR</span></code>.</p>
+<p>Next, download the <code class="docutils literal notranslate"><span class="pre">BERT-Base</span></code> checkpoint and unzip it to some
+directory <code class="docutils literal notranslate"><span class="pre">$BERT_BASE_DIR</span></code>.</p>
+<p>This example code fine-tunes <code class="docutils literal notranslate"><span class="pre">BERT-Base</span></code> on the Microsoft Research
+Paraphrase Corpus (MRPC) corpus, which only contains 3,600 examples and
+can fine-tune in a few minutes on most GPUs.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">BERT_BASE_DIR</span><span class="o">=</span>/path/to/bert/uncased_L-12_H-768_A-12
+<span class="nb">export</span> <span class="nv">GLUE_DIR</span><span class="o">=</span>/path/to/glue
+
+python run_classifier.py <span class="se">\</span>
+  --task_name<span class="o">=</span>MRPC <span class="se">\</span>
+  --do_train<span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
+  --do_eval<span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
+  --data_dir<span class="o">=</span><span class="nv">$GLUE_DIR</span>/MRPC <span class="se">\</span>
+  --vocab_file<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/vocab.txt <span class="se">\</span>
+  --bert_config_file<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/bert_config.json <span class="se">\</span>
+  --init_checkpoint<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/bert_model.ckpt <span class="se">\</span>
+  --max_seq_length<span class="o">=</span><span class="m">128</span> <span class="se">\</span>
+  --train_batch_size<span class="o">=</span><span class="m">32</span> <span class="se">\</span>
+  --learning_rate<span class="o">=</span>2e-5 <span class="se">\</span>
+  --num_train_epochs<span class="o">=</span><span class="m">3</span>.0 <span class="se">\</span>
+  --output_dir<span class="o">=</span>/tmp/mrpc_output/
+</pre></div>
+</div>
+<p>You should see output like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*****</span> <span class="n">Eval</span> <span class="n">results</span> <span class="o">*****</span>
+  <span class="n">eval_accuracy</span> <span class="o">=</span> <span class="mf">0.845588</span>
+  <span class="n">eval_loss</span> <span class="o">=</span> <span class="mf">0.505248</span>
+  <span class="n">global_step</span> <span class="o">=</span> <span class="mi">343</span>
+  <span class="n">loss</span> <span class="o">=</span> <span class="mf">0.505248</span>
+</pre></div>
+</div>
+<p>This means that the Dev set accuracy was 84.55%. Small sets like MRPC
+have a high variance in the Dev set accuracy, even when starting from
+the same pre-training checkpoint. If you re-run multiple times (making
+sure to point to different <code class="docutils literal notranslate"><span class="pre">output_dir</span></code>), you should see results
+between 84% and 88%.</p>
+<p>A few other pre-trained models are implemented off-the-shelf in
+<code class="docutils literal notranslate"><span class="pre">run_classifier.py</span></code>, so it should be straightforward to follow those
+examples to use BERT for any single-sentence or sentence-pair
+classification task.</p>
+<p>Note: You might see a message <code class="docutils literal notranslate"><span class="pre">Running</span> <span class="pre">train</span> <span class="pre">on</span> <span class="pre">CPU</span></code>. This really just
+means that it’s running on something other than a Cloud TPU, which
+includes a GPU.</p>
+<div class="section" id="id2">
+<h3>6.2.2.1. 从分类器预测<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>Once you have trained your classifier you can use it in inference mode
+by using the –do_predict=true command. You need to have a file named
+test.tsv in the input folder. Output will be created in file called
+test_results.tsv in the output folder. Each line will contain output for
+each sample, columns are the class probabilities.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">BERT_BASE_DIR</span><span class="o">=</span>/path/to/bert/uncased_L-12_H-768_A-12
+<span class="nb">export</span> <span class="nv">GLUE_DIR</span><span class="o">=</span>/path/to/glue
+<span class="nb">export</span> <span class="nv">TRAINED_CLASSIFIER</span><span class="o">=</span>/path/to/fine/tuned/classifier
+
+python run_classifier.py <span class="se">\</span>
+  --task_name<span class="o">=</span>MRPC <span class="se">\</span>
+  --do_predict<span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
+  --data_dir<span class="o">=</span><span class="nv">$GLUE_DIR</span>/MRPC <span class="se">\</span>
+  --vocab_file<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/vocab.txt <span class="se">\</span>
+  --bert_config_file<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/bert_config.json <span class="se">\</span>
+  --init_checkpoint<span class="o">=</span><span class="nv">$TRAINED_CLASSIFIER</span> <span class="se">\</span>
+  --max_seq_length<span class="o">=</span><span class="m">128</span> <span class="se">\</span>
+  --output_dir<span class="o">=</span>/tmp/mrpc_output/
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="squad-1-1">
+<h2>6.2.3. SQuAD 1.1<a class="headerlink" href="#squad-1-1" title="永久链接至标题">¶</a></h2>
+<p>The Stanford Question Answering Dataset (SQuAD) is a popular question
+answering benchmark dataset. BERT (at the time of the release) obtains
+state-of-the-art results on SQuAD with almost no task-specific network
+architecture modifications or data augmentation. However, it does
+require semi-complex data pre-processing and post-processing to deal
+with (a) the variable-length nature of SQuAD context paragraphs, and (b)
+the character-level answer annotations which are used for SQuAD
+training. This processing is implemented and documented in
+<code class="docutils literal notranslate"><span class="pre">run_squad.py</span></code>.</p>
+<p>To run on SQuAD, you will first need to download the dataset. The <a class="reference external" href="https://rajpurkar.github.io/SQuAD-explorer/">SQuAD
+website</a> does not seem
+to link to the v1.1 datasets any longer, but the necessary files can be
+found here:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://rajpurkar.github.io/SQuAD-explorer/dataset/train-v1.1.json">train-v1.1.json</a></p></li>
+<li><p><a class="reference external" href="https://rajpurkar.github.io/SQuAD-explorer/dataset/dev-v1.1.json">dev-v1.1.json</a></p></li>
+<li><p><a class="reference external" href="https://github.com/allenai/bi-att-flow/blob/master/squad/evaluate-v1.1.py">evaluate-v1.1.py</a></p></li>
+</ul>
+<p>Download these to some directory <code class="docutils literal notranslate"><span class="pre">$SQUAD_DIR</span></code>.</p>
+<p>The state-of-the-art SQuAD results from the paper currently cannot be
+reproduced on a 12GB-16GB GPU due to memory constraints (in fact, even
+batch size 1 does not seem to fit on a 12GB GPU using <code class="docutils literal notranslate"><span class="pre">BERT-Large</span></code>).
+However, a reasonably strong <code class="docutils literal notranslate"><span class="pre">BERT-Base</span></code> model can be trained on the
+GPU with these hyperparameters:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python run_squad.py <span class="se">\</span>
+  --vocab_file<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/vocab.txt <span class="se">\</span>
+  --bert_config_file<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/bert_config.json <span class="se">\</span>
+  --init_checkpoint<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/bert_model.ckpt <span class="se">\</span>
+  --do_train<span class="o">=</span>True <span class="se">\</span>
+  --train_file<span class="o">=</span><span class="nv">$SQUAD_DIR</span>/train-v1.1.json <span class="se">\</span>
+  --do_predict<span class="o">=</span>True <span class="se">\</span>
+  --predict_file<span class="o">=</span><span class="nv">$SQUAD_DIR</span>/dev-v1.1.json <span class="se">\</span>
+  --train_batch_size<span class="o">=</span><span class="m">12</span> <span class="se">\</span>
+  --learning_rate<span class="o">=</span>3e-5 <span class="se">\</span>
+  --num_train_epochs<span class="o">=</span><span class="m">2</span>.0 <span class="se">\</span>
+  --max_seq_length<span class="o">=</span><span class="m">384</span> <span class="se">\</span>
+  --doc_stride<span class="o">=</span><span class="m">128</span> <span class="se">\</span>
+  --output_dir<span class="o">=</span>/tmp/squad_base/
+</pre></div>
+</div>
+<p>The dev set predictions will be saved into a file called
+<code class="docutils literal notranslate"><span class="pre">predictions.json</span></code> in the <code class="docutils literal notranslate"><span class="pre">output_dir</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python <span class="nv">$SQUAD_DIR</span>/evaluate-v1.1.py <span class="nv">$SQUAD_DIR</span>/dev-v1.1.json ./squad/predictions.json
+</pre></div>
+</div>
+<p>Which should produce an output like this:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span><span class="s2">&quot;f1&quot;</span>: <span class="m">88</span>.41249612335034, <span class="s2">&quot;exact_match&quot;</span>: <span class="m">81</span>.2488174077578<span class="o">}</span>
+</pre></div>
+</div>
+<p>You should see a result similar to the 88.5% reported in the paper for
+<code class="docutils literal notranslate"><span class="pre">BERT-Base</span></code>.</p>
+<p>If you have access to a Cloud TPU, you can train with <code class="docutils literal notranslate"><span class="pre">BERT-Large</span></code>.
+Here is a set of hyperparameters (slightly different than the paper)
+which consistently obtain around 90.5%-91.0% F1 single-system trained
+only on SQuAD:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python run_squad.py <span class="se">\</span>
+  --vocab_file<span class="o">=</span><span class="nv">$BERT_LARGE_DIR</span>/vocab.txt <span class="se">\</span>
+  --bert_config_file<span class="o">=</span><span class="nv">$BERT_LARGE_DIR</span>/bert_config.json <span class="se">\</span>
+  --init_checkpoint<span class="o">=</span><span class="nv">$BERT_LARGE_DIR</span>/bert_model.ckpt <span class="se">\</span>
+  --do_train<span class="o">=</span>True <span class="se">\</span>
+  --train_file<span class="o">=</span><span class="nv">$SQUAD_DIR</span>/train-v1.1.json <span class="se">\</span>
+  --do_predict<span class="o">=</span>True <span class="se">\</span>
+  --predict_file<span class="o">=</span><span class="nv">$SQUAD_DIR</span>/dev-v1.1.json <span class="se">\</span>
+  --train_batch_size<span class="o">=</span><span class="m">24</span> <span class="se">\</span>
+  --learning_rate<span class="o">=</span>3e-5 <span class="se">\</span>
+  --num_train_epochs<span class="o">=</span><span class="m">2</span>.0 <span class="se">\</span>
+  --max_seq_length<span class="o">=</span><span class="m">384</span> <span class="se">\</span>
+  --doc_stride<span class="o">=</span><span class="m">128</span> <span class="se">\</span>
+  --output_dir<span class="o">=</span>gs://some_bucket/squad_large/ <span class="se">\</span>
+  --use_tpu<span class="o">=</span>True <span class="se">\</span>
+  --tpu_name<span class="o">=</span><span class="nv">$TPU_NAME</span>
+</pre></div>
+</div>
+<p>For example, one random run with these parameters produces the following
+Dev scores:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">{</span><span class="s2">&quot;f1&quot;</span>: <span class="m">90</span>.87081895814865, <span class="s2">&quot;exact_match&quot;</span>: <span class="m">84</span>.38978240302744<span class="o">}</span>
+</pre></div>
+</div>
+<p>If you fine-tune for one epoch on
+<a class="reference external" href="http://nlp.cs.washington.edu/triviaqa/">TriviaQA</a> before this the
+results will be even better, but you will need to convert TriviaQA into
+the SQuAD json format.</p>
+</div>
+<div class="section" id="squad-2-0">
+<h2>6.2.4. SQuAD 2.0<a class="headerlink" href="#squad-2-0" title="永久链接至标题">¶</a></h2>
+<p>This model is also implemented and documented in <code class="docutils literal notranslate"><span class="pre">run_squad.py</span></code>.</p>
+<p>To run on SQuAD 2.0, you will first need to download the dataset. The
+necessary files can be found here:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://rajpurkar.github.io/SQuAD-explorer/dataset/train-v2.0.json">train-v2.0.json</a></p></li>
+<li><p><a class="reference external" href="https://rajpurkar.github.io/SQuAD-explorer/dataset/dev-v2.0.json">dev-v2.0.json</a></p></li>
+<li><p><a class="reference external" href="https://worksheets.codalab.org/rest/bundles/0x6b567e1cf2e041ec80d7098f031c5c9e/contents/blob/">evaluate-v2.0.py</a></p></li>
+</ul>
+<p>Download these to some directory <code class="docutils literal notranslate"><span class="pre">$SQUAD_DIR</span></code>.</p>
+<p>On Cloud TPU you can run with BERT-Large as follows:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python run_squad.py <span class="se">\</span>
+  --vocab_file<span class="o">=</span><span class="nv">$BERT_LARGE_DIR</span>/vocab.txt <span class="se">\</span>
+  --bert_config_file<span class="o">=</span><span class="nv">$BERT_LARGE_DIR</span>/bert_config.json <span class="se">\</span>
+  --init_checkpoint<span class="o">=</span><span class="nv">$BERT_LARGE_DIR</span>/bert_model.ckpt <span class="se">\</span>
+  --do_train<span class="o">=</span>True <span class="se">\</span>
+  --train_file<span class="o">=</span><span class="nv">$SQUAD_DIR</span>/train-v2.0.json <span class="se">\</span>
+  --do_predict<span class="o">=</span>True <span class="se">\</span>
+  --predict_file<span class="o">=</span><span class="nv">$SQUAD_DIR</span>/dev-v2.0.json <span class="se">\</span>
+  --train_batch_size<span class="o">=</span><span class="m">24</span> <span class="se">\</span>
+  --learning_rate<span class="o">=</span>3e-5 <span class="se">\</span>
+  --num_train_epochs<span class="o">=</span><span class="m">2</span>.0 <span class="se">\</span>
+  --max_seq_length<span class="o">=</span><span class="m">384</span> <span class="se">\</span>
+  --doc_stride<span class="o">=</span><span class="m">128</span> <span class="se">\</span>
+  --output_dir<span class="o">=</span>gs://some_bucket/squad_large/ <span class="se">\</span>
+  --use_tpu<span class="o">=</span>True <span class="se">\</span>
+  --tpu_name<span class="o">=</span><span class="nv">$TPU_NAME</span> <span class="se">\</span>
+  --version_2_with_negative<span class="o">=</span>True
+</pre></div>
+</div>
+<p>We assume you have copied everything from the output directory to a
+local directory called ./squad/. The initial dev set predictions will be
+at ./squad/predictions.json and the differences between the score of no
+answer (“”) and the best non-null answer for each question will be in
+the file ./squad/null_odds.json</p>
+<p>Run this script to tune a threshold for predicting null versus non-null
+answers:</p>
+<p>python $SQUAD_DIR/evaluate-v2.0.py $SQUAD_DIR/dev-v2.0.json
+./squad/predictions.json –na-prob-file ./squad/null_odds.json</p>
+<p>Assume the script outputs “best_f1_thresh” THRESH. (Typical values are
+between -1.0 and -5.0). You can now re-run the model to generate
+predictions with the derived threshold or alternatively you can extract
+the appropriate answers from ./squad/nbest_predictions.json.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python run_squad.py <span class="se">\</span>
+  --vocab_file<span class="o">=</span><span class="nv">$BERT_LARGE_DIR</span>/vocab.txt <span class="se">\</span>
+  --bert_config_file<span class="o">=</span><span class="nv">$BERT_LARGE_DIR</span>/bert_config.json <span class="se">\</span>
+  --init_checkpoint<span class="o">=</span><span class="nv">$BERT_LARGE_DIR</span>/bert_model.ckpt <span class="se">\</span>
+  --do_train<span class="o">=</span>False <span class="se">\</span>
+  --train_file<span class="o">=</span><span class="nv">$SQUAD_DIR</span>/train-v2.0.json <span class="se">\</span>
+  --do_predict<span class="o">=</span>True <span class="se">\</span>
+  --predict_file<span class="o">=</span><span class="nv">$SQUAD_DIR</span>/dev-v2.0.json <span class="se">\</span>
+  --train_batch_size<span class="o">=</span><span class="m">24</span> <span class="se">\</span>
+  --learning_rate<span class="o">=</span>3e-5 <span class="se">\</span>
+  --num_train_epochs<span class="o">=</span><span class="m">2</span>.0 <span class="se">\</span>
+  --max_seq_length<span class="o">=</span><span class="m">384</span> <span class="se">\</span>
+  --doc_stride<span class="o">=</span><span class="m">128</span> <span class="se">\</span>
+  --output_dir<span class="o">=</span>gs://some_bucket/squad_large/ <span class="se">\</span>
+  --use_tpu<span class="o">=</span>True <span class="se">\</span>
+  --tpu_name<span class="o">=</span><span class="nv">$TPU_NAME</span> <span class="se">\</span>
+  --version_2_with_negative<span class="o">=</span>True <span class="se">\</span>
+  --null_score_diff_threshold<span class="o">=</span><span class="nv">$THRESH</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>6.2.5. 内存不足的问题<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>All experiments in the paper were fine-tuned on a Cloud TPU, which has
+64GB of device RAM. Therefore, when using a GPU with 12GB - 16GB of RAM,
+you are likely to encounter out-of-memory issues if you use the same
+hyperparameters described in the paper.</p>
+<p>The factors that affect memory usage are:</p>
+<ul class="simple">
+<li><p><strong>``max_seq_length``</strong>: The released models were trained with
+sequence lengths up to 512, but you can fine-tune with a shorter max
+sequence length to save substantial memory. This is controlled by the
+<code class="docutils literal notranslate"><span class="pre">max_seq_length</span></code> flag in our example code.</p></li>
+<li><p><strong>``train_batch_size``</strong>: The memory usage is also directly
+proportional to the batch size.</p></li>
+<li><p><strong>Model type, ``BERT-Base`` vs. ``BERT-Large``</strong>: The <code class="docutils literal notranslate"><span class="pre">BERT-Large</span></code>
+model requires significantly more memory than <code class="docutils literal notranslate"><span class="pre">BERT-Base</span></code>.</p></li>
+<li><p><strong>Optimizer</strong>: The default optimizer for BERT is Adam, which requires
+a lot of extra memory to store the <code class="docutils literal notranslate"><span class="pre">m</span></code> and <code class="docutils literal notranslate"><span class="pre">v</span></code> vectors. Switching
+to a more memory efficient optimizer can reduce memory usage, but can
+also affect the results. We have not experimented with other
+optimizers for fine-tuning.</p></li>
+</ul>
+<p>Using the default training scripts (<code class="docutils literal notranslate"><span class="pre">run_classifier.py</span></code> and
+<code class="docutils literal notranslate"><span class="pre">run_squad.py</span></code>), we benchmarked the maximum batch size on single Titan
+X GPU (12GB RAM) with TensorFlow 1.11.0:</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 27%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>System</p></th>
+<th class="head"><p>Seq Length</p></th>
+<th class="head"><p>Max Batch Size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">BERT-Base</span></code></p></td>
+<td><p>64</p></td>
+<td><p>64</p></td>
+</tr>
+<tr class="row-odd"><td><p>…</p></td>
+<td><p>128</p></td>
+<td><p>32</p></td>
+</tr>
+<tr class="row-even"><td><p>…</p></td>
+<td><p>256</p></td>
+<td><p>16</p></td>
+</tr>
+<tr class="row-odd"><td><p>…</p></td>
+<td><p>320</p></td>
+<td><p>14</p></td>
+</tr>
+<tr class="row-even"><td><p>…</p></td>
+<td><p>384</p></td>
+<td><p>12</p></td>
+</tr>
+<tr class="row-odd"><td><p>…</p></td>
+<td><p>512</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">BERT-Large</span></code></p></td>
+<td><p>64</p></td>
+<td><p>12</p></td>
+</tr>
+<tr class="row-odd"><td><p>…</p></td>
+<td><p>128</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>…</p></td>
+<td><p>256</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>…</p></td>
+<td><p>320</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>…</p></td>
+<td><p>384</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>…</p></td>
+<td><p>512</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>Unfortunately, these max batch sizes for <code class="docutils literal notranslate"><span class="pre">BERT-Large</span></code> are so small
+that they will actually harm the model accuracy, regardless of the
+learning rate used. We are working on adding code to this repository
+which will allow much larger effective batch sizes to be used on the
+GPU. The code will be based on one (or both) of the following
+techniques:</p>
+<ul class="simple">
+<li><p><strong>梯度积累</strong>: The samples in a minibatch are typically independent
+with respect to gradient computation (excluding batch normalization,
+which is not used here). This means that the gradients of multiple
+smaller minibatches can be accumulated before performing the weight
+update, and this will be exactly equivalent to a single larger
+update.</p></li>
+<li><p><a class="reference external" href="https://github.com/openai/gradient-checkpointing">梯度检查点</a>:
+The major use of GPU/TPU memory during DNN training is caching the
+intermediate activations in the forward pass that are necessary for
+efficient computation in the backward pass. “Gradient checkpointing”
+trades memory for compute time by re-computing the activations in an
+intelligent way.</p></li>
+</ul>
+<p><strong>However, this is not implemented in the current release.</strong></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Pre-trained_models.html" class="btn btn-neutral float-right" title="6.3. 预先训练的模型" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="FAQ.html" class="btn btn-neutral float-left" title="6.1. 常问问题" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

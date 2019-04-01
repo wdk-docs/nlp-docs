@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>JieBa &mdash; nlp-docs v2019.03.19 文档</title>
+  <title>7.1.3. JieBa &mdash; nlp-docs v2019.03.19 文档</title>
   
 
   
@@ -37,7 +37,9 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
     <link rel="index" title="索引" href="../../genindex.html" />
-    <link rel="search" title="搜索" href="../../search.html" /> 
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="7.1.4. CppJieba" href="JiebaCpp.html" />
+    <link rel="prev" title="7.1.2. train" href="../FoolNLTK/train.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -81,13 +83,62 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../index.html">自然语言处理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../Author/index.html">自然语言处理作者</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/index.html">算法汇总</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../awesome/index.html">awesome-nlp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">常用分词工具包</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../Paper/index.html">论文 || 文章</a></li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/index.html">6. 语料库</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">7. 常用分词工具包</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#id2">7.1. ## 菜单</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../FoolNLTK/index.html">7.1.1. FoolNLTK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../FoolNLTK/train.html">7.1.2. train</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">7.1.3. JieBa</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">7.1.3.1. 特点</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">7.1.3.2. 友情链接</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">7.1.3.3. 安装说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">7.1.3.4. 算法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">7.1.3.5. 主要功能</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">7.1.3.6. 延迟加载机制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">7.1.3.7. 其他词典</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">7.1.3.8. 其他语言实现</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19">7.1.3.9. 系统集成</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id20">7.1.3.10. 分词速度</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id21">7.1.3.11. 常见问题</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id26">7.1.3.12. 修订历史</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="JiebaCpp.html">7.1.4. CppJieba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JiebaNode.html">7.1.5. NodeJieba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../HanLP.html">7.1.6. HanLP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Jcseg.html">7.1.7. Jcseg logo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Jiagu.html">7.1.8. Jiagu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Keras.html">7.1.9. Keras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Keras.html#x-train-and-y-train-are-numpy-arrays-just-like-in-the-scikit-learn-api">7.1.10. x_train and y_train are Numpy arrays –just like in the Scikit-Learn API.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PyTorch.html">7.1.11. PyTorch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SnowNLP.html">7.1.12. SnowNLP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SpaCy.html">7.1.13. spacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../StanfordNLP.html">7.1.14. 斯坦福-StanfordNLP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../THULAC.html">7.1.15. 清华-THULAC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../TensorFlow.html">7.1.16. TensorFlow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ansj_seg.html">7.1.17. Ansj 中文分词</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../awesome.html">7.1.18. 👍🏻 表库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bosonnlp.html">7.1.19. 玻森数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ltp.html">7.1.20. 哈工大-LTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nlpair-ictclas.html">7.1.21. 中科院-NLPIR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nltk.html">7.1.22. NLTK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pkuseg.html">7.1.23. 北大-pkuseg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../scikit-learn.html">7.1.24. scikit-learn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sego.html">7.1.25. sego</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/index.html">9. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. 术语表</a></li>
 </ul>
 
             
@@ -133,7 +184,9 @@
     
       <li><a href="../../contents.html">Docs</a> &raquo;</li>
         
-      <li>JieBa</li>
+          <li><a href="../index.html">7. 常用分词工具包</a> &raquo;</li>
+        
+      <li>7.1.3. JieBa</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -153,13 +206,13 @@
            <div itemprop="articleBody">
             
   <div class="section" id="jieba">
-<h1>JieBa<a class="headerlink" href="#jieba" title="永久链接至标题">¶</a></h1>
+<h1>7.1.3. JieBa<a class="headerlink" href="#jieba" title="永久链接至标题">¶</a></h1>
 <blockquote>
 <div><p><a class="reference external" href="https://github.com/fxsjy/jieba">jieba</a>结巴分词</p>
 </div></blockquote>
 <p>“结巴”中文分词：做最好的 Python 中文分词组件</p>
 <div class="section" id="id1">
-<h2>特点<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<h2>7.1.3.1. 特点<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <ul>
 <li><p>支持三种分词模式：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- 精确模式，试图将句子最精确地切开，适合文本分析；
@@ -174,7 +227,7 @@
 </ul>
 </div>
 <div class="section" id="id2">
-<h2>友情链接<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2>7.1.3.2. 友情链接<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/baidu/lac">https://github.com/baidu/lac</a> 百度中文词法分析（分词+词性+专名）系统</p></li>
 <li><p><a class="reference external" href="https://github.com/baidu/AnyQ">https://github.com/baidu/AnyQ</a> 百度 FAQ 自动问答系统</p></li>
@@ -182,7 +235,7 @@
 </ul>
 </div>
 <div class="section" id="id3">
-<h2>安装说明<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2>7.1.3.3. 安装说明<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>代码对 Python 2/3 均兼容</p>
 <ul class="simple">
 <li><p>全自动安装：<code class="docutils literal notranslate"><span class="pre">easy_install</span> <span class="pre">jieba</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jieba</span></code> /
@@ -194,7 +247,7 @@
 </ul>
 </div>
 <div class="section" id="id4">
-<h2>算法<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<h2>7.1.3.4. 算法<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p>基于前缀词典实现高效的词图扫描，生成句子中汉字所有可能成词情况所构成的有向无环图
 (DAG)</p></li>
@@ -203,9 +256,9 @@
 </ul>
 </div>
 <div class="section" id="id5">
-<h2>主要功能<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<h2>7.1.3.5. 主要功能<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <div class="section" id="id6">
-<h3>1. 分词<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<h3>7.1.3.5.1. 1. 分词<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">jieba.cut</span></code> 方法接受三个输入参数: 需要分词的字符串；cut_all
 参数用来控制是否采用全模式；HMM 参数用来控制是否使用 HMM 模型</p></li>
@@ -251,9 +304,9 @@ UTF-8</p></li>
 </div>
 </div>
 <div class="section" id="id7">
-<h3>2. 添加自定义词典<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<h3>7.1.3.5.2. 2. 添加自定义词典<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
 <div class="section" id="id8">
-<h4>载入词典<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<h4>7.1.3.5.2.1. 载入词典<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
 <ul class="simple">
 <li><p>开发者可以指定自己自定义的词典，以便包含 jieba 词库里没有的词。虽然
 jieba 有新词识别能力，但是自行添加新词可以保证更高的正确率</p></li>
@@ -289,7 +342,7 @@ jieba 有新词识别能力，但是自行添加新词可以保证更高的正�
 </ul>
 </div>
 <div class="section" id="id9">
-<h4>调整词典<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h4>
+<h4>7.1.3.5.2.2. 调整词典<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h4>
 <ul class="simple">
 <li><p>使用 <code class="docutils literal notranslate"><span class="pre">add_word(word,</span> <span class="pre">freq=None,</span> <span class="pre">tag=None)</span></code> 和 <code class="docutils literal notranslate"><span class="pre">del_word(word)</span></code>
 可在程序中动态修改词典。</p></li>
@@ -319,9 +372,9 @@ jieba 有新词识别能力，但是自行添加新词可以保证更高的正�
 </div>
 </div>
 <div class="section" id="id10">
-<h3>3. 关键词提取<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<h3>7.1.3.5.3. 3. 关键词提取<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
 <div class="section" id="tf-idf">
-<h4>基于 TF-IDF 算法的关键词抽取<a class="headerlink" href="#tf-idf" title="永久链接至标题">¶</a></h4>
+<h4>7.1.3.5.3.1. 基于 TF-IDF 算法的关键词抽取<a class="headerlink" href="#tf-idf" title="永久链接至标题">¶</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">jieba.analyse</span></code></p>
 <ul class="simple">
 <li><p>jieba.analyse.extract_tags(sentence, topK=20, withWeight=False,
@@ -359,7 +412,7 @@ Words）文本语料库可以切换成自定义语料库的路径</p>
 </ul>
 </div>
 <div class="section" id="textrank">
-<h4>基于 TextRank 算法的关键词抽取<a class="headerlink" href="#textrank" title="永久链接至标题">¶</a></h4>
+<h4>7.1.3.5.3.2. 基于 TextRank 算法的关键词抽取<a class="headerlink" href="#textrank" title="永久链接至标题">¶</a></h4>
 <ul class="simple">
 <li><p>jieba.analyse.textrank(sentence, topK=20, withWeight=False,
 allowPOS=(‘ns’, ‘n’, ‘vn’, ‘v’))
@@ -369,7 +422,7 @@ allowPOS=(‘ns’, ‘n’, ‘vn’, ‘v’))
 <p>算法论文： <a class="reference external" href="http://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf">TextRank: Bringing Order into
 Texts</a></p>
 <div class="section" id="id11">
-<h5>基本思想:<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h5>
+<h5>7.1.3.5.3.2.1. 基本思想:<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h5>
 <ol class="arabic simple">
 <li><p>将待抽取关键词的文本进行分词</p></li>
 <li><p>以固定窗口大小(默认为 5，通过 span
@@ -378,14 +431,14 @@ Texts</a></p>
 </ol>
 </div>
 <div class="section" id="id12">
-<h5>使用示例:<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h5>
+<h5>7.1.3.5.3.2.2. 使用示例:<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h5>
 <p>见
 <a class="reference external" href="https://github.com/fxsjy/jieba/blob/master/test/demo.py">test/demo.py</a></p>
 </div>
 </div>
 </div>
 <div class="section" id="id13">
-<h3>4. 词性标注<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<h3>7.1.3.5.4. 4. 词性标注<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">jieba.posseg.POSTokenizer(tokenizer=None)</span></code>
 新建自定义分词器，<code class="docutils literal notranslate"><span class="pre">tokenizer</span></code> 参数可指定内部使用的
@@ -407,7 +460,7 @@ Texts</a></p>
 </div>
 </div>
 <div class="section" id="id14">
-<h3>5. 并行分词<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+<h3>7.1.3.5.5. 5. 并行分词<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p>原理：将目标文本按行分隔后，把各行文本分配到多个 Python
 进程并行分词，然后归并结果，从而获得分词速度的可观提升</p></li>
@@ -426,7 +479,7 @@ Texts</a></p>
 </ul>
 </div>
 <div class="section" id="tokenize">
-<h3>6. Tokenize：返回词语在原文的起止位置<a class="headerlink" href="#tokenize" title="永久链接至标题">¶</a></h3>
+<h3>7.1.3.5.6. 6. Tokenize：返回词语在原文的起止位置<a class="headerlink" href="#tokenize" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p>注意，输入参数只接受 unicode</p></li>
 <li><p>默认模式</p></li>
@@ -460,14 +513,14 @@ Texts</a></p>
 </div>
 </div>
 <div class="section" id="chineseanalyzer-for-whoosh">
-<h3>7. ChineseAnalyzer for Whoosh 搜索引擎<a class="headerlink" href="#chineseanalyzer-for-whoosh" title="永久链接至标题">¶</a></h3>
+<h3>7.1.3.5.7. 7. ChineseAnalyzer for Whoosh 搜索引擎<a class="headerlink" href="#chineseanalyzer-for-whoosh" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p>引用： <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">jieba.analyse</span> <span class="pre">import</span> <span class="pre">ChineseAnalyzer</span></code></p></li>
 <li><p>用法示例：<a class="reference external" href="https://github.com/fxsjy/jieba/blob/master/test/test_whoosh.py">https://github.com/fxsjy/jieba/blob/master/test/test_whoosh.py</a></p></li>
 </ul>
 </div>
 <div class="section" id="id15">
-<h3>8. 命令行分词<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+<h3>7.1.3.5.8. 8. 命令行分词<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
 <p>使用示例：<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">jieba</span> <span class="pre">news.txt</span> <span class="pre">&gt;</span> <span class="pre">cut_result.txt</span></code></p>
 <p>命令行选项（翻译）：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>使用: python -m jieba [options] filename
@@ -526,7 +579,7 @@ If no filename specified, use STDIN instead.
 </div>
 </div>
 <div class="section" id="id16">
-<h2>延迟加载机制<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
+<h2>7.1.3.6. 延迟加载机制<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
 <p>jieba 采用延迟加载，<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">jieba</span></code> 和 <code class="docutils literal notranslate"><span class="pre">jieba.Tokenizer()</span></code>
 不会立即触发词典的加载，一旦有必要才开始加载词典构建前缀字典。如果你想手工初始
 jieba，也可以手动初始化。</p>
@@ -543,7 +596,7 @@ jieba，也可以手动初始化。</p>
 <a class="reference external" href="https://github.com/fxsjy/jieba/blob/master/test/test_change_dictpath.py">https://github.com/fxsjy/jieba/blob/master/test/test_change_dictpath.py</a></p>
 </div>
 <div class="section" id="id17">
-<h2>其他词典<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h2>
+<h2>7.1.3.7. 其他词典<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h2>
 <ol class="arabic simple">
 <li><p>占用内存较小的词典文件
 <a class="reference external" href="https://github.com/fxsjy/jieba/raw/master/extra_dict/dict.txt.small">https://github.com/fxsjy/jieba/raw/master/extra_dict/dict.txt.small</a></p></li>
@@ -554,61 +607,61 @@ jieba，也可以手动初始化。</p>
 <code class="docutils literal notranslate"><span class="pre">jieba.set_dictionary('data/dict.txt.big')</span></code></p>
 </div>
 <div class="section" id="id18">
-<h2>其他语言实现<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
+<h2>7.1.3.8. 其他语言实现<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
 <div class="section" id="java">
-<h3>结巴分词 Java 版本<a class="headerlink" href="#java" title="永久链接至标题">¶</a></h3>
+<h3>7.1.3.8.1. 结巴分词 Java 版本<a class="headerlink" href="#java" title="永久链接至标题">¶</a></h3>
 <p>作者：piaolingxue 地址：<a class="reference external" href="https://github.com/huaban/jieba-analysis">https://github.com/huaban/jieba-analysis</a></p>
 </div>
 <div class="section" id="c">
-<h3>结巴分词 C++ 版本<a class="headerlink" href="#c" title="永久链接至标题">¶</a></h3>
+<h3>7.1.3.8.2. 结巴分词 C++ 版本<a class="headerlink" href="#c" title="永久链接至标题">¶</a></h3>
 <p>作者：yanyiwu 地址：<a class="reference external" href="https://github.com/yanyiwu/cppjieba">https://github.com/yanyiwu/cppjieba</a></p>
 </div>
 <div class="section" id="node-js">
-<h3>结巴分词 Node.js 版本<a class="headerlink" href="#node-js" title="永久链接至标题">¶</a></h3>
+<h3>7.1.3.8.3. 结巴分词 Node.js 版本<a class="headerlink" href="#node-js" title="永久链接至标题">¶</a></h3>
 <p>作者：yanyiwu 地址：<a class="reference external" href="https://github.com/yanyiwu/nodejieba">https://github.com/yanyiwu/nodejieba</a></p>
 </div>
 <div class="section" id="erlang">
-<h3>结巴分词 Erlang 版本<a class="headerlink" href="#erlang" title="永久链接至标题">¶</a></h3>
+<h3>7.1.3.8.4. 结巴分词 Erlang 版本<a class="headerlink" href="#erlang" title="永久链接至标题">¶</a></h3>
 <p>作者：falood 地址：<a class="reference external" href="https://github.com/falood/exjieba">https://github.com/falood/exjieba</a></p>
 </div>
 <div class="section" id="r">
-<h3>结巴分词 R 版本<a class="headerlink" href="#r" title="永久链接至标题">¶</a></h3>
+<h3>7.1.3.8.5. 结巴分词 R 版本<a class="headerlink" href="#r" title="永久链接至标题">¶</a></h3>
 <p>作者：qinwf 地址：<a class="reference external" href="https://github.com/qinwf/jiebaR">https://github.com/qinwf/jiebaR</a></p>
 </div>
 <div class="section" id="ios">
-<h3>结巴分词 iOS 版本<a class="headerlink" href="#ios" title="永久链接至标题">¶</a></h3>
+<h3>7.1.3.8.6. 结巴分词 iOS 版本<a class="headerlink" href="#ios" title="永久链接至标题">¶</a></h3>
 <p>作者：yanyiwu 地址：<a class="reference external" href="https://github.com/yanyiwu/iosjieba">https://github.com/yanyiwu/iosjieba</a></p>
 </div>
 <div class="section" id="php">
-<h3>结巴分词 PHP 版本<a class="headerlink" href="#php" title="永久链接至标题">¶</a></h3>
+<h3>7.1.3.8.7. 结巴分词 PHP 版本<a class="headerlink" href="#php" title="永久链接至标题">¶</a></h3>
 <p>作者：fukuball 地址：<a class="reference external" href="https://github.com/fukuball/jieba-php">https://github.com/fukuball/jieba-php</a></p>
 </div>
 <div class="section" id="net-c">
-<h3>结巴分词 .NET(C#) 版本<a class="headerlink" href="#net-c" title="永久链接至标题">¶</a></h3>
+<h3>7.1.3.8.8. 结巴分词 .NET(C#) 版本<a class="headerlink" href="#net-c" title="永久链接至标题">¶</a></h3>
 <p>作者：anderscui 地址：<a class="reference external" href="https://github.com/anderscui/jieba.NET/">https://github.com/anderscui/jieba.NET/</a></p>
 </div>
 <div class="section" id="go">
-<h3>结巴分词 Go 版本<a class="headerlink" href="#go" title="永久链接至标题">¶</a></h3>
+<h3>7.1.3.8.9. 结巴分词 Go 版本<a class="headerlink" href="#go" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p>作者: wangbin 地址: <a class="reference external" href="https://github.com/wangbin/jiebago">https://github.com/wangbin/jiebago</a></p></li>
 <li><p>作者: yanyiwu 地址: <a class="reference external" href="https://github.com/yanyiwu/gojieba">https://github.com/yanyiwu/gojieba</a></p></li>
 </ul>
 </div>
 <div class="section" id="android">
-<h3>结巴分词 Android 版本<a class="headerlink" href="#android" title="永久链接至标题">¶</a></h3>
+<h3>7.1.3.8.10. 结巴分词 Android 版本<a class="headerlink" href="#android" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p>作者 Dongliang.W 地址：<a class="reference external" href="https://github.com/452896915/jieba-android">https://github.com/452896915/jieba-android</a></p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="id19">
-<h2>系统集成<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h2>
+<h2>7.1.3.9. 系统集成<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Solr: <a class="reference external" href="https://github.com/sing1ee/jieba-solr">https://github.com/sing1ee/jieba-solr</a></p></li>
 </ol>
 </div>
 <div class="section" id="id20">
-<h2>分词速度<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h2>
+<h2>7.1.3.10. 分词速度<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p>1.5 MB / Second in Full Mode</p></li>
 <li><p>400 KB / Second in Default Mode</p></li>
@@ -616,25 +669,25 @@ jieba，也可以手动初始化。</p>
 </ul>
 </div>
 <div class="section" id="id21">
-<h2>常见问题<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h2>
+<h2>7.1.3.11. 常见问题<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h2>
 <div class="section" id="id22">
-<h3>1. 模型的数据是如何生成的？<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h3>
+<h3>7.1.3.11.1. 1. 模型的数据是如何生成的？<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h3>
 <p>详见： <a class="reference external" href="https://github.com/fxsjy/jieba/issues/7">https://github.com/fxsjy/jieba/issues/7</a></p>
 </div>
 <div class="section" id="id23">
-<h3>2. “台中”总是被切成“台 中”？（以及类似情况）<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h3>
+<h3>7.1.3.11.2. 2. “台中”总是被切成“台 中”？（以及类似情况）<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h3>
 <p>P(台中) ＜ P(台)×P(中)，“台中”词频不够导致其成词概率较低</p>
 <p>解决方法：强制调高词频</p>
 <p><code class="docutils literal notranslate"><span class="pre">jieba.add_word('台中')</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">jieba.suggest_freq('台中',</span> <span class="pre">True)</span></code></p>
 </div>
 <div class="section" id="id24">
-<h3>3. “今天天气 不错”应该被切成“今天 天气 不错”？（以及类似情况）<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h3>
+<h3>7.1.3.11.3. 3. “今天天气 不错”应该被切成“今天 天气 不错”？（以及类似情况）<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h3>
 <p>解决方法：强制调低词频</p>
 <p><code class="docutils literal notranslate"><span class="pre">jieba.suggest_freq(('今天',</span> <span class="pre">'天气'),</span> <span class="pre">True)</span></code></p>
 <p>或者直接删除该词 <code class="docutils literal notranslate"><span class="pre">jieba.del_word('今天天气')</span></code></p>
 </div>
 <div class="section" id="id25">
-<h3>4. 切出了词典中没有的词语，效果不理想？<a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h3>
+<h3>7.1.3.11.4. 4. 切出了词典中没有的词语，效果不理想？<a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h3>
 <p>解决方法：关闭新词发现</p>
 <p><code class="docutils literal notranslate"><span class="pre">jieba.cut('丰田太省了',</span> <span class="pre">HMM=False)</span></code>
 <code class="docutils literal notranslate"><span class="pre">jieba.cut('我们中出了一个叛徒',</span> <span class="pre">HMM=False)</span></code></p>
@@ -642,7 +695,7 @@ jieba，也可以手动初始化。</p>
 </div>
 </div>
 <div class="section" id="id26">
-<h2>修订历史<a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h2>
+<h2>7.1.3.12. 修订历史<a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h2>
 <p><a class="reference external" href="https://github.com/fxsjy/jieba/blob/master/Changelog">https://github.com/fxsjy/jieba/blob/master/Changelog</a></p>
 </div>
 </div>
@@ -652,6 +705,15 @@ jieba，也可以手动初始化。</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="JiebaCpp.html" class="btn btn-neutral float-right" title="7.1.4. CppJieba" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../FoolNLTK/train.html" class="btn btn-neutral float-left" title="7.1.2. train" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

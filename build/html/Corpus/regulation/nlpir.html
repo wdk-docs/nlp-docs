@@ -1,0 +1,1019 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6.18. 计算所汉语词性标记集 &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="6.19. 全球 WordNet 协会" href="../GlobalWordNetAssociation.html" />
+    <link rel="prev" title="6.17. 信息处理用现代汉语词类标记规范" href="nation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">6. 语料库</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../BERT/FAQ.html">6.1. 常问问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BERT/Fine-tuning_with_BERT.html">6.2. 使用 BERT 进行微调</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BERT/Pre-trained_models.html">6.3. 预先训练的模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BERT/Pre-training_with_BERT.html">6.4. 使用 BERT 进行预训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BERT/Using_BERT_in_Colab.html">6.5. 在 Colab 中使用 BERT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BERT/Using_BERT_to_extract_fixed_feature_vectors.html">6.6. 使用 BERT 提取固定的特征向量 (像 ELMo)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BERT/What_is_BERT.html">6.7. 什么是 BERT？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BERT/index.html">6.8. BERT 大规模预训练语言模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BERT/model.html">6.9. 模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/Agricultural_Knowledge_Graph.html">6.10. 农业知识图谱(AgriKG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/ChineseNLPCorpus.html">6.11. Chinese NLP Corpus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/cnSchema.html">6.12. cnSchema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/index.html">6.13. 知识图谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/openkg.html">6.14. openkg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LabelStyle.html">6.15. 现代汉语语料库加工规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html">6.16. 标注规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nation.html">6.17. 信息处理用现代汉语词类标记规范</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.18. 计算所汉语词性标记集</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">6.18.1. 目录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">6.18.2. 0. 说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">6.18.3. 1. 名词 (1 个一类，7 个二类，5 个三类)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">6.18.4. 2. 时间词(1 个一类，1 个二类)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">6.18.5. 3. 处所词(1 个一类)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">6.18.6. 4. 方位词(1 个一类)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">6.18.7. 5. 动词(1 个一类，9 个二类)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">6.18.8. 6. 形容词(1 个一类，4 个二类)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">6.18.9. 7. 区别词(1 个一类，2 个二类)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">6.18.10. 8. 状态词(1 个一类)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">6.18.11. 9. 代词(1 个一类，4 个二类，6 个三类)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">6.18.12. 10. 数词(1 个一类，1 个二类)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">6.18.13. 11. 量词(1 个一类，2 个二类)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">6.18.14. 12. 副词(1 个一类)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">6.18.15. 13. 介词(1 个一类，2 个二类)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">6.18.16. 14. 连词(1 个一类，1 个二类)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">6.18.17. 15. 助词(1 个一类，15 个二类)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">6.18.18. 16. 叹词(1 个一类)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">6.18.19. 17. 语气词(1 个一类)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">6.18.20. 18. 拟声词(1 个一类)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">6.18.21. 19. 前缀(1 个一类)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id23">6.18.22. 20. 后缀(1 个一类)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">6.18.23. 21. 字符串(1 个一类，2 个二类)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">6.18.24. 22. 标点符号(1 个一类，16 个二类)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../GlobalWordNetAssociation.html">6.19. 全球 WordNet 协会</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HowNet.html">6.20. 知网</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Schema.html">6.21. Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aihanyu.html">6.22. 爱汉语语料库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cow.html">6.23. Chinese Open Wordnet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../csdn.html">6.24. CSDN 下载</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dianchacha.html">6.25. 店查查数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../funNLP.html">6.26. funNLP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nlp-datasets.html">6.27. nlp-datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pku-opendata.html">6.28. 北京大学开发数据研究平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wikipedia.html">6.29. 维基百科语料库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wordnet.html">6.30. WordNet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/index.html">7. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/index.html">9. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">6. 语料库</a> &raquo;</li>
+        
+      <li>6.18. 计算所汉语词性标记集</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Corpus/regulation/nlpir.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>6.18. 计算所汉语词性标记集<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="http://ictclas.nlpir.org/nlpir/html/readme.htm">Version 3.0</a>
+Last-Modified: Fri, 15 May 2015 11:21:18 GMT</p>
+<p>制订人：刘群 张华平 张浩</p>
+<div class="section" id="id2">
+<h2>6.18.1. 目录<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple" start="0">
+<li><p>说明</p></li>
+<li><p>名词 (1 个一类，7 个二类，5 个三类)</p></li>
+<li><p>时间词(1 个一类，1 个二类)</p></li>
+<li><p>处所词(1 个一类)</p></li>
+<li><p>方位词(1 个一类)</p></li>
+<li><p>动词(1 个一类，9 个二类)</p></li>
+<li><p>形容词(1 个一类，4 个二类)</p></li>
+<li><p>区别词(1 个一类，2 个二类)</p></li>
+<li><p>状态词(1 个一类)</p></li>
+<li><p>代词(1 个一类，4 个二类，6 个三类)</p></li>
+<li><p>数词(1 个一类，1 个二类)</p></li>
+<li><p>量词(1 个一类，2 个二类)</p></li>
+<li><p>副词(1 个一类)</p></li>
+<li><p>介词(1 个一类，2 个二类)</p></li>
+<li><p>连词(1 个一类，1 个二类)</p></li>
+<li><p>助词(1 个一类，15 个二类)</p></li>
+<li><p>叹词(1 个一类)</p></li>
+<li><p>语气词(1 个一类)</p></li>
+<li><p>拟声词(1 个一类)</p></li>
+<li><p>前缀(1 个一类)</p></li>
+<li><p>后缀(1 个一类)</p></li>
+<li><p>字符串(1 个一类，2 个二类)</p></li>
+<li><p>标点符号(1 个一类，16 个二类)</p></li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h2>6.18.2. 0. 说明<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>计算所汉语词性标记集（共计 99 个，22 个一类，66 个二类，11
+个三类）主要用于中国科学院计算技术研究所研制的汉语词法分析器、句法分析器和汉英机器翻译系统。本标记集主要参考了以下词性标记集：</p>
+<ol class="arabic simple">
+<li><p>北大《人民日报》语料库词性标记集；</p></li>
+<li><p>北大 2002 新版词性标记集（草稿）；</p></li>
+<li><p>清华大学汉语树库词性标记集；</p></li>
+<li><p>教育部语用所词性标记集（国家推荐标准草案 2002 版）；</p></li>
+<li><p>美国宾州大学中文树库（ChinesePennTreeBank）词性标记集；</p></li>
+</ol>
+<p>由于计算所的汉语词法分析器主要采用北大《人民日报》语料库进行参数训练，因此本词性标记集主要以北大《人民日报》语料库的词性标记集为蓝本，并参考了北大《汉语语法信息词典》中给出的汉语词的语法信息。
+本标记集在制定过程中主要考虑了以下几方面的因素：</p>
+<ol class="arabic simple">
+<li><p>有助于提高汉语词法分析器的切分和标注正确率；</p></li>
+<li><p>有助于提高汉语句法分析器的正确率；</p></li>
+<li><p>有助于汉英机器翻译系统进行翻译；</p></li>
+<li><p>易于从北大《人民日报》语料库词性标记集进行转换；</p></li>
+<li><p>对于语法功能不同的词，在不造成词法分析和句法分析歧义区分困难的情况下，尽可能细分子类。</p></li>
+</ol>
+<p>基于以上考虑，我们在标注过程中尽量避免那些容易出错的词性标记，而采用那些不容易出错、而对提高汉语词法句法分析正确率有明显作用的标记。例如，在动词的子类中，我们参考了宾州大学中文树库的做法，把汉语动词“是”和“有”分别做成单独的标记，而没有采用“系动词”的标记。因为同样是“是”这个动词，其句法功能很多，作“系动词”只是其中一种功能，而要区分这些功能是非常困难的，会导致词法分析的正确率下降。</p>
+<p>在名词子类中，我们区分了“汉语人名”、“日语人名”和“翻译人名”，这不仅仅是因为这三种人名要采用不同的参数进行训练与识别，而且在汉英机器翻译中也要采用不同的分析算法进行翻译。又如，我们把表示时间的“数词＋‘年’”（如“1995
+年”）合并成一个时间词，而表示年头的“数词＋‘年’”分别标注为“数词”和“量词”，这是因为我们通过实验发现这种区分在词法分析阶段通过统计方法可以达到较高的正确率，而且这种区分对于后续的句法分析和机器翻译有非常重要的作用。</p>
+<p>对于某些词类（助词和标点符号），基本上是一个封闭集，而这些词类中各个词的语法功能相差很大，在这种情况下，我们尽可能地细分其子类。</p>
+<p>另外，与其他词性标记集类似，在我们的标记体系中，小类只是大类中一些有必要区分的一些特例，但小类的划分不满足完备性。</p>
+</div>
+<div class="section" id="id4">
+<h2>6.18.3. 1. 名词 (1 个一类，7 个二类，5 个三类)<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>名词分为以下子类：</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>一类</p></th>
+<th class="head"><p>二类</p></th>
+<th class="head"><p>三类</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>n</p></td>
+<td></td>
+<td></td>
+<td><p>名词</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>nr</p></td>
+<td></td>
+<td><p>人名</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>nr1</p></td>
+<td><p>汉语姓氏</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>nr2</p></td>
+<td><p>汉语名字</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>nrj</p></td>
+<td><p>日语人名</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>nrf</p></td>
+<td><p>音译人名</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ns</p></td>
+<td></td>
+<td><p>地名</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>nsf</p></td>
+<td><p>音译地名</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>nt</p></td>
+<td></td>
+<td><p>机构团体名</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>nz</p></td>
+<td></td>
+<td><p>其它专名</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>nl</p></td>
+<td></td>
+<td><p>名词性惯用语</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ng</p></td>
+<td></td>
+<td><p>名词性语素</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id5">
+<h2>6.18.4. 2. 时间词(1 个一类，1 个二类)<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 23%" />
+<col style="width: 54%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>一类</p></th>
+<th class="head"><p>二类</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>t</p></td>
+<td></td>
+<td><p>时间词</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>tg</p></td>
+<td><p>时间词性语素</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id6">
+<h2>6.18.5. 3. 处所词(1 个一类)<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>一类</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>s</p></td>
+<td><p>处所词</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id7">
+<h2>6.18.6. 4. 方位词(1 个一类)<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>一类</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>f</p></td>
+<td><p>方位词</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id8">
+<h2>6.18.7. 5. 动词(1 个一类，9 个二类)<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>一类</p></th>
+<th class="head"><p>二类</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>v</p></td>
+<td></td>
+<td><p>动词</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>vd</p></td>
+<td><p>副动词</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>vn</p></td>
+<td><p>名动词</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>vshi</p></td>
+<td><p>动词“是”</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>vyou</p></td>
+<td><p>动词“有”</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>vf</p></td>
+<td><p>趋向动词</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>vx</p></td>
+<td><p>形式动词</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>vi</p></td>
+<td><p>不及物动词（内动词）</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>vl</p></td>
+<td><p>动词性惯用语</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>vg</p></td>
+<td><p>动词性语素</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id9">
+<h2>6.18.8. 6. 形容词(1 个一类，4 个二类)<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>一类</p></th>
+<th class="head"><p>二类</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>a</p></td>
+<td></td>
+<td><p>形容词</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ad</p></td>
+<td><p>副形词</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>an</p></td>
+<td><p>名形词</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ag</p></td>
+<td><p>形容词性语素</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>al</p></td>
+<td><p>形容词性惯用语</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id10">
+<h2>6.18.9. 7. 区别词(1 个一类，2 个二类)<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>一类</p></th>
+<th class="head"><p>二类</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>b</p></td>
+<td></td>
+<td><p>区别词</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>bl</p></td>
+<td><p>区别词性惯用语</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id11">
+<h2>6.18.10. 8. 状态词(1 个一类)<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>一类</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>z</p></td>
+<td><p>状态词</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id12">
+<h2>6.18.11. 9. 代词(1 个一类，4 个二类，6 个三类)<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 47%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>一类</p></th>
+<th class="head"><p>二类</p></th>
+<th class="head"><p>三类</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>r</p></td>
+<td></td>
+<td></td>
+<td><p>代词</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>rr</p></td>
+<td></td>
+<td><p>人称代词</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>rz</p></td>
+<td></td>
+<td><p>指示代词</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>rzt</p></td>
+<td><p>时间指示代词</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>rzs</p></td>
+<td><p>处所指示代词</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>rzv</p></td>
+<td><p>谓词性指示代词</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ry</p></td>
+<td></td>
+<td><p>疑问代词</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>ryt</p></td>
+<td><p>时间疑问代词</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>rys</p></td>
+<td><p>处所疑问代词</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>ryv</p></td>
+<td><p>谓词性疑问代词</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>rg</p></td>
+<td></td>
+<td><p>代词性语素</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id13">
+<h2>6.18.12. 10. 数词(1 个一类，1 个二类)<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 30%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>一类</p></th>
+<th class="head"><p>二类</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>m</p></td>
+<td></td>
+<td><p>数词</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>mq</p></td>
+<td><p>数量词</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id14">
+<h2>6.18.13. 11. 量词(1 个一类，2 个二类)<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 30%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>一类</p></th>
+<th class="head"><p>二类</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>q</p></td>
+<td></td>
+<td><p>量词</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>qv</p></td>
+<td><p>动量词</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>qt</p></td>
+<td><p>时量词</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id15">
+<h2>6.18.14. 12. 副词(1 个一类)<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
+<p>d 副词</p>
+</div>
+<div class="section" id="id16">
+<h2>6.18.15. 13. 介词(1 个一类，2 个二类)<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>一类</p></th>
+<th class="head"><p>二类</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>p</p></td>
+<td></td>
+<td><p>介词</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>pba</p></td>
+<td><p>介词“把”</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>pbei</p></td>
+<td><p>介词“被”</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id17">
+<h2>6.18.16. 14. 连词(1 个一类，1 个二类)<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>一类</p></th>
+<th class="head"><p>二类</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>c</p></td>
+<td></td>
+<td><p>连词</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>cc</p></td>
+<td><p>并列连词</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id18">
+<h2>6.18.17. 15. 助词(1 个一类，15 个二类)<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 19%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>一类</p></th>
+<th class="head"><p>二类</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u</p></td>
+<td></td>
+<td><p>助词</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>uzhe</p></td>
+<td><p>着</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ule</p></td>
+<td><p>了 喽</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>uguo</p></td>
+<td><p>过</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ude1</p></td>
+<td><p>的 底</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ude2</p></td>
+<td><p>地</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ude3</p></td>
+<td><p>得</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>usuo</p></td>
+<td><p>所</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>udeng</p></td>
+<td><p>等 等等 云云</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>uyy</p></td>
+<td><p>一样 一般 似的 般</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>udh</p></td>
+<td><p>的话</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>uls</p></td>
+<td><p>来讲 来说 而言 说来</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>uzhi</p></td>
+<td><p>之</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ulian</p></td>
+<td><p>连 （“连小学生都会”）</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id19">
+<h2>6.18.18. 16. 叹词(1 个一类)<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>一类</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>e</p></td>
+<td><p>叹词</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id20">
+<h2>6.18.19. 17. 语气词(1 个一类)<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 76%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>一类</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>y</p></td>
+<td><p>语气词(delete yg)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id21">
+<h2>6.18.20. 18. 拟声词(1 个一类)<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>一类</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>o</p></td>
+<td><p>拟声词</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id22">
+<h2>6.18.21. 19. 前缀(1 个一类)<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>一类</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>h</p></td>
+<td><p>前缀</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id23">
+<h2>6.18.22. 20. 后缀(1 个一类)<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>一类</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>k</p></td>
+<td><p>后缀</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id24">
+<h2>6.18.23. 21. 字符串(1 个一类，2 个二类)<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>一类</p></th>
+<th class="head"><p>二类</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>x</p></td>
+<td></td>
+<td><p>字符串</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>xe</p></td>
+<td><p>Email 字符串</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>xs</p></td>
+<td><p>微博会话分隔符</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>xm</p></td>
+<td><p>表情符合</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>xu</p></td>
+<td><p>网址 URL</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id25">
+<h2>6.18.24. 22. 标点符号(1 个一类，16 个二类)<a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../GlobalWordNetAssociation.html" class="btn btn-neutral float-right" title="6.19. 全球 WordNet 协会" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nation.html" class="btn btn-neutral float-left" title="6.17. 信息处理用现代汉语词类标记规范" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

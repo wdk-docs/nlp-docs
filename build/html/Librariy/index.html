@@ -1,0 +1,555 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7. 常用分词工具包 &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="7.1.1. FoolNLTK" href="FoolNLTK/index.html" />
+    <link rel="prev" title="6.30. WordNet" href="../Corpus/wordnet.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/index.html">6. 语料库</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7. 常用分词工具包</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">7.1. ## 菜单</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="FoolNLTK/index.html">7.1.1. FoolNLTK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FoolNLTK/train.html">7.1.2. train</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JieBa/Jieba.html">7.1.3. JieBa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JieBa/JiebaCpp.html">7.1.4. CppJieba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JieBa/JiebaNode.html">7.1.5. NodeJieba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HanLP.html">7.1.6. HanLP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Jcseg.html">7.1.7. Jcseg logo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Jiagu.html">7.1.8. Jiagu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Keras.html">7.1.9. Keras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Keras.html#x-train-and-y-train-are-numpy-arrays-just-like-in-the-scikit-learn-api">7.1.10. x_train and y_train are Numpy arrays –just like in the Scikit-Learn API.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PyTorch.html">7.1.11. PyTorch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SnowNLP.html">7.1.12. SnowNLP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SpaCy.html">7.1.13. spacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StanfordNLP.html">7.1.14. 斯坦福-StanfordNLP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="THULAC.html">7.1.15. 清华-THULAC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TensorFlow.html">7.1.16. TensorFlow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ansj_seg.html">7.1.17. Ansj 中文分词</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awesome.html">7.1.18. 👍🏻 表库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bosonnlp.html">7.1.19. 玻森数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltp.html">7.1.20. 哈工大-LTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nlpair-ictclas.html">7.1.21. 中科院-NLPIR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nltk.html">7.1.22. NLTK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pkuseg.html">7.1.23. 北大-pkuseg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scikit-learn.html">7.1.24. scikit-learn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sego.html">7.1.25. sego</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">9. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">11. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>7. 常用分词工具包</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Librariy/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>7. 常用分词工具包<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 19%" />
+<col style="width: 20%" />
+<col style="width: 22%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>星</p></th>
+<th class="head"><p>更新</p></th>
+<th class="head"><p>活跃</p></th>
+<th class="head"><p>费用</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>jieba-结巴分词</p></td>
+<td><p>stars-jieba</p></td>
+<td><p>commit-jieba</p></td>
+<td><p>activity-jieba</p></td>
+<td><p>免费</p></td>
+</tr>
+<tr class="row-odd"><td><p>HanLP-汉语言处理包</p></td>
+<td><p>stars-hanlp</p></td>
+<td><p>commit-hanlp</p></td>
+<td><p>activity-hanlp</p></td>
+<td><p>免费</p></td>
+</tr>
+<tr class="row-even"><td><p>SnowNLP-中文的类库</p></td>
+<td><p>stars-snownlp</p></td>
+<td><p>commit-snownlp</p></td>
+<td><p>activity-snownlp</p></td>
+<td><p>免费</p></td>
+</tr>
+<tr class="row-odd"><td><p>pkuseg-北大多领域分词</p></td>
+<td><p>stars-pkuseg</p></td>
+<td><p>commit-pkuseg</p></td>
+<td><p>activity-pkuseg</p></td>
+<td><p>免费</p></td>
+</tr>
+<tr class="row-even"><td><p>NLPIR-中科院汉语分词</p></td>
+<td><p>stars-nlpir</p></td>
+<td><p>commit-nlpir</p></td>
+<td><p>activity-nlpir</p></td>
+<td><p>付费</p></td>
+</tr>
+<tr class="row-odd"><td><p>FoolNLTK-中文处理</p></td>
+<td><p>stars-foolnltk</p></td>
+<td><p>commit-foolnltk</p></td>
+<td><p>activity-foolnltk</p></td>
+<td><p>免费</p></td>
+</tr>
+<tr class="row-even"><td><p>pyltp-哈工大语言云</p></td>
+<td><p>stars-pyltp</p></td>
+<td><p>commit-pyltp</p></td>
+<td><p>activity-pyltp</p></td>
+<td><p>商用付费</p></td>
+</tr>
+<tr class="row-odd"><td><p>THULAC-清华词法分析</p></td>
+<td><p>stars-thulac</p></td>
+<td><p>commit-thulac</p></td>
+<td><p>activity-thulac</p></td>
+<td><p>商用付费</p></td>
+</tr>
+<tr class="row-even"><td><p>Jiagu-甲骨NLP</p></td>
+<td><p>stars-jiagu</p></td>
+<td><p>commit-jiagu</p></td>
+<td><p>activity-jiagu</p></td>
+<td><p>免费</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>分词</p></th>
+<th class="head"><p>词性</p></th>
+<th class="head"><p>实体</p></th>
+<th class="head"><p>情感</p></th>
+<th class="head"><p>提炼</p></th>
+<th class="head"><p>并行</p></th>
+<th class="head"><p>词典</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>jieba 结巴分词</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
+<td><p>×</p></td>
+<td><p>×</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
+</tr>
+<tr class="row-odd"><td><p>pkuseg-北大多领域分词</p></td>
+<td><p>√</p></td>
+<td><p>×</p></td>
+<td><p>×</p></td>
+<td><p>×</p></td>
+<td><p>×</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
+</tr>
+<tr class="row-even"><td><p>FoolNLTK</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
+<td><p>×</p></td>
+<td><p>×</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
+</tr>
+<tr class="row-odd"><td><p>HanLP-汉语言处理包</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
+<td><p>√</p></td>
+<td><p>×</p></td>
+<td><p>√</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id2">
+<h2>7.1. ## 菜单<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="FoolNLTK/index.html">7.1.1. FoolNLTK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FoolNLTK/index.html#id1">7.1.1.1. 特点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FoolNLTK/index.html#id2">7.1.1.2. 定制自己的模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FoolNLTK/index.html#id3">7.1.1.3. 安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FoolNLTK/index.html#id4">7.1.1.4. 使用说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FoolNLTK/index.html#id9">7.1.1.5. 其他语言版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FoolNLTK/index.html#id10">7.1.1.6. 注意</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FoolNLTK/train.html">7.1.2. train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JieBa/Jieba.html">7.1.3. JieBa</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/Jieba.html#id1">7.1.3.1. 特点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/Jieba.html#id2">7.1.3.2. 友情链接</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/Jieba.html#id3">7.1.3.3. 安装说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/Jieba.html#id4">7.1.3.4. 算法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/Jieba.html#id5">7.1.3.5. 主要功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/Jieba.html#id16">7.1.3.6. 延迟加载机制</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/Jieba.html#id17">7.1.3.7. 其他词典</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/Jieba.html#id18">7.1.3.8. 其他语言实现</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/Jieba.html#id19">7.1.3.9. 系统集成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/Jieba.html#id20">7.1.3.10. 分词速度</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/Jieba.html#id21">7.1.3.11. 常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/Jieba.html#id26">7.1.3.12. 修订历史</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="JieBa/JiebaCpp.html">7.1.4. CppJieba</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaCpp.html#id1">7.1.4.1. 特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaCpp.html#id2">7.1.4.2. 用法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaCpp.html#demo">7.1.4.3. Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaCpp.html#id9">7.1.4.4. 其它词典资料分享</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaCpp.html#id10">7.1.4.5. 应用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaCpp.html#id11">7.1.4.6. 线上演示</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaCpp.html#id12">7.1.4.7. 性能评测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaCpp.html#id13">7.1.4.8. 客服</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaCpp.html#id14">7.1.4.9. 鸣谢</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaCpp.html#id15">7.1.4.10. 许可证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaCpp.html#id16">7.1.4.11. 作者</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="JieBa/JiebaNode.html">7.1.5. NodeJieba</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaNode.html#id1">7.1.5.1. 介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaNode.html#id2">7.1.5.2. 特点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaNode.html#id3">7.1.5.3. 下载</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaNode.html#id4">7.1.5.4. 用法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaNode.html#id8">7.1.5.5. 测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaNode.html#id9">7.1.5.6. 应用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaNode.html#id10">7.1.5.7. 性能评测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaNode.html#id11">7.1.5.8. 在线演示</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaNode.html#windows">7.1.5.9. Windows 安转</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaNode.html#id12">7.1.5.10. 客服</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaNode.html#id13">7.1.5.11. 许可证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaNode.html#id14">7.1.5.12. 鸣谢</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JieBa/JiebaNode.html#id15">7.1.5.13. 作者</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="HanLP.html">7.1.6. HanLP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="HanLP.html#id1">7.1.6.1. 项目主页</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HanLP.html#id2">7.1.6.2. 下载与配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HanLP.html#id3">7.1.6.3. 调用方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HanLP.html#id21">7.1.6.4. 词典说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HanLP.html#id26">7.1.6.5. 版权</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Jcseg.html">7.1.7. Jcseg logo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Jcseg.html#jcseg">7.1.7.1. # <strong>Jcseg</strong>是什么？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jcseg.html#id1">7.1.7.2. # <strong>Jcseg</strong>核心功能：</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jcseg.html#id2">7.1.7.3. # <strong>Jcseg</strong>中文分词：</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jcseg.html#id3">7.1.7.4. # <strong>Jcseg</strong>快速体验：</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jcseg.html#jcseg-maven">7.1.7.5. <strong>Jcseg</strong> Maven仓库：</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jcseg.html#jcseg-lucene">7.1.7.6. # <strong>Jcseg</strong> lucene分词接口：</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jcseg.html#jcseg-solr">7.1.7.7. # <strong>Jcseg</strong> solr分词接口：</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jcseg.html#jcseg-elasticsearch">7.1.7.8. # <strong>Jcseg</strong> elasticsearch接口：</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jcseg.html#id8">7.1.7.9. # <strong>Jcseg</strong>分词服务器:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jcseg.html#id9">7.1.7.10. # <em>Jcseg</em>二次开发:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jcseg.html#id10">7.1.7.11. 相关附录</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Jiagu.html">7.1.8. Jiagu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Jiagu.html#id1">7.1.8.1. 目录</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Jiagu.html#id5">7.1.8.2. 附录</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Keras.html">7.1.9. Keras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Keras.html#x-train-and-y-train-are-numpy-arrays-just-like-in-the-scikit-learn-api">7.1.10. x_train and y_train are Numpy arrays –just like in the Scikit-Learn API.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch.html">7.1.11. PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SnowNLP.html">7.1.12. SnowNLP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="SnowNLP.html#features">7.1.12.1. Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SnowNLP.html#get-it-now">7.1.12.2. Get It now</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SnowNLP.html#id1">7.1.12.3. 关于训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SnowNLP.html#license">7.1.12.4. License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SpaCy.html">7.1.13. spacy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StanfordNLP.html">7.1.14. 斯坦福-StanfordNLP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="StanfordNLP.html#id1">7.1.14.1. 参考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StanfordNLP.html#id2">7.1.14.2. 问题和使用问答</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StanfordNLP.html#id3">7.1.14.3. 安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StanfordNLP.html#id4">7.1.14.4. 运行 StanfordNLP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StanfordNLP.html#id8">7.1.14.5. 训练自己的神经管道</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StanfordNLP.html#id9">7.1.14.6. 执照</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="THULAC.html">7.1.15. 清华-THULAC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="THULAC.html#id1">7.1.15.1. 软件简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="THULAC.html#id2">7.1.15.2. 在线演示</a></li>
+<li class="toctree-l2"><a class="reference internal" href="THULAC.html#id3">7.1.15.3. 编译和安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="THULAC.html#id4">7.1.15.4. 使用方式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="THULAC.html#id5">7.1.15.5. 与代表性分词软件的性能对比</a></li>
+<li class="toctree-l2"><a class="reference internal" href="THULAC.html#id6">7.1.15.6. 词性标记集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="THULAC.html#id7">7.1.15.7. THULAC 的不同配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="THULAC.html#id8">7.1.15.8. 获取链接</a></li>
+<li class="toctree-l2"><a class="reference internal" href="THULAC.html#id9">7.1.15.9. 注意事项</a></li>
+<li class="toctree-l2"><a class="reference internal" href="THULAC.html#id10">7.1.15.10. 历史</a></li>
+<li class="toctree-l2"><a class="reference internal" href="THULAC.html#id11">7.1.15.11. 开源协议</a></li>
+<li class="toctree-l2"><a class="reference internal" href="THULAC.html#id12">7.1.15.12. 相关论文</a></li>
+<li class="toctree-l2"><a class="reference internal" href="THULAC.html#id13">7.1.15.13. 常见问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="THULAC.html#id14">7.1.15.14. 致谢</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="TensorFlow.html">7.1.16. TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ansj_seg.html">7.1.17. Ansj 中文分词</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ansj_seg.html#id1">7.1.17.1. 摘要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ansj_seg.html#jar">7.1.17.2. 下载 jar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ansj_seg.html#maven">7.1.17.3. maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ansj_seg.html#demo">7.1.17.4. 调用 demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ansj_seg.html#join-us">7.1.17.5. Join Us</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="awesome.html">7.1.18. 👍🏻 表库</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="awesome.html#id2">7.1.18.1. 语言库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awesome.html#id3">7.1.18.2. 服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="awesome.html#id4">7.1.18.3. 注释工具</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bosonnlp.html">7.1.19. 玻森数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltp.html">7.1.20. 哈工大-LTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nlpair-ictclas.html">7.1.21. 中科院-NLPIR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nlpair-ictclas.html#id1">7.1.21.1. 功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nlpair-ictclas.html#id2">7.1.21.2. 新词识别与自适应分词功能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nlpair-ictclas.html#id3">7.1.21.3. 用户专业词典功能</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nltk.html">7.1.22. NLTK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pkuseg.html">7.1.23. 北大-pkuseg</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pkuseg.html#id1">7.1.23.1. 主要亮点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkuseg.html#id2">7.1.23.2. 编译和安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkuseg.html#id3">7.1.23.3. 使用方式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkuseg.html#id7">7.1.23.4. 预训练模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkuseg.html#id8">7.1.23.5. 各类分词工具包的性能对比</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkuseg.html#id11">7.1.23.6. 版本历史</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkuseg.html#id12">7.1.23.7. 开源协议</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkuseg.html#id13">7.1.23.8. 相关论文</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkuseg.html#id14">7.1.23.9. 常见问题及解答</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pkuseg.html#id15">7.1.23.10. 作者</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scikit-learn.html">7.1.24. scikit-learn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scikit-learn.html#id1">7.1.24.1. 安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scikit-learn.html#id2">7.1.24.2. 更新日志</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scikit-learn.html#id3">7.1.24.3. 发展</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scikit-learn.html#id4">7.1.24.4. 项目历史</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scikit-learn.html#id5">7.1.24.5. 帮助和支持</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sego.html">7.1.25. sego</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sego.html#id1">7.1.25.1. 安装/更新</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sego.html#id2">7.1.25.2. 使用</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="FoolNLTK/index.html" class="btn btn-neutral float-right" title="7.1.1. FoolNLTK" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Corpus/wordnet.html" class="btn btn-neutral float-left" title="6.30. WordNet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

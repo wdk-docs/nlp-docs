@@ -376,7 +376,7 @@ enginee：\ `tinyfool/ChineseWithEnglish <https://github.com/tinyfool/ChineseWit
 
 在 2016 年 6 月 7 日 9:44 执行測試，结果如下
 
-.. code:: python
+.. code:: sh
 
    Hi，all。下周一下午三点开会
 
@@ -439,7 +439,7 @@ enginee：\ `tinyfool/ChineseWithEnglish <https://github.com/tinyfool/ChineseWit
 
 该数据文件中，每一行为一条 json 格式的谣言数据，字段释义如下：
 
-.. code:: csv
+.. code:: sh
 
    rumorCode: 该条谣言的唯一编码，可以通过该编码直接访问该谣言举报页面。
    title: 该条谣言被举报的标题内容

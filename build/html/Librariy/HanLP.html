@@ -1,0 +1,1350 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7.1.6. HanLP &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="7.1.7. Jcseg logo" href="Jcseg.html" />
+    <link rel="prev" title="7.1.5. NodeJieba" href="JieBa/JiebaNode.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/index.html">6. 语料库</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">7. 常用分词工具包</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#id2">7.1. ## 菜单</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="FoolNLTK/index.html">7.1.1. FoolNLTK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FoolNLTK/train.html">7.1.2. train</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JieBa/Jieba.html">7.1.3. JieBa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JieBa/JiebaCpp.html">7.1.4. CppJieba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JieBa/JiebaNode.html">7.1.5. NodeJieba</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">7.1.6. HanLP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">7.1.6.1. 项目主页</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">7.1.6.2. 下载与配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">7.1.6.3. 调用方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id21">7.1.6.4. 词典说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id26">7.1.6.5. 版权</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Jcseg.html">7.1.7. Jcseg logo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Jiagu.html">7.1.8. Jiagu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Keras.html">7.1.9. Keras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Keras.html#x-train-and-y-train-are-numpy-arrays-just-like-in-the-scikit-learn-api">7.1.10. x_train and y_train are Numpy arrays –just like in the Scikit-Learn API.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PyTorch.html">7.1.11. PyTorch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SnowNLP.html">7.1.12. SnowNLP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SpaCy.html">7.1.13. spacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StanfordNLP.html">7.1.14. 斯坦福-StanfordNLP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="THULAC.html">7.1.15. 清华-THULAC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TensorFlow.html">7.1.16. TensorFlow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ansj_seg.html">7.1.17. Ansj 中文分词</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awesome.html">7.1.18. 👍🏻 表库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bosonnlp.html">7.1.19. 玻森数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltp.html">7.1.20. 哈工大-LTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nlpair-ictclas.html">7.1.21. 中科院-NLPIR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nltk.html">7.1.22. NLTK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pkuseg.html">7.1.23. 北大-pkuseg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scikit-learn.html">7.1.24. scikit-learn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sego.html">7.1.25. sego</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">9. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">11. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">7. 常用分词工具包</a> &raquo;</li>
+        
+      <li>7.1.6. HanLP</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Librariy/HanLP.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="hanlp">
+<h1>7.1.6. HanLP<a class="headerlink" href="#hanlp" title="永久链接至标题">¶</a></h1>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/hankcs/HanLP">汉语言处理包 Han Language
+Processing</a></p>
+</div></blockquote>
+<p>HanLP 是一系列模型与算法组成的 NLP
+工具包，由大快搜索主导并完全开源，目标是普及自然语言处理在生产环境中的应用。HanLP
+具备功能完善、性能高效、架构清晰、语料时新、可自定义的特点。</p>
+<p>HanLP 提供下列功能：</p>
+<ul class="simple">
+<li><p>中文分词</p>
+<ul>
+<li><p>HMM-Bigram（速度与精度最佳平衡；一百兆内存）</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP#1-%E7%AC%AC%E4%B8%80%E4%B8%AAdemo">最短路分词</a>、<a class="reference external" href="https://github.com/hankcs/HanLP#5-n-%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E5%88%86%E8%AF%8D">N-最短路分词</a></p></li>
+</ul>
+</li>
+<li><p>由字构词（侧重精度，全世界最大语料库，可识别新词；适合 NLP 任务）</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP/wiki/%E7%BB%93%E6%9E%84%E5%8C%96%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%A0%87%E6%B3%A8%E6%A1%86%E6%9E%B6">感知机分词</a>、<a class="reference external" href="https://github.com/hankcs/HanLP#6-crf%E5%88%86%E8%AF%8D">CRF
+分词</a></p></li>
+</ul>
+</li>
+<li><p>词典分词（侧重速度，每秒数千万字符；省内存）</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP#7-%E6%9E%81%E9%80%9F%E8%AF%8D%E5%85%B8%E5%88%86%E8%AF%8D">极速词典分词</a></p></li>
+</ul>
+</li>
+<li><p>所有分词器都支持：</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP#4-%E7%B4%A2%E5%BC%95%E5%88%86%E8%AF%8D">索引全切分模式</a></p></li>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP#8-%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%8D%E5%85%B8">用户自定义词典</a></p></li>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP/blob/master/src/test/java/com/hankcs/demo/DemoPerceptronLexicalAnalyzer.java#L29">兼容繁体中文</a></p></li>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP/wiki">训练用户自己的领域模型</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>词性标注</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP/blob/master/src/main/java/com/hankcs/hanlp/seg/Segment.java#L584">HMM
+词性标注</a>（速度快）</p></li>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP/wiki/%E7%BB%93%E6%9E%84%E5%8C%96%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%A0%87%E6%B3%A8%E6%A1%86%E6%9E%B6">感知机词性标注</a>、<a class="reference external" href="https://github.com/hankcs/HanLP/wiki/CRF%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90">CRF
+词性标注</a>（精度高）</p></li>
+</ul>
+</li>
+<li><p>命名实体识别</p>
+<ul>
+<li><p>基于 HMM 角色标注的命名实体识别 （速度快）</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP#9-%E4%B8%AD%E5%9B%BD%E4%BA%BA%E5%90%8D%E8%AF%86%E5%88%AB">中国人名识别</a>、<a class="reference external" href="https://github.com/hankcs/HanLP#10-%E9%9F%B3%E8%AF%91%E4%BA%BA%E5%90%8D%E8%AF%86%E5%88%AB">音译人名识别</a>、<a class="reference external" href="https://github.com/hankcs/HanLP#11-%E6%97%A5%E6%9C%AC%E4%BA%BA%E5%90%8D%E8%AF%86%E5%88%AB">日本人名识别</a>、<a class="reference external" href="https://github.com/hankcs/HanLP#12-%E5%9C%B0%E5%90%8D%E8%AF%86%E5%88%AB">地名识别</a>、<a class="reference external" href="https://github.com/hankcs/HanLP#13-%E6%9C%BA%E6%9E%84%E5%90%8D%E8%AF%86%E5%88%AB">实体机构名识别</a></p></li>
+</ul>
+</li>
+<li><p>基于线性模型的命名实体识别（精度高）</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP/wiki/%E7%BB%93%E6%9E%84%E5%8C%96%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%A0%87%E6%B3%A8%E6%A1%86%E6%9E%B6">感知机命名实体识别</a>、<a class="reference external" href="https://github.com/hankcs/HanLP/wiki/CRF%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90">CRF
+命名实体识别</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>关键词提取</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP#14-%E5%85%B3%E9%94%AE%E8%AF%8D%E6%8F%90%E5%8F%96">TextRank
+关键词提取</a></p></li>
+</ul>
+</li>
+<li><p>自动摘要</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP#15-%E8%87%AA%E5%8A%A8%E6%91%98%E8%A6%81">TextRank
+自动摘要</a></p></li>
+</ul>
+</li>
+<li><p>短语提取</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP#16-%E7%9F%AD%E8%AF%AD%E6%8F%90%E5%8F%96">基于互信息和左右信息熵的短语提取</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP#17-%E6%8B%BC%E9%9F%B3%E8%BD%AC%E6%8D%A2">拼音转换</a></p>
+<ul>
+<li><p>多音字、声母、韵母、声调</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP#18-%E7%AE%80%E7%B9%81%E8%BD%AC%E6%8D%A2">简繁转换</a></p>
+<ul>
+<li><p>简繁分歧词（简体、繁体、臺灣正體、香港繁體）</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP#19-%E6%96%87%E6%9C%AC%E6%8E%A8%E8%8D%90">文本推荐</a></p>
+<ul>
+<li><p>语义推荐、拼音推荐、字词推荐</p></li>
+</ul>
+</li>
+<li><p>依存句法分析</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP#21-%E4%BE%9D%E5%AD%98%E5%8F%A5%E6%B3%95%E5%88%86%E6%9E%90">基于神经网络的高性能依存句法分析器</a></p></li>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP/blob/master/src/test/java/com/hankcs/demo/DemoDependencyParser.java#L34">基于 ArcEager
+转移系统的柱搜索依存句法分析器</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP/wiki/%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E4%B8%8E%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90">文本分类</a></p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP/wiki/%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E4%B8%8E%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90#%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90">情感分析</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP/wiki/%E6%96%87%E6%9C%AC%E8%81%9A%E7%B1%BB">文本聚类</a></p>
+<ul>
+<li><p>KMeans、Repeated Bisection、自动推断聚类数目 k</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP/wiki/word2vec">word2vec</a></p>
+<ul>
+<li><p>词向量训练、加载、词语相似度计算、语义运算、查询、KMeans 聚类</p></li>
+<li><p>文档语义相似度计算</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP/tree/master/src/main/java/com/hankcs/hanlp/corpus">语料库工具</a></p>
+<ul>
+<li><p>部分默认模型训练自小型语料库，鼓励用户自行训练。所有模块提供<a class="reference external" href="https://github.com/hankcs/HanLP/wiki">训练接口</a>，语料可参考<a class="reference external" href="http://hanlp.linrunsoft.com/release/corpus/pku98.zip">98
+年人民日报语料库</a>。</p></li>
+</ul>
+</li>
+</ul>
+<p>在提供丰富功能的同时，HanLP
+内部模块坚持低耦合、模型坚持惰性加载、服务坚持静态提供、词典坚持明文发布，使用非常方便。默认模型训练自全世界最大规模的中文语料库，同时自带一些语料处理工具，帮助用户训练自己的模型。</p>
+<div class="section" id="id1">
+<h2>7.1.6.1. 项目主页<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://hanlp.com/">在线演示</a>、<a class="reference external" href="https://github.com/hankcs/pyhanlp">Python
+调用</a>、<a class="reference external" href="https://github.com/hankcs/hanlp-lucene-plugin">Solr 及 Lucene
+插件</a>、<a class="reference external" href="https://github.com/hankcs/HanLP/wiki/papers">论文引用</a>、<a class="reference external" href="https://github.com/hankcs/HanLP/wiki">更多信息</a>。</p>
+</div>
+<div class="section" id="id2">
+<h2>7.1.6.2. 下载与配置<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="maven">
+<h3>7.1.6.2.1. 方式一、Maven<a class="headerlink" href="#maven" title="永久链接至标题">¶</a></h3>
+<p>为了方便用户，特提供内置了数据包的 Portable 版，只需在 pom.xml 加入：</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>com.hankcs<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>hanlp<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>portable-1.7.2<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p>零配置，即可使用基本功能（除由字构词、依存句法分析外的全部功能）。如果用户有自定义的需求，可以参考方式二，使用
+hanlp.properties 进行配置。</p>
+</div>
+<div class="section" id="jardatahanlp-properties">
+<h3>7.1.6.2.2. 方式二、下载 jar、data、hanlp.properties<a class="headerlink" href="#jardatahanlp-properties" title="永久链接至标题">¶</a></h3>
+<p>HanLP 将数据与程序分离，给予用户自定义的自由。</p>
+<div class="section" id="data-zip">
+<h4>7.1.6.2.2.1. 1、下载：<a class="reference external" href="http://nlp.hankcs.com/download.php?file=data">data.zip</a><a class="headerlink" href="#data-zip" title="永久链接至标题">¶</a></h4>
+<p>下载后解压到任意目录，接下来通过配置文件告诉 HanLP 数据包的位置。</p>
+<p>HanLP
+中的数据分为<em>词典</em>和<em>模型</em>，其中<em>词典</em>是词法分析必需的，<em>模型</em>是句法分析必需的。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>data
+│
+├─dictionary
+└─model
+</pre></div>
+</div>
+<p>用户可以自行增删替换，如果不需要句法分析等功能的话，随时可以删除 model
+文件夹。</p>
+<ul class="simple">
+<li><p>模型跟词典没有绝对的区别，隐马模型被做成人人都可以编辑的词典形式，不代表它不是模型。</p></li>
+<li><p>GitHub 代码库中已经包含了 data.zip
+中的词典，直接编译运行自动缓存即可；模型则需要额外下载。</p></li>
+</ul>
+</div>
+<div class="section" id="jar-hanlp-release-zip">
+<h4>7.1.6.2.2.2. 2、下载 jar 和配置文件：<a class="reference external" href="http://nlp.hankcs.com/download.php?file=jar">hanlp-release.zip</a><a class="headerlink" href="#jar-hanlp-release-zip" title="永久链接至标题">¶</a></h4>
+<p>配置文件的作用是告诉 HanLP 数据包的位置，只需修改第一行</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="o">=</span><span class="n">D</span><span class="p">:</span><span class="o">/</span><span class="n">JavaProjects</span><span class="o">/</span><span class="n">HanLP</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>为 data 的<strong>父目录</strong>即可，比如 data
+目录是<code class="docutils literal notranslate"><span class="pre">/Users/hankcs/Documents/data</span></code>，那么<code class="docutils literal notranslate"><span class="pre">root=/Users/hankcs/Documents/</span></code>
+。</p>
+<p>最后将<code class="docutils literal notranslate"><span class="pre">hanlp.properties</span></code>放入 classpath
+即可，对于多数项目，都可以放到 src 或 resources 目录下，编译时 IDE
+会自动将其复制到 classpath
+中。除了配置文件外，还可以使用环境变量<code class="docutils literal notranslate"><span class="pre">HANLP_ROOT</span></code>来设置<code class="docutils literal notranslate"><span class="pre">root</span></code>。安卓项目请参考<a class="reference external" href="https://github.com/hankcs/HanLPAndroidDemo">demo</a>。</p>
+<p>如果放置不当，HanLP
+会提示当前环境下的合适路径，并且尝试从项目根目录读取数据集。</p>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>7.1.6.3. 调用方法<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>HanLP
+几乎所有的功能都可以通过工具类<code class="docutils literal notranslate"><span class="pre">HanLP</span></code>快捷调用，当你想不起来调用方法时，只需键入<code class="docutils literal notranslate"><span class="pre">HanLP.</span></code>，IDE
+应当会给出提示，并展示 HanLP 完善的文档。</p>
+<p>所有 Demo
+都位于<a class="reference external" href="https://github.com/hankcs/HanLP/tree/master/src/test/java/com/hankcs/demo">com.hankcs.demo</a>下，比文档覆盖了更多细节，更新更及时，<strong>强烈建议运行一遍</strong>。此处仅列举部分常用接口。</p>
+<div class="section" id="demo">
+<h3>7.1.6.3.1. 1. 第一个 Demo<a class="headerlink" href="#demo" title="永久链接至标题">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">HanLP</span><span class="o">.</span><span class="na">segment</span><span class="o">(</span><span class="s">&quot;你好，欢迎使用HanLP汉语处理包！&quot;</span><span class="o">));</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>内存要求</p>
+<ul>
+<li><p>内存 120MB 以上（-Xms120m -Xmx120m -Xmn64m），标准数据包（35
+万核心词库+默认用户词典），分词测试正常。全部词典和模型都是惰性加载的，不使用的模型相当于不存在，可以自由删除。</p></li>
+<li><p>HanLP 对词典的数据结构进行了长期的优化，可以应对绝大多数场景。哪怕
+HanLP
+的词典上百兆也无需担心，因为在内存中被精心压缩过。如果内存非常有限，请使用小词典。HanLP
+默认使用大词典，同时提供小词典，请参考配置文件章节。</p></li>
+</ul>
+</li>
+<li><p>写给正在编译 HanLP 的开发者</p>
+<ul>
+<li><p>如果你正在编译运行从 Github 检出的 HanLP 代码，并且没有下载 data
+缓存，那么首次加载词典/模型会发生一个<em>自动缓存</em>的过程。</p></li>
+<li><p><em>自动缓存</em>的目的是为了加速词典载入速度，在下次载入时，缓存的词典文件会带来毫秒级的加载速度。由于词典体积很大，<em>自动缓存</em>会耗费一些时间，请耐心等待。</p></li>
+<li><p><em>自动缓存</em>缓存的不是明文词典，而是双数组 Trie
+树、DAWG、AhoCorasickDoubleArrayTrie 等数据结构。</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>7.1.6.3.2. 2. 标准分词<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Term</span><span class="o">&gt;</span> <span class="n">termList</span> <span class="o">=</span> <span class="n">StandardTokenizer</span><span class="o">.</span><span class="na">segment</span><span class="o">(</span><span class="s">&quot;商品和服务&quot;</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">termList</span><span class="o">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>说明</p>
+<ul>
+<li><p>HanLP
+中有一系列“开箱即用”的静态分词器，以<code class="docutils literal notranslate"><span class="pre">Tokenizer</span></code>结尾，在接下来的例子中会继续介绍。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HanLP.segment</span></code>其实是对<code class="docutils literal notranslate"><span class="pre">StandardTokenizer.segment</span></code>的包装。</p></li>
+<li><p>分词结果包含词性，每个词性的意思请查阅<a class="reference external" href="http://www.hankcs.com/nlp/part-of-speech-tagging.html#h2-8">《HanLP
+词性标注集》</a>。</p></li>
+</ul>
+</li>
+<li><p>算法详解</p>
+<ul>
+<li><p><a class="reference external" href="http://www.hankcs.com/nlp/segment/the-word-graph-is-generated.html">《词图的生成》</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="nlp">
+<h3>7.1.6.3.3. 3. NLP 分词<a class="headerlink" href="#nlp" title="永久链接至标题">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">NLPTokenizer</span><span class="o">.</span><span class="na">segment</span><span class="o">(</span><span class="s">&quot;我新造一个词叫幻想乡你能识别并标注正确词性吗？&quot;</span><span class="o">));</span>
+<span class="c1">// 注意观察下面两个“希望”的词性、两个“晚霞”的词性</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">NLPTokenizer</span><span class="o">.</span><span class="na">analyze</span><span class="o">(</span><span class="s">&quot;我的希望是希望张晚霞的背影被晚霞映红&quot;</span><span class="o">).</span><span class="na">translateLabels</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">NLPTokenizer</span><span class="o">.</span><span class="na">analyze</span><span class="o">(</span><span class="s">&quot;支援臺灣正體香港繁體：微软公司於1975年由比爾·蓋茲和保羅·艾倫創立。&quot;</span><span class="o">));</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>说明</p>
+<ul>
+<li><p>NLP
+分词<code class="docutils literal notranslate"><span class="pre">NLPTokenizer</span></code>会执行词性标注和命名实体识别，由<a class="reference external" href="https://github.com/hankcs/HanLP/wiki/%E7%BB%93%E6%9E%84%E5%8C%96%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%A0%87%E6%B3%A8%E6%A1%86%E6%9E%B6">结构化感知机序列标注框架</a>支撑。</p></li>
+<li><p>默认模型训练自<code class="docutils literal notranslate"><span class="pre">9970</span></code>万字的大型综合语料库，是已知范围内<strong>全世界最大</strong>的中文分词语料库。语料库规模决定实际效果，面向生产环境的语料库应当在千万字量级。欢迎用户在自己的语料上<a class="reference external" href="https://github.com/hankcs/HanLP/wiki/%E7%BB%93%E6%9E%84%E5%8C%96%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%A0%87%E6%B3%A8%E6%A1%86%E6%9E%B6">训练新模型</a>以适应新领域、识别新的命名实体。</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>7.1.6.3.4. 4. 索引分词<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Term</span><span class="o">&gt;</span> <span class="n">termList</span> <span class="o">=</span> <span class="n">IndexTokenizer</span><span class="o">.</span><span class="na">segment</span><span class="o">(</span><span class="s">&quot;主副食品&quot;</span><span class="o">);</span>
+<span class="k">for</span> <span class="o">(</span><span class="n">Term</span> <span class="n">term</span> <span class="o">:</span> <span class="n">termList</span><span class="o">)</span>
+<span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">term</span> <span class="o">+</span> <span class="s">&quot; [&quot;</span> <span class="o">+</span> <span class="n">term</span><span class="o">.</span><span class="na">offset</span> <span class="o">+</span> <span class="s">&quot;:&quot;</span> <span class="o">+</span> <span class="o">(</span><span class="n">term</span><span class="o">.</span><span class="na">offset</span> <span class="o">+</span> <span class="n">term</span><span class="o">.</span><span class="na">word</span><span class="o">.</span><span class="na">length</span><span class="o">())</span> <span class="o">+</span> <span class="s">&quot;]&quot;</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>说明</p>
+<ul>
+<li><p>索引分词<code class="docutils literal notranslate"><span class="pre">IndexTokenizer</span></code>是面向搜索引擎的分词器，能够对长词全切分，另外通过<code class="docutils literal notranslate"><span class="pre">term.offset</span></code>可以获取单词在文本中的偏移量。</p></li>
+<li><p>任何分词器都可以通过基类<code class="docutils literal notranslate"><span class="pre">Segment</span></code>的<code class="docutils literal notranslate"><span class="pre">enableIndexMode</span></code>方法激活索引模式。</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="n">
+<h3>7.1.6.3.5. 5. N-最短路径分词<a class="headerlink" href="#n" title="永久链接至标题">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Segment</span> <span class="n">nShortSegment</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NShortSegment</span><span class="o">().</span><span class="na">enableCustomDictionary</span><span class="o">(</span><span class="kc">false</span><span class="o">).</span><span class="na">enablePlaceRecognize</span><span class="o">(</span><span class="kc">true</span><span class="o">).</span><span class="na">enableOrganizationRecognize</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="n">Segment</span> <span class="n">shortestSegment</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DijkstraSegment</span><span class="o">().</span><span class="na">enableCustomDictionary</span><span class="o">(</span><span class="kc">false</span><span class="o">).</span><span class="na">enablePlaceRecognize</span><span class="o">(</span><span class="kc">true</span><span class="o">).</span><span class="na">enableOrganizationRecognize</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="n">String</span><span class="o">[]</span> <span class="n">testCase</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]{</span>
+        <span class="s">&quot;今天，刘志军案的关键人物,山西女商人丁书苗在市二中院出庭受审。&quot;</span><span class="o">,</span>
+        <span class="s">&quot;刘喜杰石国祥会见吴亚琴先进事迹报告团成员&quot;</span><span class="o">,</span>
+        <span class="o">};</span>
+<span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">sentence</span> <span class="o">:</span> <span class="n">testCase</span><span class="o">)</span>
+<span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;N-最短分词：&quot;</span> <span class="o">+</span> <span class="n">nShortSegment</span><span class="o">.</span><span class="na">seg</span><span class="o">(</span><span class="n">sentence</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot;\n最短路分词：&quot;</span> <span class="o">+</span> <span class="n">shortestSegment</span><span class="o">.</span><span class="na">seg</span><span class="o">(</span><span class="n">sentence</span><span class="o">));</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>说明</p>
+<ul>
+<li><p>N
+最短路分词器<code class="docutils literal notranslate"><span class="pre">NShortSegment</span></code>比最短路分词器慢，但是效果稍微好一些，对命名实体识别能力更强。</p></li>
+<li><p>一般场景下最短路分词的精度已经足够，而且速度比 N
+最短路分词器快几倍，请酌情选择。</p></li>
+</ul>
+</li>
+<li><p>算法详解</p>
+<ul>
+<li><p><a class="reference external" href="http://www.hankcs.com/nlp/segment/n-shortest-path-to-the-java-implementation-and-application-segmentation.html">《N 最短路径的 Java
+实现与分词应用》</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="crf">
+<h3>7.1.6.3.6. 6. CRF 分词<a class="headerlink" href="#crf" title="永久链接至标题">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">CRFLexicalAnalyzer</span> <span class="n">analyzer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CRFLexicalAnalyzer</span><span class="o">();</span>
+<span class="n">String</span><span class="o">[]</span> <span class="n">tests</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]{</span>
+    <span class="s">&quot;商品和服务&quot;</span><span class="o">,</span>
+    <span class="s">&quot;上海华安工业（集团）公司董事长谭旭光和秘书胡花蕊来到美国纽约现代艺术博物馆参观&quot;</span><span class="o">,</span>
+    <span class="s">&quot;微软公司於1975年由比爾·蓋茲和保羅·艾倫創立，18年啟動以智慧雲端、前端為導向的大改組。&quot;</span> <span class="c1">// 支持繁体中文</span>
+<span class="o">};</span>
+<span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">sentence</span> <span class="o">:</span> <span class="n">tests</span><span class="o">)</span>
+<span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">analyzer</span><span class="o">.</span><span class="na">analyze</span><span class="o">(</span><span class="n">sentence</span><span class="o">));</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>说明</p>
+<ul>
+<li><p>CRF 对新词有很好的识别能力，但是开销较大。</p></li>
+</ul>
+</li>
+<li><p>算法详解</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP/wiki/CRF%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90">《CRF
+中文分词、词性标注与命名实体识别》</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>7.1.6.3.7. 7. 极速词典分词<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * 演示极速分词，基于AhoCorasickDoubleArrayTrie实现的词典分词，适用于“高吞吐量”“精度一般”的场合</span>
+<span class="cm"> * @author hankcs</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoHighSpeedSegment</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="s">&quot;江西鄱阳湖干枯，中国最大淡水湖变成大草原&quot;</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">SpeedTokenizer</span><span class="o">.</span><span class="na">segment</span><span class="o">(</span><span class="n">text</span><span class="o">));</span>
+        <span class="kt">long</span> <span class="n">start</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+        <span class="kt">int</span> <span class="n">pressure</span> <span class="o">=</span> <span class="mi">1000000</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">pressure</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span>
+        <span class="o">{</span>
+            <span class="n">SpeedTokenizer</span><span class="o">.</span><span class="na">segment</span><span class="o">(</span><span class="n">text</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="kt">double</span> <span class="n">costTime</span> <span class="o">=</span> <span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">-</span> <span class="n">start</span><span class="o">)</span> <span class="o">/</span> <span class="o">(</span><span class="kt">double</span><span class="o">)</span><span class="mi">1000</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;分词速度：%.2f字每秒&quot;</span><span class="o">,</span> <span class="n">text</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">*</span> <span class="n">pressure</span> <span class="o">/</span> <span class="n">costTime</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>说明</p>
+<ul>
+<li><p>极速分词是词典最长分词，速度极其快，精度一般。</p></li>
+<li><p>在 i7-6700K 上跑出了 4500 万字每秒的速度。</p></li>
+</ul>
+</li>
+<li><p>算法详解</p>
+<ul>
+<li><p><a class="reference external" href="http://www.hankcs.com/program/algorithm/aho-corasick-double-array-trie.html">《Aho Corasick 自动机结合 DoubleArrayTrie
+极速多模式匹配》</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h3>7.1.6.3.8. 8. 用户自定义词典<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * 演示用户词典的动态增删</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author hankcs</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoCustomDictionary</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="c1">// 动态增加</span>
+        <span class="n">CustomDictionary</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;攻城狮&quot;</span><span class="o">);</span>
+        <span class="c1">// 强行插入</span>
+        <span class="n">CustomDictionary</span><span class="o">.</span><span class="na">insert</span><span class="o">(</span><span class="s">&quot;白富美&quot;</span><span class="o">,</span> <span class="s">&quot;nz 1024&quot;</span><span class="o">);</span>
+        <span class="c1">// 删除词语（注释掉试试）</span>
+<span class="c1">//        CustomDictionary.remove(&quot;攻城狮&quot;);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">CustomDictionary</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;单身狗&quot;</span><span class="o">,</span> <span class="s">&quot;nz 1024 n 1&quot;</span><span class="o">));</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">CustomDictionary</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;单身狗&quot;</span><span class="o">));</span>
+
+        <span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="s">&quot;攻城狮逆袭单身狗，迎娶白富美，走上人生巅峰&quot;</span><span class="o">;</span>  <span class="c1">// 怎么可能噗哈哈！</span>
+
+        <span class="c1">// AhoCorasickDoubleArrayTrie自动机扫描文本中出现的自定义词语</span>
+        <span class="kd">final</span> <span class="kt">char</span><span class="o">[]</span> <span class="n">charArray</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span>
+        <span class="n">CustomDictionary</span><span class="o">.</span><span class="na">parseText</span><span class="o">(</span><span class="n">charArray</span><span class="o">,</span> <span class="k">new</span> <span class="n">AhoCorasickDoubleArrayTrie</span><span class="o">.</span><span class="na">IHit</span><span class="o">&lt;</span><span class="n">CoreDictionary</span><span class="o">.</span><span class="na">Attribute</span><span class="o">&gt;()</span>
+        <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hit</span><span class="o">(</span><span class="kt">int</span> <span class="n">begin</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">,</span> <span class="n">CoreDictionary</span><span class="o">.</span><span class="na">Attribute</span> <span class="n">value</span><span class="o">)</span>
+            <span class="o">{</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;[%d:%d]=%s %s\n&quot;</span><span class="o">,</span> <span class="n">begin</span><span class="o">,</span> <span class="n">end</span><span class="o">,</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="n">charArray</span><span class="o">,</span> <span class="n">begin</span><span class="o">,</span> <span class="n">end</span> <span class="o">-</span> <span class="n">begin</span><span class="o">),</span> <span class="n">value</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+
+        <span class="c1">// 自定义词典在所有分词器中都有效</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">HanLP</span><span class="o">.</span><span class="na">segment</span><span class="o">(</span><span class="n">text</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>说明</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">CustomDictionary</span></code>是一份全局的用户自定义词典，可以随时增删，影响全部分词器。另外可以在任何分词器中关闭它。通过代码动态增删不会保存到词典文件。</p></li>
+<li><p>中文分词 ≠
+词典，词典无法解决中文分词，<code class="docutils literal notranslate"><span class="pre">Segment</span></code>提供高低优先级应对不同场景，请参考<a class="reference external" href="https://github.com/hankcs/HanLP/wiki/FAQ#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BF%AE%E6%94%B9%E4%BA%86%E8%AF%8D%E5%85%B8%E8%BF%98%E6%98%AF%E6%B2%A1%E6%9C%89%E6%95%88%E6%9E%9C">FAQ</a>。</p></li>
+</ul>
+</li>
+<li><p>追加词典</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">CustomDictionary</span></code>主词典文本路径是<code class="docutils literal notranslate"><span class="pre">data/dictionary/custom/CustomDictionary.txt</span></code>，用户可以在此增加自己的词语（不推荐）；也可以单独新建一个文本文件，通过配置文件<code class="docutils literal notranslate"><span class="pre">CustomDictionaryPath=data/dictionary/custom/CustomDictionary.txt;</span> <span class="pre">我的词典.txt;</span></code>来追加词典（推荐）。</p></li>
+<li><p>始终建议将相同词性的词语放到同一个词典文件里，便于维护和分享。</p></li>
+</ul>
+</li>
+<li><p>词典格式</p>
+<ul>
+<li><p>每一行代表一个单词，格式遵从<code class="docutils literal notranslate"><span class="pre">[单词]</span> <span class="pre">[词性A]</span> <span class="pre">[A的频次]</span> <span class="pre">[词性B]</span> <span class="pre">[B的频次]</span> <span class="pre">...</span></code>
+如果不填词性则表示采用词典的默认词性。</p></li>
+<li><p>词典的默认词性默认是名词
+n，可以通过配置文件修改：<code class="docutils literal notranslate"><span class="pre">全国地名大全.txt</span> <span class="pre">ns;</span></code>如果词典路径后面空格紧接着词性，则该词典默认是该词性。</p></li>
+<li><p>在统计分词中，并不保证自定义词典中的词一定被切分出来。用户可在理解后果的情况下通过<code class="docutils literal notranslate"><span class="pre">Segment#enableCustomDictionaryForcing</span></code>强制生效。</p></li>
+<li><p>关于用户词典的更多信息请参考<strong>词典说明</strong>一章。</p></li>
+</ul>
+</li>
+<li><p>算法详解</p>
+<ul>
+<li><p><a class="reference external" href="http://www.hankcs.com/program/java/tire-tree-participle.html">《Trie
+树分词》</a></p></li>
+<li><p><a class="reference external" href="http://www.hankcs.com/program/algorithm/aho-corasick-double-array-trie.html">《Aho Corasick 自动机结合 DoubleArrayTrie
+极速多模式匹配》</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3>7.1.6.3.9. 9. 中国人名识别<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="o">[]</span> <span class="n">testCase</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]{</span>
+        <span class="s">&quot;签约仪式前，秦光荣、李纪恒、仇和等一同会见了参加签约的企业家。&quot;</span><span class="o">,</span>
+        <span class="s">&quot;王国强、高峰、汪洋、张朝阳光着头、韩寒、小四&quot;</span><span class="o">,</span>
+        <span class="s">&quot;张浩和胡健康复员回家了&quot;</span><span class="o">,</span>
+        <span class="s">&quot;王总和小丽结婚了&quot;</span><span class="o">,</span>
+        <span class="s">&quot;编剧邵钧林和稽道青说&quot;</span><span class="o">,</span>
+        <span class="s">&quot;这里有关天培的有关事迹&quot;</span><span class="o">,</span>
+        <span class="s">&quot;龚学平等领导,邓颖超生前&quot;</span><span class="o">,</span>
+        <span class="o">};</span>
+<span class="n">Segment</span> <span class="n">segment</span> <span class="o">=</span> <span class="n">HanLP</span><span class="o">.</span><span class="na">newSegment</span><span class="o">().</span><span class="na">enableNameRecognize</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">sentence</span> <span class="o">:</span> <span class="n">testCase</span><span class="o">)</span>
+<span class="o">{</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Term</span><span class="o">&gt;</span> <span class="n">termList</span> <span class="o">=</span> <span class="n">segment</span><span class="o">.</span><span class="na">seg</span><span class="o">(</span><span class="n">sentence</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">termList</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>说明</p>
+<ul>
+<li><p>目前分词器基本上都默认开启了中国人名识别，比如<code class="docutils literal notranslate"><span class="pre">HanLP.segment()</span></code>接口中使用的分词器等等，用户不必手动开启；上面的代码只是为了强调。</p></li>
+<li><p>有一定的误命中率，比如误命中<code class="docutils literal notranslate"><span class="pre">关键年</span></code>，则可以通过在<code class="docutils literal notranslate"><span class="pre">data/dictionary/person/nr.txt</span></code>加入一条<code class="docutils literal notranslate"><span class="pre">关键年</span> <span class="pre">A</span> <span class="pre">1</span></code>来排除<code class="docutils literal notranslate"><span class="pre">关键年</span></code>作为人名的可能性，也可以将<code class="docutils literal notranslate"><span class="pre">关键年</span></code>作为新词登记到自定义词典中。</p></li>
+<li><p>如果你通过上述办法解决了问题，欢迎向我提交 pull
+request，词典也是宝贵的财富。</p></li>
+<li><p>建议 NLP 用户使用感知机或 CRF 词法分析器，精度更高。</p></li>
+</ul>
+</li>
+<li><p>算法详解</p>
+<ul>
+<li><p><a class="reference external" href="http://www.hankcs.com/nlp/chinese-name-recognition-in-actual-hmm-viterbi-role-labeling.html">《实战 HMM-Viterbi
+角色标注中国人名识别》</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h3>7.1.6.3.10. 10. 音译人名识别<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="o">[]</span> <span class="n">testCase</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]{</span>
+                <span class="s">&quot;一桶冰水当头倒下，微软的比尔盖茨、Facebook的扎克伯格跟桑德博格、亚马逊的贝索斯、苹果的库克全都不惜湿身入镜，这些硅谷的科技人，飞蛾扑火似地牺牲演出，其实全为了慈善。&quot;</span><span class="o">,</span>
+                <span class="s">&quot;世界上最长的姓名是简森·乔伊·亚历山大·比基·卡利斯勒·达夫·埃利奥特·福克斯·伊维鲁莫·马尔尼·梅尔斯·帕特森·汤普森·华莱士·普雷斯顿。&quot;</span><span class="o">,</span>
+        <span class="o">};</span>
+<span class="n">Segment</span> <span class="n">segment</span> <span class="o">=</span> <span class="n">HanLP</span><span class="o">.</span><span class="na">newSegment</span><span class="o">().</span><span class="na">enableTranslatedNameRecognize</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">sentence</span> <span class="o">:</span> <span class="n">testCase</span><span class="o">)</span>
+<span class="o">{</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Term</span><span class="o">&gt;</span> <span class="n">termList</span> <span class="o">=</span> <span class="n">segment</span><span class="o">.</span><span class="na">seg</span><span class="o">(</span><span class="n">sentence</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">termList</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>说明</p>
+<ul>
+<li><p>目前分词器基本上都默认开启了音译人名识别，用户不必手动开启；上面的代码只是为了强调。</p></li>
+</ul>
+</li>
+<li><p>算法详解</p>
+<ul>
+<li><p><a class="reference external" href="http://www.hankcs.com/nlp/name-transliteration-cascaded-hidden-markov-model-and-japanese-personal-names-recognition.html">《层叠隐马模型下的音译人名和日本人名识别》</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3>7.1.6.3.11. 11. 日本人名识别<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="o">[]</span> <span class="n">testCase</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]{</span>
+        <span class="s">&quot;北川景子参演了林诣彬导演的《速度与激情3》&quot;</span><span class="o">,</span>
+        <span class="s">&quot;林志玲亮相网友:确定不是波多野结衣？&quot;</span><span class="o">,</span>
+<span class="o">};</span>
+<span class="n">Segment</span> <span class="n">segment</span> <span class="o">=</span> <span class="n">HanLP</span><span class="o">.</span><span class="na">newSegment</span><span class="o">().</span><span class="na">enableJapaneseNameRecognize</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">sentence</span> <span class="o">:</span> <span class="n">testCase</span><span class="o">)</span>
+<span class="o">{</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Term</span><span class="o">&gt;</span> <span class="n">termList</span> <span class="o">=</span> <span class="n">segment</span><span class="o">.</span><span class="na">seg</span><span class="o">(</span><span class="n">sentence</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">termList</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>说明</p>
+<ul>
+<li><p>目前标准分词器默认关闭了日本人名识别，用户需要手动开启；这是因为日本人名的出现频率较低，但是又消耗性能。</p></li>
+</ul>
+</li>
+<li><p>算法详解</p>
+<ul>
+<li><p><a class="reference external" href="http://www.hankcs.com/nlp/name-transliteration-cascaded-hidden-markov-model-and-japanese-personal-names-recognition.html">《层叠隐马模型下的音译人名和日本人名识别》</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h3>7.1.6.3.12. 12. 地名识别<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="o">[]</span> <span class="n">testCase</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]{</span>
+        <span class="s">&quot;武胜县新学乡政府大楼门前锣鼓喧天&quot;</span><span class="o">,</span>
+        <span class="s">&quot;蓝翔给宁夏固原市彭阳县红河镇黑牛沟村捐赠了挖掘机&quot;</span><span class="o">,</span>
+<span class="o">};</span>
+<span class="n">Segment</span> <span class="n">segment</span> <span class="o">=</span> <span class="n">HanLP</span><span class="o">.</span><span class="na">newSegment</span><span class="o">().</span><span class="na">enablePlaceRecognize</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">sentence</span> <span class="o">:</span> <span class="n">testCase</span><span class="o">)</span>
+<span class="o">{</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Term</span><span class="o">&gt;</span> <span class="n">termList</span> <span class="o">=</span> <span class="n">segment</span><span class="o">.</span><span class="na">seg</span><span class="o">(</span><span class="n">sentence</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">termList</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>说明</p>
+<ul>
+<li><p>目前标准分词器都默认关闭了地名识别，用户需要手动开启；这是因为消耗性能，其实多数地名都收录在核心词典和用户自定义词典中。</p></li>
+<li><p>在生产环境中，能靠词典解决的问题就靠词典解决，这是最高效稳定的方法。</p></li>
+<li><p>建议对命名实体识别要求较高的用户使用<a class="reference external" href="https://github.com/hankcs/HanLP/wiki/%E7%BB%93%E6%9E%84%E5%8C%96%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%A0%87%E6%B3%A8%E6%A1%86%E6%9E%B6">感知机词法分析器</a>。</p></li>
+</ul>
+</li>
+<li><p>算法详解</p>
+<ul>
+<li><p><a class="reference external" href="http://www.hankcs.com/nlp/ner/place-names-to-identify-actual-hmm-viterbi-role-labeling.html">《实战 HMM-Viterbi
+角色标注地名识别》</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h3>7.1.6.3.13. 13. 机构名识别<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="o">[]</span> <span class="n">testCase</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]{</span>
+    <span class="s">&quot;我在上海林原科技有限公司兼职工作，&quot;</span><span class="o">,</span>
+    <span class="s">&quot;我经常在台川喜宴餐厅吃饭，&quot;</span><span class="o">,</span>
+    <span class="s">&quot;偶尔去地中海影城看电影。&quot;</span><span class="o">,</span>
+<span class="o">};</span>
+<span class="n">Segment</span> <span class="n">segment</span> <span class="o">=</span> <span class="n">HanLP</span><span class="o">.</span><span class="na">newSegment</span><span class="o">().</span><span class="na">enableOrganizationRecognize</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">sentence</span> <span class="o">:</span> <span class="n">testCase</span><span class="o">)</span>
+<span class="o">{</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Term</span><span class="o">&gt;</span> <span class="n">termList</span> <span class="o">=</span> <span class="n">segment</span><span class="o">.</span><span class="na">seg</span><span class="o">(</span><span class="n">sentence</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">termList</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>说明</p>
+<ul>
+<li><p>目前分词器默认关闭了机构名识别，用户需要手动开启；这是因为消耗性能，其实常用机构名都收录在核心词典和用户自定义词典中。</p></li>
+<li><p>HanLP
+的目的不是演示动态识别，在生产环境中，能靠词典解决的问题就靠词典解决，这是最高效稳定的方法。</p></li>
+<li><p>建议对命名实体识别要求较高的用户使用<a class="reference external" href="https://github.com/hankcs/HanLP/wiki/%E7%BB%93%E6%9E%84%E5%8C%96%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%A0%87%E6%B3%A8%E6%A1%86%E6%9E%B6">感知机词法分析器</a>。</p></li>
+</ul>
+</li>
+<li><p>算法详解</p>
+<ul>
+<li><p><a class="reference external" href="http://www.hankcs.com/nlp/ner/place-name-recognition-model-of-the-stacked-hmm-viterbi-role-labeling.html">《层叠 HMM-Viterbi
+角色标注模型下的机构名识别》</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h3>7.1.6.3.14. 14. 关键词提取<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">content</span> <span class="o">=</span> <span class="s">&quot;程序员(英文Programmer)是从事程序开发、维护的专业人员。一般将程序员分为程序设计人员和程序编码人员，但两者的界限并不非常清楚，特别是在中国。软件从业人员分为初级程序员、高级程序员、系统分析员和项目经理四大类。&quot;</span><span class="o">;</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">keywordList</span> <span class="o">=</span> <span class="n">HanLP</span><span class="o">.</span><span class="na">extractKeyword</span><span class="o">(</span><span class="n">content</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">keywordList</span><span class="o">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>说明</p>
+<ul>
+<li><p>内部采用<code class="docutils literal notranslate"><span class="pre">TextRankKeyword</span></code>实现，用户可以直接调用<code class="docutils literal notranslate"><span class="pre">TextRankKeyword.getKeywordList(document,</span> <span class="pre">size)</span></code></p></li>
+</ul>
+</li>
+<li><p>算法详解</p>
+<ul>
+<li><p><a class="reference external" href="http://www.hankcs.com/nlp/textrank-algorithm-to-extract-the-keywords-java-implementation.html">《TextRank 算法提取关键词的 Java
+实现》</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id14">
+<h3>7.1.6.3.15. 15. 自动摘要<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">document</span> <span class="o">=</span> <span class="s">&quot;算法可大致分为基本算法、数据结构的算法、数论算法、计算几何的算法、图的算法、动态规划以及数值分析、加密算法、排序算法、检索算法、随机化算法、并行算法、厄米变形模型、随机森林算法。\n&quot;</span> <span class="o">+</span>
+        <span class="s">&quot;算法可以宽泛的分为三类，\n&quot;</span> <span class="o">+</span>
+        <span class="s">&quot;一，有限的确定性算法，这类算法在有限的一段时间内终止。他们可能要花很长时间来执行指定的任务，但仍将在一定的时间内终止。这类算法得出的结果常取决于输入值。\n&quot;</span> <span class="o">+</span>
+        <span class="s">&quot;二，有限的非确定算法，这类算法在有限的时间内终止。然而，对于一个（或一些）给定的数值，算法的结果并不是唯一的或确定的。\n&quot;</span> <span class="o">+</span>
+        <span class="s">&quot;三，无限的算法，是那些由于没有定义终止定义条件，或定义的条件无法由输入的数据满足而不终止运行的算法。通常，无限算法的产生是由于未能确定的定义终止条件。&quot;</span><span class="o">;</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">sentenceList</span> <span class="o">=</span> <span class="n">HanLP</span><span class="o">.</span><span class="na">extractSummary</span><span class="o">(</span><span class="n">document</span><span class="o">,</span> <span class="mi">3</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sentenceList</span><span class="o">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>说明</p>
+<ul>
+<li><p>内部采用<code class="docutils literal notranslate"><span class="pre">TextRankSentence</span></code>实现，用户可以直接调用<code class="docutils literal notranslate"><span class="pre">TextRankSentence.getTopSentenceList(document,</span> <span class="pre">size)</span></code>。</p></li>
+</ul>
+</li>
+<li><p>算法详解</p>
+<ul>
+<li><p><a class="reference external" href="http://www.hankcs.com/nlp/textrank-algorithm-java-implementation-of-automatic-abstract.html">《TextRank 算法自动摘要的 Java
+实现》</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id15">
+<h3>7.1.6.3.16. 16. 短语提取<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="s">&quot;算法工程师\n&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;算法（Algorithm）是一系列解决问题的清晰指令，也就是说，能够对一定规范的输入，在有限时间内获得所要求的输出。如果一个算法有缺陷，或不适合于某个问题，执行这个算法将不会解决这个问题。不同的算法可能用不同的时间、空间或效率来完成同样的任务。一个算法的优劣可以用空间复杂度与时间复杂度来衡量。算法工程师就是利用算法处理事物的人。\n&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;\n&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;1职位简介\n&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;算法工程师是一个非常高端的职位；\n&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;专业要求：计算机、电子、通信、数学等相关专业；\n&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;学历要求：本科及其以上的学历，大多数是硕士学历及其以上；\n&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;语言要求：英语要求是熟练，基本上能阅读国外专业书刊；\n&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;必须掌握计算机相关知识，熟练使用仿真工具MATLAB等，必须会一门编程语言。\n&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;\n&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;2研究方向\n&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;视频算法工程师、图像处理算法工程师、音频算法工程师 通信基带算法工程师\n&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;\n&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;3目前国内外状况\n&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;目前国内从事算法研究的工程师不少，但是高级算法工程师却很少，是一个非常紧缺的专业工程师。算法工程师根据研究领域来分主要有音频/视频算法处理、图像技术方面的二维信息算法处理和通信物理层、雷达信号处理、生物医学信号处理等领域的一维信息算法处理。\n&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;在计算机音视频和图形图像技术等二维信息算法处理方面目前比较先进的视频处理算法：机器视觉成为此类算法研究的核心；另外还有2D转3D算法(2D-to-3D conversion)，去隔行算法(de-interlacing)，运动估计运动补偿算法(Motion estimation/Motion Compensation)，去噪算法(Noise Reduction)，缩放算法(scaling)，锐化处理算法(Sharpness)，超分辨率算法(Super Resolution),手势识别(gesture recognition),人脸识别(face recognition)。\n&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;在通信物理层等一维信息领域目前常用的算法：无线领域的RRM、RTT，传送领域的调制解调、信道均衡、信号检测、网络优化、信号分解等。\n&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;另外数据挖掘、互联网搜索算法也成为当今的热门方向。\n&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;算法工程师逐渐往人工智能方向发展。&quot;</span><span class="o">;</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">phraseList</span> <span class="o">=</span> <span class="n">HanLP</span><span class="o">.</span><span class="na">extractPhrase</span><span class="o">(</span><span class="n">text</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">phraseList</span><span class="o">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>说明</p>
+<ul>
+<li><p>内部采用<code class="docutils literal notranslate"><span class="pre">MutualInformationEntropyPhraseExtractor</span></code>实现，用户可以直接调用<code class="docutils literal notranslate"><span class="pre">MutualInformationEntropyPhraseExtractor.extractPhrase(text,</span> <span class="pre">size)</span></code>。</p></li>
+</ul>
+</li>
+<li><p>算法详解</p>
+<ul>
+<li><p><a class="reference external" href="http://www.hankcs.com/nlp/extraction-and-identification-of-mutual-information-about-the-phrase-based-on-information-entropy.html">《基于互信息和左右信息熵的短语提取识别》</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id16">
+<h3>7.1.6.3.17. 17. 拼音转换<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * 汉字转拼音</span>
+<span class="cm"> * @author hankcs</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoPinyin</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="s">&quot;重载不是重任&quot;</span><span class="o">;</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Pinyin</span><span class="o">&gt;</span> <span class="n">pinyinList</span> <span class="o">=</span> <span class="n">HanLP</span><span class="o">.</span><span class="na">convertToPinyinList</span><span class="o">(</span><span class="n">text</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;原文,&quot;</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">text</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">())</span>
+        <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;%c,&quot;</span><span class="o">,</span> <span class="n">c</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;拼音（数字音调）,&quot;</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">Pinyin</span> <span class="n">pinyin</span> <span class="o">:</span> <span class="n">pinyinList</span><span class="o">)</span>
+        <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;%s,&quot;</span><span class="o">,</span> <span class="n">pinyin</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;拼音（符号音调）,&quot;</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">Pinyin</span> <span class="n">pinyin</span> <span class="o">:</span> <span class="n">pinyinList</span><span class="o">)</span>
+        <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;%s,&quot;</span><span class="o">,</span> <span class="n">pinyin</span><span class="o">.</span><span class="na">getPinyinWithToneMark</span><span class="o">());</span>
+        <span class="o">}</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;拼音（无音调）,&quot;</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">Pinyin</span> <span class="n">pinyin</span> <span class="o">:</span> <span class="n">pinyinList</span><span class="o">)</span>
+        <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;%s,&quot;</span><span class="o">,</span> <span class="n">pinyin</span><span class="o">.</span><span class="na">getPinyinWithoutTone</span><span class="o">());</span>
+        <span class="o">}</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;声调,&quot;</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">Pinyin</span> <span class="n">pinyin</span> <span class="o">:</span> <span class="n">pinyinList</span><span class="o">)</span>
+        <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;%s,&quot;</span><span class="o">,</span> <span class="n">pinyin</span><span class="o">.</span><span class="na">getTone</span><span class="o">());</span>
+        <span class="o">}</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;声母,&quot;</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">Pinyin</span> <span class="n">pinyin</span> <span class="o">:</span> <span class="n">pinyinList</span><span class="o">)</span>
+        <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;%s,&quot;</span><span class="o">,</span> <span class="n">pinyin</span><span class="o">.</span><span class="na">getShengmu</span><span class="o">());</span>
+        <span class="o">}</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;韵母,&quot;</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">Pinyin</span> <span class="n">pinyin</span> <span class="o">:</span> <span class="n">pinyinList</span><span class="o">)</span>
+        <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;%s,&quot;</span><span class="o">,</span> <span class="n">pinyin</span><span class="o">.</span><span class="na">getYunmu</span><span class="o">());</span>
+        <span class="o">}</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;输入法头,&quot;</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">Pinyin</span> <span class="n">pinyin</span> <span class="o">:</span> <span class="n">pinyinList</span><span class="o">)</span>
+        <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;%s,&quot;</span><span class="o">,</span> <span class="n">pinyin</span><span class="o">.</span><span class="na">getHead</span><span class="o">());</span>
+        <span class="o">}</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>说明</p>
+<ul>
+<li><p>HanLP
+不仅支持基础的汉字转拼音，还支持声母、韵母、音调、音标和输入法首字母首声母功能。</p></li>
+<li><p>HanLP 能够识别多音字，也能给繁体中文注拼音。</p></li>
+<li><p>最重要的是，HanLP
+采用的模式匹配升级到<code class="docutils literal notranslate"><span class="pre">AhoCorasickDoubleArrayTrie</span></code>，性能大幅提升，能够提供毫秒级的响应速度！</p></li>
+</ul>
+</li>
+<li><p>算法详解</p>
+<ul>
+<li><p><a class="reference external" href="http://www.hankcs.com/nlp/java-chinese-characters-to-pinyin-and-simplified-conversion-realization.html#h2-17">《汉字转拼音与简繁转换的 Java
+实现》</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id17">
+<h3>7.1.6.3.18. 18. 简繁转换<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * 简繁转换</span>
+<span class="cm"> * @author hankcs</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoTraditionalChinese2SimplifiedChinese</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">HanLP</span><span class="o">.</span><span class="na">convertToTraditionalChinese</span><span class="o">(</span><span class="s">&quot;用笔记本电脑写程序&quot;</span><span class="o">));</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">HanLP</span><span class="o">.</span><span class="na">convertToSimplifiedChinese</span><span class="o">(</span><span class="s">&quot;「以後等妳當上皇后，就能買士多啤梨慶祝了」&quot;</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>说明</p>
+<ul>
+<li><p>HanLP
+能够识别简繁分歧词，比如<code class="docutils literal notranslate"><span class="pre">打印机=印表機</span></code>。许多简繁转换工具不能区分“以后”“皇后”中的两个“后”字，HanLP
+可以。</p></li>
+</ul>
+</li>
+<li><p>算法详解</p>
+<ul>
+<li><p><a class="reference external" href="http://www.hankcs.com/nlp/java-chinese-characters-to-pinyin-and-simplified-conversion-realization.html#h2-17">《汉字转拼音与简繁转换的 Java
+实现》</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id18">
+<h3>7.1.6.3.19. 19. 文本推荐<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * 文本推荐(句子级别，从一系列句子中挑出与输入句子最相似的那一个)</span>
+<span class="cm"> * @author hankcs</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoSuggester</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="n">Suggester</span> <span class="n">suggester</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Suggester</span><span class="o">();</span>
+        <span class="n">String</span><span class="o">[]</span> <span class="n">titleArray</span> <span class="o">=</span>
+        <span class="o">(</span>
+                <span class="s">&quot;威廉王子发表演说 呼吁保护野生动物\n&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;《时代》年度人物最终入围名单出炉 普京马云入选\n&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;“黑格比”横扫菲：菲吸取“海燕”经验及早疏散\n&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;日本保密法将正式生效 日媒指其损害国民知情权\n&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;英报告说空气污染带来“公共健康危机”&quot;</span>
+        <span class="o">).</span><span class="na">split</span><span class="o">(</span><span class="s">&quot;\\n&quot;</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">title</span> <span class="o">:</span> <span class="n">titleArray</span><span class="o">)</span>
+        <span class="o">{</span>
+            <span class="n">suggester</span><span class="o">.</span><span class="na">addSentence</span><span class="o">(</span><span class="n">title</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">suggester</span><span class="o">.</span><span class="na">suggest</span><span class="o">(</span><span class="s">&quot;发言&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">));</span>       <span class="c1">// 语义</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">suggester</span><span class="o">.</span><span class="na">suggest</span><span class="o">(</span><span class="s">&quot;危机公共&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">));</span>   <span class="c1">// 字符</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">suggester</span><span class="o">.</span><span class="na">suggest</span><span class="o">(</span><span class="s">&quot;mayun&quot;</span><span class="o">,</span> <span class="mi">1</span><span class="o">));</span>      <span class="c1">// 拼音</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>说明</p>
+<ul>
+<li><p>在搜索引擎的输入框中，用户输入一个词，搜索引擎会联想出最合适的搜索词，HanLP
+实现了类似的功能。</p></li>
+<li><p>可以动态调节每种识别器的权重</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id19">
+<h3>7.1.6.3.20. 20. 语义距离<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * 演示词向量的训练与应用</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author hankcs</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoWord2Vec</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span>
+    <span class="o">{</span>
+        <span class="n">WordVectorModel</span> <span class="n">wordVectorModel</span> <span class="o">=</span> <span class="n">trainOrLoadModel</span><span class="o">();</span>
+        <span class="n">printNearest</span><span class="o">(</span><span class="s">&quot;中国&quot;</span><span class="o">,</span> <span class="n">wordVectorModel</span><span class="o">);</span>
+        <span class="n">printNearest</span><span class="o">(</span><span class="s">&quot;美丽&quot;</span><span class="o">,</span> <span class="n">wordVectorModel</span><span class="o">);</span>
+        <span class="n">printNearest</span><span class="o">(</span><span class="s">&quot;购买&quot;</span><span class="o">,</span> <span class="n">wordVectorModel</span><span class="o">);</span>
+
+        <span class="c1">// 文档向量</span>
+        <span class="n">DocVectorModel</span> <span class="n">docVectorModel</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DocVectorModel</span><span class="o">(</span><span class="n">wordVectorModel</span><span class="o">);</span>
+        <span class="n">String</span><span class="o">[]</span> <span class="n">documents</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]{</span>
+            <span class="s">&quot;山东苹果丰收&quot;</span><span class="o">,</span>
+            <span class="s">&quot;农民在江苏种水稻&quot;</span><span class="o">,</span>
+            <span class="s">&quot;奥运会女排夺冠&quot;</span><span class="o">,</span>
+            <span class="s">&quot;世界锦标赛胜出&quot;</span><span class="o">,</span>
+            <span class="s">&quot;中国足球失败&quot;</span><span class="o">,</span>
+        <span class="o">};</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">docVectorModel</span><span class="o">.</span><span class="na">similarity</span><span class="o">(</span><span class="n">documents</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">documents</span><span class="o">[</span><span class="mi">1</span><span class="o">]));</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">docVectorModel</span><span class="o">.</span><span class="na">similarity</span><span class="o">(</span><span class="n">documents</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="n">documents</span><span class="o">[</span><span class="mi">4</span><span class="o">]));</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">documents</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+        <span class="o">{</span>
+            <span class="n">docVectorModel</span><span class="o">.</span><span class="na">addDocument</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">documents</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+        <span class="o">}</span>
+
+        <span class="n">printNearestDocument</span><span class="o">(</span><span class="s">&quot;体育&quot;</span><span class="o">,</span> <span class="n">documents</span><span class="o">,</span> <span class="n">docVectorModel</span><span class="o">);</span>
+        <span class="n">printNearestDocument</span><span class="o">(</span><span class="s">&quot;农业&quot;</span><span class="o">,</span> <span class="n">documents</span><span class="o">,</span> <span class="n">docVectorModel</span><span class="o">);</span>
+        <span class="n">printNearestDocument</span><span class="o">(</span><span class="s">&quot;我要看比赛&quot;</span><span class="o">,</span> <span class="n">documents</span><span class="o">,</span> <span class="n">docVectorModel</span><span class="o">);</span>
+        <span class="n">printNearestDocument</span><span class="o">(</span><span class="s">&quot;要不做饭吧&quot;</span><span class="o">,</span> <span class="n">documents</span><span class="o">,</span> <span class="n">docVectorModel</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>说明</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/hankcs/HanLP/wiki/word2vec">word2vec 文档</a></p></li>
+<li><p><a class="reference external" href="http://www.hankcs.com/nlp/word2vec.html">《word2vec
+原理推导与代码分析》</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id20">
+<h3>7.1.6.3.21. 21. 依存句法分析<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h3>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * 依存句法分析（MaxEnt和神经网络句法模型需要-Xms1g -Xmx1g -Xmn512m）</span>
+<span class="cm"> * @author hankcs</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoDependencyParser</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="n">CoNLLSentence</span> <span class="n">sentence</span> <span class="o">=</span> <span class="n">HanLP</span><span class="o">.</span><span class="na">parseDependency</span><span class="o">(</span><span class="s">&quot;徐先生还具体帮助他确定了把画雄鹰、松鼠和麻雀作为主攻目标。&quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sentence</span><span class="o">);</span>
+        <span class="c1">// 可以方便地遍历它</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">CoNLLWord</span> <span class="n">word</span> <span class="o">:</span> <span class="n">sentence</span><span class="o">)</span>
+        <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;%s --(%s)--&gt; %s\n&quot;</span><span class="o">,</span> <span class="n">word</span><span class="o">.</span><span class="na">LEMMA</span><span class="o">,</span> <span class="n">word</span><span class="o">.</span><span class="na">DEPREL</span><span class="o">,</span> <span class="n">word</span><span class="o">.</span><span class="na">HEAD</span><span class="o">.</span><span class="na">LEMMA</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// 也可以直接拿到数组，任意顺序或逆序遍历</span>
+        <span class="n">CoNLLWord</span><span class="o">[]</span> <span class="n">wordArray</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="na">getWordArray</span><span class="o">();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">wordArray</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span>
+        <span class="o">{</span>
+            <span class="n">CoNLLWord</span> <span class="n">word</span> <span class="o">=</span> <span class="n">wordArray</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;%s --(%s)--&gt; %s\n&quot;</span><span class="o">,</span> <span class="n">word</span><span class="o">.</span><span class="na">LEMMA</span><span class="o">,</span> <span class="n">word</span><span class="o">.</span><span class="na">DEPREL</span><span class="o">,</span> <span class="n">word</span><span class="o">.</span><span class="na">HEAD</span><span class="o">.</span><span class="na">LEMMA</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// 还可以直接遍历子树，从某棵子树的某个节点一路遍历到虚根</span>
+        <span class="n">CoNLLWord</span> <span class="n">head</span> <span class="o">=</span> <span class="n">wordArray</span><span class="o">[</span><span class="mi">12</span><span class="o">];</span>
+        <span class="k">while</span> <span class="o">((</span><span class="n">head</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="na">HEAD</span><span class="o">)</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
+        <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="n">CoNLLWord</span><span class="o">.</span><span class="na">ROOT</span><span class="o">)</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">head</span><span class="o">.</span><span class="na">LEMMA</span><span class="o">);</span>
+            <span class="k">else</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;%s --(%s)--&gt; &quot;</span><span class="o">,</span> <span class="n">head</span><span class="o">.</span><span class="na">LEMMA</span><span class="o">,</span> <span class="n">head</span><span class="o">.</span><span class="na">DEPREL</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>说明</p>
+<ul>
+<li><p>内部采用<code class="docutils literal notranslate"><span class="pre">NeuralNetworkDependencyParser</span></code>实现，用户可以直接调用<code class="docutils literal notranslate"><span class="pre">NeuralNetworkDependencyParser.compute(sentence)</span></code></p></li>
+<li><p>也可以调用基于 ArcEager
+转移系统的柱搜索依存句法分析器<code class="docutils literal notranslate"><span class="pre">KBeamArcEagerDependencyParser</span></code></p></li>
+</ul>
+</li>
+<li><p>算法详解</p>
+<ul>
+<li><p><a class="reference external" href="http://www.hankcs.com/nlp/parsing/neural-network-based-dependency-parser.html">《基于神经网络分类模型与转移系统的判决式依存句法分析器》</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id21">
+<h2>7.1.6.4. 词典说明<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h2>
+<p>本章详细介绍 HanLP 中的词典格式，满足用户自定义的需要。HanLP
+中有许多词典，它们的格式都是相似的，形式都是文本文档，随时可以修改。</p>
+<div class="section" id="id22">
+<h3>7.1.6.4.1. 基本格式<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h3>
+<p>词典分为词频词性词典和词频词典。</p>
+<ul class="simple">
+<li><p>词频词性词典（如<code class="docutils literal notranslate"><span class="pre">CoreNatureDictionary.txt</span></code>）</p>
+<ul>
+<li><p>每一行代表一个单词，格式遵从<code class="docutils literal notranslate"><span class="pre">[单词]</span> <span class="pre">[词性A]</span> <span class="pre">[A的频次]</span> <span class="pre">[词性B]</span> <span class="pre">[B的频次]</span> <span class="pre">...</span></code>。</p></li>
+<li><p>支持省略词性和频次，直接一行一个单词。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.txt</span></code>词典文件的分隔符为空格或制表符，所以不支持含有空格的词语。如果需要支持空格，请使用英文逗号<code class="docutils literal notranslate"><span class="pre">,</span></code>分割的<strong>纯文本</strong><code class="docutils literal notranslate"><span class="pre">.csv</span></code>文件。在使用
+Excel 等富文本编辑器时，则请注意保存为<strong>纯文本</strong>形式。</p></li>
+</ul>
+</li>
+<li><p>词频词典（如<code class="docutils literal notranslate"><span class="pre">CoreNatureDictionary.ngram.txt</span></code>）</p>
+<ul>
+<li><p>每一行代表一个单词或条目，格式遵从<code class="docutils literal notranslate"><span class="pre">[单词]</span> <span class="pre">[单词的频次]</span></code>。</p></li>
+<li><p>每一行的分隔符为空格或制表符。</p></li>
+</ul>
+</li>
+</ul>
+<p>少数词典有自己的专用格式，比如同义词词典兼容《同义词词林扩展版》的文本格式，而转移矩阵词典则是一个
+csv 表格。</p>
+<p>下文主要介绍通用词典，如不注明，词典特指通用词典。</p>
+</div>
+<div class="section" id="id23">
+<h3>7.1.6.4.2. 数据结构<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h3>
+<p>Trie 树（字典树）是 HanLP 中使用最多的数据结构，为此，我实现了通用的
+Trie 树，支持泛型、遍历、储存、载入。</p>
+<p>用户自定义词典采用 AhoCorasickDoubleArrayTrie 和二分 Trie
+树储存，其他词典采用基于<a class="reference external" href="http://www.hankcs.com/program/java/%E5%8F%8C%E6%95%B0%E7%BB%84trie%E6%A0%91doublearraytriejava%E5%AE%9E%E7%8E%B0.html">双数组 Trie
+树(DoubleArrayTrie)</a>实现的<a class="reference external" href="http://www.hankcs.com/program/algorithm/aho-corasick-double-array-trie.html">AC
+自动机
+AhoCorasickDoubleArrayTrie</a>。关于一些常用数据结构的性能评估，请参考<a class="reference external" href="https://github.com/hankcs/HanLP/wiki/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">wiki</a>。</p>
+</div>
+<div class="section" id="id24">
+<h3>7.1.6.4.3. 储存形式<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h3>
+<p>词典有两个形态：文本文件(filename.txt)和缓存文件(filename.txt.bin 或
+filename.txt.trie.dat 和 filename.txt.trie.value)。</p>
+<ul class="simple">
+<li><p>文本文件</p>
+<ul>
+<li><p>采用明文储存，UTF-8 编码，CRLF 换行符。</p></li>
+</ul>
+</li>
+<li><p>缓存文件</p>
+<ul>
+<li><p>就是一些二进制文件，通常在文本文件的文件名后面加上.bin
+表示。有时候是.trie.dat
+和.trie.value。后者是历史遗留产物，分别代表 trie 树的数组和值。</p></li>
+<li><p>如果你修改了任何词典，只有删除缓存才能生效。</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id25">
+<h3>7.1.6.4.4. 修改方法<a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h3>
+<p>HanLP 的核心词典训练自人民日报 2014
+语料，语料不是完美的，总会存在一些错误。这些错误可能会导致分词出现奇怪的结果，这时请打开调试模式排查问题：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">HanLP</span><span class="o">.</span><span class="na">Config</span><span class="o">.</span><span class="na">enableDebug</span><span class="o">();</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>核心词性词频词典</p>
+<ul>
+<li><p>比如你在<code class="docutils literal notranslate"><span class="pre">data/dictionary/CoreNatureDictionary.txt</span></code>中发现了一个不是词的词，或者词性标注得明显不对，那么你可以修改它，然后删除缓存文件使其生效。</p></li>
+<li><p>目前<code class="docutils literal notranslate"><span class="pre">CoreNatureDictionary.ngram.txt</span></code>的缓存依赖于<code class="docutils literal notranslate"><span class="pre">CoreNatureDictionary.txt</span></code>的缓存，修改了后者之后必须同步删除前者的缓存，否则可能出错</p></li>
+</ul>
+</li>
+<li><p>核心二元文法词典</p>
+<ul>
+<li><p>二元文法词典<code class="docutils literal notranslate"><span class="pre">data/dictionary/CoreNatureDictionary.ngram.txt</span></code>储存的是两个词的接续，如果你发现不可能存在这种接续时，删掉即可。</p></li>
+<li><p>你也可以添加你认为合理的接续，但是这两个词必须同时在核心词典中才会生效。</p></li>
+</ul>
+</li>
+<li><p>命名实体识别词典</p>
+<ul>
+<li><p>基于角色标注的命名实体识别比较依赖词典，所以词典的质量大幅影响识别质量。</p></li>
+<li><p>这些词典的格式与原理都是类似的，请阅读<a class="reference external" href="http://www.hankcs.com/category/nlp/ner/">相应的文章</a>或代码修改它。</p></li>
+</ul>
+</li>
+</ul>
+<p>如果问题解决了，欢迎向我提交一个 pull
+request，这是我在代码库中保留明文词典的原因，众人拾柴火焰高！</p>
+</div>
+</div>
+<div class="section" id="id26">
+<h2>7.1.6.5. 版权<a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h2>
+<div class="section" id="apache-license-version-2-0">
+<h3>7.1.6.5.1. Apache License Version 2.0<a class="headerlink" href="#apache-license-version-2-0" title="永久链接至标题">¶</a></h3>
+<p>如不特殊注明，所有模块都以此协议授权使用。</p>
+</div>
+<div class="section" id="id27">
+<h3>7.1.6.5.2. 上海林原信息科技有限公司<a class="headerlink" href="#id27" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>HanLP
+产品初始知识产权归上海林原信息科技有限公司所有，任何人和企业可以无偿使用，可以对产品、源代码进行任何形式的修改，可以打包在其他产品中进行销售。</p></li>
+<li><p>任何使用了 HanLP
+的全部或部分功能、词典、模型的项目、产品或文章等形式的成果必须显式注明
+HanLP 及此项目主页。</p></li>
+</ul>
+</div>
+<div class="section" id="id28">
+<h3>7.1.6.5.3. 大快搜索<a class="headerlink" href="#id28" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>现在正式由大快搜索主导开发，新模块继续完全开源。</p></li>
+</ul>
+</div>
+<div class="section" id="id29">
+<h3>7.1.6.5.4. 其他版权方<a class="headerlink" href="#id29" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>实施上由个人维护，欢迎任何人与任何公司向本项目开源模块。</p></li>
+<li><p>充分尊重所有版权方的贡献，本项目不占有用户贡献模块的版权。</p></li>
+</ul>
+</div>
+<div class="section" id="id30">
+<h3>7.1.6.5.5. 鸣谢<a class="headerlink" href="#id30" title="永久链接至标题">¶</a></h3>
+<p>感谢下列优秀开源项目：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/hiroshi-manabe/darts-clone-java">darts-clone-java</a></p></li>
+<li><p><a class="reference external" href="http://www.cnblogs.com/zhenyulu/archive/2007/04/18/718383.html">SharpICTCLAS</a></p></li>
+<li><p><a class="reference external" href="https://github.com/isnowfy/snownlp">snownlp</a></p></li>
+<li><p><a class="reference external" href="https://github.com/NLPchina/ansj_seg">ansj_seg</a></p></li>
+<li><p><a class="reference external" href="https://github.com/NLPchina/nlp-lang">nlp-lang</a></p></li>
+</ul>
+<p>感谢 NLP 界各位学者老师的著作：</p>
+<ul class="simple">
+<li><p>《基于角色标注的中国人名自动识别研究》张华平 刘群</p></li>
+<li><p>《基于层叠隐马尔可夫模型的中文命名实体识别》俞鸿魁 张华平 刘群 吕学强
+施水才</p></li>
+<li><p>《基于角色标注的中文机构名识别》俞鸿魁 张华平 刘群</p></li>
+<li><p>《基于最大熵的依存句法分析》 辛霄 范士喜 王轩 王晓龙</p></li>
+<li><p>An Efficient Implementation of Trie Structures, JUN-ICHI AOE AND
+KATSUSHI MORIMOTO</p></li>
+<li><p>TextRank: Bringing Order into Texts, Rada Mihalcea and Paul Tarau</p></li>
+</ul>
+<p>感谢上海林原信息科技有限公司的刘先生，允许我利用工作时间开发
+HanLP，提供服务器和域名，并且促成了开源。感谢诸位用户的关注和使用，HanLP
+并不完善，未来还恳求各位 NLP 爱好者多多关照，提出宝贵意见。</p>
+<p>作者 [&#64;hankcs](<a class="reference external" href="http://weibo.com/hankcs/">http://weibo.com/hankcs/</a>)</p>
+<p>2014 年 12 月 16 日</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Jcseg.html" class="btn btn-neutral float-right" title="7.1.7. Jcseg logo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="JieBa/JiebaNode.html" class="btn btn-neutral float-left" title="7.1.5. NodeJieba" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

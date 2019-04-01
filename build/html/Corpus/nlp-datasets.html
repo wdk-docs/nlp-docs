@@ -1,0 +1,674 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6.27. nlp-datasets &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="6.28. 北京大学开发数据研究平台" href="pku-opendata.html" />
+    <link rel="prev" title="6.26. funNLP" href="funNLP.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">6. 语料库</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="BERT/FAQ.html">6.1. 常问问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BERT/Fine-tuning_with_BERT.html">6.2. 使用 BERT 进行微调</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BERT/Pre-trained_models.html">6.3. 预先训练的模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BERT/Pre-training_with_BERT.html">6.4. 使用 BERT 进行预训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BERT/Using_BERT_in_Colab.html">6.5. 在 Colab 中使用 BERT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BERT/Using_BERT_to_extract_fixed_feature_vectors.html">6.6. 使用 BERT 提取固定的特征向量 (像 ELMo)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BERT/What_is_BERT.html">6.7. 什么是 BERT？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BERT/index.html">6.8. BERT 大规模预训练语言模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BERT/model.html">6.9. 模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Knowledge_Graph/Agricultural_Knowledge_Graph.html">6.10. 农业知识图谱(AgriKG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Knowledge_Graph/ChineseNLPCorpus.html">6.11. Chinese NLP Corpus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Knowledge_Graph/cnSchema.html">6.12. cnSchema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Knowledge_Graph/index.html">6.13. 知识图谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Knowledge_Graph/openkg.html">6.14. openkg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regulation/LabelStyle.html">6.15. 现代汉语语料库加工规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regulation/index.html">6.16. 标注规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regulation/nation.html">6.17. 信息处理用现代汉语词类标记规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regulation/nlpir.html">6.18. 计算所汉语词性标记集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GlobalWordNetAssociation.html">6.19. 全球 WordNet 协会</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowNet.html">6.20. 知网</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Schema.html">6.21. Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aihanyu.html">6.22. 爱汉语语料库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cow.html">6.23. Chinese Open Wordnet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csdn.html">6.24. CSDN 下载</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dianchacha.html">6.25. 店查查数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="funNLP.html">6.26. funNLP</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.27. nlp-datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">6.27.1. 英语以及多语言数据集</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">6.27.2. 资源</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">6.27.3. 阿拉伯数据集</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">6.27.4. 德语数据集</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pku-opendata.html">6.28. 北京大学开发数据研究平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wikipedia.html">6.29. 维基百科语料库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wordnet.html">6.30. WordNet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/index.html">7. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">9. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">11. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">6. 语料库</a> &raquo;</li>
+        
+      <li>6.27. nlp-datasets</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Corpus/nlp-datasets.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nlp-datasets">
+<h1>6.27. nlp-datasets<a class="headerlink" href="#nlp-datasets" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="https://github.com/niderhoff/nlp-datasets">nlp-datasets</a></p>
+<p>大量的 nlp 数据集</p>
+<p>具有用于自然语言处理（NLP）的文本数据的自由/公共域数据集的字母顺序列表。
+这里的大多数内容只是原始的非结构化文本数据，如果您正在寻找带注释的语料库或
+Treebanks，请参阅底部的源代码。</p>
+<div class="section" id="id1">
+<h2>6.27.1. 英语以及多语言数据集<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://aws.amazon.com/de/datasets/apache-software-foundation-public-mail-archives/">Apache Software Foundation
+公共邮件存档</a>:
+all publicly available Apache Software Foundation mail archives as of
+July 11, 2011 (200 GB)</p></li>
+<li><p><a class="reference external" href="http://u.cs.biu.ac.il/~koppel/BlogCorpus.htm">博客作者语料库</a>:
+consists of the collected posts of 19,320 bloggers gathered from
+blogger.com in August 2004. 681,288 posts and over 140 million words.
+(298 MB)</p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/snap/amazon-fine-food-reviews">亚马逊美食评论[Kaggle]</a>:
+consists of 568,454 food reviews Amazon users left up to October
+2012. <a class="reference external" href="http://i.stanford.edu/~julian/pdfs/www13.pdf">Paper</a>. (240
+MB)</p></li>
+<li><p><a class="reference external" href="https://snap.stanford.edu/data/web-Amazon.html">亚马逊评论</a>:
+Stanford collection of 35 million amazon reviews. (11 GB)</p></li>
+<li><p><a class="reference external" href="http://arxiv.org/help/bulk_data_s3">档案</a>: All the Papers on
+archive as fulltext (270 GB) + sourcefiles (190 GB).</p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/c/asap-aes/data">尽快自动论文评分[Kaggle]</a>:
+For this competition, there are eight essay sets. Each of the sets of
+essays was generated from a single prompt. Selected essays range from
+an average length of 150 to 550 words per response. Some of the
+essays are dependent upon source information and others are not. All
+responses were written by students ranging in grade levels from Grade
+7 to Grade 10. All essays were hand graded and were double-scored.
+(100 MB)</p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/c/asap-sas/data">ASAP 简答题评分[Kaggle]</a>:
+Each of the data sets was generated from a single prompt. Selected
+responses have an average length of 50 words per response. Some of
+the essays are dependent upon source information and others are not.
+All responses were written by students primarily in Grade 10. All
+responses were hand graded and were double-scored. (35 MB)</p></li>
+<li><p><a class="reference external" href="https://www.crowdflower.com/data-for-everyone/">政治社交媒体的分类</a>:
+Social media messages from politicians classified by content. (4 MB)</p></li>
+<li><p><a class="reference external" href="http://www.clips.uantwerpen.be/datasets/csi-corpus">CLiPS
+测量学调查（CSI）语料库</a>:
+a yearly expanded corpus of student texts in two genres: essays and
+reviews. The purpose of this corpus lies primarily in stylometric
+research, but other applications are possible. (on request)</p></li>
+<li><p><a class="reference external" href="http://lemurproject.org/clueweb09/FACC1/">ClueWeb09 FACC</a>:
+<a class="reference external" href="http://lemurproject.org/clueweb09/">ClueWeb09</a> with Freebase
+annotations (72 GB)</p></li>
+<li><p><a class="reference external" href="http://lemurproject.org/clueweb12/FACC1/">ClueWeb11 FACC</a>:
+<a class="reference external" href="http://lemurproject.org/clueweb12/">ClueWeb11</a> with Freebase
+annotations (92 GB)</p></li>
+<li><p><a class="reference external" href="http://aws.amazon.com/de/datasets/common-crawl-corpus/">常见的爬行语料库</a>:
+web crawl data composed of over 5 billion web pages (541 TB)</p></li>
+<li><p><a class="reference external" href="http://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html">康奈尔电影对话语料库</a>:
+contains a large metadata-rich collection of fictional conversations
+extracted from raw movie scripts: 220,579 conversational exchanges
+between 10,292 pairs of movie characters, 617 movies (9.5 MB)</p></li>
+<li><p><a class="reference external" href="http://aws.amazon.com/de/datasets/common-crawl-corpus/">公司信息</a>:
+A data categorization job concerning what corporations actually talk
+about on social media. Contributors were asked to classify statements
+as information (objective statements about the company or it’s
+activities), dialog (replies to users, etc.), or action (messages
+that ask for votes or ask users to click on links, etc.). (600 KB)</p></li>
+<li><p><a class="reference external" href="http://nlp.stanford.edu/data/crosswikis-data.tar.bz2/">Crosswikis</a>:
+English-phrase-to-associated-Wikipedia-article database. Paper. (11
+GB)</p></li>
+<li><p><a class="reference external" href="http://aws.amazon.com/de/datasets/dbpedia-3-5-1/?tag=datasets%23keywords%23encyclopedic">DBpedia</a>:
+a community effort to extract structured information from Wikipedia
+and to make this information available on the Web (17 GB)</p></li>
+<li><p><a class="reference external" href="http://www.tdcj.state.tx.us/death_row/dr_executed_offenders.html">死囚</a>:
+last words of every inmate executed since 1984 online (HTML table)</p></li>
+<li><p><a class="reference external" href="http://arvindn.livejournal.com/116137.html">Del.icio.us</a>: 1.25
+million bookmarks on delicious.com (170 MB)</p></li>
+<li><p><a class="reference external" href="https://www.crowdflower.com/data-for-everyone/">社交媒体上的灾难</a>:
+10,000 tweets with annotations whether the tweet referred to a
+disaster event (2 MB).</p></li>
+<li><p><a class="reference external" href="https://www.crowdflower.com/data-for-everyone/">经济新闻文章语气和相关性</a>:
+News articles judged if relevant to the US economy and, if so, what
+the tone of the article was. Dates range from 1951 to 2014. (12 MB)</p></li>
+<li><p><a class="reference external" href="http://aws.amazon.com/de/datasets/enron-email-data/">安然电子邮件数据</a>:
+consists of 1,227,255 emails with 493,384 attachments covering 151
+custodians (210 GB)</p></li>
+<li><p><a class="reference external" href="http://eventregistry.org/">事件登记处</a>: Free tool that gives real
+time access to news articles by 100.000 news publishers worldwide.
+<a class="reference external" href="https://github.com/gregorleban/EventRegistry/">Has API</a>. (query
+tool)</p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/therohk/examine-the-examiner">Examiner.com - 垃圾邮件 Clickbait
+新闻标题[Kaggle]</a>:
+3 Million crowdsourced News headlines published by now defunct
+clickbait website The Examiner from 2010 to 2015. (200 MB)</p></li>
+<li><p><a class="reference external" href="http://aws.amazon.com/de/datasets/federal-contracts-from-the-federal-procurement-data-center-usaspending-gov/">联邦采购数据中心的联邦合同（USASpending.gov）</a>:
+data dump of all federal contracts from the Federal Procurement Data
+Center found at USASpending.gov (180 GB)</p></li>
+<li><p><a class="reference external" href="http://www.isi.edu/~lerman/downloads/flickr/flickr_taxonomies.html">Flickr
+个人分类法</a>:
+Tree dataset of personal tags (40 MB)</p></li>
+<li><p><a class="reference external" href="http://aws.amazon.com/de/datasets/freebase-data-dump/">Freebase
+数据转储</a>:
+data dump of all the current facts and assertions in Freebase (26 GB)</p></li>
+<li><p><a class="reference external" href="http://aws.amazon.com/de/datasets/freebase-simple-topic-dump/">Freebase
+简单主题转储</a>:
+data dump of the basic identifying facts about every topic in
+Freebase (5 GB)</p></li>
+<li><p><a class="reference external" href="http://aws.amazon.com/de/datasets/freebase-quad-dump/">Freebase Quad
+Dump</a>: data
+dump of all the current facts and assertions in Freebase (35 GB)</p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/c/predict-wordpress-likes/data">GigaOM Wordpress
+挑战赛[Kaggle]</a>:
+blog posts, meta data, user likes (1.5 GB)</p></li>
+<li><p><a class="reference external" href="http://storage.googleapis.com/books/ngrams/books/datasetsv2.html">Google Books
+Ngrams</a>:
+available also in hadoop format on amazon s3 (2.2 TB)</p></li>
+<li><p><a class="reference external" href="https://catalog.ldc.upenn.edu/LDC2006T13">Google Web 5gram</a>:
+contains English word n-grams and their observed frequency counts (24
+GB)</p></li>
+<li><p><a class="reference external" href="http://www.gutenberg.org/wiki/Gutenberg:Offline_Catalogs">Gutenberg Ebook
+List</a>:
+annotated list of ebooks (2 MB)</p></li>
+<li><p><a class="reference external" href="http://www.isi.edu/natural-language/download/hansard/">Hansards
+发表了加拿大议会的大块文章</a>:
+1.3 million pairs of aligned text chunks (sentences or smaller
+fragments) from the official records (Hansards) of the 36th Canadian
+Parliament. (82 MB)</p></li>
+<li><p><a class="reference external" href="http://library.harvard.edu/open-metadata#Harvard-Library-Bibliographic-Dataset">哈佛图书馆</a>:
+over 12 million bibliographic records for materials held by the
+Harvard Library, including books, journals, electronic resources,
+manuscripts, archival materials, scores, audio, video and other
+materials. (4 GB)</p></li>
+<li><p><a class="reference external" href="https://github.com/t-davidson/hate-speech-and-offensive-language">仇恨言论识别</a>:
+Contributors viewed short text and identified if it a) contained hate
+speech, b) was offensive but without hate speech, or c) was not
+offensive at all. Contains nearly 15K rows with three contributor
+judgments per text string. (3 MB)</p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/kaggle/hillary-clinton-emails">希拉里克林顿电子邮件[Kaggle]</a>:
+nearly 7,000 pages of Clinton’s heavily redacted emails (12 MB)</p></li>
+<li><p><a class="reference external" href="https://data.bris.ac.uk/data/dataset/dobuvuu00mh51q773bo8ybkdz">历史报纸每年 N-gram
+和实体数据集</a>:
+Yearly time series for the usage of the 1,000,000 most frequent 1-,
+2-, and 3-grams from a subset of the British Newspaper Archive
+corpus, along with yearly time series for the 100,000 most frequent
+named entities linked to Wikipedia and a list of all articles and
+newspapers contained in the dataset (3.1 GB)</p></li>
+<li><p><a class="reference external" href="https://datadryad.org/resource/doi:10.5061/dryad.nh775">历史报纸每日词时间序列数据集</a>:
+Time series of daily word usage for the 25,000 most frequent words in
+87 years of UK and US historical newspapers between 1836 and 1922.
+(2.7GB)</p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/c/home-depot-product-search-relevance/data">Home Depot
+产品搜索相关性[Kaggle]</a>:
+contains a number of products and real customer search terms from
+Home Depot’s website. The challenge is to predict a relevance score
+for the provided combinations of search terms and products. To create
+the ground truth labels, Home Depot has crowdsourced the
+search/product pairs to multiple human raters. (65 MB)</p></li>
+<li><p><a class="reference external" href="https://www.crowdflower.com/data-for-everyone/">识别文本中的关键短语</a>:
+Question/Answer pairs + context; context was judged if relevant to
+question/answer. (8 MB)</p></li>
+<li><p><a class="reference external" href="http://www.reddit.com/r/datasets/comments/1uyd0t/200000_jeopardy_questions_in_a_json_file/">危险</a>:
+archive of 216,930 past Jeopardy questions (53 MB)</p></li>
+<li><p><a class="reference external" href="https://github.com/taivop/joke-dataset">200k 英文明文笑话</a>:
+archive of 208,000 plaintext jokes from various sources.</p></li>
+<li><p><a class="reference external" href="http://statmt.org/wmt11/translation-task.html#download">欧洲语言的机器翻译</a>:
+(612 MB)</p></li>
+<li><p><a class="reference external" href="http://aws.amazon.com/de/datasets/material-safety-data-sheets/">材料安全数据表</a>:
+230,000 Material Safety Data Sheets. (3 GB)</p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/therohk/million-headlines">Million News Headlines - ABC Australia
+[Kaggle]</a>: 1.3
+Million News headlines published by ABC News Australia from 2003 to
+2017. (56 MB)</p></li>
+<li><p><a class="reference external" href="https://datadryad.org/resource/doi:10.5061/dryad.p8s0j">Millions of News Article
+URLs</a>: 2.3
+million URLs for news articles from the frontpage of over 950
+English-language news outlets in the six month period between October
+2014 and April 2015. (101MB)</p></li>
+<li><p><a class="reference external" href="http://research.microsoft.com/en-us/um/redmond/projects/mctest/index.html">MCTest</a>:
+a freely available set of 660 stories and associated questions
+intended for research on the machine comprehension of text; for
+question answering (1 MB)</p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/therohk/india-headlines-news-dataset">News Headlines of India - Times of India
+[Kaggle]</a>:
+2.7 Million News Headlines with category published by Times of India
+from 2001 to 2017. (185 MB)</p></li>
+<li><p><a class="reference external" href="https://www.crowdflower.com/data-for-everyone/">News article / Wikipedia page
+pairings</a>:
+Contributors read a short article and were asked which of two
+Wikipedia articles it matched most closely. (6 MB)</p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/benhamner/nips-2015-papers/version/2">NIPS2015 Papers (version 2)
+[Kaggle]</a>:
+full text of all NIPS2015 papers (335 MB)</p></li>
+<li><p><a class="reference external" href="http://minimaxir.com/2015/07/facebook-scraper/">NYTimes Facebook
+Data</a>: all the
+NYTimes facebook posts (5 MB)</p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/therohk/global-news-week">One Week of Global News Feeds
+[Kaggle]</a>: News
+Event Dataset of 1.4 Million Articles published globally in 20
+languages over one week of August 2017. (115 MB)</p></li>
+<li><p><a class="reference external" href="https://www.crowdflower.com/data-for-everyone/">Objective truths of sentences/concept
+pairs</a>:
+Contributors read a sentence with two concepts. For example “a dog is
+a kind of animal” or “captain can have the same meaning as master.”
+They were then asked if the sentence could be true and ranked it on a
+1-5 scale. (700 KB)</p></li>
+<li><p><a class="reference external" href="https://openlibrary.org/developers/dumps">Open Library Data
+Dumps</a>: dump of all
+revisions of all the records in Open Library. (16 GB)</p></li>
+<li><p><a class="reference external" href="http://www.clips.uantwerpen.be/datasets/personae-corpus">Personae
+Corpus</a>:
+collected for experiments in Authorship Attribution and Personality
+Prediction. It consists of 145 Dutch-language essays by 145 different
+students. (on request)</p></li>
+<li><p><a class="reference external" href="https://www.reddit.com/r/datasets/comments/3bxlg7/i_have_every_publicly_available_reddit_comment/">Reddit
+Comments</a>:
+every publicly available reddit comment as of july 2015. 1.7 billion
+comments (250 GB)</p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/reddit/reddit-comments-may-2015">Reddit Comments (May ‘15)
+[Kaggle]</a>:
+subset of above dataset (8 GB)</p></li>
+<li><p><a class="reference external" href="https://www.reddit.com/r/datasets/comments/3mg812/full_reddit_submission_corpus_now_available_2006/">Reddit Submission
+Corpus</a>:
+all publicly available Reddit submissions from January 2006 - August
+31, 2015). (42 GB)</p></li>
+<li><p><a class="reference external" href="http://trec.nist.gov/data/reuters/reuters.html">Reuters Corpus</a>:
+a large collection of Reuters News stories for use in research and
+development of natural language processing, information retrieval,
+and machine learning systems. This corpus, known as “Reuters Corpus,
+Volume 1” or RCV1, is significantly larger than the older, well-known
+Reuters-21578 collection heavily used in the text classification
+community. Need to sign agreement and sent per post to obtain. (2.5
+GB)</p></li>
+<li><p><a class="reference external" href="http://www.dt.fee.unicamp.br/~tiago/smsspamcollection/">SMS Spam
+Collection</a>:
+5,574 English, real and non-enconded SMS messages, tagged according
+being legitimate (ham) or spam. (200 KB)</p></li>
+<li><p><a class="reference external" href="https://github.com/BobAdamsEE/SouthParkData">SouthparkData</a>: .csv
+files containing script information including: season, episode,
+character, &amp; line. (3.6 MB)</p></li>
+<li><p><a class="reference external" href="https://rajpurkar.github.io/SQuAD-explorer/">Stanford Question Answering Dataset (SQUAD
+2.0)</a>: a reading
+comprehension dataset, consisting of questions posed by crowdworkers
+on a set of Wikipedia articles, where the answer to every question is
+a segment of text, or span, from the corresponding reading passage,
+or the question might be unanswerable.</p></li>
+<li><p><a class="reference external" href="http://data.stackexchange.com/">Stackoverflow</a>: 7.3 million
+stackoverflow questions + other stackexchanges (query tool)</p></li>
+<li><p><a class="reference external" href="https://archive.org/details/twitter_cikm_2010">Twitter Cheng-Caverlee-Lee
+Scrape</a>: Tweets
+from September 2009 - January 2010, geolocated. (400 MB)</p></li>
+<li><p><a class="reference external" href="https://www.crowdflower.com/data-for-everyone/">Twitter New England Patriots Deflategate
+sentiment</a>: Before
+the 2015 Super Bowl, there was a great deal of chatter around
+deflated footballs and whether the Patriots cheated. This data set
+looks at Twitter sentiment on important days during the scandal to
+gauge public sentiment about the whole ordeal. (2 MB)</p></li>
+<li><p><a class="reference external" href="https://www.crowdflower.com/data-for-everyone/">Twitter Progressive issues sentiment
+analysis</a>: tweets
+regarding a variety of left-leaning issues like legalization of
+abortion, feminism, Hillary Clinton, etc. classified if the tweets in
+question were for, against, or neutral on the issue (with an option
+for none of the above). (600 KB)</p></li>
+<li><p><a class="reference external" href="http://help.sentiment140.com/for-students/">Twitter
+Sentiment140</a>: Tweets
+related to brands/keywords. Website includes papers and research
+ideas. (77 MB)</p></li>
+<li><p><a class="reference external" href="https://www.crowdflower.com/data-for-everyone/">Twitter sentiment analysis: Self-driving
+cars</a>:
+contributors read tweets and classified them as very positive,
+slightly positive, neutral, slightly negative, or very negative. They
+were also prompted asked to mark if the tweet was not relevant to
+self-driving cars. (1 MB)</p></li>
+<li><p><a class="reference external" href="https://about.twitter.com/en_us/values/elections-integrity.html#data">Twitter Elections
+Integrity</a>:
+All suspicious tweets and media from 2016 US election. (1.4 GB)</p></li>
+<li><p><a class="reference external" href="http://followthehashtag.com/datasets/200000-tokyo-geolocated-tweets-free-twitter-dataset/">Twitter Tokyo Geolocated
+Tweets</a>:
+200K tweets from Tokyo. (47 MB)</p></li>
+<li><p><a class="reference external" href="http://followthehashtag.com/datasets/170000-uk-geolocated-tweets-free-twitter-dataset/">Twitter UK Geolocated
+Tweets</a>:
+170K tweets from UK. (47 MB)</p></li>
+<li><p><a class="reference external" href="http://followthehashtag.com/datasets/free-twitter-dataset-usa-200000-free-usa-tweets/">Twitter USA Geolocated
+Tweets</a>:
+200k tweets from the US (45MB)</p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/crowdflower/twitter-airline-sentiment">Twitter US Airline Sentiment
+[Kaggle]</a>:
+A sentiment analysis job about the problems of each major U.S.
+airline. Twitter data was scraped from February of 2015 and
+contributors were asked to first classify positive, negative, and
+neutral tweets, followed by categorizing negative reasons (such as
+“late flight” or “rude service”). (2.5 MB)</p></li>
+<li><p><a class="reference external" href="https://www.crowdflower.com/data-for-everyone/">U.S. economic performance based on news
+articles</a>: News
+articles headlines and excerpts ranked as whether relevant to U.S.
+economy. (5 MB)</p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/therohk/urban-dictionary-words-dataset">Urban Dictionary Words and Definitions
+[Kaggle]</a>:
+Cleaned CSV corpus of 2.6 Million of all Urban Dictionary words,
+definitions, authors, votes as of May 2016. (238 MB)</p></li>
+<li><p><a class="reference external" href="http://aws.amazon.com/de/datasets/the-westburylab-usenet-corpus/">Wesbury Lab Usenet
+Corpus</a>:
+anonymized compilation of postings from 47,860 English-language
+newsgroups from 2005-2010 (40 GB)</p></li>
+<li><p><a class="reference external" href="http://www.psych.ualberta.ca/~westburylab/downloads/westburylab.wikicorp.download.html">Wesbury Lab Wikipedia
+Corpus</a>
+Snapshot of all the articles in the English part of the Wikipedia
+that was taken in April 2010. It was processed, as described in
+detail below, to remove all links and irrelevant material (navigation
+text, etc) The corpus is untagged, raw text. Used by <a class="reference external" href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;cites=9060444488071171966&amp;as_sdt=5">Stanford
+NLP</a>
+(1.8 GB).</p></li>
+<li><p><a class="reference external" href="http://cognitiveai.org/explanationbank/">WorldTree Corpus of Explanation Graphs for Elementary Science
+Questions</a>: a corpus of
+manually-constructed explanation graphs, explanatory role ratings,
+and associated semistructured tablestore for most publicly available
+elementary science exam questions in the US (8 MB)</p></li>
+<li><p><a class="reference external" href="http://aws.amazon.com/de/datasets/wikipedia-extraction-wex/">Wikipedia Extraction
+(WEX)</a>:
+a processed dump of english language wikipedia (66 GB)</p></li>
+<li><p><a class="reference external" href="http://aws.amazon.com/de/datasets/wikipedia-xml-data/">Wikipedia XML
+Data</a>:
+complete copy of all Wikimedia wikis, in the form of wikitext source
+and metadata embedded in XML. (500 GB)</p></li>
+<li><p><a class="reference external" href="http://webscope.sandbox.yahoo.com/catalog.php?datatype=l">Yahoo! Answers Comprehensive Questions and
+Answers</a>:
+Yahoo! Answers corpus as of 10/25/2007. Contains 4,483,032 questions
+and their answers. (3.6 GB)</p></li>
+<li><p><a class="reference external" href="http://webscope.sandbox.yahoo.com/catalog.php?datatype=l">Yahoo! Answers consisting of questions asked in
+French</a>:
+Subset of the Yahoo! Answers corpus from 2006 to 2015 consisting of
+1.7 million questions posed in French, and their corresponding
+answers. (3.8 GB)</p></li>
+<li><p><a class="reference external" href="http://webscope.sandbox.yahoo.com/catalog.php?datatype=l">Yahoo! Answers Manner
+Questions</a>:
+subset of the Yahoo! Answers corpus from a 10/25/2007 dump, selected
+for their linguistic properties. Contains 142,627 questions and their
+answers. (104 MB)</p></li>
+<li><p><a class="reference external" href="http://webscope.sandbox.yahoo.com/catalog.php?datatype=l">Yahoo! HTML Forms Extracted from Publicly Available
+Webpages</a>:
+contains a small sample of pages that contain complex HTML forms,
+contains 2.67 million complex forms. (50+ GB)</p></li>
+<li><p><a class="reference external" href="http://webscope.sandbox.yahoo.com/catalog.php?datatype=l">Yahoo! Metadata Extracted from Publicly Available Web
+Pages</a>:
+100 million triples of RDF data (2 GB)</p></li>
+<li><p><a class="reference external" href="http://webscope.sandbox.yahoo.com/catalog.php?datatype=l">Yahoo N-Gram
+Representations</a>:
+This dataset contains n-gram representations. The data may serve as a
+testbed for query rewriting task, a common problem in IR research as
+well as to word and sentence similarity task, which is common in NLP
+research. (2.6 GB)</p></li>
+<li><p><a class="reference external" href="http://webscope.sandbox.yahoo.com/catalog.php?datatype=l">Yahoo! N-Grams, version
+2.0</a>:
+n-grams (n = 1 to 5), extracted from a corpus of 14.6 million
+documents (126 million unique sentences, 3.4 billion running words)
+crawled from over 12000 news-oriented sites (12 GB)</p></li>
+<li><p><a class="reference external" href="http://webscope.sandbox.yahoo.com/catalog.php?datatype=l">Yahoo! Search Logs with Relevance
+Judgments</a>:
+Annonymized Yahoo! Search Logs with Relevance Judgments (1.3 GB)</p></li>
+<li><p><a class="reference external" href="http://webscope.sandbox.yahoo.com/catalog.php?datatype=l">Yahoo! Semantically Annotated Snapshot of the English
+Wikipedia</a>:
+English Wikipedia dated from 2006-11-04 processed with a number of
+publicly-available NLP tools. 1,490,688 entries. (6 GB)</p></li>
+<li><p><a class="reference external" href="https://www.yelp.com/academic_dataset">Yelp</a>: including
+restaurant rankings and 2.2M reviews (on request)</p></li>
+<li><p><a class="reference external" href="https://www.reddit.com/r/datasets/comments/3gegdz/17_millions_youtube_videos_description/">Youtube</a>:
+1.7 million youtube videos descriptions (torrent)</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>6.27.2. 资源<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/caesar0301/awesome-public-datasets#natural-language">令人敬畏的公共数据集/
+NLP</a>
+(includes more lists)</p></li>
+<li><p><a class="reference external" href="http://aws.amazon.com/de/datasets/">AWS 公共数据集</a></p></li>
+<li><p><a class="reference external" href="https://www.crowdflower.com/data-for-everyone/">CrowdFlower: Data for
+Everyone</a> (lots of
+little surveys they conducted and data obtained by crowdsourcing for
+a specific task)</p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/datasets">Kaggle 1</a>,
+<a class="reference external" href="https://www.kaggle.com/competitions">2</a> (make sure though that
+the kaggle competition data can be used outside of the competition!)</p></li>
+<li><p><a class="reference external" href="https://openlibrary.org/developers/dumps">Open Library</a></p></li>
+<li><p><a class="reference external" href="https://www.quora.com/Datasets-What-are-the-major-text-corpora-used-by-computational-linguists-and-natural-language-processing-researchers-and-what-are-the-characteristics-biases-of-each-corpus">Quora</a>
+(mainly annotated corpora)</p></li>
+<li><p><a class="reference external" href="https://www.reddit.com/r/datasets">/r/datasets</a> (endless list of
+datasets, most is scraped by amateurs though and not properly
+documented or licensed)</p></li>
+<li><p><a class="reference external" href="http://rs.io/100-interesting-data-sets-for-statistics/">rs.io</a>
+(another big list)</p></li>
+<li><p><a class="reference external" href="http://opendata.stackexchange.com/">Stackexchange: Opendata</a></p></li>
+<li><p><a class="reference external" href="http://www-nlp.stanford.edu/links/statnlp.html">Stanford NLP
+group</a> (mainly
+annotated corpora and TreeBanks or actual NLP tools)</p></li>
+<li><p><a class="reference external" href="http://webscope.sandbox.yahoo.com/">Yahoo! Webscope</a> (also
+includes papers that use the data that is provided)</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>6.27.3. 阿拉伯数据集<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ParallelMazen/SaudiNewsNet">SaudiNewsNet</a>:
+31,030 Arabic newspaper articles alongwith metadata, extracted from
+various online Saudi newspapers. (2 MB)</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>6.27.4. 德语数据集<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://purl.org/corpus/german-speeches">German Political Speeches
+Corpus</a>: collection of
+recent speeches held by top German representatives (25 MB, 11
+MTokens)</p></li>
+<li><p><a class="reference external" href="http://www.coli.uni-saarland.de/projects/sfb378/negra-corpus/negra-corpus.html">NEGRA</a>:
+A Syntactically Annotated Corpus of German Newspaper Texts. Available
+for free for all Universities and non-profit organizations. Need to
+sign and send form to obtain. (on request)</p></li>
+<li><p><a class="reference external" href="https://tblock.github.io/10kGNAD/">Ten Thousand German News Articles
+Dataset</a>: 10273 german language
+news articles categorized into nine classes for topic classification.
+(26.1 MB)</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pku-opendata.html" class="btn btn-neutral float-right" title="6.28. 北京大学开发数据研究平台" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="funNLP.html" class="btn btn-neutral float-left" title="6.26. funNLP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

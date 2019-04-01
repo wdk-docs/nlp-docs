@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>模型 &mdash; nlp-docs v2019.03.19 文档</title>
+  <title>6.9. 模型 &mdash; nlp-docs v2019.03.19 文档</title>
   
 
   
@@ -37,7 +37,9 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
     <link rel="index" title="索引" href="../../genindex.html" />
-    <link rel="search" title="搜索" href="../../search.html" /> 
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="6.10. 农业知识图谱(AgriKG)" href="../Knowledge_Graph/Agricultural_Knowledge_Graph.html" />
+    <link rel="prev" title="6.8. BERT 大规模预训练语言模型" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -81,13 +83,60 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../index.html">自然语言处理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../Author/index.html">自然语言处理作者</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/index.html">算法汇总</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../awesome/index.html">awesome-nlp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../Librariy/index.html">常用分词工具包</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../Paper/index.html">论文 || 文章</a></li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">6. 语料库</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="FAQ.html">6.1. 常问问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fine-tuning_with_BERT.html">6.2. 使用 BERT 进行微调</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pre-trained_models.html">6.3. 预先训练的模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pre-training_with_BERT.html">6.4. 使用 BERT 进行预训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using_BERT_in_Colab.html">6.5. 在 Colab 中使用 BERT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using_BERT_to_extract_fixed_feature_vectors.html">6.6. 使用 BERT 提取固定的特征向量 (像 ELMo)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="What_is_BERT.html">6.7. 什么是 BERT？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html">6.8. BERT 大规模预训练语言模型</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.9. 模型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">6.9.1. 结果</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">6.9.2. 微调示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">6.9.3. 细节</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">6.9.3.1. 数据源和采样</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">6.9.3.2. 符号化</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">6.9.3.3. 语言清单</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/Agricultural_Knowledge_Graph.html">6.10. 农业知识图谱(AgriKG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/ChineseNLPCorpus.html">6.11. Chinese NLP Corpus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/cnSchema.html">6.12. cnSchema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/index.html">6.13. 知识图谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/openkg.html">6.14. openkg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/LabelStyle.html">6.15. 现代汉语语料库加工规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/index.html">6.16. 标注规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/nation.html">6.17. 信息处理用现代汉语词类标记规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/nlpir.html">6.18. 计算所汉语词性标记集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GlobalWordNetAssociation.html">6.19. 全球 WordNet 协会</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HowNet.html">6.20. 知网</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Schema.html">6.21. Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aihanyu.html">6.22. 爱汉语语料库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cow.html">6.23. Chinese Open Wordnet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../csdn.html">6.24. CSDN 下载</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dianchacha.html">6.25. 店查查数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../funNLP.html">6.26. funNLP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nlp-datasets.html">6.27. nlp-datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pku-opendata.html">6.28. 北京大学开发数据研究平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wikipedia.html">6.29. 维基百科语料库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wordnet.html">6.30. WordNet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/index.html">7. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/index.html">9. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. 术语表</a></li>
 </ul>
 
             
@@ -133,7 +182,9 @@
     
       <li><a href="../../contents.html">Docs</a> &raquo;</li>
         
-      <li>模型</li>
+          <li><a href="../index.html">6. 语料库</a> &raquo;</li>
+        
+      <li>6.9. 模型</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -153,7 +204,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>模型<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<h1>6.9. 模型<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <p>目前有两种多语言模型可供选择。
 我们不打算发布更多的单语言模型，但我们将来可能会发布这两种版本的“BERT-Large”版本:</p>
 <ul class="simple">
@@ -165,11 +216,12 @@
 Chinese Simplified and Traditional, 12-layer, 768-hidden, 12-heads,
 110M parameters</p></li>
 </ul>
-<p><strong>“多语言套装(新)”模型还修复了许多语言中的规范化问题，因此建议使用非拉丁字母表的语言(对于大多数使用拉丁字母的语言，它通常更好)。使用此模型时，请确保将``–do_lower_case = false``传递给``run_pretraining.py``和其他脚本。</strong></p>
+<p><strong>“多语言套装(新)”模型还修复了许多语言中的规范化问题，因此建议使用非拉丁字母表的语言(对于大多数使用拉丁字母的语言，它通常更好)。
+使用此模型时，请确保将``–do_lower_case = false``传递给``run_pretraining.py``和其他脚本。</strong></p>
 <p>请参阅多语言模型支持的<a class="reference external" href="＃list-of-languages">语言列表</a>。
 多语言模型确实包含中文(和英文)，但如果您的微调数据仅限中文，则中文模型可能会产生更好的结果。</p>
 <div class="section" id="id2">
-<h2>结果<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2>6.9.1. 结果<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>为了评估这些系统，我们使用<a class="reference external" href="https://github.com/facebookresearch/XNLI">XNLI
 数据集</a>数据集，这是<a class="reference external" href="https://www.nyu.edu/projects/bowman/multinli/">MultiNLI</a>的一个版本其中开发和测试集已经(由人类)翻译成
 15 种语言。 请注意，训练集是<em>机器</em>翻译(我们使用的是 XNLI
@@ -229,7 +281,7 @@ on data from your language of interest.</p>
 Multilingual model.</p>
 </div>
 <div class="section" id="id3">
-<h2>微调示例<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2>6.9.2. 微调示例<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>The multilingual model does <strong>not</strong> require any special consideration or
 API changes. We did update the implementation of <code class="docutils literal notranslate"><span class="pre">BasicTokenizer</span></code> in
 <code class="docutils literal notranslate"><span class="pre">tokenization.py</span></code> to support Chinese character tokenization, so please
@@ -281,9 +333,9 @@ this:</p>
 </div>
 </div>
 <div class="section" id="id4">
-<h2>细节<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<h2>6.9.3. 细节<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <div class="section" id="id5">
-<h3>数据源和采样<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<h3>6.9.3.1. 数据源和采样<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
 <p>The languages chosen were the <a class="reference external" href="https://meta.wikimedia.org/wiki/List_of_Wikipedias">top 100 languages with the largest
 Wikipedias</a>. The
 entire Wikipedia dump for each language (excluding user and talk pages)
@@ -309,7 +361,7 @@ the original distribution English would be sampled 1000x more than
 Icelandic, but after smoothing it’s only sampled 100x more.</p>
 </div>
 <div class="section" id="id6">
-<h3>符号化<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<h3>6.9.3.2. 符号化<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
 <p>For tokenization, we use a 110k shared WordPiece vocabulary. The word
 counts are weighted the same way as the data, so low-resource languages
 are upweighted by some factor. We intentionally do <em>not</em> use any marker
@@ -333,7 +385,7 @@ BERT should make up for any ambiguity introduced by stripping accent
 markers.</p>
 </div>
 <div class="section" id="id7">
-<h3>语言清单<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<h3>6.9.3.3. 语言清单<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
 <p>多语言模型支持以下语言。 选择这些语言是因为它们是具有最大维基百科的前
 100 种语言:</p>
 <ul class="simple">
@@ -450,6 +502,15 @@ markers.</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Knowledge_Graph/Agricultural_Knowledge_Graph.html" class="btn btn-neutral float-right" title="6.10. 农业知识图谱(AgriKG)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="6.8. BERT 大规模预训练语言模型" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

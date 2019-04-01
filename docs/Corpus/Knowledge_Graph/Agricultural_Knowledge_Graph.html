@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>农业知识图谱(AgriKG) &mdash; nlp-docs v2019.03.19 文档</title>
+  <title>6.10. 农业知识图谱(AgriKG) &mdash; nlp-docs v2019.03.19 文档</title>
   
 
   
@@ -37,7 +37,9 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
     <link rel="index" title="索引" href="../../genindex.html" />
-    <link rel="search" title="搜索" href="../../search.html" /> 
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="6.11. Chinese NLP Corpus" href="ChineseNLPCorpus.html" />
+    <link rel="prev" title="6.9. 模型" href="../BERT/model.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -81,13 +83,60 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../index.html">自然语言处理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../Author/index.html">自然语言处理作者</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/index.html">算法汇总</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../awesome/index.html">awesome-nlp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../Librariy/index.html">常用分词工具包</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../Paper/index.html">论文 || 文章</a></li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">6. 语料库</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../BERT/FAQ.html">6.1. 常问问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BERT/Fine-tuning_with_BERT.html">6.2. 使用 BERT 进行微调</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BERT/Pre-trained_models.html">6.3. 预先训练的模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BERT/Pre-training_with_BERT.html">6.4. 使用 BERT 进行预训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BERT/Using_BERT_in_Colab.html">6.5. 在 Colab 中使用 BERT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BERT/Using_BERT_to_extract_fixed_feature_vectors.html">6.6. 使用 BERT 提取固定的特征向量 (像 ELMo)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BERT/What_is_BERT.html">6.7. 什么是 BERT？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BERT/index.html">6.8. BERT 大规模预训练语言模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BERT/model.html">6.9. 模型</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.10. 农业知识图谱(AgriKG)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">6.10.1. 项目介绍：</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">6.10.2. 目录结构：</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">6.10.3. 可复用资源</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">6.10.4. 项目配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#labels">6.10.4.1. Labels：（命名实体的分类）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">6.10.4.2. 关系抽取</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ChineseNLPCorpus.html">6.11. Chinese NLP Corpus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cnSchema.html">6.12. cnSchema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html">6.13. 知识图谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openkg.html">6.14. openkg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/LabelStyle.html">6.15. 现代汉语语料库加工规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/index.html">6.16. 标注规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/nation.html">6.17. 信息处理用现代汉语词类标记规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/nlpir.html">6.18. 计算所汉语词性标记集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GlobalWordNetAssociation.html">6.19. 全球 WordNet 协会</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HowNet.html">6.20. 知网</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Schema.html">6.21. Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aihanyu.html">6.22. 爱汉语语料库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cow.html">6.23. Chinese Open Wordnet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../csdn.html">6.24. CSDN 下载</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dianchacha.html">6.25. 店查查数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../funNLP.html">6.26. funNLP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nlp-datasets.html">6.27. nlp-datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pku-opendata.html">6.28. 北京大学开发数据研究平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wikipedia.html">6.29. 维基百科语料库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wordnet.html">6.30. WordNet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/index.html">7. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/index.html">9. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. 术语表</a></li>
 </ul>
 
             
@@ -133,7 +182,9 @@
     
       <li><a href="../../contents.html">Docs</a> &raquo;</li>
         
-      <li>农业知识图谱(AgriKG)</li>
+          <li><a href="../index.html">6. 语料库</a> &raquo;</li>
+        
+      <li>6.10. 农业知识图谱(AgriKG)</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -153,14 +204,14 @@
            <div itemprop="articleBody">
             
   <div class="section" id="agrikg">
-<h1>农业知识图谱(AgriKG)<a class="headerlink" href="#agrikg" title="永久链接至标题">¶</a></h1>
+<h1>6.10. 农业知识图谱(AgriKG)<a class="headerlink" href="#agrikg" title="永久链接至标题">¶</a></h1>
 <blockquote>
 <div><p><a class="reference external" href="https://github.com/qq547276542/Agriculture_KnowledgeGraph">Agricultural Knowledge
 Graph</a></p>
 </div></blockquote>
 <p>项目demo：<a class="reference external" href="http://ecnukg.vicp.io">http://ecnukg.vicp.io</a></p>
 <div class="section" id="id1">
-<h2>项目介绍：<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<h2>6.10.1. 项目介绍：<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>本项目是上海市《农业信息服务平台及农业大数据综合利用研究》子课题《上海农业农村大数据共享服务平台建设和应用》的研究成果。</p>
 <p>该课题是由上海市农业委员会信息中心主持，以“致富农民、服务市民、提高行政管理效能”为目标，充分发挥大数据在农业农村发展中的重要功能和巨大潜力，重点建设上海市级农业农村大数据中心，促进信息资源的共建共享和创新应用。</p>
 <p>华东师范大学数据科学与工程学院（以下简称华师大数据学院）作为课题主要参与单位以实现智慧农业为目标，探索农业大数据分析、挖掘和综合应用。华师大课题组在前期国家重点研发计划《大数据知识工程基础理论及其应用研究》研究基础上，在本项目中，基于碎片化农业大数据，构建面向智慧农业的知识图谱及其应用系统。</p>
@@ -173,7 +224,7 @@ Graph</a></p>
 </div></blockquote>
 </div>
 <div class="section" id="id4">
-<h2>目录结构：<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<h2>6.10.2. 目录结构：<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
 ├── MyCrawler      // scrapy爬虫项目路径(已爬好)
 │   └── MyCrawler
@@ -200,7 +251,7 @@ Graph</a></p>
 </div>
 </div>
 <div class="section" id="id5">
-<h2>可复用资源<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<h2>6.10.3. 可复用资源<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p>hudong_pedia.csv : 已经爬好的农业实体的百科页面的结构化csv文件</p></li>
 <li><p>labels.txt： 5000多个手工标注的实体类别</p></li>
@@ -214,7 +265,7 @@ predict_labels.txt中实体在wikidata中对应的三元组关系</p></li>
 </ul>
 </div>
 <div class="section" id="id6">
-<h2>项目配置<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<h2>6.10.4. 项目配置<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <p><strong>0.安装基本环境：</strong></p>
 <p>确保安装好python3和Neo4j（任意版本）</p>
 <p>安装一系列pip依赖： cd至项目根目录，运行 sudo pip3 install -r
@@ -326,10 +377,10 @@ vocabulary) - 2组openType之间的词向量的余弦相似度的平均值 -
 -
 上面四个部分的相似度的加权和为最终的两个页面的相似度，权值由向量weight控制，通过10折叠交叉验证+网格搜索得到</p>
 <div class="section" id="labels">
-<h3>Labels：（命名实体的分类）<a class="headerlink" href="#labels" title="永久链接至标题">¶</a></h3>
+<h3>6.10.4.1. Labels：（命名实体的分类）<a class="headerlink" href="#labels" title="永久链接至标题">¶</a></h3>
 </div>
 <div class="section" id="id7">
-<h3>关系抽取<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<h3>6.10.4.2. 关系抽取<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
 <p>使用远程监督方法构建数据集，利用tensorflow训练PCNN模型 详情见：
 <a class="reference external" href="https://github.com/qq547276542/Agriculture_KnowledgeGraph/tree/master/relationExtraction">relationExtraction</a></p>
 </div>
@@ -341,6 +392,15 @@ vocabulary) - 2组openType之间的词向量的余弦相似度的平均值 -
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ChineseNLPCorpus.html" class="btn btn-neutral float-right" title="6.11. Chinese NLP Corpus" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../BERT/model.html" class="btn btn-neutral float-left" title="6.9. 模型" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

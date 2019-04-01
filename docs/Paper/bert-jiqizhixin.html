@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读 &mdash; nlp-docs v2019.03.19 文档</title>
+  <title>9.2. 谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读 &mdash; nlp-docs v2019.03.19 文档</title>
   
 
   
@@ -37,7 +37,9 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜索" href="../search.html" /> 
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="9.3. 细说中文分词" href="chinese-segmenter.html" />
+    <link rel="prev" title="9.1. 2018 年，NLP 研究与应用进展到什么水平了？" href="2018-nlp.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -81,13 +83,48 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">自然语言处理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">自然语言处理作者</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">算法汇总</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">awesome-nlp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Librariy/index.html">常用分词工具包</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html">论文 || 文章</a></li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/index.html">6. 语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/index.html">7. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">9. 论文 || 文章</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="2018-nlp.html">9.1. 2018 年，NLP 研究与应用进展到什么水平了？</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">9.2. 谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">9.2.1. 1 简介</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nlp">9.2.1.1. 预训练 NLP 模型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">9.2.1.2. 计算力</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">9.2.1.3. 研究团队</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bert">9.2.1.4. BERT 官方预训练模型</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#transformer">9.2.2. 2 Transformer 概览</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">9.2.3. 3 BERT 论文解读</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">9.2.3.1. 输入表征</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">9.2.3.2. 预训练过程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">9.2.3.3. 微调过程</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">9.2.4. 4 官方模型详情</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">9.2.4.1. 微调预训练 BERT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">9.2.4.2. 通过预训练 BERT 抽取语义特征</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">9.2.5. 参考链接：</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chinese-segmenter.html">9.3. 细说中文分词</a></li>
+<li class="toctree-l2"><a class="reference internal" href="milestone.html">9.4. 一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nlp-gather.html">9.5. 自然语言处理（NLP）知识结构总结</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nlp.ict.ac.cn.html">9.6. 中国科学院计算技术研究所自然语言处理研究组</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">11. 术语表</a></li>
 </ul>
 
             
@@ -133,7 +170,9 @@
     
       <li><a href="../contents.html">Docs</a> &raquo;</li>
         
-      <li>谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读</li>
+          <li><a href="index.html">9. 论文 || 文章</a> &raquo;</li>
+        
+      <li>9.2. 谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -153,7 +192,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="bert-3">
-<h1>谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读<a class="headerlink" href="#bert-3" title="永久链接至标题">¶</a></h1>
+<h1>9.2. 谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读<a class="headerlink" href="#bert-3" title="永久链接至标题">¶</a></h1>
 <blockquote>
 <div><p><a class="reference external" href="https://www.jiqizhixin.com/articles/2018-11-01-9">https://www.jiqizhixin.com/articles/2018-11-01-9</a></p>
 </div></blockquote>
@@ -193,7 +232,7 @@ BERT 的研究论文与实现，整篇文章的主要结构如下所示：</p>
 </li>
 </ol>
 <div class="section" id="id1">
-<h2>1 简介<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<h2>9.2.1. 1 简介<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>BERT
 的核心过程非常简洁，它会先从数据集抽取两个句子，其中第二句是第一句的下一句的概率是
 50%，这样就能学习句子之间的关系。其次随机去除两个句子中的一些词，并要求模型预测这些词是什么，这样就能学习句子内部的关系。最后再将经过处理的句子传入大型
@@ -202,7 +241,7 @@ Transformer 模型，并通过两个损失函数同时学习上面两个目标�
 预训练模型主要在三方面会启发今后的研究，即对预训练 NLP
 模型的贡献、计算力对研究的重要性、以及研究团队和工程能力。</p>
 <div class="section" id="nlp">
-<h3>预训练 NLP 模型<a class="headerlink" href="#nlp" title="永久链接至标题">¶</a></h3>
+<h3>9.2.1.1. 预训练 NLP 模型<a class="headerlink" href="#nlp" title="永久链接至标题">¶</a></h3>
 <p>其实预训练模型或迁移学习很早就有人研究，但真正广受关注还是在近几年。清华大学刘知远表示：「大概在前几年，可能很多人都认为预训练的意义不是特别大，当时感觉直接在特定任务上做训练可能效果会更好。我认为
 BERT 相当于在改变大家的观念，即在极大数据集上进行预训练对于不同的 NLP
 任务都会有帮助。」</p>
@@ -219,7 +258,7 @@ sentence model, 可以走很远。它的架构以及它作为 pre-trained model
 Net。」</p>
 </div>
 <div class="section" id="id2">
-<h3>计算力<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<h3>9.2.1.2. 计算力<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
 <p>尽管 BERT
 效果惊人，但它需要的计算量非常大，原作者在论文中也表示每次只能预测 15%
 的词，因此模型收敛得非常慢。BERT 的作者在 Reddit
@@ -235,7 +274,7 @@ BERT
 都有那种『我也曾经多多少少想过类似的事情』的感觉，虽然也仅仅是想过而已。」</p>
 </div>
 <div class="section" id="id3">
-<h3>研究团队<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<h3>9.2.1.3. 研究团队<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
 <p>最后对于 BERT 的研究团队，微软全球技术院士黄学东说：「包括一作 Jacob
 在内，BERT
 四个作者有三个是微软前员工。这个研究其实改变了自然语言处理今后的方向，他们的贡献应该和当年微软在计算机视觉中用
@@ -244,7 +283,7 @@ ResNet 所造就的贡献是一样的。可惜 Jacob
 的东西，他以前也是微软的优秀员工。」</p>
 </div>
 <div class="section" id="bert">
-<h3>BERT 官方预训练模型<a class="headerlink" href="#bert" title="永久链接至标题">¶</a></h3>
+<h3>9.2.1.4. BERT 官方预训练模型<a class="headerlink" href="#bert" title="永久链接至标题">¶</a></h3>
 <p>在众多研究者的关注下，谷歌发布了 BERT
 的实现代码与预训练模型。其中代码比较简单，基本上是标准的 Transformer
 实现，但是发布的预训练模型非常重要，因为它需要的计算力太多。总体而言，谷歌开放了预训练的
@@ -276,7 +315,7 @@ Notebook：</p>
 </div>
 </div>
 <div class="section" id="transformer">
-<h2>2 Transformer 概览<a class="headerlink" href="#transformer" title="永久链接至标题">¶</a></h2>
+<h2>9.2.2. 2 Transformer 概览<a class="headerlink" href="#transformer" title="永久链接至标题">¶</a></h2>
 <p>在整个 Transformer
 架构中，它只使用了注意力机制和全连接层来处理文本，因此 Transformer
 确实没使用循环神经网络或卷积神经网络实现「特征抽取」这一功能。此外，Transformer
@@ -315,7 +354,7 @@ BERT
 OpenAI GPT 进行对比。</p>
 </div>
 <div class="section" id="id4">
-<h2>3 BERT 论文解读<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<h2>9.2.3. 3 BERT 论文解读<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>BERT 的全称是基于 Transformer
 的双向编码器表征，其中「双向」表示模型在处理某一个词时，它能同时利用前面的词和后面的词两部分信息。这种「双向」的来源在于
 BERT
@@ -329,7 +368,7 @@ GPT 使用新型的 Transformer 和经典语言模型只能获取单向信息。
 的主要目标是在 OpenAI GPT 的基础上对预训练任务做一些改进，以同时利用
 Transformer 深度模型与双向信息的优势。</p>
 <div class="section" id="id5">
-<h3>输入表征<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<h3>9.2.3.1. 输入表征<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
 <p>前面已经了解过 BERT 最核心的过程就是同时预测加了 MASK 的缺失词与 A/B
 句之间的二元关系，而这些首先都需要体现在模型的输入中，在 Jacob
 等研究者的原论文中，有一张图很好地展示了模型输入的结构。</p>
@@ -349,7 +388,7 @@ Transformer
 感知词与词之间的位置关系，我们需要使用位置编码给每个词加上位置信息。</p>
 </div>
 <div class="section" id="id6">
-<h3>预训练过程<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<h3>9.2.3.2. 预训练过程<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
 <p>BERT
 最核心的就是预训练过程，这也是该论文的亮点所在。简单而言，模型会从数据集抽取两句话，其中
 B 句有 50% 的概率是 A
@@ -382,7 +421,7 @@ Mask 掉的词后，80% 的情况下会直接替代为「[MASK]」，10%
 的词，因此模型收敛比较慢。</p>
 </div>
 <div class="section" id="id7">
-<h3>微调过程<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<h3>9.2.3.3. 微调过程<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
 <p>最后预训练完模型，就要尝试把它们应用到各种 NLP
 任务中，并进行简单的微调。不同的任务在微调上有一些差别，但 BERT
 已经强大到能为大多数 NLP
@@ -411,7 +450,7 @@ CoNLL 中，每一个 Tok 对应的输出向量 T
 </div>
 </div>
 <div class="section" id="id8">
-<h2>4 官方模型详情<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<h2>9.2.4. 4 官方模型详情<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
 <p>前面我们已经介绍过谷歌官方发布的 BERT
 项目，这一部分主要会讨论如何在不同的 NLP
 任务中微调预训练模型，以及怎样使用预训练 BERT
@@ -419,7 +458,7 @@ CoNLL 中，每一个 Tok 对应的输出向量 T
 的预训练过程，但由于它需要的计算力太大，因此这里并不做介绍，读者可详细阅读原项目的说明文件。</p>
 <p>项目地址：<a class="reference external" href="https://github.com/google-research/bert">https://github.com/google-research/bert</a></p>
 <div class="section" id="id9">
-<h3>微调预训练 BERT<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<h3>9.2.4.1. 微调预训练 BERT<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
 <p>该项目表示原论文中 11 项 NLP 任务的微调都是在单块 Cloud TPU（64GB
 RAM）上进行的，目前无法使用 12GB - 16GB 内存的 GPU 复现论文中 BERT-Large
 模型的大部分结果，因为内存匹配的最大批大小仍然太小。但是基于给定的超参数，BERT-Base
@@ -435,7 +474,7 @@ GLUE data
 该示例代码在 Microsoft Research Paraphrase Corpus（MRPC）上对 BERT-Base
 进行微调，该语料库仅包含 3600 个样本，在大多数 GPU
 上该微调过程仅需几分钟。</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span>export BERT_BASE_DIR=/path/to/bert/uncased_L-12_H-768_A-12export GLUE_DIR=/path/to/glue
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>export BERT_BASE_DIR=/path/to/bert/uncased_L-12_H-768_A-12export GLUE_DIR=/path/to/glue
 
 python run_classifier.py \
  --task_name=MRPC \
@@ -466,7 +505,7 @@ output_dir），结果将在 84%和 88%之间。注意：你或许会看到信�
 train on CPU.”这只是表示模型不是运行在 Cloud TPU 上而已。</p>
 </div>
 <div class="section" id="id10">
-<h3>通过预训练 BERT 抽取语义特征<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<h3>9.2.4.2. 通过预训练 BERT 抽取语义特征<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
 <p>对于原论文 11 项任务之外的试验，我们也可以通过预训练 BERT
 抽取定长的语义特征向量。因为在特定案例中，与其端到端微调整个预训练模型，直接获取预训练上下文嵌入向量会更有效果，并且也可以缓解大多数内存不足问题。在这个过程中，每个输入
 token 的上下文嵌入向量指预训练模型隐藏层生成的定长上下文表征。
@@ -494,7 +533,7 @@ BERT 预训练模型。</p>
 </div>
 </div>
 <div class="section" id="id11">
-<h2>参考链接：<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<h2>9.2.5. 参考链接：<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
 <p><a class="reference external" href="https://arxiv.org/pdf/1810.04805.pdf">https://arxiv.org/pdf/1810.04805.pdf</a></p>
 <p><a class="reference external" href="https://www.zhihu.com/question/298203515">https://www.zhihu.com/question/298203515</a></p>
 <p><a class="reference external" href="https://www.reddit.com/r/MachineLearning/comments/9nfqxz/r_bert_pretraining_of_deep_bidirectional/">https://www.reddit.com/r/MachineLearning/comments/9nfqxz/r_bert_pretraining_of_deep_bidirectional/</a></p>
@@ -506,6 +545,15 @@ BERT 预训练模型。</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="chinese-segmenter.html" class="btn btn-neutral float-right" title="9.3. 细说中文分词" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="2018-nlp.html" class="btn btn-neutral float-left" title="9.1. 2018 年，NLP 研究与应用进展到什么水平了？" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

@@ -1,0 +1,476 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. 自然语言处理 &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="2. 自然语言处理作者" href="Author/index.html" />
+    <link rel="prev" title="自然语言处理" href="contents.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. 自然语言处理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.1. 历史</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">1.2. 实际问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">1.3. 自然语言处理的主要范畴</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">1.4. 自然语言处理研究的难点</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">1.4.1. 单词的边界界定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">1.4.2. 词义的消歧</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">1.4.3. 句法的模糊性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">1.4.4. 有瑕疵的或不规范的输入</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">1.4.5. 语言行为与计划</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">1.5. 当前自然语言处理研究的发展趋势</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">1.6. 统计自然语言处理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id13">1.6.1. 相关实例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">1.7. 延伸阅读</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">1.8. 外部链接</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithm/ConditionalRandomField.html">3. 条件随机场 CRF（Conditional Random Field）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithm/Hidden_Markov_Model.html">4. 隐马尔可夫模型 HMM（Hidden Markov Model）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithm/MMSEG.html">5. MMSEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithm/MMSeg_description.html">6. MMSeg 分词算法简述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithm/Maximum-entropy_Markov_model.html">7. 最大熵马尔可夫模型 MEMM（Maximum-entropy Markov model）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithm/Maximum_Entropy.html">8. 最大熵模型 ME（Maximum Entropy）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithm/Statistical_Model.html">9. 统计模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithm/Viterbi.html">10. Viterbi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Algorithm/index.html">11. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awesome/Awesome-Chinese-NLP.html">12. awesome-chinese-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awesome/index.html">13. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awesome/multi-language.html">14. 其他语言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awesome/techniques.html">15. 技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awesome/tutorials.html">16. 教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cloud/aliyun.html">17. 阿里云自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cloud/pai.html">18. 阿里机器学习平台 PAI 3.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cloud/百度AI.html">19. 百度 AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/BERT/FAQ.html">20. 常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/BERT/Fine-tuning_with_BERT.html">21. 使用 BERT 进行微调</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/BERT/Pre-trained_models.html">22. 预先训练的模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/BERT/Pre-training_with_BERT.html">23. 使用 BERT 进行预训练</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/BERT/Using_BERT_in_Colab.html">24. 在 Colab 中使用 BERT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/BERT/Using_BERT_to_extract_fixed_feature_vectors.html">25. 使用 BERT 提取固定的特征向量 (像 ELMo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/BERT/What_is_BERT.html">26. 什么是 BERT？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/BERT/index.html">27. BERT 大规模预训练语言模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/BERT/model.html">28. 模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/Knowledge_Graph/Agricultural_Knowledge_Graph.html">29. 农业知识图谱(AgriKG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/Knowledge_Graph/ChineseNLPCorpus.html">30. Chinese NLP Corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/Knowledge_Graph/cnSchema.html">31. cnSchema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/Knowledge_Graph/index.html">32. 知识图谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/Knowledge_Graph/openkg.html">33. openkg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/regulation/LabelStyle.html">34. 现代汉语语料库加工规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/regulation/index.html">35. 标注规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/regulation/nation.html">36. 信息处理用现代汉语词类标记规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/regulation/nlpir.html">37. 计算所汉语词性标记集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/GlobalWordNetAssociation.html">38. 全球 WordNet 协会</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/HowNet.html">39. 知网</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/Schema.html">40. Schema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/aihanyu.html">41. 爱汉语语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/cow.html">42. Chinese Open Wordnet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/csdn.html">43. CSDN 下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/dianchacha.html">44. 店查查数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/funNLP.html">45. funNLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/index.html">46. 语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/nlp-datasets.html">47. nlp-datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/pku-opendata.html">48. 北京大学开发数据研究平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/wikipedia.html">49. 维基百科语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Corpus/wordnet.html">50. WordNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/FoolNLTK/index.html">51. FoolNLTK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/FoolNLTK/train.html">52. train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/JieBa/Jieba.html">53. JieBa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/JieBa/JiebaCpp.html">54. CppJieba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/JieBa/JiebaNode.html">55. NodeJieba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/HanLP.html">56. HanLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/Jcseg.html">57. Jcseg logo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/Jiagu.html">58. Jiagu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/Keras.html">59. Keras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/Keras.html#x-train-and-y-train-are-numpy-arrays-just-like-in-the-scikit-learn-api">60. x_train and y_train are Numpy arrays –just like in the Scikit-Learn API.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/PyTorch.html">61. PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/SnowNLP.html">62. SnowNLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/SpaCy.html">63. spacy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/StanfordNLP.html">64. 斯坦福-StanfordNLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/THULAC.html">65. 清华-THULAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/TensorFlow.html">66. TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/ansj_seg.html">67. Ansj 中文分词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/awesome.html">68. 👍🏻 表库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/bosonnlp.html">69. 玻森数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/index.html">70. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/ltp.html">71. 哈工大-LTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/nlpair-ictclas.html">72. 中科院-NLPIR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/nltk.html">73. NLTK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/pkuseg.html">74. 北大-pkuseg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/scikit-learn.html">75. scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Librariy/sego.html">76. sego</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Online/index.html">77. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paper/2018-nlp.html">78. 2018 年，NLP 研究与应用进展到什么水平了？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paper/bert-jiqizhixin.html">79. 谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paper/chinese-segmenter.html">80. 细说中文分词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paper/index.html">81. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paper/milestone.html">82. 一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paper/nlp-gather.html">83. 自然语言处理（NLP）知识结构总结</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Paper/nlp.ict.ac.cn.html">84. 中国科学院计算技术研究所自然语言处理研究组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sensitive-word/fastscan.html">85. FastScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sensitive-word/index.html">86. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">87. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="contents.html">Docs</a> &raquo;</li>
+        
+      <li>1. 自然语言处理</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/info.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>1. 自然语言处理<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<blockquote>
+<div><p>引自维基百科的内容:
+<a class="reference external" href="https://zh.wikipedia.org/wiki/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86">自然语言处理</a></p>
+</div></blockquote>
+<p>自然语言处理（英语：Natural Language Processing，缩写作
+NLP）是人工智能和语言学领域的分支学科。此领域探讨如何处理及运用自然语言；自然语言处理包括多方面和步骤，基本有认知、理解、生成等部分。</p>
+<p>自然语言认知和理解是让计算机把输入的语言变成有意思的符号和关系，然后根据目的再处理。自然语言生成系统则是把计算机数据转化为自然语言。</p>
+<div class="section" id="id2">
+<h2>1.1. 历史<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>自然语言处理大体是从 1950 年代开始，虽然更早期也有作为。1950
+年，图灵发表论文“计算机器与智能”，提出现在所谓的“图灵测试”作为判断智能的条件。</p>
+<p>1954 年的乔治城实验涉及全部自动翻译超过 60
+句俄文成为英文。研究人员声称三到五年之内即可解决机器翻译的问题。[1]不过实际进展远低于预期，1966
+年的 ALPAC
+报告发现十年研究未达预期目标，机器翻译的研究经费遭到大幅削减。一直到
+1980
+年代末期，统计机器翻译系统发展出来，机器翻译的研究才得以更上一层楼。</p>
+<p>1960 年代发展特别成功的 NLP 系统包括
+SHRDLU——一个词汇设限、运作于受限如“积木世界”的一种自然语言系统，以及
+1964-1966 年约瑟夫·维森鲍姆模拟“个人中心治疗”而设计的
+ELIZA——几乎未运用人类思想和感情的消息，有时候却能呈现令人讶异地类似人之间的交互。“病人”提出的问题超出
+ELIZA
+极小的知识范围之时，可能会得到空泛的回答。例如问题是“我的头痛”，回答是“为什么说你头痛？”</p>
+<p>1970 年代，程序员开始设计“概念本体论”（conceptual
+ontologies）的程序，将现实世界的信息，架构成计算机能够理解的数据。实例有
+MARGIE、SAM、PAM、TaleSpin、QUALM、Politics 以及 Plot
+Unit。许多聊天机器人在这一时期写成，包括 PARRY 、Racter 以及 Jabberwacky
+。</p>
+<p>一直到 1980
+年代，多数自然语言处理系统是以一套复杂、人工订定的规则为基础。不过从
+1980 年代末期开始，语言处理引进了机器学习的算法，NLP
+产生革新。成因有两个：运算能力稳定增加（参见摩尔定律）；以及乔姆斯基
+语言学理论渐渐丧失主导（例如转换-生成文法）。该理论的架构不倾向于语料库——机器学习处理语言所用方法的基础。有些最早期使用的机器学习算法，例如决策树，是硬性的、“如果-则”规则组成的系统，类似当时既有的人工订定的规则。不过词性标记将隐马尔可夫模型引入
+NLP，并且研究日益聚焦于软性的、以机率做决定的统计模型，基础是将输入数据里每一个特性赋予代表其分量的数值。许多语音识别现今依赖的缓存语言模型即是一种统计模型的例子。这种模型通常足以处理非预期的输入数据，尤其是输入有错误（真实世界的数据总免不了），并且在集成到包含多个子任务的较大系统时，结果比较可靠。</p>
+<p>许多早期的成功属于机器翻译领域，尤其归功 IBM
+的研究，渐次发展出更复杂的统计模型。这些系统得以利用加拿大和欧盟现有的语料库，因为其法律规定政府的会议必须翻译成所有的官方语言。不过，其他大部分系统必须特别打造自己的语料库，一直到现在这都是限制其成功的一个主要因素，于是大量的研究致力于从有限的数据更有效地学习。</p>
+<p>近来的研究更加聚焦于非监督式学习和半监督学习的算法。这种算法，能够从没有人工注解理想答案的数据里学习。大体而言，这种学习比监督学习困难，并且在同量的数据下，通常产生的结果较不准确。不过没有注解的数据量极巨（包含了万维网），弥补了较不准确的缺点。</p>
+<p>近年来, 深度学习技巧纷纷出炉[2][3]
+在自然语言处理方面获得最尖端的成果，例如语言模型[4]、语法分析[5][6]等等。</p>
+<p>##任务和限制 理论上，NLP
+是一种很吸引人的人机交互方式。早期的语言处理系统如
+SHRDLU，当它们处于一个有限的“积木世界”，运用有限的词汇表会话时，工作得相当好。这使得研究员们对此系统相当乐观，然而，当把这个系统拓展到充满了现实世界的含糊与不确定性的环境中时，他们很快丧失了信心。</p>
+<p>由于理解（understanding）自然语言，需要关于外在世界的广泛知识以及运用操作这些知识的能力，自然语言认知，同时也被视为一个人工智能完备（AI-complete）的问题。同时，在自然语言处理中，“理解”的定义也变成一个主要的问题。</p>
+</div>
+<div class="section" id="id3">
+<h2>1.2. 实际问题<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>一些 NLP 面临的问题实例：</p>
+<p>句子“我们把香蕉给猴子，因为(牠们)饿了”和“我们把香蕉给猴子，因为(它们)熟透了”有同样的结构。但是代词“它们”在第一句中指的是“猴子”，在第二句中指的是“香蕉”。如果不了解猴子和香蕉的属性，无法区分。(简体中文和英文的它/it
+没有区分，但在中文(繁体中文)里「牠」和「它」是有区别的，只是代词在中文里常常被省略，因此需区别属性并且标示出来)</p>
+</div>
+<div class="section" id="id4">
+<h2>1.3. 自然语言处理的主要范畴<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>文本朗读（Text to speech）/语音合成（Speech synthesis）</p></li>
+<li><p>语音识别（Speech recognition）</p></li>
+<li><p>中文自动分词（Chinese word segmentation）</p></li>
+<li><p>词性标注（Part-of-speech tagging）</p></li>
+<li><p>句法分析（Parsing）</p></li>
+<li><p>自然语言生成（Natural language generation）</p></li>
+<li><p>文本分类（Text categorization）</p></li>
+<li><p>信息检索（Information retrieval）</p></li>
+<li><p>信息抽取（Information extraction）</p></li>
+<li><p>文字校对（Text-proofing）</p></li>
+<li><p>问答系统（Question answering）</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>给一句人类语言的问句，决定其答案。 典型问题有特定答案 (像是加拿大的首都叫什么?)，但也考虑些开放式问句(像是人生的意义是是什么?)
+</pre></div>
+</div>
+</li>
+<li><p>机器翻译（Machine translation）</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">将某种人类语言自动翻译至另一种语言</span>
+</pre></div>
+</div>
+</li>
+<li><p>自动摘要（Automatic summarization）</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>产生一段文字的大意，通常用于提供已知领域的文章摘要，例如产生报纸上某篇文章之摘要
+</pre></div>
+</div>
+</li>
+<li><p>文字蕴涵（Textual entailment）</p></li>
+<li><p>命名实体识别（Named entity recognition）</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>1.4. 自然语言处理研究的难点<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id6">
+<h3>1.4.1. 单词的边界界定<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>在口语中，词与词之间通常是连贯的，而界定字词边界通常使用的办法是取用能让给定的上下文最为通顺且在文法上无误的一种最佳组合。在书写上，汉语也没有词与词之间的边界。</p>
+</div>
+<div class="section" id="id7">
+<h3>1.4.2. 词义的消歧<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>许多字词不单只有一个意思，因而我们必须选出使句意最为通顺的解释。</p>
+</div>
+<div class="section" id="id8">
+<h3>1.4.3. 句法的模糊性<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>自然语言的文法通常是模棱两可的，针对一个句子通常可能会剖析（Parse）出多棵剖析树（Parse
+Tree），而我们必须要仰赖语义及前后文的信息才能在其中选择一棵最为适合的剖析树。</p>
+</div>
+<div class="section" id="id9">
+<h3>1.4.4. 有瑕疵的或不规范的输入<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>例如语音处理时遇到外国口音或地方口音，或者在文本的处理中处理拼写，语法或者光学字符识别（OCR）的错误。</p>
+</div>
+<div class="section" id="id10">
+<h3>1.4.5. 语言行为与计划<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p>句子常常并不只是字面上的意思；例如，“你能把盐递过来吗”，一个好的回答应当是动手把盐递过去；在大多数上下文环境中，“能”将是糟糕的回答，虽说回答“不”或者“太远了我拿不到”也是可以接受的。再者，如果一门课程去年没开设，对于提问“这门课程去年有多少学生没通过？”回答“去年没开这门课”要比回答“没人没通过”好。</p>
+</div>
+</div>
+<div class="section" id="id11">
+<h2>1.5. 当前自然语言处理研究的发展趋势<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<p>第一，传统的基于句法-语义规则的理性主义方法过于复杂，随着语料库建设和语料库语言学的崛起，大规模真实文本的机器学习处理成为自然语言处理的主要选择。</p>
+<p>第二，统计数学方法越来越受到重视，自然语言处理中越来越多地使用机器自动学习的方法来获取语言知识。</p>
+<p>第三，浅层处理与深层处理并重，统计与规则方法并重，形成混合式的系统。</p>
+<p>第四，自然语言处理中越来越重视词汇的作用，出现了强烈的“词汇主义”的倾向。词汇知识库的建造成为了普遍关注的问题。[7]</p>
+</div>
+<div class="section" id="id12">
+<h2>1.6. 统计自然语言处理<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<p>统计自然语言处理运用了推测学、机率、统计的方法来解决上述，尤其是针对容易高度模糊的长串句子，当套用实际文法进行分析产生出成千上万笔可能性时所引发之难题。处理这些高度模糊句子所采用消歧的方法通常运用到语料库以及马可夫模型（Markov
+models）。统计自然语言处理的技术主要由同样自人工智能下与学习行为相关的子领域：机器学习及数据采掘所演进而成。</p>
+<div class="section" id="id13">
+<h3>1.6.1. 相关实例<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="http://gate.ac.uk/">GATE: a Java Library for Text Engineering</a></p></li>
+<li><p><a class="reference external" href="http://ir.hit.edu.cn/demo/ltp/">LTP:语言技术平台（简体中文）</a></p></li>
+<li><p><a class="reference external" href="https://zh.wikipedia.org/wiki/MARF">MARF</a></p></li>
+<li><p><a class="reference external" href="http://www.nltk.org/book">Python
+编程语言的自然语言处理工具包教程</a></p></li>
+<li><p><a class="reference external" href="https://github.com/fastnlp/fastNLP">fastNLP</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id14">
+<h2>1.7. 延伸阅读<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>贝茨，M。自然语言理解的模型。美利坚合众国国家科学院院刊。
+1995,92（22）：9977-9982。 <a class="reference external" href="https://dx.doi.org/10.1073%2Fpnas.92.22.9977">DOI：10.1073 /
+pnas.92.22.9977</a>。</p></li>
+<li><p>Steven Bird，Ewan Klein 和 Edward Loper（2009）。 Python
+的自然语言处理。奥莱利媒体。 <a class="reference external" href="https://zh.wikipedia.org/wiki/Special:%E7%BD%91%E7%BB%9C%E4%B9%A6%E6%BA%90/9780596516499">ISBN
+978-0-596-51649-9</a>。</p></li>
+<li><p>Daniel Jurafsky 和 James H. Martin（2008）。语音和语言处理，第 2
+版。皮尔森普伦蒂斯霍尔。 <a class="reference external" href="https://zh.wikipedia.org/wiki/Special:%E7%BD%91%E7%BB%9C%E4%B9%A6%E6%BA%90/9780131873216">ISBN
+978-0-13-187321-6</a>。</p></li>
+<li><p>Christopher D. Manning，Prabhakar Raghavan 和
+HinrichSchütze（2008）。信息检索简介。剑桥大学出版社。 <a class="reference external" href="https://zh.wikipedia.org/wiki/Special:%E7%BD%91%E7%BB%9C%E4%B9%A6%E6%BA%90/9780521865715">ISBN
+978-0-521-86571-5</a>。<a class="reference external" href="http://nlp.stanford.edu/IR-book/">官方
+html 和 pdf 版本免费提供</a>。</p></li>
+<li><p>Christopher D. Manning 和
+HinrichSchütze（1999）。统计自然语言处理的基础。麻省理工学院出版社。
+<a class="reference external" href="https://zh.wikipedia.org/wiki/Special:%E7%BD%91%E7%BB%9C%E4%B9%A6%E6%BA%90/9780262133609">ISBN
+978-0-262-13360-9</a>。</p></li>
+<li><p>David M. W. Powers 和 Christopher C. R.
+Turk（1989）。自然语言的机器学习。施普林格出版社。 <a class="reference external" href="https://zh.wikipedia.org/wiki/Special:%E7%BD%91%E7%BB%9C%E4%B9%A6%E6%BA%90/9780387195575">ISBN
+978-0-387-19557-5</a>。</p></li>
+</ul>
+</div>
+<div class="section" id="id15">
+<h2>1.8. 外部链接<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://web.archive.org/web/20100616131036/http://www.cslu.ogi.edu/HLTsurvey/">人类语言技术当前发展情况概览</a></p></li>
+<li><p><a class="reference external" href="http://www.cs.columbia.edu/nlp/">哥伦比亚大学自然语言处理研究组</a></p></li>
+<li><p><a class="reference external" href="http://www.lti.cs.cmu.edu/">卡内基梅隆大学语言技术研究院</a></p></li>
+<li><p><a class="reference external" href="http://nlp.stanford.edu/">斯坦福大学自然语言处理研究小组</a></p></li>
+<li><p><a class="reference external" href="http://www.nlp.org.cn/">中文自然语言处理开放平台</a></p></li>
+<li><p><a class="reference external" href="https://web.archive.org/web/20040916080945/http://acl.ldc.upenn.edu/">ACL（美国计算机语言学协会）提供的相关杂志以及研讨会的论文</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Author/index.html" class="btn btn-neutral float-right" title="2. 自然语言处理作者" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="contents.html" class="btn btn-neutral float-left" title="自然语言处理" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

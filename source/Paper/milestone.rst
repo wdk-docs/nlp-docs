@@ -8,7 +8,7 @@
 
    翻译: https://www.infoq.cn/article/66vicQt*GTIFy33B4mu9
 
-|milestone1.png| |milestone1.png|
+|milestone1.png| |milestone2.png|
 
 这是两篇系列文章中的第一篇。在 2018 年的 Indaba 深度学习大会上，Herman
 Kamper
@@ -374,5 +374,5 @@ ML
 2009）。远程监督利用启发式或现有知识库中的信息生成带有噪声的模式，可用于从大型语料库中自动提取示例。远程监督现已被广泛应用，并且已经是关系提取、信息提取、情感分析等领域的常用技术。
 
 .. |milestone1.png| image:: ../images/milestone1.png
-.. |milestone1.png| image:: ../images/milestone2.png
+.. |milestone2.png| image:: ../images/milestone2.png
 

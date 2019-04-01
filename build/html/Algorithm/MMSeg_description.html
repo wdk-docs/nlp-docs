@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.6. MMSeg 分词算法简述 &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="3.7. 统计模型" href="Statistical_Model.html" />
+    <link rel="prev" title="3.5. MMSEG" href="MMSEG.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">3. 算法汇总</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ConditionalRandomField.html">3.1. 条件随机场 CRF（Conditional Random Field）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Hidden_Markov_Model.html">3.2. 隐马尔可夫模型 HMM（Hidden Markov Model）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Maximum_Entropy.html">3.3. 最大熵模型 ME（Maximum Entropy）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Maximum-entropy_Markov_model.html">3.4. 最大熵马尔可夫模型 MEMM（Maximum-entropy Markov model）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MMSEG.html">3.5. MMSEG</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.6. MMSeg 分词算法简述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Statistical_Model.html">3.7. 统计模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Viterbi.html">3.8. Viterbi</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/index.html">6. 语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/index.html">7. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">9. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">11. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">3. 算法汇总</a> &raquo;</li>
+        
+      <li>3.6. MMSeg 分词算法简述</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Algorithm/MMSeg_description.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mmseg">
+<h1>3.6. MMSeg 分词算法简述<a class="headerlink" href="#mmseg" title="永久链接至标题">¶</a></h1>
+<p>MMSeg 只是实现了 Chih-Hao Tsai 的 MMSEG
+算法，这是一个来源于网络的分词算法。我照抄了算法开始的部分：</p>
+<p>MMSEG: A Word Identification System for Mandarin Chinese Text Based on
+Two Variants of the Maximum Matching Algorithm</p>
+<p>Published: 1996-04-29 Updated: 1998-03-06 Document updated: 2000-03-12
+License: Free for noncommercial use Copyright 1996-2006 Chih-Hao Tsai
+(Email: hao520 at yahoo.com )</p>
+<p>您可以在 Chih-Hao Tsai’s Technology Page 找到算法的原文。</p>
+<p>我将依据自己的理解来简述 MMSeg 分词算法的基本原理，如有错误请不吝赐教。</p>
+<p>首先来理解一下 chunk，它是 MMSeg 分词算法中一个关键的概念。Chunk
+中包含依据上下文分出的一组词和相关的属性，包括长度(Length)、平均长度(Average
+Length)、标准差的平方(Variance)和自由语素度(Degree Of Morphemic
+Freedom)。我在下面列出了这 4 个属性的计算方法：</p>
+<p>属性 含义 代码位置 长度(Length) chuck 中各个词的长度之和
+org.solol.mmseg.internal.Chunk.getLength() 平均长度(Average Length)
+长度(Length)/词数 org.solol.mmseg.internal.Chunk.getAverageLength()
+标准差的平方(Variance) 同数学中的定义
+org.solol.mmseg.internal.Chunk.getVariance() 自由语素度(Degree Of
+Morphemic Freedom) 各单字词词频的对数之和
+org.solol.mmseg.internal.Chunk.getDegreeOfMorphemicFreedom()
+注意：表中的含义列可能有些模糊，最好参照 MMSeg
+的源代码进行理解，代码所在的函数已经给出了。</p>
+<p>Chunk 中的 4 个属性采用 Lazy
+的方式来计算，即只有在需要该属性的值时才进行计算，而且只计算一次。</p>
+<p>其次来理解一下规则(Rule)，它是 MMSeg
+分词算法中的又一个关键的概念。实际上我们可以将规则理解为一个过滤器(Filter)，过滤掉不符合要求的
+chunk。MMSeg 分词算法中涉及了 4 个规则：</p>
+<p>规则 1：取最大匹配的 chunk (Rule 1: Maximum matching) 规则
+2：取平均词长最大的 chunk (Rule 2: Largest average word length) 规则
+3：取词长标准差最小的 chunk (Rule 3: Smallest variance of word lengths)
+规则 4：取单字词自由语素度之和最大的 chunk (Rule 4: Largest sum of
+degree of morphemic freedom of one-character words) 这 4 个规则分别位于
+org.solol.mmseg.internal.MMRule.java、org.solol.mmseg.internal.LAWLRule.java、org.solol.mmseg.internal.SVWLRule.java
+和 org.solol.mmseg.internal.LSDMFOCWRule.java4
+个源文件中。之所以这样来处理是因为我们可以方便的增加规则和修改应用规则的顺序。</p>
+<p>这 4 个规则符合汉语成词的基本习惯。</p>
+<p>再次来理解一下两种匹配方式，简单最大匹配(Simple maximum
+matching)和复杂最大匹配(Complex maximum matching)。</p>
+<p>简单最大匹配仅仅使用了规则 1。</p>
+<p>复杂最大匹配先使用规则 1 来过滤 chunks，如果过滤后的结果多于或等于
+2，则使用规则 2 继续过滤，否则终止过滤过程。如果使用规则 2
+得到的过滤结果多于或等于 2，则使用规则 3
+继续过滤，否则终止过滤过程。如果使用规则 3 得到的过滤结果多于或等于
+2，则使用规则 4 继续过滤，否则终止过滤过程。如果使用规则 4
+得到的过滤结果多于或等于 2，则抛出一个表示歧义的异常，否则终止过滤过程。</p>
+<p>最后通过一个例句–研究生命起源来简述一下复杂最大匹配的分词过程。MMSeg
+分词算法会得到 7 个 chunk，分别为：</p>
+<p>编号 chunk 长度 0 研<em>究</em>生 3 1 研<em>究</em>生命 4 2 研究<em>生</em>命 4 3
+研究<em>生命</em>起 5 4 研究<em>生命</em>起源 6 5 研究生<em>命</em>起 5 6
+研究生<em>命</em>起源 6 使用规则 1 过滤后得到 2 个 chunk，如下：</p>
+<p>编号 chunk 长度 4 研究<em>生命</em>起源 6 6 研究生<em>命</em>起源 6
+计算平均长度后为：</p>
+<p>编号 chunk 长度 平均长度 4 研究<em>生命</em>起源 6 2 6 研究生<em>命</em>起源 6
+2 使用规则 2 过滤后得到 2 个 chunk，如下：</p>
+<p>编号 chunk 长度 平均长度 4 研究<em>生命</em>起源 6 2 6 研究生<em>命</em>起源 6
+2 计算标准差的平方后为：</p>
+<p>编号 chunk 长度 平均长度 标准差的平方 4 研究<em>生命</em>起源 6 2 0 6
+研究生<em>命</em>起源 6 2 4/9 使用规则 3 过滤后得到 1 个 chunk，如下：</p>
+<p>编号 chunk 长度 平均长度 标准差的平方 4 研究<em>生命</em>起源 6 2 0
+匹配过程终止。最终取“研究”成词，以相同的方法继续处理“生命起源”。</p>
+<p>分词效果:</p>
+<p>Simple -&gt;研究生*命*起源<em>Complex-&gt;研究</em>生命<em>起源</em> Simple
+-&gt;研究生*教育* Complex-&gt;研究生<em>教育</em></p>
+<p>注意：Simple 表示简单最大匹配的分词效果，Complex
+表示复杂最大匹配的分词效果。</p>
+<p>Update:这是一篇老文，之前放在http://dobestdeveloper.blogspot.com上，现在移到这里方便大家查阅。</p>
+<p><a class="reference external" href="http://m.blog.csdn.net/blog/HHyatt/6202826">http://m.blog.csdn.net/blog/HHyatt/6202826</a></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Statistical_Model.html" class="btn btn-neutral float-right" title="3.7. 统计模型" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MMSEG.html" class="btn btn-neutral float-left" title="3.5. MMSEG" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

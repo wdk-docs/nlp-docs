@@ -1,0 +1,437 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>9.5. 自然语言处理（NLP）知识结构总结 &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="9.6. 中国科学院计算技术研究所自然语言处理研究组" href="nlp.ict.ac.cn.html" />
+    <link rel="prev" title="9.4. 一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑" href="milestone.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/index.html">6. 语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/index.html">7. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">9. 论文 || 文章</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="2018-nlp.html">9.1. 2018 年，NLP 研究与应用进展到什么水平了？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bert-jiqizhixin.html">9.2. 谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chinese-segmenter.html">9.3. 细说中文分词</a></li>
+<li class="toctree-l2"><a class="reference internal" href="milestone.html">9.4. 一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">9.5. 自然语言处理（NLP）知识结构总结</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">9.5.1. 一、自然语言处理概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">9.5.2. 二、形式语言与自动机</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">9.5.3. 三、语言模型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hmm">9.5.4. 四、概率图模型，生成模型与判别模型，贝叶斯网络，马尔科夫链与隐马尔科夫模型（HMM）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#crf">9.5.5. 五、马尔科夫网，最大熵模型，条件随机场（CRF）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">9.5.6. 六、命名实体 识别，词性标注，内容挖掘、语义分析与篇章分析（大量用到前面的算法）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">9.5.7. 七、句法分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">9.5.8. 八、文本分类，情感分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">9.5.9. 九、信息检索，搜索引擎及其原理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">9.5.10. 十一、深度学习在自然语言中的应用</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlp.ict.ac.cn.html">9.6. 中国科学院计算技术研究所自然语言处理研究组</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">11. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">9. 论文 || 文章</a> &raquo;</li>
+        
+      <li>9.5. 自然语言处理（NLP）知识结构总结</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Paper/nlp-gather.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nlp">
+<h1>9.5. 自然语言处理（NLP）知识结构总结<a class="headerlink" href="#nlp" title="永久链接至标题">¶</a></h1>
+<blockquote>
+<div><p>2018 年 03 月 17 日 18:04:35
+<a class="reference external" href="https://blog.csdn.net/meihao5/article/details/79592667">meihao5</a>
+阅读数：32741</p>
+</div></blockquote>
+<p>自然语言处理知识太庞大了，网上也都是一些零零散散的知识，比如单独讲某些模型，也没有来龙去脉，学习起来较为困难，于是我自己总结了一份知识体系结构，不足之处，欢迎指正。内容来源主要参考黄志洪老师的自然语言处理课程。主要参考书为宗成庆老师的《统计自然语言处理》，虽然很多内容写的不清楚，但好像中文
+NLP 书籍就这一本全一些，如果想看好的英文资料，可以到我的 GitHub
+上下载：<a class="reference external" href="http://github.com/lovesoft5/ml">http://github.com/lovesoft5/ml</a></p>
+<p>下面直接开始正文：</p>
+<div class="section" id="id1">
+<h2>9.5.1. 一、自然语言处理概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>自然语言处理：利用计算机为工具，对书面实行或者口头形式进行各种各样的处理和加工的技术，是研究人与人交际中以及人与计算机交际中的演员问题的一门学科，是人工智能的主要内容。</p></li>
+<li><p>自然语言处理是研究语言能力和语言应用的模型，建立计算机（算法）框架来实现这样的语言模型，并完善、评测、最终用于设计各种实用系统。</p></li>
+<li><p>研究问题（主要）： 信息检索 机器翻译 文档分类 问答系统 信息过滤
+自动文摘 信息抽取 文本挖掘 舆情分析 机器写作 语音识别
+研究模式：自然语言场景问题，数学算法，算法如何应用到解决这些问题，预料训练，相关实际应用
+自然语言的困难： 场景的困难：语言的多样性、多变性、歧义性
+学习的困难：艰难的数学模型（hmm,crf,EM,深度学习等）
+语料的困难：什么的语料？语料的作用？如何获取语料？</p></li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h2>9.5.2. 二、形式语言与自动机<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>语言：按照一定规律构成的句子或者字符串的有限或者无限的集合。</p>
+<p>描述语言的三种途径：</p>
+<p>穷举法 文法（产生式系统）描述 自动机</p>
+<p>自然语言不是人为设计而是自然进化的，形式语言比如：运算符号、化学分子式、编程语言</p>
+<p>形式语言理论朱啊哟研究的是内部结构模式这类语言的纯粹的语法领域，从语言学而来，作为一种理解自然语言的句法规律，在计算机科学中，形式语言通常作为定义编程和语法结构的基础</p>
+<p>形式语言与自动机基础知识：</p>
+<p>集合论 图论</p>
+<p>自动机的应用：</p>
+<ol class="arabic simple">
+<li><p>单词自动查错纠正</p></li>
+<li><p>词性消歧（什么是词性？什么的词性标注？为什么需要标注？如何标注？）</p></li>
+</ol>
+<p>形式语言的缺陷：</p>
+<ol class="arabic simple">
+<li><p>对于像汉语，英语这样的大型自然语言系统，难以构造精确的文法</p></li>
+<li><p>不符合人类学习语言的习惯</p></li>
+<li><p>有些句子语法正确，但在语义上却不可能，形式语言无法排出这些句子</p></li>
+<li><p>解决方向：基于大量语料，采用统计学手段建立模型</p></li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h2>9.5.3. 三、语言模型<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<ol class="arabic">
+<li><p>语言模型（重要）：通过语料计算某个句子出现的概率（概率表示），常用的有
+2-元模型，3-元模型</p></li>
+<li><p>语言模型应用：语音识别歧义消除例如，给定拼音串：ta shi yan yan jiu
+saun fa de</p></li>
+<li><p>可能的汉字串：踏实烟酒算法的 他是研究酸法的
+他是研究算法的，显然，最后一句才符合。</p></li>
+<li><p>语言模型的启示：开启自然语言处理的统计方法</p></li>
+<li><p>统计方法的一般步骤：</p>
+<ul class="simple">
+<li><p>收集大量语料</p></li>
+<li><p>对语料进行统计分析，得出知识</p></li>
+<li><p>针对场景建立算法模型</p></li>
+<li><p>解释和应用结果</p></li>
+</ul>
+</li>
+<li><p>语言模型性能评价，包括评价目标，评价的难点，常用指标（交叉熵，困惑度）</p></li>
+<li><p>数据平滑：数据平滑的概念，为什么需要平滑</p>
+<p>平滑的方法，加一法，加法平滑法，古德-图灵法，J-M 法，Katz 平滑法等</p>
+</li>
+<li><p>语言模型的缺陷：
+语料来自不同的领域，而语言模型对文本类型、主题等十分敏感</p>
+<p>n 与相邻的 n-1 个词相关，假设不是很成立。</p>
+</li>
+</ol>
+</div>
+<div class="section" id="hmm">
+<h2>9.5.4. 四、概率图模型，生成模型与判别模型，贝叶斯网络，马尔科夫链与隐马尔科夫模型（HMM）<a class="headerlink" href="#hmm" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>概率图模型概述（什么的概率图模型，参考清华大学教材《概率图模型》）</p></li>
+<li><p>马尔科夫过程（定义，理解）</p></li>
+<li><p>隐马尔科夫过程（定义，理解） HMM 的三个基本问题（定义，解法，应用）</p></li>
+</ol>
+<p>注：第一个问题，涉及最大似然估计法，第二个问题涉及 EM
+算法，第三个问题涉及维特比算法，内容很多，要重点理解，（参考书李航《统计学习方法》，网上博客，笔者
+github）</p>
+</div>
+<div class="section" id="crf">
+<h2>9.5.5. 五、马尔科夫网，最大熵模型，条件随机场（CRF）<a class="headerlink" href="#crf" title="永久链接至标题">¶</a></h2>
+<ol class="arabic">
+<li><p>HMM 的三个基本问题的参数估计与计算</p></li>
+<li><p>什么是熵</p></li>
+<li><p>EM 算法（应用十分广泛，好好理解）</p></li>
+<li><p>HMM 的应用</p></li>
+<li><p>层次化马尔科夫模型与马尔科夫网络 提出原因，HMM 存在两个问题</p></li>
+<li><p>最大熵马尔科夫模型</p>
+<p>优点：与 HMM 相比，允许使用特征刻画观察序列，训练高效 缺点：
+存在标记偏置问题</p>
+</li>
+<li><p>条件随机场及其应用(概念，模型过程，与 HMM 关系) 参数估计方法（GIS
+算法，改进 IIS 算法） CRF
+基本问题：特征选取（特征模板）、概率计算、参数训练、解码（维特比）
+应用场景： 词性标注类问题（现在一般用 RNN+CRF）
+中文分词（发展过程，经典算法，了解开源工具 jieba 分词）
+中文人名，地名识别</p></li>
+<li><p>CRF++</p></li>
+</ol>
+</div>
+<div class="section" id="id4">
+<h2>9.5.6. 六、命名实体 识别，词性标注，内容挖掘、语义分析与篇章分析（大量用到前面的算法）<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ol class="arabic">
+<li><p>命名实体识别问题相关概率，定义相关任务类型</p>
+<p>方法（基于规程-&gt;基于大规模语料库）</p>
+</li>
+<li><p>未登录词的解决方法(搜索引擎，基于语料)</p></li>
+<li><p>CRF 解决命名实体识别（NER）流程总结：</p>
+<p>训练阶段：确定特征模板，不同场景（人名，地名等）所使用的特征模板不同，对现有语料进行分词，在分词结
+果基础上进行词性标注（可能手工），NER
+对应的标注问题是基于词的，然后训练 CRF 模型，得到对应权值参数值</p>
+<p>识别过程：将待识别文档分词，然后送入 CRF
+模型进行识别计算（维特比算法），得到标注序列，然后根据标
+注划分出命名实体</p>
+</li>
+<li><p>词性标注（理解含义，意义）及其一致性检查方法（位置属性向量，词性标注序列向量，聚类或者分类算法）</p></li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h2>9.5.7. 七、句法分析<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>句法分析理解以及意义</p>
+<ol class="arabic simple">
+<li><p>句法结构分析 完全句法分析 浅层分析（这里有很多方法。。。）</p></li>
+<li><p>依存关系分析</p></li>
+</ol>
+</li>
+<li><p>句法分析方法</p>
+<ol class="arabic simple">
+<li><p>基于规则的句法结构分析</p></li>
+<li><p>基于统计的语法结构分析</p></li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="id6">
+<h2>9.5.8. 八、文本分类，情感分析<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>文本分类，文本排重
+文本分类：在预定义的分类体系下，根据文本的特征，将给定的文本与一个或者多个类别相关联
+典型应用：垃圾邮件判定，网页自动分类</p></li>
+<li><p>文本表示，特征选取与权重计算，词向量 文本特征选择常用方法：</p>
+<ol class="arabic simple">
+<li><p>基于本文频率的特征提取法</p></li>
+<li><p>信息增量法</p></li>
+<li><p>X2（卡方）统计量</p></li>
+<li><p>互信息法</p></li>
+</ol>
+</li>
+<li><p>分类器设计 SVM，贝叶斯，决策树等</p></li>
+<li><p>分类器性能评测</p>
+<ol class="arabic simple">
+<li><p>召回率</p></li>
+<li><p>正确率</p></li>
+<li><p>F1 值</p></li>
+</ol>
+</li>
+<li><p>主题模型（LDA）与 PLSA LDA 模型十分强大，基于贝叶斯改进了
+PLSA，可以提取出本章的主题词和关键词，建模过程复杂，难以理解。</p></li>
+<li><p>情感分析
+借助计算机帮助用户快速获取，整理和分析相关评论信息，对带有感情色彩的主观文本进行分析，处理和归纳例如，评论自动分析，水军识别。
+某种意义上看，情感分析也是一种特殊的分类问题</p></li>
+<li><p>应用案例</p></li>
+</ol>
+</div>
+<div class="section" id="id7">
+<h2>9.5.9. 九、信息检索，搜索引擎及其原理<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>信息检索起源于图书馆资料查询检索，引入计算机技术后，从单纯的文本查询扩展到包含图片，音视频等多媒体信息检索，检索对象由数据库扩展到互联网。</p>
+<ol class="arabic simple">
+<li><p>点对点检索</p></li>
+<li><p>精确匹配模型与相关匹配模型</p></li>
+<li><p>检索系统关键技术：标引，相关度计算</p></li>
+</ol>
+</li>
+<li><p>常见模型：布尔模型，向量空间模型，概率模型</p></li>
+<li><p>常用技术：倒排索引，隐语义分析（LDA 等）</p></li>
+<li><p>评测指标 十、自动文摘与信息抽取，机器翻译，问答系统</p></li>
+<li><p>统计机器翻译的的思路，过程，难点，以及解决</p></li>
+<li><p>问答系统 基本组成：问题分析，信息检索，答案抽取 类型：基于问题-答案，
+基于自由文本 典型的解决思路</p></li>
+<li><p>自动文摘的意义，常用方法</p></li>
+<li><p>信息抽取模型（LDA 等）</p></li>
+</ol>
+</div>
+<div class="section" id="id8">
+<h2>9.5.10. 十一、深度学习在自然语言中的应用<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>单词表示，比如词向量的训练（wordvoc）</p></li>
+<li><p>自动写文本 写新闻等</p></li>
+<li><p>机器翻译</p></li>
+<li><p>基于 CNN、RNN 的文本分类</p></li>
+<li><p>深度学习与 CRF 结合用于词性标注</p></li>
+</ol>
+<p>…………… 更多深度学习内容，可参考我之前的文章。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nlp.ict.ac.cn.html" class="btn btn-neutral float-right" title="9.6. 中国科学院计算技术研究所自然语言处理研究组" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="milestone.html" class="btn btn-neutral float-left" title="9.4. 一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

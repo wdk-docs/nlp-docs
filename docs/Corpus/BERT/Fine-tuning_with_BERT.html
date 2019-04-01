@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>使用 BERT 进行微调 &mdash; nlp-docs v2019.03.19 文档</title>
+  <title>6.2. 使用 BERT 进行微调 &mdash; nlp-docs v2019.03.19 文档</title>
   
 
   
@@ -37,7 +37,9 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
     <link rel="index" title="索引" href="../../genindex.html" />
-    <link rel="search" title="搜索" href="../../search.html" /> 
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="6.3. 预先训练的模型" href="Pre-trained_models.html" />
+    <link rel="prev" title="6.1. 常问问题" href="FAQ.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -81,13 +83,60 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../index.html">自然语言处理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../Author/index.html">自然语言处理作者</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/index.html">算法汇总</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../awesome/index.html">awesome-nlp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../Librariy/index.html">常用分词工具包</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../Paper/index.html">论文 || 文章</a></li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">6. 语料库</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="FAQ.html">6.1. 常问问题</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.2. 使用 BERT 进行微调</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tpu">6.2.1. 使用云 TPU 进行微调</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">6.2.2. 句子（和句子对）分类任务</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">6.2.2.1. 从分类器预测</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#squad-1-1">6.2.3. SQuAD 1.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#squad-2-0">6.2.4. SQuAD 2.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">6.2.5. 内存不足的问题</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Pre-trained_models.html">6.3. 预先训练的模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pre-training_with_BERT.html">6.4. 使用 BERT 进行预训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using_BERT_in_Colab.html">6.5. 在 Colab 中使用 BERT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using_BERT_to_extract_fixed_feature_vectors.html">6.6. 使用 BERT 提取固定的特征向量 (像 ELMo)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="What_is_BERT.html">6.7. 什么是 BERT？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html">6.8. BERT 大规模预训练语言模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">6.9. 模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/Agricultural_Knowledge_Graph.html">6.10. 农业知识图谱(AgriKG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/ChineseNLPCorpus.html">6.11. Chinese NLP Corpus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/cnSchema.html">6.12. cnSchema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/index.html">6.13. 知识图谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/openkg.html">6.14. openkg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/LabelStyle.html">6.15. 现代汉语语料库加工规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/index.html">6.16. 标注规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/nation.html">6.17. 信息处理用现代汉语词类标记规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/nlpir.html">6.18. 计算所汉语词性标记集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GlobalWordNetAssociation.html">6.19. 全球 WordNet 协会</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HowNet.html">6.20. 知网</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Schema.html">6.21. Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aihanyu.html">6.22. 爱汉语语料库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cow.html">6.23. Chinese Open Wordnet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../csdn.html">6.24. CSDN 下载</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dianchacha.html">6.25. 店查查数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../funNLP.html">6.26. funNLP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nlp-datasets.html">6.27. nlp-datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pku-opendata.html">6.28. 北京大学开发数据研究平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wikipedia.html">6.29. 维基百科语料库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wordnet.html">6.30. WordNet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/index.html">7. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/index.html">9. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. 术语表</a></li>
 </ul>
 
             
@@ -133,7 +182,9 @@
     
       <li><a href="../../contents.html">Docs</a> &raquo;</li>
         
-      <li>使用 BERT 进行微调</li>
+          <li><a href="../index.html">6. 语料库</a> &raquo;</li>
+        
+      <li>6.2. 使用 BERT 进行微调</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -153,7 +204,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="bert">
-<h1>使用 BERT 进行微调<a class="headerlink" href="#bert" title="永久链接至标题">¶</a></h1>
+<h1>6.2. 使用 BERT 进行微调<a class="headerlink" href="#bert" title="永久链接至标题">¶</a></h1>
 <p>!!! important “”</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>All results on the paper were fine-tuned on a single Cloud TPU,which has 64GB of RAM.
 It is currently not possible to re-produce most of the `BERT-Large` results on the paper using a GPU with 12GB - 16GB of RAM, because the maximum batch size that can fit in memory is too small.
@@ -168,7 +219,7 @@ internally in Google).</p>
 <p>The fine-tuning examples which use <code class="docutils literal notranslate"><span class="pre">BERT-Base</span></code> should be able to run
 on a GPU that has at least 12GB of RAM using the hyperparameters given.</p>
 <div class="section" id="tpu">
-<h2>使用云 TPU 进行微调<a class="headerlink" href="#tpu" title="永久链接至标题">¶</a></h2>
+<h2>6.2.1. 使用云 TPU 进行微调<a class="headerlink" href="#tpu" title="永久链接至标题">¶</a></h2>
 <p>Most of the examples below assumes that you will be running
 training/evaluation on your local machine, using a GPU like a Titan X or
 GTX 1080.</p>
@@ -198,7 +249,7 @@ Cloud Storage folder <code class="docutils literal notranslate"><span class="pre
 </div>
 </div>
 <div class="section" id="id1">
-<h2>句子（和句子对）分类任务<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<h2>6.2.2. 句子（和句子对）分类任务<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>Before running this example you must download the <a class="reference external" href="https://gluebenchmark.com/tasks">GLUE
 data</a> by running <a class="reference external" href="https://gist.github.com/W4ngatang/60c2bdb54d156a41194446737ce03e2e">this
 script</a>
@@ -247,7 +298,7 @@ classification task.</p>
 means that it’s running on something other than a Cloud TPU, which
 includes a GPU.</p>
 <div class="section" id="id2">
-<h3>从分类器预测<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<h3>6.2.2.1. 从分类器预测<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
 <p>Once you have trained your classifier you can use it in inference mode
 by using the –do_predict=true command. You need to have a file named
 test.tsv in the input folder. Output will be created in file called
@@ -271,7 +322,7 @@ python run_classifier.py <span class="se">\</span>
 </div>
 </div>
 <div class="section" id="squad-1-1">
-<h2>SQuAD 1.1<a class="headerlink" href="#squad-1-1" title="永久链接至标题">¶</a></h2>
+<h2>6.2.3. SQuAD 1.1<a class="headerlink" href="#squad-1-1" title="永久链接至标题">¶</a></h2>
 <p>The Stanford Question Answering Dataset (SQuAD) is a popular question
 answering benchmark dataset. BERT (at the time of the release) obtains
 state-of-the-art results on SQuAD with almost no task-specific network
@@ -356,7 +407,7 @@ results will be even better, but you will need to convert TriviaQA into
 the SQuAD json format.</p>
 </div>
 <div class="section" id="squad-2-0">
-<h2>SQuAD 2.0<a class="headerlink" href="#squad-2-0" title="永久链接至标题">¶</a></h2>
+<h2>6.2.4. SQuAD 2.0<a class="headerlink" href="#squad-2-0" title="永久链接至标题">¶</a></h2>
 <p>This model is also implemented and documented in <code class="docutils literal notranslate"><span class="pre">run_squad.py</span></code>.</p>
 <p>To run on SQuAD 2.0, you will first need to download the dataset. The
 necessary files can be found here:</p>
@@ -421,7 +472,7 @@ the appropriate answers from ./squad/nbest_predictions.json.</p>
 </div>
 </div>
 <div class="section" id="id3">
-<h2>内存不足的问题<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2>6.2.5. 内存不足的问题<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>All experiments in the paper were fine-tuned on a Cloud TPU, which has
 64GB of device RAM. Therefore, when using a GPU with 12GB - 16GB of RAM,
 you are likely to encounter out-of-memory issues if you use the same
@@ -537,6 +588,15 @@ intelligent way.</p></li>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Pre-trained_models.html" class="btn btn-neutral float-right" title="6.3. 预先训练的模型" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="FAQ.html" class="btn btn-neutral float-left" title="6.1. 常问问题" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

@@ -1,0 +1,516 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>58. Jiagu &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="59. Keras" href="Keras.html" />
+    <link rel="prev" title="57. Jcseg logo" href="Jcseg.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/ConditionalRandomField.html">3. 条件随机场 CRF（Conditional Random Field）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/Hidden_Markov_Model.html">4. 隐马尔可夫模型 HMM（Hidden Markov Model）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/MMSEG.html">5. MMSEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/MMSeg_description.html">6. MMSeg 分词算法简述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/Maximum-entropy_Markov_model.html">7. 最大熵马尔可夫模型 MEMM（Maximum-entropy Markov model）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/Maximum_Entropy.html">8. 最大熵模型 ME（Maximum Entropy）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/Statistical_Model.html">9. 统计模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/Viterbi.html">10. Viterbi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">11. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/Awesome-Chinese-NLP.html">12. awesome-chinese-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">13. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/multi-language.html">14. 其他语言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/techniques.html">15. 技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/tutorials.html">16. 教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/aliyun.html">17. 阿里云自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/pai.html">18. 阿里机器学习平台 PAI 3.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/百度AI.html">19. 百度 AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/FAQ.html">20. 常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/Fine-tuning_with_BERT.html">21. 使用 BERT 进行微调</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/Pre-trained_models.html">22. 预先训练的模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/Pre-training_with_BERT.html">23. 使用 BERT 进行预训练</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/Using_BERT_in_Colab.html">24. 在 Colab 中使用 BERT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/Using_BERT_to_extract_fixed_feature_vectors.html">25. 使用 BERT 提取固定的特征向量 (像 ELMo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/What_is_BERT.html">26. 什么是 BERT？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/index.html">27. BERT 大规模预训练语言模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/model.html">28. 模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Knowledge_Graph/Agricultural_Knowledge_Graph.html">29. 农业知识图谱(AgriKG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Knowledge_Graph/ChineseNLPCorpus.html">30. Chinese NLP Corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Knowledge_Graph/cnSchema.html">31. cnSchema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Knowledge_Graph/index.html">32. 知识图谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Knowledge_Graph/openkg.html">33. openkg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/regulation/LabelStyle.html">34. 现代汉语语料库加工规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/regulation/index.html">35. 标注规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/regulation/nation.html">36. 信息处理用现代汉语词类标记规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/regulation/nlpir.html">37. 计算所汉语词性标记集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/GlobalWordNetAssociation.html">38. 全球 WordNet 协会</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/HowNet.html">39. 知网</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Schema.html">40. Schema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/aihanyu.html">41. 爱汉语语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/cow.html">42. Chinese Open Wordnet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/csdn.html">43. CSDN 下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/dianchacha.html">44. 店查查数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/funNLP.html">45. funNLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/index.html">46. 语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/nlp-datasets.html">47. nlp-datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/pku-opendata.html">48. 北京大学开发数据研究平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/wikipedia.html">49. 维基百科语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/wordnet.html">50. WordNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FoolNLTK/index.html">51. FoolNLTK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FoolNLTK/train.html">52. train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JieBa/Jieba.html">53. JieBa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JieBa/JiebaCpp.html">54. CppJieba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JieBa/JiebaNode.html">55. NodeJieba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HanLP.html">56. HanLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jcseg.html">57. Jcseg logo</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">58. Jiagu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">58.1. 目录</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">58.1.1. 安装方式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">58.1.2. 使用方式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">58.1.3. 评价标准</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">58.2. 附录</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">58.2.1. 加入我们</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">58.2.2. 贡献者：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Keras.html">59. Keras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Keras.html#x-train-and-y-train-are-numpy-arrays-just-like-in-the-scikit-learn-api">60. x_train and y_train are Numpy arrays –just like in the Scikit-Learn API.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch.html">61. PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SnowNLP.html">62. SnowNLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SpaCy.html">63. spacy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StanfordNLP.html">64. 斯坦福-StanfordNLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="THULAC.html">65. 清华-THULAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TensorFlow.html">66. TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ansj_seg.html">67. Ansj 中文分词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awesome.html">68. 👍🏻 表库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bosonnlp.html">69. 玻森数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">70. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltp.html">71. 哈工大-LTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nlpair-ictclas.html">72. 中科院-NLPIR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nltk.html">73. NLTK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pkuseg.html">74. 北大-pkuseg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scikit-learn.html">75. scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sego.html">76. sego</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Online/index.html">77. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/2018-nlp.html">78. 2018 年，NLP 研究与应用进展到什么水平了？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/bert-jiqizhixin.html">79. 谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/chinese-segmenter.html">80. 细说中文分词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">81. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/milestone.html">82. 一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/nlp-gather.html">83. 自然语言处理（NLP）知识结构总结</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/nlp.ict.ac.cn.html">84. 中国科学院计算技术研究所自然语言处理研究组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensitive-word/fastscan.html">85. FastScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensitive-word/index.html">86. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">87. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>58. Jiagu</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Librariy/Jiagu.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="jiagu">
+<h1>58. Jiagu<a class="headerlink" href="#jiagu" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="https://github.com/ownthink/Jiagu">甲骨</a>自然语言处理工具</p>
+<blockquote>
+<div><p>Jiagu 以 BiLSTM
+等模型为基础，使用大规模语料训练而成。将提供中文分词、词性标注、命名实体识别、情感分析、知识图谱关系抽取、关键词抽取、文本摘要、新词发现等常用自然语言处理功能。参考了各大工具优缺点制作，将
+Jiagu 回馈给大家。</p>
+</div></blockquote>
+<div class="section" id="id1">
+<h2>58.1. 目录<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="#安装方式">安装方式</a></p></li>
+<li><p><a class="reference external" href="#使用方式">使用方式</a></p></li>
+<li><p><a class="reference external" href="#评价标准">评价标准</a></p></li>
+<li><p><a class="reference external" href="#附录">附录说明</a></p></li>
+</ul>
+<hr class="docutils" />
+<p>提供的功能有：</p>
+<ul class="simple">
+<li><p>中文分词</p></li>
+<li><p>词性标注</p></li>
+<li><p>命名实体识别</p></li>
+<li><p>情感分析 (模型训练中)</p></li>
+<li><p>知识图谱关系抽取 （模型训练中）</p></li>
+<li><p>关键词提取</p></li>
+<li><p>文本摘要</p></li>
+<li><p>新词发现</p></li>
+<li><p>等等。。。。</p></li>
+</ul>
+<hr class="docutils" />
+<div class="section" id="id2">
+<h3>58.1.1. 安装方式<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>pip 安装</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install jiagu
+</pre></div>
+</div>
+<p>源码安装</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/ownthink/Jiagu
+<span class="nb">cd</span> Jiagu
+python3 setup.py install
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>58.1.2. 使用方式<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<ol class="arabic simple">
+<li><p>快速上手：分词、词性标注、命名实体识别</p></li>
+</ol>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jiagu</span>
+
+<span class="c1">#jiagu.init() # 可手动初始化，也可以动态初始化</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;厦门明天会不会下雨&#39;</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="n">jiagu</span><span class="o">.</span><span class="n">seg</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="c1"># 分词</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+
+<span class="n">pos</span> <span class="o">=</span> <span class="n">jiagu</span><span class="o">.</span><span class="n">pos</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="c1"># 词性标注</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+
+<span class="n">ner</span> <span class="o">=</span> <span class="n">jiagu</span><span class="o">.</span><span class="n">ner</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="c1"># 命名实体识别</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ner</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>中文分词</p></li>
+</ol>
+<p>分词各种模式使用方式</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jiagu</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;汉服和服装&#39;</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="n">jiagu</span><span class="o">.</span><span class="n">seg</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="c1"># 默认分词</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="n">jiagu</span><span class="o">.</span><span class="n">seg</span><span class="p">([</span><span class="n">text</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">text</span><span class="p">],</span> <span class="nb">input</span><span class="o">=</span><span class="s1">&#39;batch&#39;</span><span class="p">)</span> <span class="c1"># 批量分词，加快速度。</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="n">jiagu</span><span class="o">.</span><span class="n">seg</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;mmseg&#39;</span><span class="p">)</span> <span class="c1"># 使用mmseg算法进行分词</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">words</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>自定义分词模型（将单独提供 msr、pku、cnc 等分词标准）</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jiagu</span>
+
+<span class="c1"># 独立标准模型路径</span>
+<span class="c1"># msr：test/extra_data/model/msr.model</span>
+<span class="c1"># pku：test/extra_data/model/pku.model</span>
+<span class="c1"># cnc：test/extra_data/model/cnc.model</span>
+
+<span class="n">jiagu</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s1">&#39;test/extra_data/model/cnc.model&#39;</span><span class="p">)</span> <span class="c1"># 使用国家语委分词标准</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="n">jiagu</span><span class="o">.</span><span class="n">seg</span><span class="p">(</span><span class="s1">&#39;结婚的和尚未结婚的&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>关键词提取</p></li>
+</ol>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jiagu</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">该研究主持者之一、波士顿大学地球与环境科学系博士陈池（音）表示，“尽管中国和印度国土面积仅占全球陆地的9%，但两国为这一绿化过程贡献超过三分之一。考虑到人口过多的国家一般存在对土地过度利用的问题，这个发现令人吃惊。”</span>
+<span class="s1">NASA埃姆斯研究中心的科学家拉玛·内曼尼（Rama Nemani）说，“这一长期数据能让我们深入分析地表绿化背后的影响因素。我们一开始以为，植被增加是由于更多二氧化碳排放，导致气候更加温暖、潮湿，适宜生长。”</span>
+<span class="s1">“MODIS的数据让我们能在非常小的尺度上理解这一现象，我们发现人类活动也作出了贡献。”</span>
+<span class="s1">NASA文章介绍，在中国为全球绿化进程做出的贡献中，有42%来源于植树造林工程，对于减少土壤侵蚀、空气污染与气候变化发挥了作用。</span>
+<span class="s1">据观察者网过往报道，2017年我国全国共完成造林736.2万公顷、森林抚育830.2万公顷。其中，天然林资源保护工程完成造林26万公顷，退耕还林工程完成造林91.2万公顷。京津风沙源治理工程完成造林18.5万公顷。三北及长江流域等重点防护林体系工程完成造林99.1万公顷。完成国家储备林建设任务68万公顷。</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="n">keywords</span> <span class="o">=</span> <span class="n">jiagu</span><span class="o">.</span><span class="n">keywords</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c1"># 关键词</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">keywords</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>文本摘要</p></li>
+</ol>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">fin</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;input.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">fin</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">fin</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">summarize</span> <span class="o">=</span> <span class="n">jiagu</span><span class="o">.</span><span class="n">summarize</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># 摘要</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">summarize</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>新词发现</p></li>
+</ol>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jiagu</span>
+
+<span class="n">jiagu</span><span class="o">.</span><span class="n">findword</span><span class="p">(</span><span class="s1">&#39;input.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;output.txt&#39;</span><span class="p">)</span> <span class="c1"># 根据文本，利用信息熵做新词发现。</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>58.1.3. 评价标准<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<ol class="arabic simple">
+<li><p>msr 测试结果</p></li>
+</ol>
+<div class="figure align-center" id="id8">
+<img alt="msr" src="https://github.com/ownthink/evaluation/blob/master/images/2.png" />
+<p class="caption"><span class="caption-text">msr</span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>58.2. 附录<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>词性标注说明</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>n　　　普通名词
+nt　 　时间名词
+nd　 　方位名词
+nl　 　处所名词
+nh　 　人名
+nhf　　姓
+nhs　　名
+ns　 　地名
+nn 　　族名
+ni 　　机构名
+nz 　　其他专名
+v　　 动词
+vd　　趋向动词
+vl　　联系动词
+vu　　能愿动词
+a　 　形容词
+f　 　区别词
+m　 　数词
+q　 　量词
+d　 　副词
+r　 　代词
+p　　 介词
+c　 　连词
+u　　 助词
+e　 　叹词
+o　 　拟声词
+i　 　习用语
+j　　 缩略语
+h　　 前接成分
+k　　 后接成分
+g　 　语素字
+x　 　非语素字
+w　 　标点符号
+ws　　非汉字字符串
+wu　　其他未知的符号
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>命名实体说明（采用 BIO 标记方式）</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>B-PER、I-PER   人名
+B-LOC、I-LOC   地名
+B-ORG、I-ORG   机构名
+</pre></div>
+</div>
+<div class="section" id="id6">
+<h3>58.2.1. 加入我们<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>思知人工智能群 QQ
+群：90780053，微信群联系作者微信：MrYener，作者邮箱联系方式：<a class="reference external" href="mailto:help&#37;&#52;&#48;ownthink&#46;com">help<span>&#64;</span>ownthink<span>&#46;</span>com</a></p>
+<p><p>捐赠作者(您的鼓励是作者开源最大的动力！！！)：捐赠致谢</p>
+</p><div class="figure align-center" id="id9">
+<img alt="收款码" src="https://github.com/ownthink/KnowledgeGraph/raw/master/img/%E6%94%B6%E6%AC%BE%E7%A0%81.jpg" />
+<p class="caption"><span class="caption-text">收款码</span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>58.2.2. 贡献者：<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://github.com/ownthink">Yener</a></p></li>
+<li><p><a class="reference external" href="https://github.com/zengbin93">zengbin93</a></p></li>
+<li><p><a class="reference external" href="https://github.com/dirtdust">dirtdust</a></p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Keras.html" class="btn btn-neutral float-right" title="59. Keras" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Jcseg.html" class="btn btn-neutral float-left" title="57. Jcseg logo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

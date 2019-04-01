@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>67. Ansj 中文分词 &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="68. 👍🏻 表库" href="awesome.html" />
+    <link rel="prev" title="66. TensorFlow" href="TensorFlow.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/ConditionalRandomField.html">3. 条件随机场 CRF（Conditional Random Field）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/Hidden_Markov_Model.html">4. 隐马尔可夫模型 HMM（Hidden Markov Model）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/MMSEG.html">5. MMSEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/MMSeg_description.html">6. MMSeg 分词算法简述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/Maximum-entropy_Markov_model.html">7. 最大熵马尔可夫模型 MEMM（Maximum-entropy Markov model）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/Maximum_Entropy.html">8. 最大熵模型 ME（Maximum Entropy）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/Statistical_Model.html">9. 统计模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/Viterbi.html">10. Viterbi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">11. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/Awesome-Chinese-NLP.html">12. awesome-chinese-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">13. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/multi-language.html">14. 其他语言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/techniques.html">15. 技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/tutorials.html">16. 教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/aliyun.html">17. 阿里云自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/pai.html">18. 阿里机器学习平台 PAI 3.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/百度AI.html">19. 百度 AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/FAQ.html">20. 常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/Fine-tuning_with_BERT.html">21. 使用 BERT 进行微调</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/Pre-trained_models.html">22. 预先训练的模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/Pre-training_with_BERT.html">23. 使用 BERT 进行预训练</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/Using_BERT_in_Colab.html">24. 在 Colab 中使用 BERT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/Using_BERT_to_extract_fixed_feature_vectors.html">25. 使用 BERT 提取固定的特征向量 (像 ELMo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/What_is_BERT.html">26. 什么是 BERT？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/index.html">27. BERT 大规模预训练语言模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/model.html">28. 模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Knowledge_Graph/Agricultural_Knowledge_Graph.html">29. 农业知识图谱(AgriKG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Knowledge_Graph/ChineseNLPCorpus.html">30. Chinese NLP Corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Knowledge_Graph/cnSchema.html">31. cnSchema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Knowledge_Graph/index.html">32. 知识图谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Knowledge_Graph/openkg.html">33. openkg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/regulation/LabelStyle.html">34. 现代汉语语料库加工规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/regulation/index.html">35. 标注规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/regulation/nation.html">36. 信息处理用现代汉语词类标记规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/regulation/nlpir.html">37. 计算所汉语词性标记集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/GlobalWordNetAssociation.html">38. 全球 WordNet 协会</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/HowNet.html">39. 知网</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Schema.html">40. Schema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/aihanyu.html">41. 爱汉语语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/cow.html">42. Chinese Open Wordnet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/csdn.html">43. CSDN 下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/dianchacha.html">44. 店查查数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/funNLP.html">45. funNLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/index.html">46. 语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/nlp-datasets.html">47. nlp-datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/pku-opendata.html">48. 北京大学开发数据研究平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/wikipedia.html">49. 维基百科语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/wordnet.html">50. WordNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FoolNLTK/index.html">51. FoolNLTK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FoolNLTK/train.html">52. train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JieBa/Jieba.html">53. JieBa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JieBa/JiebaCpp.html">54. CppJieba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JieBa/JiebaNode.html">55. NodeJieba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HanLP.html">56. HanLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jcseg.html">57. Jcseg logo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jiagu.html">58. Jiagu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Keras.html">59. Keras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Keras.html#x-train-and-y-train-are-numpy-arrays-just-like-in-the-scikit-learn-api">60. x_train and y_train are Numpy arrays –just like in the Scikit-Learn API.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch.html">61. PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SnowNLP.html">62. SnowNLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SpaCy.html">63. spacy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StanfordNLP.html">64. 斯坦福-StanfordNLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="THULAC.html">65. 清华-THULAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TensorFlow.html">66. TensorFlow</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">67. Ansj 中文分词</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">67.1. 摘要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jar">67.2. 下载 jar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#maven">67.3. maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#demo">67.4. 调用 demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#join-us">67.5. Join Us</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="awesome.html">68. 👍🏻 表库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bosonnlp.html">69. 玻森数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">70. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltp.html">71. 哈工大-LTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nlpair-ictclas.html">72. 中科院-NLPIR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nltk.html">73. NLTK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pkuseg.html">74. 北大-pkuseg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scikit-learn.html">75. scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sego.html">76. sego</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Online/index.html">77. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/2018-nlp.html">78. 2018 年，NLP 研究与应用进展到什么水平了？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/bert-jiqizhixin.html">79. 谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/chinese-segmenter.html">80. 细说中文分词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">81. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/milestone.html">82. 一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/nlp-gather.html">83. 自然语言处理（NLP）知识结构总结</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/nlp.ict.ac.cn.html">84. 中国科学院计算技术研究所自然语言处理研究组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensitive-word/fastscan.html">85. FastScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensitive-word/index.html">86. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">87. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>67. Ansj 中文分词</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Librariy/ansj_seg.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ansj">
+<h1>67. Ansj 中文分词<a class="headerlink" href="#ansj" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="https://github.com/NLPchina/ansj_seg">Ansj</a></p>
+<p><a class="reference external" href="https://travis-ci.org/NLPchina/ansj_seg"><img alt="1.X Build Status" src="https://travis-ci.org/NLPchina/ansj_seg.svg?branch=master" /></a> <a class="reference external" href="https://gitter.im/NLPchina/ansj_seg?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img alt="Gitter" src="https://badges.gitter.im/NLPchina/ansj_seg.svg" /></a></p>
+<p>#####使用帮助 : <a class="reference external" href="http://nlpchina.github.io/ansj_seg/">3.x 版本及之前</a>
+, <a class="reference external" href="https://github.com/NLPchina/ansj_seg/wiki">5.x 版本及之后</a>
+在线测试地址 : <a class="reference external" href="http://demo.nlpcn.org">http://demo.nlpcn.org</a></p>
+<div class="section" id="id1">
+<h2>67.1. 摘要<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><p>这是一个基于 n-Gram+CRF+HMM 的中文分词的 java 实现.</p>
+</div></blockquote>
+<blockquote>
+<div><p>分词速度达到每秒钟大约 200 万字左右（mac air 下测试），准确率能达到
+96%以上</p>
+<p>目前实现了.中文分词. 中文姓名识别 .
+用户自定义词典,关键字提取，自动摘要，关键字标记等功能</p>
+</div></blockquote>
+<blockquote>
+<div><p>可以应用到自然语言处理等方面,适用于对分词效果要求高的各种项目.</p>
+</div></blockquote>
+</div>
+<div class="section" id="jar">
+<h2>67.2. 下载 jar<a class="headerlink" href="#jar" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>访问
+<a class="reference external" href="https://oss.sonatype.org/content/repositories/releases/org/ansj/ansj_seg/">http://maven.nlpcn.org/org/ansj/</a>
+最好下载最新版 ansj_seg/</p>
+<ul>
+<li><p>同时下载<a class="reference external" href="https://oss.sonatype.org/content/repositories/releases/org/nlpcn/nlp-lang/">nlp-lang.jar</a>
+需要和 ansj_seg 配套..配套关系可以看 jar 包中的 maven
+依赖,一般最新的 ansj 配最新的 nlp-lang 不会有错。</p></li>
+</ul>
+</li>
+<li><p>导入到 eclipse ，开始你的程序吧</p></li>
+</ul>
+</div>
+<div class="section" id="maven">
+<h2>67.3. maven<a class="headerlink" href="#maven" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="n">ansj</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">ansj_seg</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">5.1</span><span class="o">.</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="demo">
+<h2>67.4. 调用 demo<a class="headerlink" href="#demo" title="永久链接至标题">¶</a></h2>
+<p>如果你第一次下载只想测试测试效果可以调用这个简易接口</p>
+<pre><code>
+ String str = "欢迎使用ansj_seg,(ansj中文分词)在这里如果你遇到什么问题都可以联系我.我一定尽我所能.帮助大家.ansj_seg更快,更准,更自由!" ;
+ System.out.println(ToAnalysis.parse(str));
+
+ ﻿欢迎/v,使用/v,ansj/en,_,seg/en,,,(,ansj/en,中文/nz,分词/n,),在/p,这里/r,如果/c,你/r,遇到/v,什么/r,问题/n,都/d,可以/v,联系/v,我/r,./m,我/r,一定/d,尽我所能/l,./m,帮助/v,大家/r,./m,ansj/en,_,seg/en,更快/d,,,更/d,准/a,,,更/d,自由/a,!
+</code></pre></div>
+<div class="section" id="join-us">
+<h2>67.5. Join Us<a class="headerlink" href="#join-us" title="永久链接至标题">¶</a></h2>
+<p>心思了很久，不管有没有人帮忙把。我写上来，如果你有兴趣，有热情可以联系我。</p>
+<ul class="simple">
+<li><p>补充文档,增加调用实例和说明</p></li>
+<li><p>增加一些规则性
+Recognition，举例<a class="reference external" href="https://github.com/NLPchina/ansj_seg/blob/master/src/main/java/org/ansj/recognition/impl/IDCardRecognition.java">身份证号码识别</a>，目前未完成的有
+<code class="docutils literal notranslate"><span class="pre">时间识别</span></code>，<code class="docutils literal notranslate"><span class="pre">IP地址识别</span></code>，<code class="docutils literal notranslate"><span class="pre">邮箱识别</span></code>,<code class="docutils literal notranslate"><span class="pre">网址识别</span></code>，<code class="docutils literal notranslate"><span class="pre">词性识别</span></code>等…</p></li>
+<li><p>提供更加优化的 CRF 模型。替换 ansj 的默认模型。</p></li>
+<li><p>补充测试用例，n 多地方测试不完全。如果你有兴趣可以帮忙啦！</p></li>
+<li><p>重构人名识别模型。增加机构名识别等模型。</p></li>
+<li><p>增加句法文法分析</p></li>
+<li><p>实现 lstm 的分词方式</p></li>
+<li><p>拾遗补漏…</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="awesome.html" class="btn btn-neutral float-right" title="68. 👍🏻 表库" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="TensorFlow.html" class="btn btn-neutral float-left" title="66. TensorFlow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

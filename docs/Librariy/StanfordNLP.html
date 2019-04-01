@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>斯坦福-StanfordNLP &mdash; nlp-docs v2019.03.19 文档</title>
+  <title>7.1.14. 斯坦福-StanfordNLP &mdash; nlp-docs v2019.03.19 文档</title>
   
 
   
@@ -37,7 +37,9 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜索" href="../search.html" /> 
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="7.1.15. 清华-THULAC" href="THULAC.html" />
+    <link rel="prev" title="7.1.13. spacy" href="SpaCy.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -81,13 +83,56 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">自然语言处理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">自然语言处理作者</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">算法汇总</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">awesome-nlp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html">常用分词工具包</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">论文 || 文章</a></li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/index.html">6. 语料库</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">7. 常用分词工具包</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#id2">7.1. ## 菜单</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="FoolNLTK/index.html">7.1.1. FoolNLTK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FoolNLTK/train.html">7.1.2. train</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JieBa/Jieba.html">7.1.3. JieBa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JieBa/JiebaCpp.html">7.1.4. CppJieba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JieBa/JiebaNode.html">7.1.5. NodeJieba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HanLP.html">7.1.6. HanLP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Jcseg.html">7.1.7. Jcseg logo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Jiagu.html">7.1.8. Jiagu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Keras.html">7.1.9. Keras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Keras.html#x-train-and-y-train-are-numpy-arrays-just-like-in-the-scikit-learn-api">7.1.10. x_train and y_train are Numpy arrays –just like in the Scikit-Learn API.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PyTorch.html">7.1.11. PyTorch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SnowNLP.html">7.1.12. SnowNLP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SpaCy.html">7.1.13. spacy</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">7.1.14. 斯坦福-StanfordNLP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">7.1.14.1. 参考</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">7.1.14.2. 问题和使用问答</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">7.1.14.3. 安装</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">7.1.14.4. 运行 StanfordNLP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">7.1.14.5. 训练自己的神经管道</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">7.1.14.6. 执照</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="THULAC.html">7.1.15. 清华-THULAC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TensorFlow.html">7.1.16. TensorFlow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ansj_seg.html">7.1.17. Ansj 中文分词</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awesome.html">7.1.18. 👍🏻 表库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bosonnlp.html">7.1.19. 玻森数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltp.html">7.1.20. 哈工大-LTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nlpair-ictclas.html">7.1.21. 中科院-NLPIR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nltk.html">7.1.22. NLTK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pkuseg.html">7.1.23. 北大-pkuseg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scikit-learn.html">7.1.24. scikit-learn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sego.html">7.1.25. sego</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">9. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">11. 术语表</a></li>
 </ul>
 
             
@@ -133,7 +178,9 @@
     
       <li><a href="../contents.html">Docs</a> &raquo;</li>
         
-      <li>斯坦福-StanfordNLP</li>
+          <li><a href="index.html">7. 常用分词工具包</a> &raquo;</li>
+        
+      <li>7.1.14. 斯坦福-StanfordNLP</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -153,7 +200,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="stanfordnlp">
-<h1>斯坦福-StanfordNLP<a class="headerlink" href="#stanfordnlp" title="永久链接至标题">¶</a></h1>
+<h1>7.1.14. 斯坦福-StanfordNLP<a class="headerlink" href="#stanfordnlp" title="永久链接至标题">¶</a></h1>
 <p>适用于多种人类语言的 Python NLP 库
 <a class="reference external" href="https://github.com/stanfordnlp/stanfordnlp">https://github.com/stanfordnlp/stanfordnlp</a></p>
 <p><a class="reference external" href="https://travis-ci.com/stanfordnlp/stanfordnlp"><img alt="Travis Status" src="https://travis-ci.com/stanfordnlp/stanfordnlp.svg?token=RPNzRzNDQRoq2x3J2juj&amp;branch=master" /></a> <a class="reference external" href="https://pypi.org/project/stanfordnlp/"><img alt="PyPI version" src="https://img.shields.io/pypi/v/stanfordnlp.svg?colorB=blue" /></a></p>
@@ -162,7 +209,7 @@
 服务器的软件包。
 有关详细信息，请访问我们的<a class="reference external" href="https://stanfordnlp.github.io/stanfordnlp/">官方网站</a>.</p>
 <div class="section" id="id1">
-<h2>参考<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<h2>7.1.14.1. 参考<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>如果您使用我们的神经管道，包括标记器，多字令牌扩展模型，解释器，POS
 /形态特征标记器或您研究中的依赖解析器，请引用我们的 CoNLL 2018
 共享任务<a class="reference external" href="https://nlp.stanford.edu/pubs/qi2018universal.pdf">系统描述文件</a>:</p>
@@ -196,7 +243,7 @@ Chaganty</a>撰写，<a class="reference external" href="mailto:jebolton&#37;&#5
 Bolton</a>率先将这两个项目合并在一起。</p>
 </div>
 <div class="section" id="id2">
-<h2>问题和使用问答<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2>7.1.14.2. 问题和使用问答<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>请使用以下渠道提问和发布报告。</p>
 <table class="docutils align-center">
 <colgroup>
@@ -221,7 +268,7 @@ Tracker</a></p></td>
 </table>
 </div>
 <div class="section" id="id3">
-<h2>安装<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2>7.1.14.3. 安装<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>StanfordNLP 支持 Python 3.6 或更高版本。我们强烈建议您从 PyPI 安装
 StanfordNLP。
 如果你已经安装了<a class="reference external" href="https://pip.pypa.io/en/stable/installing/">pip</a>,
@@ -242,9 +289,9 @@ pip install -e .
 </div>
 </div>
 <div class="section" id="id4">
-<h2>运行 StanfordNLP<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<h2>7.1.14.4. 运行 StanfordNLP<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <div class="section" id="id5">
-<h3>神经管道入门<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<h3>7.1.14.4.1. 神经管道入门<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
 <p>要运行您的第一个 StanfordNLP 管道，只需在 Python
 交互式解释器中执行这些步骤即可:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stanfordnlp</span>
@@ -279,7 +326,7 @@ StanfordNLP，例如中文(传统)</p>
 <p>有关详细信息，请参阅<a class="reference external" href="https://stanfordnlp.github.io/stanfordnlp/installation_download.html#getting-started">我们的入门指南</a>。</p>
 </div>
 <div class="section" id="java-stanford-corenlp">
-<h3>访问 Java Stanford CoreNLP 服务器<a class="headerlink" href="#java-stanford-corenlp" title="永久链接至标题">¶</a></h3>
+<h3>7.1.14.4.2. 访问 Java Stanford CoreNLP 服务器<a class="headerlink" href="#java-stanford-corenlp" title="永久链接至标题">¶</a></h3>
 <p>除了神经管道，该项目还包括一个官方包装器，用于使用 Python 代码访问 Java
 Stanford CoreNLP 服务器。</p>
 <p>有一些初始设置步骤。</p>
@@ -297,12 +344,12 @@ that shows how one can use the CoreNLP client and extract various
 annotations from it.</p>
 </div>
 <div class="section" id="id6">
-<h3>神经管道的训练模型<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<h3>7.1.14.4.3. 神经管道的训练模型<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
 <p>我们目前为 CoNLL 2018 共享任务中的所有树库提供模型。
 你可以找到下载和使用这些模型的说明<a class="reference external" href="https://stanfordnlp.github.io/stanfordnlp/installation_download.html#models-for-human-languages">这里</a>.</p>
 </div>
 <div class="section" id="id7">
-<h3>批量管理以最大化管道速度<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<h3>7.1.14.4.4. 批量管理以最大化管道速度<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
 <p>要最大限度地提高速度性能，必须在批量文档上运行管道。
 一次在一个句子上运行 for 循环将非常缓慢。
 此时最好的方法是将文档连接在一起，每个文档用空行分隔(即两个换行符<code class="docutils literal notranslate"><span class="pre">\n\n\n</span></code>)。
@@ -310,7 +357,7 @@ annotations from it.</p>
 </div>
 </div>
 <div class="section" id="id8">
-<h2>训练自己的神经管道<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<h2>7.1.14.5. 训练自己的神经管道<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
 <p>该库中的所有神经模块，包括标记器，多字令牌(MWT)扩展器，POS
 /形态特征标记器，变形器和依赖解析器，都可以使用您自己的`CoNLL-U &lt;<a class="reference external" href="https://universaldependencies.org/format.html">https://universaldependencies.org/format.html</a>&gt;`__格式数据进行训练。
 目前，我们不支持通过<code class="docutils literal notranslate"><span class="pre">Pipeline</span></code>界面进行模型培训。
@@ -318,7 +365,7 @@ annotations from it.</p>
 <p>有关如何培训和评估您自己的模型的详细分步指导，请访问我们的<a class="reference external" href="https://stanfordnlp.github.io/stanfordnlp/training.html">培训文档</a>.</p>
 </div>
 <div class="section" id="id9">
-<h2>执照<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<h2>7.1.14.6. 执照<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
 <p>StanfordNLP 是在 Apache License 2.0 版下发布的。
 有关详细信息，请参阅<a class="reference external" href="https://github.com/stanfordnlp/stanfordnlp/blob/master/LICENSE">LICENSE</a>文件。</p>
 </div>
@@ -329,6 +376,15 @@ annotations from it.</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="THULAC.html" class="btn btn-neutral float-right" title="7.1.15. 清华-THULAC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="SpaCy.html" class="btn btn-neutral float-left" title="7.1.13. spacy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

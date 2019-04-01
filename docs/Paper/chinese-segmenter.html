@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>细说中文分词 &mdash; nlp-docs v2019.03.19 文档</title>
+  <title>9.3. 细说中文分词 &mdash; nlp-docs v2019.03.19 文档</title>
   
 
   
@@ -37,7 +37,9 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜索" href="../search.html" /> 
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="9.4. 一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑" href="milestone.html" />
+    <link rel="prev" title="9.2. 谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读" href="bert-jiqizhixin.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -81,13 +83,71 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">自然语言处理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">自然语言处理作者</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">算法汇总</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">awesome-nlp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Librariy/index.html">常用分词工具包</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html">论文 || 文章</a></li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/index.html">6. 语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/index.html">7. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">9. 论文 || 文章</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="2018-nlp.html">9.1. 2018 年，NLP 研究与应用进展到什么水平了？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bert-jiqizhixin.html">9.2. 谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">9.3. 细说中文分词</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">9.3.1. 什么是中文分词</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">9.3.2. 为什么要中文分词</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">9.3.3. 中文分词面临的挑战</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">9.3.4. 歧义词</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">9.3.5. 未登录词</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">9.3.6. 中文分词的技术分类</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">9.3.6.1. 基于词典的分词</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mm-maximummatching-method-mm">9.3.6.2. 最大正向匹配法(MM, MaximumMatching Method,MM)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reversemaximum-matching-method-rmm">9.3.6.3. 逆向最大匹配法(ReverseMaximum Matching Method,RMM)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bi-directction-matching-method-bm">9.3.6.4. 双向最大匹配法(Bi-directction Matching method,BM)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">9.3.6.5. 最少切分法</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">9.3.7. 基于统计的分词法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">9.3.8. 基于规则的分词法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#hidden-markov-model-hmm">9.3.8.1. 隐马尔科夫模型(Hidden Markov Model, HMM)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hmm">9.3.8.2. HMM 模型介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#statusset-observedset">9.3.8.3. StatusSet &amp; ObservedSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#initstatus">9.3.8.4. InitStatus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transprobmatrix">9.3.8.5. TransProbMatrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#emitprobmatrix">9.3.8.6. EmitProbMatrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viterbi">9.3.8.7. Viterbi 算法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">9.3.8.8. 模型的训练问题</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">9.3.8.9. HMM 模型的三个基本假设如下：</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#conditional-random-field-crf">9.3.9. 条件随机场（Conditional Random Field，CRF）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">9.3.10. 常见中文分词工具</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id15">9.3.10.1. 结巴中文分词</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ik">9.3.10.2. IK 分词器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nlpir-ictclas">9.3.10.3. 中科院 NLPIR 分词（ICTCLAS）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ansj">9.3.10.4. Ansj 使用的算法：</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mmseg">9.3.10.5. MMSEG 分词</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">9.3.10.6. MMSeg 算法说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">9.3.10.7. 其他分词工具</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">9.3.11. 中文分词使用案例</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id19">9.3.11.1. 考拉海淘</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id25">9.3.11.2. 知乎</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id26">9.3.12. 参考资料：</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="milestone.html">9.4. 一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nlp-gather.html">9.5. 自然语言处理（NLP）知识结构总结</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nlp.ict.ac.cn.html">9.6. 中国科学院计算技术研究所自然语言处理研究组</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">11. 术语表</a></li>
 </ul>
 
             
@@ -133,7 +193,9 @@
     
       <li><a href="../contents.html">Docs</a> &raquo;</li>
         
-      <li>细说中文分词</li>
+          <li><a href="index.html">9. 论文 || 文章</a> &raquo;</li>
+        
+      <li>9.3. 细说中文分词</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -153,7 +215,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>细说中文分词<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<h1>9.3. 细说中文分词<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <blockquote>
 <div><p><a class="reference external" href="https://www.biaodianfu.com/chinese-segmenter.html">标点符</a></p>
 </div></blockquote>
@@ -161,7 +223,7 @@
 其中，分词是中文自然语言处理的基础，搜素引擎、文本挖掘、机器翻译、关键词提取、自动摘要生成等等技术都会用到中文分词，包括最近在学习的聊天机器人、文本相似性等。
 可以说分词是自然语言大厦的地基，下面就让我们从它开始谈起。</p>
 <div class="section" id="id2">
-<h2>什么是中文分词<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2>9.3.1. 什么是中文分词<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>中文分词就是将中文语句中的词汇按照使用时的含义切分出来的过程，也就是将一个汉字序列切分成一个个有单独含义的词语。
 自 20 世纪 80
 年代以来，中文自动分词就一直是一个研究热点，由于中文语言的复杂性使之一直处于发展阶段。
@@ -174,7 +236,7 @@
 </ul>
 </div>
 <div class="section" id="id3">
-<h2>为什么要中文分词<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2>9.3.2. 为什么要中文分词<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>对于中文而言，词是承载语义的最小单元，由词构成语句，又由语句构成篇章。
 但是，中文文本是由连续的字序列构成，词与词之间是没有天然的分隔符。
 在自然语言处理领域，国外已经做出了很多卓有成效的研究，但是那些研究大多基于英文（存在天然的分隔符），也就是说是以正确切分出单词为前提的。
@@ -198,7 +260,7 @@ n 元组合索引方式。 用 2
 对于大数据量的搜索引擎系统来说，这样的用户体验是极差的。</p>
 </div>
 <div class="section" id="id4">
-<h2>中文分词面临的挑战<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<h2>9.3.3. 中文分词面临的挑战<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>在知道分词的重要性之后，那么我们会面临一个新的问题，如何才能把一个字序列准确的切分成词序列，就像下面的例子会有不止一种的切分方式。</p>
 <p>原始字符串：结婚的和尚未结婚的</p>
 <ul class="simple">
@@ -210,7 +272,7 @@ n 元组合索引方式。 用 2
 在中文分词的世界里，最主要的挑战有两个：歧义词识别，未登录词识别。</p>
 </div>
 <div class="section" id="id5">
-<h2>歧义词<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<h2>9.3.4. 歧义词<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>上文提到的歧义词例子，有学者试图通过逆向匹配来解决。
 但是，碰到这句“结合成分子”时，采用逆向匹配，则会分成“结合/成分/子时”。
 一般当一个字可以同时作为两个词的组成部分，当这两个词按序同时出现时，就可能会出现歧义现象。
@@ -225,7 +287,7 @@ n 元组合索引方式。 用 2
 </ul>
 </div>
 <div class="section" id="id6">
-<h2>未登录词<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<h2>9.3.5. 未登录词<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <p>所谓的未登录词是指在分词词典中没有收录，并且确实是大家公认的词语的那些词语，一般又叫做新词。
 最典型的未登录词就是人名词，“李胜利喜欢唱歌”中“李胜利”是个人名词，如果把“李胜利”这个基本词条收录到字典中去是能解决这个问题。
 但是，每时每刻都有新增的姓名，完整收录全部人名本身就是一个不现实的工程。
@@ -239,7 +301,7 @@ n 元组合索引方式。 用 2
 10 倍~20 倍，所以说新词发现是分词面临的最大挑战。</p>
 </div>
 <div class="section" id="id7">
-<h2>中文分词的技术分类<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<h2>9.3.6. 中文分词的技术分类<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
 <p>从上世纪 80 年代开始对中文自动分词进行研究，在过去的近 40
 年中，中文分词的发展过程基本上可分为以下三个阶段，如下图所示：</p>
 <div class="figure align-center" id="id27">
@@ -253,14 +315,14 @@ n 元组合索引方式。 用 2
 <li><p>基于规则：基于知识理解的分词方法</p></li>
 </ul>
 <div class="section" id="id8">
-<h3>基于词典的分词<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<h3>9.3.6.1. 基于词典的分词<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
 <p>中文自动分词第一阶段，从 80 年代到 90
 年代中，以基于词典和人工规则的方法为主，典型的方法有：正向最大匹配，逆向最大匹配，最少词切分法，双向匹配法。
 这种方法又叫做机械分词方法，它是按照一定的策略将待分析的汉字串与一个“充分大的”机器词典中的词条进行配，若在词典中找到某个字符串，则匹配成功（识别出一个词）。
 按照扫描方向的不同，串匹配分词方法可以分为正向匹配和逆向匹配；按照不同长度优先匹配的情况，可以分为最大（最长）匹配和最小（最短）匹配；常用的几种机械分词方法如下：</p>
 </div>
 <div class="section" id="mm-maximummatching-method-mm">
-<h3>最大正向匹配法(MM, MaximumMatching Method,MM)<a class="headerlink" href="#mm-maximummatching-method-mm" title="永久链接至标题">¶</a></h3>
+<h3>9.3.6.2. 最大正向匹配法(MM, MaximumMatching Method,MM)<a class="headerlink" href="#mm-maximummatching-method-mm" title="永久链接至标题">¶</a></h3>
 <p>通常简称为 MM 法。 其基本思想为：假定分词词典中的最长词有 i
 个汉字字符，则用被处理文档的当前字串中的前 i
 个字作为匹配字段，查找字典。 若字典中存在这样的一个 i
@@ -280,7 +342,7 @@ n 元组合索引方式。 用 2
 个字符到词典中匹配，发现没有这个词，那就缩短取字个数，取前四个“南京市长”，发现词库有这个词，就把该词切下来；对剩余三个字“江大桥”再次进行正向最大匹配，会切成“江/大桥”；整个句子切分完成为：“京市长/江/大桥。”</p>
 </div>
 <div class="section" id="reversemaximum-matching-method-rmm">
-<h3>逆向最大匹配法(ReverseMaximum Matching Method,RMM)<a class="headerlink" href="#reversemaximum-matching-method-rmm" title="永久链接至标题">¶</a></h3>
+<h3>9.3.6.3. 逆向最大匹配法(ReverseMaximum Matching Method,RMM)<a class="headerlink" href="#reversemaximum-matching-method-rmm" title="永久链接至标题">¶</a></h3>
 <p>通常简称为 RMM 法。 RMM 法的基本原理与 MM 法相同
 ,不同的是分词切分的方向与 MM 法相反，而且使用的分词辞典也不同。
 逆向最大匹配法从被处理文档的末端开始匹配扫描，每次取最末端的 2i
@@ -299,7 +361,7 @@ n 元组合索引方式。 用 2
 实际使用的分词系统，都是把机械分词作为一种初分手段，还需通过利用各种其它的语言信息来进一步提高切分的准确率。</p>
 </div>
 <div class="section" id="bi-directction-matching-method-bm">
-<h3>双向最大匹配法(Bi-directction Matching method,BM)<a class="headerlink" href="#bi-directction-matching-method-bm" title="永久链接至标题">¶</a></h3>
+<h3>9.3.6.4. 双向最大匹配法(Bi-directction Matching method,BM)<a class="headerlink" href="#bi-directction-matching-method-bm" title="永久链接至标题">¶</a></h3>
 <p>双向最大匹配法是将正向最大匹配法得到的分词结果和逆向最大匹配法的到的结果进行比较，从而决定正确的分词方法。
 据 SunM.S. 和 Benjamin K.T.（1995）的研究表明，中文中
 90.0%左右的句子，正向最大匹配法和逆向最大匹配法完全重合且正确，只有大概
@@ -309,7 +371,7 @@ n 元组合索引方式。 用 2
 <p>还是那个例子：双向的最大匹配，即把所有可能的最大词都分出来，上面的句子可以分为：南京市、南京市长、长江大桥、江、大桥</p>
 </div>
 <div class="section" id="id9">
-<h3>最少切分法<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<h3>9.3.6.5. 最少切分法<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
 <p>使每一句中切出的词数最小。</p>
 <p>由于汉语单字成词的特点，正向最小匹配和逆向最小匹配一般很少使用。
 一般说来，逆向匹配的切分精度略高于正向匹配，遇到的歧义现象也较少。</p>
@@ -321,7 +383,7 @@ O(n)时间复杂度，实现简单，效果尚可。
 </div>
 </div>
 <div class="section" id="id10">
-<h2>基于统计的分词法<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<h2>9.3.7. 基于统计的分词法<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
 <p>中文自动分词第二阶段，从 90 年代中到 03
 年，分词算法开始引入基于语料库的统计学习方法，最典型的方法就是基于词典全切分加上最大概率路径。
 首先，介绍一下全切分方法，它是基于词的频度统计的分词方法的基础。
@@ -355,7 +417,7 @@ O(n)时间复杂度，实现简单，效果尚可。
 <p>全切分的切分结果个数随句子长度的增长呈指数增长，一方面将导致庞大的无用数据充斥于存储数据库；另一方面当句长达到一定长度后，由于切分形式过多,造成分词效率严重下降。</p>
 </div>
 <div class="section" id="id11">
-<h2>基于规则的分词法<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<h2>9.3.8. 基于规则的分词法<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
 <p>从 03 年至今，中文分词由基于词的方法开始向基于字的方法转变。
 当前的方法都是首先根据语料训练分词模型，然后对每一个字进行标注，最后根据标注结果来进行分词。
 其实就是根据语料训练分类模型，对每一个字进行类别标注，最后根据类别进行分词。
@@ -365,7 +427,7 @@ O(n)时间复杂度，实现简单，效果尚可。
 最典型的方法就是 HMM 和 CRF，其中，CRF 比 HMM
 有更弱的上下文无关性假设，当然效果要好一些。</p>
 <div class="section" id="hidden-markov-model-hmm">
-<h3>隐马尔科夫模型(Hidden Markov Model, HMM)<a class="headerlink" href="#hidden-markov-model-hmm" title="永久链接至标题">¶</a></h3>
+<h3>9.3.8.1. 隐马尔科夫模型(Hidden Markov Model, HMM)<a class="headerlink" href="#hidden-markov-model-hmm" title="永久链接至标题">¶</a></h3>
 <p>全切分这种方法存在两个致命的缺陷：一个缺陷是参数空间过大，不可能实用化；另外一个缺陷是数据稀疏严重。
 为了解决这个问题，我们引入了马尔科夫假设：一个词的出现仅仅依赖于它前面出现的有限的一个或者几个词。
 如果一个词的出现仅依赖于它前面出现的一个词，那么我们就称之为 bigram。 即</p>
@@ -391,7 +453,7 @@ O(n)时间复杂度，实现简单，效果尚可。
 <p>HMM 模型示意图</p>
 </div>
 <div class="section" id="hmm">
-<h3>HMM 模型介绍<a class="headerlink" href="#hmm" title="永久链接至标题">¶</a></h3>
+<h3>9.3.8.2. HMM 模型介绍<a class="headerlink" href="#hmm" title="永久链接至标题">¶</a></h3>
 <p>HMM 的典型介绍就是这个模型是一个五元组:</p>
 <ul class="simple">
 <li><p>StatusSet: 状态值集合</p></li>
@@ -414,7 +476,7 @@ InitStatus)。(Baum-Welch 算法)</p></li>
 <p>五元组参数在中文分词中的具体含义：</p>
 </div>
 <div class="section" id="statusset-observedset">
-<h3>StatusSet &amp; ObservedSet<a class="headerlink" href="#statusset-observedset" title="永久链接至标题">¶</a></h3>
+<h3>9.3.8.3. StatusSet &amp; ObservedSet<a class="headerlink" href="#statusset-observedset" title="永久链接至标题">¶</a></h3>
 <p>状态值集合为(B, M, E, S): {B:begin, M:middle, E:end, S:single}。
 分别代表每个状态代表的是该字在词语中的位置，B
 代表该字是词语中的起始字，M 代表是词语中的中间字，E
@@ -438,7 +500,7 @@ StatusSet 序列值是 Viterbi 的输出，输入和输出之间 Viterbi
 EmitProbMatrix。</p>
 </div>
 <div class="section" id="initstatus">
-<h3>InitStatus<a class="headerlink" href="#initstatus" title="永久链接至标题">¶</a></h3>
+<h3>9.3.8.4. InitStatus<a class="headerlink" href="#initstatus" title="永久链接至标题">¶</a></h3>
 <p>初始状态概率分布是最好理解的，可以示例如下：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#B</span>
 <span class="o">-</span><span class="mf">0.26268660809250016</span>
@@ -457,7 +519,7 @@ EmitProbMatrix。</p>
 0，这和实际相符合，开头的第一个字只可能是词语的首字(B)，或者是单字成词(S)。</p>
 </div>
 <div class="section" id="transprobmatrix">
-<h3>TransProbMatrix<a class="headerlink" href="#transprobmatrix" title="永久链接至标题">¶</a></h3>
+<h3>9.3.8.5. TransProbMatrix<a class="headerlink" href="#transprobmatrix" title="永久链接至标题">¶</a></h3>
 <p>转移概率是马尔科夫链很重要的一个知识点，大学里面学过概率论的人都知道，马尔科夫链最大的特点就是当前
 T=i 时刻的状态 Status(i)，只和 T=i 时刻之前的 n 个状态有关。
 也就是：{Status(i-1), Status(i-2), Status(i-3), … Status(i – n)}。
@@ -492,7 +554,7 @@ BS，所以不可能的转移对应的概率都是
 </div>
 </div>
 <div class="section" id="emitprobmatrix">
-<h3>EmitProbMatrix<a class="headerlink" href="#emitprobmatrix" title="永久链接至标题">¶</a></h3>
+<h3>9.3.8.6. EmitProbMatrix<a class="headerlink" href="#emitprobmatrix" title="永久链接至标题">¶</a></h3>
 <p>这里的发射概率(EmitProb)其实也是一个条件概率而已，根据 HMM
 模型三个基本假设里的观察值独立性假设，观察值只取决于当前状态值，也就是：P(Observed[i],
 Status[j]) = P(Status[j]) * P(Observed[i]|Status[j])。 其中
@@ -517,7 +579,7 @@ HMMDict 里面的 hmm_model.utf8)，那么我们只剩下 Viterbi
 这个算法函数，这个模型就算可以开始使用了。 所以接下来讲讲 Viterbi 算法。</p>
 </div>
 <div class="section" id="viterbi">
-<h3>Viterbi 算法<a class="headerlink" href="#viterbi" title="永久链接至标题">¶</a></h3>
+<h3>9.3.8.7. Viterbi 算法<a class="headerlink" href="#viterbi" title="永久链接至标题">¶</a></h3>
 <p>输入样例：小明硕士毕业于中国科学院计算所</p>
 <p>Viterbi 算法计算过程如下：</p>
 <p>1、定义变量</p>
@@ -601,7 +663,7 @@ M 或者 B。</p>
 算法，就可以找出每个字对应的状态，根据状态也就可以对句子进行分词。</p>
 </div>
 <div class="section" id="id12">
-<h3>模型的训练问题<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<h3>9.3.8.8. 模型的训练问题<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
 <p>以上讲的前提是基于模型来进行切词，也就是假设我们手头上的 HMM
 模型已经是被训练好了的(也就是 InitStatus, TransProbMatrix,
 EmitProbMatrix
@@ -609,7 +671,7 @@ EmitProbMatrix
 这三个参数其实也是基于已分词完毕的语料进行统计计算，计算出相应的频率和条件概率就可以算出这三个参数。</p>
 </div>
 <div class="section" id="id13">
-<h3>HMM 模型的三个基本假设如下：<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<h3>9.3.8.9. HMM 模型的三个基本假设如下：<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p>有限历史性假设：P(Status[i]|Status[i-1],Status[i-2],… Status[1]) =
 P(Status[i]|Status[i-1])</p></li>
@@ -621,7 +683,7 @@ P(Status[j]|Status[j-1])</p></li>
 </div>
 </div>
 <div class="section" id="conditional-random-field-crf">
-<h2>条件随机场（Conditional Random Field，CRF）<a class="headerlink" href="#conditional-random-field-crf" title="永久链接至标题">¶</a></h2>
+<h2>9.3.9. 条件随机场（Conditional Random Field，CRF）<a class="headerlink" href="#conditional-random-field-crf" title="永久链接至标题">¶</a></h2>
 <p>2001 年 Lafferty
 在最大熵模型（MEM）和隐马尔科夫模型（HMM）的基础上提出来了一种无向图模型–条件随机场（CRF）模型，它能在给定需要标记的观察序列的条件下，最大程度提高标记序列的联合概率。
 常用于切分和标注序列化数据的统计模型。</p>
@@ -661,9 +723,9 @@ U00：%x[-2，0]表示第一个特征，特征取值是当前字的前方第二�
 特征模板的设计对分词效果及训练时间影响较大，需要分析尝试找到适用的特征模板。</p>
 </div>
 <div class="section" id="id14">
-<h2>常见中文分词工具<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<h2>9.3.10. 常见中文分词工具<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
 <div class="section" id="id15">
-<h3>结巴中文分词<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+<h3>9.3.10.1. 结巴中文分词<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
 <p>结巴中文分词采用的算法</p>
 <p>基于 Trie
 树结构实现高效的词图扫描，生成句子中汉字所有可能成词情况所构成的有向无环图（DAG)
@@ -678,7 +740,7 @@ U00：%x[-2，0]表示第一个特征，特征取值是当前字的前方第二�
 <p>Python 版本：<a class="reference external" href="https://github.com/fxsjy/jieba">https://github.com/fxsjy/jieba</a></p>
 </div>
 <div class="section" id="ik">
-<h3>IK 分词器<a class="headerlink" href="#ik" title="永久链接至标题">¶</a></h3>
+<h3>9.3.10.2. IK 分词器<a class="headerlink" href="#ik" title="永久链接至标题">¶</a></h3>
 <p>IKAnalyzer 是一个开源的，基于 java 语言开发的轻量级的中文分词工具包。 从
 2006 年 12 月推出 1.0 版开始，IKAnalyzer 已经推出了 3 个大版本。
 最初，它是以开源项目 Luence
@@ -696,7 +758,7 @@ Lucene 检索的命中率。</p>
 <a class="reference external" href="https://github.com/quentinxxz">https://github.com/quentinxxz</a>/Search（源码保存）</p>
 </div>
 <div class="section" id="nlpir-ictclas">
-<h3>中科院 NLPIR 分词（ICTCLAS）<a class="headerlink" href="#nlpir-ictclas" title="永久链接至标题">¶</a></h3>
+<h3>9.3.10.3. 中科院 NLPIR 分词（ICTCLAS）<a class="headerlink" href="#nlpir-ictclas" title="永久链接至标题">¶</a></h3>
 <p>NLPIR 分词系统前身为 2000 年发布的 ICTCLAS 词法分析系统，从 2009
 年开始，为了和以前工作进行大的区隔，并推广 NLPIR
 自然语言处理与信息检索共享平台，调整命名为 NLPIR 分词系统。 NLPIR
@@ -710,12 +772,12 @@ Lucene 检索的命中率。</p>
 目前实现了中文分词、中文姓名识别、用户自定义词典、关键字提取、自动摘要、关键字标记等功能。</p>
 </div>
 <div class="section" id="ansj">
-<h3>Ansj 使用的算法：<a class="headerlink" href="#ansj" title="永久链接至标题">¶</a></h3>
+<h3>9.3.10.4. Ansj 使用的算法：<a class="headerlink" href="#ansj" title="永久链接至标题">¶</a></h3>
 <p>n-Gram+CRF+HMM 分词效果速度都超过开源版的 ICTCLAS</p>
 <p>项目地址：<a class="reference external" href="https://github.com/NLPchina/ansj_seg">https://github.com/NLPchina/ansj_seg</a></p>
 </div>
 <div class="section" id="mmseg">
-<h3>MMSEG 分词<a class="headerlink" href="#mmseg" title="永久链接至标题">¶</a></h3>
+<h3>9.3.10.5. MMSEG 分词<a class="headerlink" href="#mmseg" title="永久链接至标题">¶</a></h3>
 <p>MMSeg 是蔡志浩（Chih-Hao Tsai）提出的基于字符串匹配的中文分词算法。
 以正向最大匹配为主，多种消除歧义的规则为辅。 根据作者在原文中的阐述，对
 MMSEG 的解释分为“匹配算法（Matching
@@ -745,7 +807,7 @@ morphemic freedom of one-character words）。</p></li>
 <p><a class="reference external" href="http://technology.chtsai.org/mmseg/">http://technology.chtsai.org/mmseg/</a></p>
 </div>
 <div class="section" id="id16">
-<h3>MMSeg 算法说明<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h3>
+<h3>9.3.10.6. MMSeg 算法说明<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h3>
 <p>首先来理解一下 chunk，它是 MMSeg 分词算法中一个关键的概念。 Chunk
 中包含依据上下文分出的一组词和相关的属性，包括长度(Length)、平均长度(Average
 Length)、标准差的平方(Variance)和自由语素度(Degree Of Morphemic
@@ -965,7 +1027,7 @@ chunks，如果过滤后的结果多于或等于 2，则使用规则 2
 </div>
 </div>
 <div class="section" id="id17">
-<h3>其他分词工具<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<h3>9.3.10.7. 其他分词工具<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p>清华大学 THULAC（CRF）：<a class="reference external" href="http://thulac.thunlp.org/">http://thulac.thunlp.org/</a></p></li>
 <li><p>哈工大 LTP（CRF）：<a class="reference external" href="https://github.com/HIT-SCIR/ltp">https://github.com/HIT-SCIR/ltp</a></p></li>
@@ -986,13 +1048,13 @@ chunks，如果过滤后的结果多于或等于 2，则使用规则 2
 </div>
 </div>
 <div class="section" id="id18">
-<h2>中文分词使用案例<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
+<h2>9.3.11. 中文分词使用案例<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
 <div class="section" id="id19">
-<h3>考拉海淘<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h3>
+<h3>9.3.11.1. 考拉海淘<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h3>
 <p>目前考拉海淘使用的分词是基于 ansj 开源分词进行二次开发的版本，目的是优化
 ansj 原有的分词策略以及增加适合电商的策略。</p>
 <div class="section" id="id20">
-<h4>召回问题<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h4>
+<h4>9.3.11.1.1. 召回问题<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h4>
 <p>通过日志以及用户反馈，我们发现对于同一商品往往存在不同表述，这可能会导致某种描述无法召回结果。
 例如，对于商品“扫地机器人”来说，有人会用“扫地机器”这样的 query
 去查询，也有人会用“扫地机”去查询。
@@ -1004,7 +1066,7 @@ query，分词结果分别是“扫地/机器”，“扫地/机”，自然就�
 我们会把“扫地机器人”切分成“扫地/机器人”、“扫地/机器/人”、“扫地机/器/人”三条路径，这样就解决了无法召回的问题。</p>
 </div>
 <div class="section" id="id21">
-<h4>词性问题<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h4>
+<h4>9.3.11.1.2. 词性问题<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h4>
 <p>当用户输入的 query
 比较详细时，可能考拉并没有此款商品，却有同品牌或者其他相似的商品，这个时候就需要用到关键词提取。
 例如，query
@@ -1015,7 +1077,7 @@ query，分词结果分别是“扫地/机器”，“扫地/机”，自然就�
 同款/nz”，根据词性是可以进行关键词初步识别的。</p>
 </div>
 <div class="section" id="id22">
-<h4>分词粒度问题<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h4>
+<h4>9.3.11.1.3. 分词粒度问题<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h4>
 <p>当词典较大时，会面临一个新的问题，那就是分词的粒度问题。 对于 query
 为“耐克鞋”来说，词典中是包含这个实体词的，分词的切分结果就是“耐克鞋”。
 但是，考拉用来建索引的商品描述中，这三个字是没有连续出现的，自然就没有“耐克鞋”对应的文档，这个时候就无法召回结果。
@@ -1025,7 +1087,7 @@ query，分词结果分别是“扫地/机器”，“扫地/机”，自然就�
 目前，是使用词频表来进行粒度控制，基本可以解决绝大多数问题。</p>
 </div>
 <div class="section" id="id23">
-<h4>新词问题<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h4>
+<h4>9.3.11.1.4. 新词问题<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h4>
 <p>分词器的词表一般是由基础词汇和各领域常用词汇来组成，可以应用于大多数基本的分词场景。
 当分词器专门应用于某个领域时，一份领域相关的词典是必不可少的。
 例如，有很多出问题的 case
@@ -1034,7 +1096,7 @@ query，分词结果分别是“扫地/机器”，“扫地/机”，自然就�
 但是这种解决方案是不满足可持续发展战略的，只能用于分词的初级阶段。</p>
 </div>
 <div class="section" id="id24">
-<h4>未来工作的方向<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h4>
+<h4>9.3.11.1.5. 未来工作的方向<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h4>
 <p>根据考拉海淘搜索的现状，接下来会针对解决关键词提取/新词发现以及实体识别所带来的问题。
 打算开发一套 term weight
 的关键词识别系统，利用词法依存关系以及词性等知识给切分后每一个词语进行一个打分，其应用场景会非常广泛。
@@ -1043,7 +1105,7 @@ CRF 序列标注等方案来定期离线自动化补充新词。</p>
 </div>
 </div>
 <div class="section" id="id25">
-<h3>知乎<a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h3>
+<h3>9.3.11.2. 知乎<a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h3>
 <p>知乎在重构知乎搜索的时候，权衡标注工作量和性能，以及代码实现的复杂程度，采用基于字符串匹配的分词方法。
 除了标注量，准确率和效果的考量，分词粒度也是一个需要考虑的指标。</p>
 <p>案例：“团购网站的本质是什么？”</p>
@@ -1059,7 +1121,7 @@ domain specific 的词语 能分出多粒度的结果。</p>
 </div>
 </div>
 <div class="section" id="id26">
-<h2>参考资料：<a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h2>
+<h2>9.3.12. 参考资料：<a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://dataunion.org/21674.html">http://dataunion.org/21674.html</a></p></li>
 <li><p><a class="reference external" href="http://yanyiwu.com/work/2014/04/07/hmm-segment-xiangjie.html">http://yanyiwu.com/work/2014/04/07/hmm-segment-xiangjie.html</a></p></li>
@@ -1076,6 +1138,15 @@ domain specific 的词语 能分出多粒度的结果。</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="milestone.html" class="btn btn-neutral float-right" title="9.4. 一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="bert-jiqizhixin.html" class="btn btn-neutral float-left" title="9.2. 谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

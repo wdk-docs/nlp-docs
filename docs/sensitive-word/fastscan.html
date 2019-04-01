@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>FastScan &mdash; nlp-docs v2019.03.19 文档</title>
+  <title>10.6.1. FastScan &mdash; nlp-docs v2019.03.19 文档</title>
   
 
   
@@ -37,7 +37,9 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜索" href="../search.html" /> 
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="11. 术语表" href="../glossary.html" />
+    <link rel="prev" title="10. 敏感词" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -81,13 +83,36 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">自然语言处理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">自然语言处理作者</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">算法汇总</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">awesome-nlp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Librariy/index.html">常用分词工具包</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">论文 || 文章</a></li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/index.html">6. 语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/index.html">7. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">9. 论文 || 文章</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">10. 敏感词</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#textfilter">10.1. textfilter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#sensitive">10.2. sensitive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#sensitive-word-filter">10.3. sensitive-word-filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#fastscan">10.4. fastscan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#ouch-words-cn">10.5. ouch-words-cn</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#id2">10.6. 菜单</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">10.6.1. FastScan</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">10.6.1.1. 演示地址</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">10.6.1.2. 安装方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">10.6.1.3. 使用方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#api">10.6.1.4. API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">10.6.1.5. 性能</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">11. 术语表</a></li>
 </ul>
 
             
@@ -133,7 +158,9 @@
     
       <li><a href="../contents.html">Docs</a> &raquo;</li>
         
-      <li>FastScan</li>
+          <li><a href="index.html">10. 敏感词</a> &raquo;</li>
+        
+      <li>10.6.1. FastScan</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -153,24 +180,23 @@
            <div itemprop="articleBody">
             
   <div class="section" id="fastscan">
-<h1>FastScan<a class="headerlink" href="#fastscan" title="永久链接至标题">¶</a></h1>
+<h1>10.6.1. FastScan<a class="headerlink" href="#fastscan" title="永久链接至标题">¶</a></h1>
 <p>苦于没有找到一个比较合适的敏感词过滤库，所以我自己花了点时间撸了一个。
 它基于广为人知的 ahocorasick 字符串匹配算法，使用原生的 js
 实现，浏览器和服务端都可以使用。</p>
-</div>
 <div class="section" id="id1">
-<h1>演示地址<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<h2>10.6.1.1. 演示地址<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p><a class="reference external" href="https://pyloque.github.io/fastscan/">FastScan PlayGround</a></p>
 </div>
 <div class="section" id="id2">
-<h1>安装方法<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h1>
+<h2>10.6.1.2. 安装方法<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 安装到当前项目</span>
 <span class="n">npm</span> <span class="n">install</span> <span class="o">--</span><span class="n">save</span> <span class="n">fastscan</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id3">
-<h1>使用方法<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h1>
+<h2>10.6.1.3. 使用方法<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>import FastScanner from fastscan
 
 var words = [&quot;今日头条&quot;，&quot;微信&quot;, &quot;支付宝&quot;]
@@ -188,7 +214,7 @@ console.log(hits)
 </div>
 </div>
 <div class="section" id="api">
-<h1>API<a class="headerlink" href="#api" title="永久链接至标题">¶</a></h1>
+<h2>10.6.1.4. API<a class="headerlink" href="#api" title="永久链接至标题">¶</a></h2>
 <ol class="arabic simple">
 <li><p>查询匹配的词汇以及所在字符串的位置 search(content, option={})</p></li>
 <li><p>查询匹配词汇的命中数量 hits(content, options={})</p></li>
@@ -205,7 +231,7 @@ console.log(hits)
 </ol>
 </div>
 <div class="section" id="id4">
-<h1>性能<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h1>
+<h2>10.6.1.5. 性能<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>项目代码使用原生的 js
 实现，我开始非常担心词汇树的构建速度会不会太慢。经测试后发现虽然性能不算太快，不过也不是太差，对于绝大多数项目来说已经绰绰有余了。我分别测试了构造
 20000 ～ 100000 个词汇的树结构，每个词汇随机在 10 ～ 20
@@ -305,15 +331,8 @@ O(n)，性能和被过滤内容的长度呈线性变化。下面我使用 100000
 </tr>
 </tbody>
 </table>
-<p>词汇量不是太大的话，这样的内存占用还是可以接受的。如果你对内存占用不满意，那就只能使用
-Node 的 C
-语言扩展来打造更高性能的库了，考虑到成本问题，恕我目前无能为力。</p>
-<div class="figure align-center" id="id5">
-<img alt="码洞" src="images/qrcode.jpg" />
-<p class="caption"><span class="caption-text">码洞</span><a class="headerlink" href="#id5" title="永久链接至图片">¶</a></p>
+<p>词汇量不是太大的话，这样的内存占用还是可以接受的。如果你对内存占用不满意，那就只能使用Node 的 C语言扩展来打造更高性能的库了，考虑到成本问题，恕我目前无能为力。</p>
 </div>
-<p>如果读者比较关心算法的原理和细节，扫一扫上面的二维码关注我的公众号「码洞」，后续我会编写相关文章来仔细讲解算法的原理，以及对
-fastscan 项目代码的剖析。</p>
 </div>
 
 
@@ -321,6 +340,15 @@ fastscan 项目代码的剖析。</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../glossary.html" class="btn btn-neutral float-right" title="11. 术语表" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="10. 敏感词" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

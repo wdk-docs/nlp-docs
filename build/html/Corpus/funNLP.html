@@ -1,0 +1,1198 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6.26. funNLP &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="6.27. nlp-datasets" href="nlp-datasets.html" />
+    <link rel="prev" title="6.25. 店查查数据" href="dianchacha.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">6. 语料库</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="BERT/FAQ.html">6.1. 常问问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BERT/Fine-tuning_with_BERT.html">6.2. 使用 BERT 进行微调</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BERT/Pre-trained_models.html">6.3. 预先训练的模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BERT/Pre-training_with_BERT.html">6.4. 使用 BERT 进行预训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BERT/Using_BERT_in_Colab.html">6.5. 在 Colab 中使用 BERT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BERT/Using_BERT_to_extract_fixed_feature_vectors.html">6.6. 使用 BERT 提取固定的特征向量 (像 ELMo)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BERT/What_is_BERT.html">6.7. 什么是 BERT？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BERT/index.html">6.8. BERT 大规模预训练语言模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BERT/model.html">6.9. 模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Knowledge_Graph/Agricultural_Knowledge_Graph.html">6.10. 农业知识图谱(AgriKG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Knowledge_Graph/ChineseNLPCorpus.html">6.11. Chinese NLP Corpus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Knowledge_Graph/cnSchema.html">6.12. cnSchema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Knowledge_Graph/index.html">6.13. 知识图谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Knowledge_Graph/openkg.html">6.14. openkg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regulation/LabelStyle.html">6.15. 现代汉语语料库加工规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regulation/index.html">6.16. 标注规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regulation/nation.html">6.17. 信息处理用现代汉语词类标记规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regulation/nlpir.html">6.18. 计算所汉语词性标记集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GlobalWordNetAssociation.html">6.19. 全球 WordNet 协会</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HowNet.html">6.20. 知网</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Schema.html">6.21. Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aihanyu.html">6.22. 爱汉语语料库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cow.html">6.23. Chinese Open Wordnet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csdn.html">6.24. CSDN 下载</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dianchacha.html">6.25. 店查查数据</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.26. funNLP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">6.26.1. 1. 中英文敏感词过滤</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">6.26.2. 2. 97 种语言检测</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">6.26.3. 3. 另一个语言检测</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">6.26.4. 4. 中国手机归属地查询</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">6.26.5. 5. 国际手机电话归属地查询</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">6.26.6. 6. 根据名字判断性别</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#email">6.26.7. 7. 抽取 email 的正则表达式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">6.26.8. 8. 抽取电话的正则表达式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">6.26.9. 9. 抽取身份证号的正则表达式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">6.26.10. 10. 人名语料库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">6.26.11. 11. 中文缩写库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">6.26.12. 12. 汉语拆字词典</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">6.26.13. 13. 词汇情感值</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">6.26.14. 14. 中文停用词敏感词</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">6.26.15. 15. 汉字转拼音</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">6.26.16. 16. 中文繁简体互转</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">6.26.17. 17. 英文模拟中文发音引擎</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">6.26.18. 18. 汪峰歌词生成器：</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">6.26.19. 19. 同义词库、反义词库、否定词库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">6.26.20. 20. 无空格英文串分割、抽取单词</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ip">6.26.21. 21. IP 地址正则表达式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qq">6.26.22. 22. 腾讯 QQ 号正则表达式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">6.26.23. 23. 国内固话号码正则表达式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">6.26.24. 24. 用户名正则表达式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">6.26.25. 25. 汽车品牌、汽车零件相关词汇</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id23">6.26.26. 26. 时间抽取</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">6.26.27. 27. 中文词向量</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">6.26.28. 28. 公司名字大全</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id26">6.26.29. 29. 古诗词库：</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thu">6.26.30. 30. THU 整理的词库：</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id27">6.26.31. 31. 中文聊天语料</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id28">6.26.32. 32. 中文谣言数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id29">6.26.33. 33. 情感波动分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dva">6.26.34. 34. 百度中文问答数据集**：链接 提取码: 2dva</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qa-matchzoo">6.26.35. 35. 句子、QA 相似度匹配:MatchZoo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bert">6.26.36. 36. bert 资源</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#texar">6.26.37. 37. Texar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id30">6.26.38. 38. 中文事件抽取</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coconlp">6.26.39. 39. cocoNLP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id31">6.26.40. 40. 国内电话号码正则匹配（三大运营商+虚拟等）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#xlore">6.26.41. 41. 清华大学 XLORE:中英文跨语言百科知识图谱</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id32">6.26.42. 42. 清华大学人工智能技术系列报告：</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id33">6.26.43. 43. 自然语言生成方面</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jieba">6.26.44. 44. jieba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nlp">6.26.45. 45. NLP 太难了系列</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id34">6.26.46. 46. 自动对联数据及机器人</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id35">6.26.47. 47. 用户名黑名单列表：</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id36">6.26.48. 48. 罪名法务名词及分类模型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id37">6.26.49. 49. 微信公众号语料</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cs224n">6.26.50. 50. cs224n 深度学习自然语言处理课程：</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id38">6.26.51. 51. 中文手写汉字识别</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id39">6.26.52. 52. 中文自然语言处理 语料/数据集</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id40">6.26.53. 53. 变量命名神器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id41">6.26.54. 54. 分词语料库+代码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id42">6.26.55. 55. NLP 新书推荐</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id43">6.26.56. 56. 任务型对话英文数据集</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asr">6.26.57. 57. ASR 语音数据集 + 基于深度学习的中文语音识别系统：</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id44">6.26.58. 58. 笑声检测器：</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#microsoft">6.26.59. 59. Microsoft 多语言数字/单位/如日期时间识别包：</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chinese-xinhua">6.26.60. 60. chinese-xinhua</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id45">6.26.61. 61. 文档图谱自动生成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spacy">6.26.62. 62. SpaCy 中文模型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#common-voice">6.26.63. 63. Common Voice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytorch">6.26.64. 64. 神经网络关系抽取 pytorch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bert-pytorch">6.26.65. 65. 基于 bert 的命名实体识别 pytorch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keyphrase-pke">6.26.66. 66. 关键词(Keyphrase)抽取包 pke</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id46">6.26.67. 67. 基于医疗领域知识图谱的问答系统</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id47">6.26.68. 68. 基于依存句法与语义角色标注的事件三元组抽取</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nlp-datasets.html">6.27. nlp-datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pku-opendata.html">6.28. 北京大学开发数据研究平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wikipedia.html">6.29. 维基百科语料库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wordnet.html">6.30. WordNet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/index.html">7. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">9. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">11. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">6. 语料库</a> &raquo;</li>
+        
+      <li>6.26. funNLP</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Corpus/funNLP.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="funnlp">
+<h1>6.26. funNLP<a class="headerlink" href="#funnlp" title="永久链接至标题">¶</a></h1>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/fighting41love/funNLP">funNLP</a></p>
+</div></blockquote>
+<p>最近需要从文本中抽取结构化信息，用到了很多 github
+上的包，遂整理了一下，后续会不断更新。</p>
+<p>很多包非常有趣，值得收藏，满足大家的收集癖！</p>
+<p>如果觉得有用，请分享并 star，谢谢！</p>
+<p>涉及内容包括：</p>
+<ul class="simple">
+<li><p>中英文敏感词</p></li>
+<li><p>语言检测</p></li>
+<li><p>中外手机/电话归属地/运营商查询</p></li>
+<li><p>名字推断性别</p></li>
+<li><p>手机号抽取</p></li>
+<li><p>身份证抽取</p></li>
+<li><p>邮箱抽取</p></li>
+<li><p>中日文人名库</p></li>
+<li><p>中文缩写库</p></li>
+<li><p>拆字词典</p></li>
+<li><p>词汇情感值</p></li>
+<li><p>停用词</p></li>
+<li><p>反动词表</p></li>
+<li><p>暴恐词表</p></li>
+<li><p>繁简体转换</p></li>
+<li><p>英文模拟中文发音</p></li>
+<li><p>汪峰歌词生成器</p></li>
+<li><p>职业名称词库</p></li>
+<li><p>同义词库</p></li>
+<li><p>反义词库</p></li>
+<li><p>否定词库</p></li>
+<li><p>汽车品牌词库</p></li>
+<li><p>汽车零件词库</p></li>
+<li><p>连续英文切割</p></li>
+<li><p>各种中文词向量</p></li>
+<li><p>公司名字大全</p></li>
+<li><p>古诗词库</p></li>
+<li><p>IT 词库</p></li>
+<li><p>财经词库</p></li>
+<li><p>成语词库</p></li>
+<li><p>地名词库</p></li>
+<li><p>历史名人词库</p></li>
+<li><p>诗词词库</p></li>
+<li><p>医学词库</p></li>
+<li><p>饮食词库</p></li>
+<li><p>法律词库</p></li>
+<li><p>汽车词库</p></li>
+<li><p>动物词库</p></li>
+<li><p>中文聊天语料</p></li>
+<li><p>中文谣言数据</p></li>
+<li><p>百度中文问答数据集</p></li>
+<li><p>句子相似度匹配算法集合</p></li>
+<li><p>bert 资源</p></li>
+<li><p>文本生成&amp;摘要相关工具</p></li>
+<li><p>cocoNLP 信息抽取工具</p></li>
+<li><p>国内电话号码正则匹配</p></li>
+<li><p>清华大学 XLORE:中英文跨语言百科知识图谱</p></li>
+<li><p>清华大学人工智能技术系列报告</p></li>
+<li><p>自然语言生成</p></li>
+<li><p>NLU 太难了系列</p></li>
+<li><p>自动对联数据及机器人</p></li>
+<li><p>用户名黑名单列表</p></li>
+<li><p>罪名法务名词及分类模型</p></li>
+<li><p>微信公众号语料</p></li>
+<li><p>cs224n 深度学习自然语言处理课程</p></li>
+<li><p>中文手写汉字识别</p></li>
+<li><p>中文自然语言处理 语料/数据集</p></li>
+<li><p>变量命名神器</p></li>
+<li><p>分词语料库+代码</p></li>
+<li><p>任务型对话英文数据集</p></li>
+<li><p>ASR 语音数据集 + 基于深度学习的中文语音识别系统</p></li>
+<li><p>笑声检测器</p></li>
+<li><p>Microsoft 多语言数字/单位/如日期时间识别包</p></li>
+<li><p>中华新华字典数据库及 api(包括常用歇后语</p></li>
+<li><p>成语</p></li>
+<li><p>词语和汉字)</p></li>
+<li><p>文档图谱自动生成</p></li>
+<li><p>SpaCy 中文模型</p></li>
+<li><p>Common Voice 语音识别数据集新版</p></li>
+<li><p>神经网络关系抽取</p></li>
+<li><p>基于 bert 的命名实体识别</p></li>
+<li><p>关键词(Keyphrase)抽取包 pke。</p></li>
+</ul>
+<div class="section" id="id1">
+<h2>6.26.1. 1. 中英文敏感词过滤<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/observerss/textfilter">observerss/textfilter</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">DFAFilter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;sexy&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s2">&quot;hello sexy baby&quot;</span><span class="p">)</span>
+<span class="go">hello **** baby</span>
+</pre></div>
+</div>
+<p>敏感词包括政治、脏话等话题词汇。其原理主要是基于词典的查找（项目中的
+keyword 文件），内容很劲爆。。。</p>
+</div>
+<div class="section" id="id2">
+<h2>6.26.2. 2. 97 种语言检测<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/saffsd/langid.py">langid</a></p>
+<blockquote>
+<div><p>pip install langid</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">langid</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">langid</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="s2">&quot;This is a test&quot;</span><span class="p">)</span>
+<span class="go">(&#39;en&#39;, -54.41310358047485)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>6.26.3. 3. 另一个语言检测<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://code.google.com/archive/p/language-detection/">langdetect</a></p>
+<blockquote>
+<div><p>pip install langdetect</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langdetect</span> <span class="kn">import</span> <span class="n">detect</span>
+<span class="kn">from</span> <span class="nn">langdetect</span> <span class="kn">import</span> <span class="n">detect_langs</span>
+
+<span class="n">s1</span> <span class="o">=</span> <span class="s2">&quot;本篇博客主要介绍两款语言探测工具，用于区分文本到底是什么语言，&quot;</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="s1">&#39;We are pleased to introduce today a new technology&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">detect</span><span class="p">(</span><span class="n">s1</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">detect</span><span class="p">(</span><span class="n">s2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">detect_langs</span><span class="p">(</span><span class="n">s3</span><span class="p">))</span>    <span class="c1"># detect_langs()输出探测出的所有语言类型及其所占的比例</span>
+</pre></div>
+</div>
+<p>输出结果如下： 注：语言类型主要参考的是 ISO 639-1
+语言编码标准，详见<a class="reference external" href="https://baike.baidu.com/item/ISO%20639-1">ISO 639-1
+百度百科</a></p>
+<p>跟上一个语言检测比较，准确率低，效率高。</p>
+</div>
+<div class="section" id="id4">
+<h2>6.26.4. 4. 中国手机归属地查询<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/ls0f/phone">ls0f/phone</a></p>
+<blockquote>
+<div><p>已集成到 python package
+<a class="reference external" href="https://github.com/fighting41love/cocoNLP">cocoNLP</a>中，欢迎试用</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">phone</span> <span class="kn">import</span> <span class="n">Phone</span>
+<span class="n">p</span>  <span class="o">=</span> <span class="n">Phone</span><span class="p">()</span>
+<span class="n">p</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="mi">18100065143</span><span class="p">)</span>
+<span class="c1">#return {&#39;phone&#39;: &#39;18100065143&#39;, &#39;province&#39;: &#39;上海&#39;, &#39;city&#39;: &#39;上海&#39;, &#39;zip_code&#39;: &#39;200000&#39;, &#39;area_code&#39;: &#39;021&#39;, &#39;phone_type&#39;: &#39;电信&#39;}</span>
+</pre></div>
+</div>
+<p>支持号段: 13<em>,15</em>,18*,14[5,7],17[0,6,7,8]</p>
+<p>记录条数: 360569 (updated:2017 年 4 月)</p>
+<p>作者提供了数据<a class="reference external" href="https://github.com/lovedboy/phone/raw/master/phone/phone.dat">phone.dat</a>
+方便非 python 用户 Load 数据。</p>
+</div>
+<div class="section" id="id5">
+<h2>6.26.5. 5. 国际手机电话归属地查询<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/AfterShip/phone">AfterShip/phone</a></p>
+<blockquote>
+<div><p>npm install phone</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">phone</span> <span class="nn">from</span> <span class="s1">&#39;phone&#39;</span><span class="p">;</span>
+<span class="n">phone</span><span class="p">(</span><span class="s1">&#39;+852 6569-8900&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;+85265698900&#39;</span><span class="p">,</span> <span class="s1">&#39;HKG&#39;</span><span class="p">]</span>
+<span class="n">phone</span><span class="p">(</span><span class="s1">&#39;(817) 569-8900&#39;</span><span class="p">);</span> <span class="o">//</span> <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;+18175698900, &#39;</span><span class="n">USA</span><span class="s1">&#39;]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>6.26.6. 6. 根据名字判断性别<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/observerss/ngender">observerss/ngender</a>
+基于朴素贝叶斯计算的概率</p>
+<blockquote>
+<div><p>pip install ngender</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ngender</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ngender</span><span class="o">.</span><span class="n">guess</span><span class="p">(</span><span class="s1">&#39;赵本山&#39;</span><span class="p">)</span>
+<span class="go">(&#39;male&#39;, 0.9836229687547046)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ngender</span><span class="o">.</span><span class="n">guess</span><span class="p">(</span><span class="s1">&#39;宋丹丹&#39;</span><span class="p">)</span>
+<span class="go">(&#39;female&#39;, 0.9759486128949907)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="email">
+<h2>6.26.7. 7. 抽取 email 的正则表达式<a class="headerlink" href="#email" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><p>已集成到 python package
+<a class="reference external" href="https://github.com/fighting41love/cocoNLP">cocoNLP</a>中，欢迎试用</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">email_pattern</span> <span class="o">=</span> <span class="s1">&#39;^[*#</span><span class="se">\u4e00</span><span class="s1">-</span><span class="se">\u9fa5</span><span class="s1"> a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$&#39;</span>
+<span class="n">emails</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">email_pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>6.26.8. 8. 抽取电话的正则表达式<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><p>已集成到 python package
+<a class="reference external" href="https://github.com/fighting41love/cocoNLP">cocoNLP</a>中，欢迎试用</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cellphone_pattern</span> <span class="o">=</span> <span class="s1">&#39;^((13[0-9])|(14[0-9])|(15[0-9])|(17[0-9])|(18[0-9]))\d{8}$&#39;</span>
+<span class="n">phoneNumbers</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">cellphone_pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>6.26.9. 9. 抽取身份证号的正则表达式<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">IDCards_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;^([1-9]\d{5}[12]\d{3}(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])\d{3}[0-9xX])$&#39;</span>
+<span class="n">IDs</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">IDCards_pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>6.26.10. 10. 人名语料库<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/wainshine/Chinese-Names-Corpus">wainshine/Chinese-Names-Corpus</a></p>
+<blockquote>
+<div><p>人名抽取功能 python package
+<a class="reference external" href="https://github.com/fighting41love/cocoNLP">cocoNLP</a>，欢迎试用</p>
+</div></blockquote>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>中文（现代、古代）名字、日文名字、中文的姓和名、称呼（大姨妈、小姨妈等）、英文-&gt;中文名字（李约翰）、成语词典
+</pre></div>
+</div>
+<p>（可用于中文分词、姓名识别）</p>
+</div>
+<div class="section" id="id10">
+<h2>6.26.11. 11. 中文缩写库<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/zhangyics/Chinese-abbreviation-dataset/blob/master/dev_set.txt">github</a></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>全国人大: 全国/n 人民/n 代表大会/n
+中国: 中华人民共和国/ns
+女网赛: 女子/n 网球/n 比赛/vn
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h2>6.26.12. 12. 汉语拆字词典<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/kfcd/chaizi">kfcd/chaizi</a></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>漢字 拆法 <span class="o">(</span>一<span class="o">)</span> 拆法 <span class="o">(</span>二<span class="o">)</span> 拆法 <span class="o">(</span>三<span class="o">)</span>
+拆 手 斥 扌 斥 才 斥
+</pre></div>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>6.26.13. 13. 词汇情感值<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/rainarch/SentiBridge/blob/master/Entity_Emotion_Express/CCF_data/pair_mine_result">rainarch/SentiBridge</a></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>山泉水 充沛 <span class="m">0</span>.400704566541 <span class="m">0</span>.370067395878
+视野 宽广 <span class="m">0</span>.305762728932 <span class="m">0</span>.325320747491
+大峡谷 惊险 <span class="m">0</span>.312137906517 <span class="m">0</span>.378594957281
+</pre></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h2>6.26.14. 14. 中文停用词敏感词<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/fighting41love/Chinese_from_dongxiexidian">dongxiexidian/Chinese</a></p>
+<p>此 package 的敏感词库分类更细：</p>
+<p><a class="reference external" href="https://github.com/fighting41love/funNLP/tree/master/data/敏感词库">反动词库</a>，
+<a class="reference external" href="https://github.com/fighting41love/funNLP/tree/master/data/敏感词库">敏感词库表统计</a>，
+<a class="reference external" href="https://github.com/fighting41love/funNLP/tree/master/data/敏感词库">暴恐词库</a>，
+<a class="reference external" href="https://github.com/fighting41love/funNLP/tree/master/data/敏感词库">民生词库</a>，
+<a class="reference external" href="https://github.com/fighting41love/funNLP/tree/master/data/敏感词库">色情词库</a></p>
+</div>
+<div class="section" id="id14">
+<h2>6.26.15. 15. 汉字转拼音<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/mozillazg/python-pinyin">mozillazg/python-pinyin</a></p>
+<p>文本纠错会用到</p>
+</div>
+<div class="section" id="id15">
+<h2>6.26.16. 16. 中文繁简体互转<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/skydark/nstools/tree/master/zhtools">skydark/nstools</a></p>
+</div>
+<div class="section" id="id16">
+<h2>6.26.17. 17. 英文模拟中文发音引擎<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
+<p>funny chinese text to speech
+enginee：<a class="reference external" href="https://github.com/tinyfool/ChineseWithEnglish">tinyfool/ChineseWithEnglish</a></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>say wo i ni
+<span class="c1">#说：我爱你</span>
+</pre></div>
+</div>
+<p>相当于用英文音标，模拟中文发音。</p>
+</div>
+<div class="section" id="id17">
+<h2>6.26.18. 18. 汪峰歌词生成器：<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/phunterlau/wangfeng-rnn">phunterlau/wangfeng-rnn</a></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>我在这里中的夜里
+就像一场是一种生命的意旪
+就像我的生活变得在我一样
+可我们这是一个知道
+我只是一天你会怎吗
+</pre></div>
+</div>
+</div>
+<div class="section" id="id18">
+<h2>6.26.19. 19. 同义词库、反义词库、否定词库<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/guotong1988/chinese_dictionary">guotong1988/chinese_dictionary</a></p>
+</div>
+<div class="section" id="id19">
+<h2>6.26.20. 20. 无空格英文串分割、抽取单词<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/keredson/wordninja">wordinja</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">wordninja</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wordninja</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;derekanderson&#39;</span><span class="p">)</span>
+<span class="go">[&#39;derek&#39;, &#39;anderson&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wordninja</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;imateapot&#39;</span><span class="p">)</span>
+<span class="go">[&#39;im&#39;, &#39;a&#39;, &#39;teapot&#39;]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ip">
+<h2>6.26.21. 21. IP 地址正则表达式<a class="headerlink" href="#ip" title="永久链接至标题">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">(</span><span class="m">25</span><span class="o">[</span><span class="m">0</span>-5<span class="o">]</span><span class="p">|</span><span class="m">2</span><span class="o">[</span><span class="m">0</span>-4<span class="o">]</span><span class="se">\d</span><span class="p">|</span><span class="o">[</span><span class="m">0</span>-1<span class="o">]</span><span class="se">\d</span><span class="o">{</span><span class="m">2</span><span class="o">}</span><span class="p">|</span><span class="o">[</span><span class="m">1</span>-9<span class="o">]</span>?<span class="se">\d</span><span class="o">)</span><span class="se">\.</span><span class="o">(</span><span class="m">25</span><span class="o">[</span><span class="m">0</span>-5<span class="o">]</span><span class="p">|</span><span class="m">2</span><span class="o">[</span><span class="m">0</span>-4<span class="o">]</span><span class="se">\d</span><span class="p">|</span><span class="o">[</span><span class="m">0</span>-1<span class="o">]</span><span class="se">\d</span><span class="o">{</span><span class="m">2</span><span class="o">}</span><span class="p">|</span><span class="o">[</span><span class="m">1</span>-9<span class="o">]</span>?<span class="se">\d</span><span class="o">)</span><span class="se">\.</span><span class="o">(</span><span class="m">25</span><span class="o">[</span><span class="m">0</span>-5<span class="o">]</span><span class="p">|</span><span class="m">2</span><span class="o">[</span><span class="m">0</span>-4<span class="o">]</span><span class="se">\d</span><span class="p">|</span><span class="o">[</span><span class="m">0</span>-1<span class="o">]</span><span class="se">\d</span><span class="o">{</span><span class="m">2</span><span class="o">}</span><span class="p">|</span><span class="o">[</span><span class="m">1</span>-9<span class="o">]</span>?<span class="se">\d</span><span class="o">)</span><span class="se">\.</span><span class="o">(</span><span class="m">25</span><span class="o">[</span><span class="m">0</span>-5<span class="o">]</span><span class="p">|</span><span class="m">2</span><span class="o">[</span><span class="m">0</span>-4<span class="o">]</span><span class="se">\d</span><span class="p">|</span><span class="o">[</span><span class="m">0</span>-1<span class="o">]</span><span class="se">\d</span><span class="o">{</span><span class="m">2</span><span class="o">}</span><span class="p">|</span><span class="o">[</span><span class="m">1</span>-9<span class="o">]</span>?<span class="se">\d</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="qq">
+<h2>6.26.22. 22. 腾讯 QQ 号正则表达式<a class="headerlink" href="#qq" title="永久链接至标题">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="m">1</span>-9<span class="o">]([</span><span class="m">0</span>-9<span class="o">]{</span><span class="m">5</span>,11<span class="o">})</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id20">
+<h2>6.26.23. 23. 国内固话号码正则表达式<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="m">0</span>-9-<span class="o">()</span>（）<span class="o">]{</span><span class="m">7</span>,18<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id21">
+<h2>6.26.24. 24. 用户名正则表达式<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>A-Za-z0-9_<span class="se">\-\u</span>4e00-<span class="se">\u</span>9fa5<span class="o">]</span>+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id22">
+<h2>6.26.25. 25. 汽车品牌、汽车零件相关词汇<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>见本repo的data文件 <span class="o">[</span>data<span class="o">](</span>https://github.com/fighting41love/funNLP/tree/master/data<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id23">
+<h2>6.26.26. 26. 时间抽取<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><p>已集成到 python package
+<a class="reference external" href="https://github.com/fighting41love/cocoNLP">cocoNLP</a>中，欢迎试用</p>
+</div></blockquote>
+<p>在 2016 年 6 月 7 日 9:44 执行測試，结果如下</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Hi，all。下周一下午三点开会
+
+&gt;&gt; <span class="m">2016</span>-06-13 <span class="m">15</span>:00:00-false
+
+周一开会
+
+&gt;&gt; <span class="m">2016</span>-06-13 <span class="m">00</span>:00:00-true
+
+下下周一开会
+
+&gt;&gt; <span class="m">2016</span>-06-20 <span class="m">00</span>:00:00-true
+</pre></div>
+</div>
+<p><a class="reference external" href="https://github.com/shinyke/Time-NLP">java version</a></p>
+<p><a class="reference external" href="https://github.com/zhanzecheng/Time_NLP">python version</a></p>
+</div>
+<div class="section" id="id24">
+<h2>6.26.27. 27. 中文词向量<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/Embedding/Chinese-Word-Vectors">Embedding/Chinese-Word-Vectors</a></p>
+<p>中文词向量大全</p>
+</div>
+<div class="section" id="id25">
+<h2>6.26.28. 28. 公司名字大全<a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/wainshine/Company-Names-Corpus">wainshine/Company-Names-Corpus</a></p>
+</div>
+<div class="section" id="id26">
+<h2>6.26.29. 29. 古诗词库：<a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/panhaiqi/AncientPoetry">panhaiqi/AncientPoetry</a>
+<a class="reference external" href="https://github.com/chinese-poetry/chinese-poetry">更全的古诗词库</a></p>
+</div>
+<div class="section" id="thu">
+<h2>6.26.30. 30. THU 整理的词库：<a class="headerlink" href="#thu" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://thuocl.thunlp.org/sendMessage">thuocl</a></p>
+<p>已整理到本 repo 的 data 文件夹中.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>IT词库、财经词库、成语词库、地名词库、历史名人词库、诗词词库、医学词库、饮食词库、法律词库、汽车词库、动物词库
+</pre></div>
+</div>
+</div>
+<div class="section" id="id27">
+<h2>6.26.31. 31. 中文聊天语料<a class="headerlink" href="#id27" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/codemayq/chaotbot_corpus_Chinese">codemayq/chaotbot_corpus_Chinese</a></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>该库搜集了包含:豆瓣多轮, PTT八卦语料, 青云语料, 电视剧对白语料, 贴吧论坛回帖语料,微博语料,小黄鸡语料
+</pre></div>
+</div>
+</div>
+<div class="section" id="id28">
+<h2>6.26.32. 32. 中文谣言数据<a class="headerlink" href="#id28" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/thunlp/Chinese_Rumor_Dataset">thunlp/Chinese_Rumor_Dataset</a></p>
+<p>该数据文件中，每一行为一条 json 格式的谣言数据，字段释义如下：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rumorCode: 该条谣言的唯一编码，可以通过该编码直接访问该谣言举报页面。
+title: 该条谣言被举报的标题内容
+informerName: 举报者微博名称
+informerUrl: 举报者微博链接
+rumormongerName: 发布谣言者的微博名称
+rumormongerUr: 发布谣言者的微博链接
+rumorText: 谣言内容
+visitTimes: 该谣言被访问次数
+result: 该谣言审查结果
+publishTime: 该谣言被举报时间
+</pre></div>
+</div>
+</div>
+<div class="section" id="id29">
+<h2>6.26.33. 33. 情感波动分析<a class="headerlink" href="#id29" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/CasterWx/python-girlfriend-mood/">CasterWx/python-girlfriend-mood</a></p>
+<p>词库已整理到本 repo 的 data 文件夹中.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>本repo项目是一个通过与人对话获得其情感值波动图谱, 内用词库在data文件夹中.
+</pre></div>
+</div>
+</div>
+<div class="section" id="dva">
+<h2>6.26.34. 34. 百度中文问答数据集**：<a class="reference external" href="https://pan.baidu.com/s/1QUsKcFWZ7Tg1dk_AbldZ1A">链接</a> 提取码: 2dva<a class="headerlink" href="#dva" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="qa-matchzoo">
+<h2>6.26.35. 35. 句子、QA 相似度匹配:MatchZoo<a class="headerlink" href="#qa-matchzoo" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/NTMC-Community/MatchZoo">github</a></p>
+<p>文本相似度匹配算法的集合，包含多个深度学习的方法，值得尝试。</p>
+</div>
+<div class="section" id="bert">
+<h2>6.26.36. 36. bert 资源<a class="headerlink" href="#bert" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pan.baidu.com/s/1OSPsIu2oh1iJ-bcXoDZpJQ">Bert 原作者的
+slides</a> 提取码:
+iarj</p></li>
+<li><p><a class="reference external" href="https://github.com/NLPScott/bert-Chinese-classification-task">文本分类实践</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Socialbird-AILab/BERT-Classification-Tutorial">bert tutorial
+文本分类教程</a></p></li>
+<li><p><a class="reference external" href="https://github.com/huggingface/pytorch-pretrained-BERT">bert pytorch
+实现</a></p></li>
+<li><p><a class="reference external" href="https://github.com/macanv/BERT-BiLSTM-CRF-NER">bert 用于中文命名实体识别 tensorflow
+版本</a></p></li>
+<li><p><a class="reference external" href="https://github.com/BrikerMan/Kashgari">bert 基于 keras 的封装分类标注框架
+Kashgari，几分钟即可搭建一个分类或者序列标注模型</a></p></li>
+<li><p><a class="reference external" href="https://jalammar.github.io/illustrated-bert/">bert、ELMO 的图解</a></p></li>
+<li><p><a class="reference external" href="https://github.com/asyml/texar/tree/master/examples/bert">BERT: Pre-trained models and downstream
+applications</a></p></li>
+</ul>
+</div>
+<div class="section" id="texar">
+<h2>6.26.37. 37. Texar<a class="headerlink" href="#texar" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/asyml/texar">Toolkit for Text Generation and
+Beyond</a></p>
+<p>基于 Tensorflow
+的开源工具包，旨在支持广泛的机器学习，特别是文本生成任务，如机器翻译、对话、摘要、内容处置、语言建模等</p>
+</div>
+<div class="section" id="id30">
+<h2>6.26.38. 38. 中文事件抽取<a class="headerlink" href="#id30" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/liuhuanyong/ComplexEventExtraction">liuhuanyong/ComplexEventExtraction</a></p>
+<p>中文复合事件抽取，包括条件事件、因果事件、顺承事件、反转事件等事件抽取，并形成事理图谱。</p>
+</div>
+<div class="section" id="coconlp">
+<h2>6.26.39. 39. cocoNLP<a class="headerlink" href="#coconlp" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/fighting41love/cocoNLP">fighting41love/cocoNLP</a></p>
+<p>人名、地址、邮箱、手机号、手机归属地 等信息的抽取，rake 短语抽取算法。</p>
+<blockquote>
+<div><p>pip install cocoNLP</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cocoNLP.extractor</span> <span class="kn">import</span> <span class="n">extractor</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ex</span> <span class="o">=</span> <span class="n">extractor</span><span class="p">()</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;急寻特朗普，男孩，于2018年11月27号11时在陕西省安康市汉滨区走失。丢失发型短发，...如有线索，请迅速与警方联系：18100065143，132-6156-2938，baizhantang@sina.com.cn 和yangyangfuture at gmail dot com&#39;</span>
+
+<span class="go"># 抽取邮箱</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">emails</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">extract_email</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">emails</span><span class="p">)</span>
+
+<span class="go">[&#39;baizhantang@sina.com.cn&#39;, &#39;yangyangfuture@gmail.com.cn&#39;]</span>
+<span class="go"># 抽取手机号</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cellphones</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">extract_cellphone</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="n">nation</span><span class="o">=</span><span class="s1">&#39;CHN&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">cellphones</span><span class="p">)</span>
+
+<span class="go">[&#39;18100065143&#39;, &#39;13261562938&#39;]</span>
+<span class="go"># 抽取手机归属地、运营商</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cell_locs</span> <span class="o">=</span> <span class="p">[</span><span class="n">ex</span><span class="o">.</span><span class="n">extract_cellphone_location</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span><span class="s1">&#39;CHN&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">cellphones</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">cell_locs</span><span class="p">)</span>
+
+<span class="go">cellphone_location [{&#39;phone&#39;: &#39;18100065143&#39;, &#39;province&#39;: &#39;上海&#39;, &#39;city&#39;: &#39;上海&#39;, &#39;zip_code&#39;: &#39;200000&#39;, &#39;area_code&#39;: &#39;021&#39;, &#39;phone_type&#39;: &#39;电信&#39;}]</span>
+<span class="go"># 抽取地址信息</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">locations</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">extract_locations</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">locations</span><span class="p">)</span>
+<span class="go">[&#39;陕西省安康市汉滨区&#39;, &#39;安康市汉滨区&#39;, &#39;汉滨区&#39;]</span>
+<span class="go"># 抽取时间点</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">times</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">extract_time</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
+<span class="go">time {&quot;type&quot;: &quot;timestamp&quot;, &quot;timestamp&quot;: &quot;2018-11-27 11:00:00&quot;}</span>
+<span class="go"># 抽取人名</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">extract_name</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="go">特朗普</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id31">
+<h2>6.26.40. 40. 国内电话号码正则匹配（三大运营商+虚拟等）<a class="headerlink" href="#id31" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/VincentSit/ChinaMobilePhoneNumberRegex">VincentSit/ChinaMobilePhoneNumberRegex</a></p>
+</div>
+<div class="section" id="xlore">
+<h2>6.26.41. 41. 清华大学 XLORE:中英文跨语言百科知识图谱<a class="headerlink" href="#xlore" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://xlore.org/download.html">xlore</a></p>
+<p>上述链接中包含了所有实体及关系的 TTL 文件，更多数据将在近期发布。
+概念，实例，属性和上下位关系数目</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>百度</p></th>
+<th class="head"><p>中文维基</p></th>
+<th class="head"><p>英文维基</p></th>
+<th class="head"><p>总数</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>概念数量</p></td>
+<td><p>32,009</p></td>
+<td><p>150,241</p></td>
+<td><p>326,518</p></td>
+<td><p>508,768</p></td>
+</tr>
+<tr class="row-odd"><td><p>实例数量</p></td>
+<td><p>1,629,591</p></td>
+<td><p>640,622</p></td>
+<td><p>1,235,178</p></td>
+<td><p>3,505,391</p></td>
+</tr>
+<tr class="row-even"><td><p>属性数量</p></td>
+<td><p>157,370</p></td>
+<td><p>45,190</p></td>
+<td><p>26,723</p></td>
+<td><p>229.283</p></td>
+</tr>
+<tr class="row-odd"><td><p>InstanceOf</p></td>
+<td><p>7,584,931</p></td>
+<td><p>1,449,925</p></td>
+<td><p>3,032,515</p></td>
+<td><p>12,067,371</p></td>
+</tr>
+<tr class="row-even"><td><p>SubClassOf</p></td>
+<td><p>2,784</p></td>
+<td><p>191,577</p></td>
+<td><p>555,538</p></td>
+<td><p>749,899</p></td>
+</tr>
+</tbody>
+</table>
+<p>跨语言连接（概念/实例）</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>百度</p></th>
+<th class="head"><p>中文维基</p></th>
+<th class="head"><p>英文维基</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>百度</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>10,216/336,890</p></td>
+<td><p>4,846/303,108</p></td>
+</tr>
+<tr class="row-odd"><td><p>中文维基</p></td>
+<td><p>10,216/336,890</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>28,921/454,579</p></td>
+</tr>
+<tr class="row-even"><td><p>英文维基</p></td>
+<td><p>4,846/303,108</p></td>
+<td><p>28,921/454,579</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id32">
+<h2>6.26.42. 42. 清华大学人工智能技术系列报告：<a class="headerlink" href="#id32" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://reports.aminer.cn">aminer</a></p>
+<p>每年会出 AI 领域相关的报告，内容包含</p>
+<ul class="simple">
+<li><p>自然语言处理 <a class="reference external" href="https://static.aminer.cn/misc/article/nlp.pdf">link</a></p></li>
+<li><p>知识图谱
+<a class="reference external" href="https://www.aminer.cn/research_report/5c3d5a8709%20e961951592a49d?download=true&amp;pathname=knowledgegraph.pdf">link</a></p></li>
+<li><p>数据挖掘
+<a class="reference external" href="https://www.aminer.cn/research_report/5c3d5a5cecb160952fa10b76?download=true&amp;pathname=datamining.pdf">link</a></p></li>
+<li><p>自动驾驶
+<a class="reference external" href="https://static.aminer.cn/misc/article/selfdriving.pdf">link</a></p></li>
+<li><p>机器翻译
+<a class="reference external" href="https://static.aminer.cn/misc/article/translation.pdf">link</a></p></li>
+<li><p>区块链
+<a class="reference external" href="https://static.aminer.cn/misc/article/blockchain_public.pdf">link</a></p></li>
+<li><p>机器人
+<a class="reference external" href="https://static.aminer.cn/misc/article/robotics_beta.pdf">link</a></p></li>
+<li><p>计算机图形学 <a class="reference external" href="https://static.aminer.cn/misc/article/cg.pdf">link</a></p></li>
+<li><p>3D 打印 <a class="reference external" href="https://static.aminer.cn/misc/article/3d.pdf">link</a></p></li>
+<li><p>人脸识别
+<a class="reference external" href="https://static.aminer.cn/misc/article/facerecognition.pdf">link</a></p></li>
+<li><p>人工智能芯片
+<a class="reference external" href="https://static.aminer.cn/misc/article/aichip.pdf">link</a></p></li>
+<li><p>等等</p></li>
+</ul>
+</div>
+<div class="section" id="id33">
+<h2>6.26.43. 43. 自然语言生成方面<a class="headerlink" href="#id33" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ehudreiter.com">Ehud Reiter 教授的博客</a>
+北大万小军教授强力推荐，该博客对 NLG
+技术、评价与应用进行了深入的探讨与反思。</p></li>
+<li><p><a class="reference external" href="https://github.com/ChenChengKuan/awesome-text-generation">文本生成相关资源大列表</a></p></li>
+<li><p><a class="reference external" href="https://drive.google.com/file/d/1Mdna3q986k6OoJNsfAHznTtnMAEVzv5z/view">自然语言生成：让机器掌握自动创作的本领 -
+开放域对话生成及在微软小冰中的实践</a></p></li>
+<li><p><a class="reference external" href="https://github.com/harvardnlp/Talk-Latent/blob/master/main.pdf">文本生成控制</a></p></li>
+</ul>
+</div>
+<div class="section" id="jieba">
+<h2>6.26.44. 44. jieba<a class="headerlink" href="#jieba" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/fxsjy/jieba">jieba</a>和<a class="reference external" href="https://github.com/hankcs/pyhanlp">hanlp</a>就不必介绍了吧。</p>
+</div>
+<div class="section" id="nlp">
+<h2>6.26.45. 45. NLP 太难了系列<a class="headerlink" href="#nlp" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/fighting41love/hardNLP">github</a></p>
+<ul class="simple">
+<li><p>来到杨过曾经生活过的地方，小龙女动情地说：“我也想过过过儿过过的生活。”
+​​​</p></li>
+<li><p>来到儿子等校车的地方，邓超对孙俪说：“我也想等等等等等过的那辆车。”</p></li>
+<li><p>赵敏说：我也想控忌忌己不想无忌。</p></li>
+<li><p>你也想犯范范范玮琪犯过的错吗</p></li>
+<li><p>对叙打击是一次性行为？</p></li>
+</ul>
+</div>
+<div class="section" id="id34">
+<h2>6.26.46. 46. 自动对联数据及机器人<a class="headerlink" href="#id34" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/wb14123/couplet-dataset">70 万对联数据 link</a></p></li>
+<li><p><a class="reference external" href="https://github.com/wb14123/seq2seq-couplet">代码 link</a></p></li>
+</ul>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>上联</p></th>
+<th class="head"><p>下联</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>殷勤怕负三春意</p></td>
+<td><p>潇洒难书一字愁</p></td>
+</tr>
+<tr class="row-odd"><td><p>如此清秋何吝酒</p></td>
+<td><p>这般明月不须钱</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id35">
+<h2>6.26.47. 47. 用户名黑名单列表：<a class="headerlink" href="#id35" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/marteinn/The-Big-Username-Blacklist">marteinn/The-Big-Username-Blacklist</a>
+包含了用户名禁用列表，比如:
+<a class="reference external" href="https://github.com/marteinn/The-Big-Username-Blacklist/blob/master/list_raw.txt">list_raw.txt</a></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>administrator
+administration
+autoconfig
+autodiscover
+broadcasthost
+domain
+editor
+guest
+host
+hostmaster
+info
+keybase.txt
+localdomain
+localhost
+master
+mail
+mail0
+mail1
+</pre></div>
+</div>
+</div>
+<div class="section" id="id36">
+<h2>6.26.48. 48. 罪名法务名词及分类模型<a class="headerlink" href="#id36" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/liuhuanyong/CrimeKgAssitant">liuhuanyong/CrimeKgAssitant</a></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>包含856项罪名知识图谱, 基于280万罪名训练库的罪名预测,基于20W法务问答对的13类问题分类与法律资讯问答功能
+</pre></div>
+</div>
+</div>
+<div class="section" id="id37">
+<h2>6.26.49. 49. 微信公众号语料<a class="headerlink" href="#id37" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/nonamestreet/weixin_public_corpus">nonamestreet/weixin_public_corpus</a></p>
+<p>3G 语料，包含部分网络抓取的微信公众号的文章，已经去除
+HTML，只包含了纯文本。每行一篇，是 JSON 格式，name
+是微信公众号名字，account 是微信公众号 ID，title 是题目，content 是正文</p>
+</div>
+<div class="section" id="cs224n">
+<h2>6.26.50. 50. cs224n 深度学习自然语言处理课程：<a class="headerlink" href="#cs224n" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://web.stanford.edu/class/cs224n/">cs224n</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/DSKSD/DeepNLP-models-Pytorch">课程中模型的 pytorch
+实现</a></p></li>
+<li><p><a class="reference external" href="https://github.com/graykode/nlp-tutorial">面向深度学习研究人员的自然语言处理实例教程</a></p></li>
+</ul>
+</div>
+<div class="section" id="id38">
+<h2>6.26.51. 51. 中文手写汉字识别<a class="headerlink" href="#id38" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/chizhanyuefeng/Chinese_OCR_CNN-RNN-CTC">chizhanyuefeng/Chinese_OCR_CNN-RNN-CTC</a></p>
+</div>
+<div class="section" id="id39">
+<h2>6.26.52. 52. 中文自然语言处理 语料/数据集<a class="headerlink" href="#id39" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/SophonPlus/ChineseNlpCorpus">SophonPlus/ChineseNlpCorpus</a></p></li>
+<li><p><a class="reference external" href="https://github.com/thunlp/THUOCL">竞品：THUOCL（THU Open Chinese
+Lexicon）中文词库</a></p></li>
+</ul>
+</div>
+<div class="section" id="id40">
+<h2>6.26.53. 53. 变量命名神器<a class="headerlink" href="#id40" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/unbug/codelf">unbug/codelf</a>
+<a class="reference external" href="https://unbug.github.io/codelf/">codelf</a></p>
+</div>
+<div class="section" id="id41">
+<h2>6.26.54. 54. 分词语料库+代码<a class="headerlink" href="#id41" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pan.baidu.com/s/1MXZONaLgeaw0_TxZZDAIYQ">百度网盘链接</a>
+提取码: pea6</p></li>
+<li><p><a class="reference external" href="https://github.com/GlassyWing/bi-lstm-crf">keras 实现的基于 Bi-LSTM + CRF
+的中文分词+词性标注</a></p></li>
+<li><p><a class="reference external" href="https://github.com/GlassyWing/transformer-word-segmenter">基于 Universal Transformer + CRF
+的中文分词和词性标注</a></p></li>
+<li><p><a class="reference external" href="https://github.com/yaoguangluo/NeroParser">快速神经网络分词包 java
+version</a></p></li>
+</ul>
+</div>
+<div class="section" id="id42">
+<h2>6.26.55. 55. NLP 新书推荐<a class="headerlink" href="#id42" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/jacobeisenstein/gt-nlp-class/blob/master/notes/eisenstein-nlp-notes.pdf">《Natural Language Processing》by Jacob
+Eisenstein</a></p>
+</div>
+<div class="section" id="id43">
+<h2>6.26.56. 56. 任务型对话英文数据集<a class="headerlink" href="#id43" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/AtmaHou/Task-Oriented-Dialogue-Dataset-Survey">AtmaHou/Task-Oriented-Dialogue-Dataset-Survey</a>
+【最全任务型对话数据集】主要介绍了一份任务型对话数据集大全，这份数据集大全涵盖了到目前在任务型对话领域的所有常用数据集的主要信息。此外，为了帮助研究者更好的把握领域进展的脉络，我们以
+Leaderboard 的形式给出了几个数据集上的 State-of-the-art 实验结果。</p>
+</div>
+<div class="section" id="asr">
+<h2>6.26.57. 57. ASR 语音数据集 + 基于深度学习的中文语音识别系统：<a class="headerlink" href="#asr" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/nl8590687/ASRT_SpeechRecognition">nl8590687/ASRT_SpeechRecognition</a></p>
+<ul>
+<li><p>Data Sets 数据集</p>
+<ul>
+<li><p><strong>清华大学 THCHS30 中文语音数据集</strong></p>
+<p>data_thchs30.tgz <a class="reference external" href="http://cn-mirror.openslr.org/resources/18/data_thchs30.tgz">OpenSLR
+国内镜像</a>
+<a class="reference external" href="http://www.openslr.org/resources/18/data_thchs30.tgz">OpenSLR
+国外镜像</a></p>
+<p>test-noise.tgz <a class="reference external" href="http://cn-mirror.openslr.org/resources/18/test-noise.tgz">OpenSLR
+国内镜像</a>
+<a class="reference external" href="http://www.openslr.org/resources/18/test-noise.tgz">OpenSLR
+国外镜像</a></p>
+<p>resource.tgz <a class="reference external" href="http://cn-mirror.openslr.org/resources/18/resource.tgz">OpenSLR
+国内镜像</a>
+<a class="reference external" href="http://www.openslr.org/resources/18/resource.tgz">OpenSLR
+国外镜像</a></p>
+</li>
+<li><p><strong>Free ST Chinese Mandarin Corpus</strong></p>
+<p>ST-CMDS-20170001_1-OS.tar.gz <a class="reference external" href="http://cn-mirror.openslr.org/resources/38/ST-CMDS-20170001_1-OS.tar.gz">OpenSLR
+国内镜像</a>
+<a class="reference external" href="http://www.openslr.org/resources/38/ST-CMDS-20170001_1-OS.tar.gz">OpenSLR
+国外镜像</a></p>
+</li>
+<li><p><strong>AIShell-1 开源版数据集</strong></p>
+<p>data_aishell.tgz <a class="reference external" href="http://cn-mirror.openslr.org/resources/33/data_aishell.tgz">OpenSLR
+国内镜像</a>
+<a class="reference external" href="http://www.openslr.org/resources/33/data_aishell.tgz">OpenSLR
+国外镜像</a></p>
+</li>
+</ul>
+<p>注：数据集解压方法</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ tar xzf data_aishell.tgz
+$ <span class="nb">cd</span> data_aishell/wav
+$ <span class="k">for</span> tar in *.tar.gz<span class="p">;</span>  <span class="k">do</span> tar xvf <span class="nv">$tar</span><span class="p">;</span> <span class="k">done</span>
+</pre></div>
+</div>
+<ul>
+<li><p><strong>Primewords Chinese Corpus Set 1</strong></p>
+<p>primewords_md_2018_set1.tar.gz <a class="reference external" href="http://cn-mirror.openslr.org/resources/47/primewords_md_2018_set1.tar.gz">OpenSLR
+国内镜像</a>
+<a class="reference external" href="http://www.openslr.org/resources/47/primewords_md_2018_set1.tar.gz">OpenSLR
+国外镜像</a></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id44">
+<h2>6.26.58. 58. 笑声检测器：<a class="headerlink" href="#id44" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/ideo/LaughDetection">ideo/LaughDetection</a></p>
+</div>
+<div class="section" id="microsoft">
+<h2>6.26.59. 59. Microsoft 多语言数字/单位/如日期时间识别包：<a class="headerlink" href="#microsoft" title="永久链接至标题">¶</a></h2>
+<p>[Microsoft/Recognizers-Text](<a class="reference external" href="https://github.com/Microsoft/Recognizers-Text">https://github.com/Microsoft/Recognizers-Text</a></p>
+</div>
+<div class="section" id="chinese-xinhua">
+<h2>6.26.60. 60. chinese-xinhua<a class="headerlink" href="#chinese-xinhua" title="永久链接至标题">¶</a></h2>
+<p>中华新华字典数据库及 api，包括常用歇后语、成语、词语和汉字</p>
+<p><a class="reference external" href="https://github.com/pwxcoo/chinese-xinhua">pwxcoo/chinese-xinhua</a></p>
+</div>
+<div class="section" id="id45">
+<h2>6.26.61. 61. 文档图谱自动生成<a class="headerlink" href="#id45" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/liuhuanyong/TextGrapher">liuhuanyong/TextGrapher</a></p>
+<ul class="simple">
+<li><p>TextGrapher - Text Content Grapher based on keyinfo extraction by NLP
+method。输入一篇文档，将文档进行关键信息提取，进行结构化，并最终组织成图谱组织形式，形成对文章语义信息的图谱化展示</p></li>
+</ul>
+</div>
+<div class="section" id="spacy">
+<h2>6.26.62. 62. SpaCy 中文模型<a class="headerlink" href="#spacy" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/howl-anderson/Chinese_models_for_SpaCy">howl-anderson/Chinese_models_for_SpaCy</a></p>
+<ul class="simple">
+<li><p>包含 Parser, NER, 语法树等功能。有一些英文 package 使用 spacy
+的英文模型的，如果要适配中文，可能需要使用 spacy 中文模型。</p></li>
+</ul>
+</div>
+<div class="section" id="common-voice">
+<h2>6.26.63. 63. Common Voice<a class="headerlink" href="#common-voice" title="永久链接至标题">¶</a></h2>
+<p>语音识别数据集新版</p>
+<p><a class="reference external" href="https://voice.mozilla.org/en/datasets">Common Voice</a></p>
+<ul class="simple">
+<li><p>包括来自 42,000 名贡献者超过 1,400 小时的语音样本，涵 github</p></li>
+</ul>
+</div>
+<div class="section" id="pytorch">
+<h2>6.26.64. 64. 神经网络关系抽取 pytorch<a class="headerlink" href="#pytorch" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/ShulinCao/OpenNRE-PyTorch">github</a></p>
+<ul class="simple">
+<li><p>暂不支持中文</p></li>
+</ul>
+</div>
+<div class="section" id="bert-pytorch">
+<h2>6.26.65. 65. 基于 bert 的命名实体识别 pytorch<a class="headerlink" href="#bert-pytorch" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/Kyubyong/bert_ner">github</a></p>
+<ul class="simple">
+<li><p>暂不支持中文</p></li>
+</ul>
+</div>
+<div class="section" id="keyphrase-pke">
+<h2>6.26.66. 66. 关键词(Keyphrase)抽取包 pke<a class="headerlink" href="#keyphrase-pke" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/boudinfl/pke">github</a> <a class="reference external" href="http://aclweb.org/anthology/C16-2015">pke: an open source
+python-based keyphrase extraction
+toolkit</a></p>
+<ul class="simple">
+<li><p>暂不支持中文，我于近期对其进行修改，使其适配中文。 请关注我的 github
+动态，谢谢！</p></li>
+</ul>
+</div>
+<div class="section" id="id46">
+<h2>6.26.67. 67. 基于医疗领域知识图谱的问答系统<a class="headerlink" href="#id46" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/zhihao-chen/QASystemOnMedicalGraph">github</a></p>
+<ul class="simple">
+<li><p>该 repo
+参考了<a class="reference external" href="https://github.com/liuhuanyong/QASystemOnMedicalKG">github</a></p></li>
+</ul>
+</div>
+<div class="section" id="id47">
+<h2>6.26.68. 68. 基于依存句法与语义角色标注的事件三元组抽取<a class="headerlink" href="#id47" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://github.com/liuhuanyong/EventTriplesExtraction">github</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nlp-datasets.html" class="btn btn-neutral float-right" title="6.27. nlp-datasets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="dianchacha.html" class="btn btn-neutral float-left" title="6.25. 店查查数据" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

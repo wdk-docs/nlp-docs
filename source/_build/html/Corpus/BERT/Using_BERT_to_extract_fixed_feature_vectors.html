@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>25. 使用 BERT 提取固定的特征向量 (像 ELMo) &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="26. 什么是 BERT？" href="What_is_BERT.html" />
+    <link rel="prev" title="24. 在 Colab 中使用 BERT" href="Using_BERT_in_Colab.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/ConditionalRandomField.html">3. 条件随机场 CRF（Conditional Random Field）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/Hidden_Markov_Model.html">4. 隐马尔可夫模型 HMM（Hidden Markov Model）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/MMSEG.html">5. MMSEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/MMSeg_description.html">6. MMSeg 分词算法简述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/Maximum-entropy_Markov_model.html">7. 最大熵马尔可夫模型 MEMM（Maximum-entropy Markov model）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/Maximum_Entropy.html">8. 最大熵模型 ME（Maximum Entropy）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/Statistical_Model.html">9. 统计模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/Viterbi.html">10. Viterbi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/index.html">11. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../awesome/Awesome-Chinese-NLP.html">12. awesome-chinese-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../awesome/index.html">13. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../awesome/multi-language.html">14. 其他语言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../awesome/techniques.html">15. 技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../awesome/tutorials.html">16. 教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Cloud/aliyun.html">17. 阿里云自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Cloud/pai.html">18. 阿里机器学习平台 PAI 3.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Cloud/百度AI.html">19. 百度 AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">20. 常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fine-tuning_with_BERT.html">21. 使用 BERT 进行微调</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pre-trained_models.html">22. 预先训练的模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pre-training_with_BERT.html">23. 使用 BERT 进行预训练</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Using_BERT_in_Colab.html">24. 在 Colab 中使用 BERT</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">25. 使用 BERT 提取固定的特征向量 (像 ELMo)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">25.1. 符号化</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="What_is_BERT.html">26. 什么是 BERT？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">27. BERT 大规模预训练语言模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">28. 模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Knowledge_Graph/Agricultural_Knowledge_Graph.html">29. 农业知识图谱(AgriKG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Knowledge_Graph/ChineseNLPCorpus.html">30. Chinese NLP Corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Knowledge_Graph/cnSchema.html">31. cnSchema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Knowledge_Graph/index.html">32. 知识图谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Knowledge_Graph/openkg.html">33. openkg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../regulation/LabelStyle.html">34. 现代汉语语料库加工规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../regulation/index.html">35. 标注规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../regulation/nation.html">36. 信息处理用现代汉语词类标记规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../regulation/nlpir.html">37. 计算所汉语词性标记集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GlobalWordNetAssociation.html">38. 全球 WordNet 协会</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../HowNet.html">39. 知网</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Schema.html">40. Schema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aihanyu.html">41. 爱汉语语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cow.html">42. Chinese Open Wordnet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../csdn.html">43. CSDN 下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dianchacha.html">44. 店查查数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../funNLP.html">45. funNLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">46. 语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nlp-datasets.html">47. nlp-datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pku-opendata.html">48. 北京大学开发数据研究平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wikipedia.html">49. 维基百科语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wordnet.html">50. WordNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/FoolNLTK/index.html">51. FoolNLTK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/FoolNLTK/train.html">52. train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/JieBa/Jieba.html">53. JieBa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/JieBa/JiebaCpp.html">54. CppJieba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/JieBa/JiebaNode.html">55. NodeJieba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/HanLP.html">56. HanLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/Jcseg.html">57. Jcseg logo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/Jiagu.html">58. Jiagu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/Keras.html">59. Keras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/Keras.html#x-train-and-y-train-are-numpy-arrays-just-like-in-the-scikit-learn-api">60. x_train and y_train are Numpy arrays –just like in the Scikit-Learn API.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/PyTorch.html">61. PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/SnowNLP.html">62. SnowNLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/SpaCy.html">63. spacy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/StanfordNLP.html">64. 斯坦福-StanfordNLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/THULAC.html">65. 清华-THULAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/TensorFlow.html">66. TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/ansj_seg.html">67. Ansj 中文分词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/awesome.html">68. 👍🏻 表库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/bosonnlp.html">69. 玻森数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/index.html">70. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/ltp.html">71. 哈工大-LTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/nlpair-ictclas.html">72. 中科院-NLPIR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/nltk.html">73. NLTK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/pkuseg.html">74. 北大-pkuseg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/scikit-learn.html">75. scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/sego.html">76. sego</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Online/index.html">77. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/2018-nlp.html">78. 2018 年，NLP 研究与应用进展到什么水平了？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/bert-jiqizhixin.html">79. 谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/chinese-segmenter.html">80. 细说中文分词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/index.html">81. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/milestone.html">82. 一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/nlp-gather.html">83. 自然语言处理（NLP）知识结构总结</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/nlp.ict.ac.cn.html">84. 中国科学院计算技术研究所自然语言处理研究组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sensitive-word/fastscan.html">85. FastScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sensitive-word/index.html">86. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">87. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+      <li>25. 使用 BERT 提取固定的特征向量 (像 ELMo)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Corpus/BERT/Using_BERT_to_extract_fixed_feature_vectors.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bert-elmo">
+<h1>25. 使用 BERT 提取固定的特征向量 (像 ELMo)<a class="headerlink" href="#bert-elmo" title="永久链接至标题">¶</a></h1>
+<p>In certain cases, rather than fine-tuning the entire pre-trained model
+end-to-end, it can be beneficial to obtained <em>pre-trained contextual
+embeddings</em>, which are fixed contextual representations of each input
+token generated from the hidden layers of the pre-trained model. This
+should also mitigate most of the out-of-memory issues.</p>
+<p>As an example, we include the script <code class="docutils literal notranslate"><span class="pre">extract_features.py</span></code> which can
+be used like this:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sentence A and Sentence B are separated by the ||| delimiter for sentence</span>
+<span class="c1"># pair tasks like question answering and entailment.</span>
+<span class="c1"># For single sentence inputs, put one sentence per line and DON&#39;T use the</span>
+<span class="c1"># delimiter.</span>
+<span class="nb">echo</span> <span class="s1">&#39;Who was Jim Henson ? ||| Jim Henson was a puppeteer&#39;</span> &gt; /tmp/input.txt
+
+python extract_features.py <span class="se">\</span>
+  --input_file<span class="o">=</span>/tmp/input.txt <span class="se">\</span>
+  --output_file<span class="o">=</span>/tmp/output.jsonl <span class="se">\</span>
+  --vocab_file<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/vocab.txt <span class="se">\</span>
+  --bert_config_file<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/bert_config.json <span class="se">\</span>
+  --init_checkpoint<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/bert_model.ckpt <span class="se">\</span>
+  --layers<span class="o">=</span>-1,-2,-3,-4 <span class="se">\</span>
+  --max_seq_length<span class="o">=</span><span class="m">128</span> <span class="se">\</span>
+  --batch_size<span class="o">=</span><span class="m">8</span>
+</pre></div>
+</div>
+<p>This will create a JSON file (one line per line of input) containing the
+BERT activations from each Transformer layer specified by <code class="docutils literal notranslate"><span class="pre">layers</span></code> (-1
+is the final hidden layer of the Transformer, etc.)</p>
+<p>Note that this script will produce very large output files (by default,
+around 15kb for every input token).</p>
+<p>If you need to maintain alignment between the original and tokenized
+words (for projecting training labels), see the
+<a class="reference external" href="#tokenization">Tokenization</a> section below.</p>
+<p><strong>Note:</strong> You may see a message like
+<code class="docutils literal notranslate"><span class="pre">Could</span> <span class="pre">not</span> <span class="pre">find</span> <span class="pre">trained</span> <span class="pre">model</span> <span class="pre">in</span> <span class="pre">model_dir:</span> <span class="pre">/tmp/tmpuB5g5c,</span> <span class="pre">running</span> <span class="pre">initialization</span> <span class="pre">to</span> <span class="pre">predict.</span></code>
+This message is expected, it just means that we are using the
+<code class="docutils literal notranslate"><span class="pre">init_from_checkpoint()</span></code> API rather than the saved model API. If you
+don’t specify a checkpoint or specify an invalid checkpoint, this script
+will complain.</p>
+<div class="section" id="id1">
+<h2>25.1. 符号化<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>For sentence-level tasks (or sentence-pair) tasks, tokenization is very
+simple. Just follow the example code in <code class="docutils literal notranslate"><span class="pre">run_classifier.py</span></code> and
+<code class="docutils literal notranslate"><span class="pre">extract_features.py</span></code>. The basic procedure for sentence-level tasks
+is:</p>
+<ol class="arabic simple">
+<li><p>Instantiate an instance of <code class="docutils literal notranslate"><span class="pre">tokenizer</span> <span class="pre">=</span> <span class="pre">tokenization.FullTokenizer</span></code></p></li>
+<li><p>Tokenize the raw text with <code class="docutils literal notranslate"><span class="pre">tokens</span> <span class="pre">=</span> <span class="pre">tokenizer.tokenize(raw_text)</span></code>.</p></li>
+<li><p>Truncate to the maximum sequence length.(You can use up to 512, but
+you probably want to use shorter if possible for memory and speed
+reasons.)</p></li>
+<li><p>Add the <code class="docutils literal notranslate"><span class="pre">[CLS]</span></code> and <code class="docutils literal notranslate"><span class="pre">[SEP]</span></code> tokens in the right place.</p></li>
+</ol>
+<p>Word-level and span-level tasks (e.g., SQuAD and NER) are more complex,
+since you need to maintain alignment between your input text and output
+text so that you can project your training labels. SQuAD is a
+particularly complex example because the input labels are
+<em>character</em>-based, and SQuAD paragraphs are often longer than our
+maximum sequence length. See the code in <code class="docutils literal notranslate"><span class="pre">run_squad.py</span></code> to show how we
+handle this.</p>
+<p>Before we describe the general recipe for handling word-level tasks,
+it’s important to understand what exactly our tokenizer is doing. It has
+three main steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Text normalization</strong>: Convert all whitespace characters to spaces,
+and (for the <code class="docutils literal notranslate"><span class="pre">Uncased</span></code> model) lowercase the input and strip out
+accent markers. E.g., <code class="docutils literal notranslate"><span class="pre">John</span> <span class="pre">Johanson's,</span> <span class="pre">→</span> <span class="pre">john</span> <span class="pre">johanson's,</span></code>.</p></li>
+<li><p><strong>Punctuation splitting</strong>: Split <em>all</em> punctuation characters on both
+sides (i.e., add whitespace around all punctuation characters).
+Punctuation characters are defined as (a) Anything with a <code class="docutils literal notranslate"><span class="pre">P*</span></code>
+Unicode class, (b) any non-letter/number/space ASCII character (e.g.,
+characters like <code class="docutils literal notranslate"><span class="pre">$</span></code> which are technically not punctuation). E.g.,
+<code class="docutils literal notranslate"><span class="pre">john</span> <span class="pre">johanson's,</span> <span class="pre">→</span> <span class="pre">john</span> <span class="pre">johanson</span> <span class="pre">'</span> <span class="pre">s</span> <span class="pre">,</span></code></p></li>
+<li><p><strong>WordPiece tokenization</strong>: Apply whitespace tokenization to the
+output of the above procedure, and apply
+<a class="reference external" href="https://github.com/tensorflow/tensor2tensor/blob/master/tensor2tensor/data_generators/text_encoder.py">WordPiece</a>
+tokenization to each token separately. (Our implementation is
+directly based on the one from <code class="docutils literal notranslate"><span class="pre">tensor2tensor</span></code>, which is linked).
+E.g., <code class="docutils literal notranslate"><span class="pre">john</span> <span class="pre">johanson</span> <span class="pre">'</span> <span class="pre">s</span> <span class="pre">,</span> <span class="pre">→</span> <span class="pre">john</span> <span class="pre">johan</span> <span class="pre">##son</span> <span class="pre">'</span> <span class="pre">s</span> <span class="pre">,</span></code></p></li>
+</ol>
+<p>The advantage of this scheme is that it is “compatible” with most
+existing English tokenizers. For example, imagine that you have a
+part-of-speech tagging task which looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">:</span>  <span class="n">John</span> <span class="n">Johanson</span> <span class="s1">&#39;s   house</span>
+<span class="n">Labels</span><span class="p">:</span> <span class="n">NNP</span>  <span class="n">NNP</span>      <span class="n">POS</span> <span class="n">NN</span>
+</pre></div>
+</div>
+<p>The tokenized output will look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Tokens</span><span class="p">:</span> <span class="n">john</span> <span class="n">johan</span> <span class="c1">##son &#39; s house</span>
+</pre></div>
+</div>
+<p>Crucially, this would be the same output as if the raw text were
+<code class="docutils literal notranslate"><span class="pre">John</span> <span class="pre">Johanson's</span> <span class="pre">house</span></code> (with no space before the <code class="docutils literal notranslate"><span class="pre">'s</span></code>).</p>
+<p>If you have a pre-tokenized representation with word-level annotations,
+you can simply tokenize each input word independently, and
+deterministically maintain an original-to-tokenized alignment:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">### Input</span>
+<span class="n">orig_tokens</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="s2">&quot;Johanson&quot;</span><span class="p">,</span> <span class="s2">&quot;&#39;s&quot;</span><span class="p">,</span>  <span class="s2">&quot;house&quot;</span><span class="p">]</span>
+<span class="n">labels</span>      <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;NNP&quot;</span><span class="p">,</span>  <span class="s2">&quot;NNP&quot;</span><span class="p">,</span>      <span class="s2">&quot;POS&quot;</span><span class="p">,</span> <span class="s2">&quot;NN&quot;</span><span class="p">]</span>
+
+<span class="c1">### Output</span>
+<span class="n">bert_tokens</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Token map will be an int -&gt; int mapping between the `orig_tokens` index and</span>
+<span class="c1"># the `bert_tokens` index.</span>
+<span class="n">orig_to_tok_map</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">tokenization</span><span class="o">.</span><span class="n">FullTokenizer</span><span class="p">(</span>
+    <span class="n">vocab_file</span><span class="o">=</span><span class="n">vocab_file</span><span class="p">,</span> <span class="n">do_lower_case</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">bert_tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;[CLS]&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">orig_token</span> <span class="ow">in</span> <span class="n">orig_tokens</span><span class="p">:</span>
+  <span class="n">orig_to_tok_map</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bert_tokens</span><span class="p">))</span>
+  <span class="n">bert_tokens</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">orig_token</span><span class="p">))</span>
+<span class="n">bert_tokens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;[SEP]&quot;</span><span class="p">)</span>
+
+<span class="c1"># bert_tokens == [&quot;[CLS]&quot;, &quot;john&quot;, &quot;johan&quot;, &quot;##son&quot;, &quot;&#39;&quot;, &quot;s&quot;, &quot;house&quot;, &quot;[SEP]&quot;]</span>
+<span class="c1"># orig_to_tok_map == [1, 2, 4, 6]</span>
+</pre></div>
+</div>
+<p>Now <code class="docutils literal notranslate"><span class="pre">orig_to_tok_map</span></code> can be used to project <code class="docutils literal notranslate"><span class="pre">labels</span></code> to the
+tokenized representation.</p>
+<p>There are common English tokenization schemes which will cause a slight
+mismatch between how BERT was pre-trained. For example, if your input
+tokenization splits off contractions like <code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">n't</span></code>, this will cause a
+mismatch. If it is possible to do so, you should pre-process your data
+to convert these back to raw-looking text, but if it’s not possible,
+this mismatch is likely not a big deal.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="What_is_BERT.html" class="btn btn-neutral float-right" title="26. 什么是 BERT？" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Using_BERT_in_Colab.html" class="btn btn-neutral float-left" title="24. 在 Colab 中使用 BERT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,392 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6.8. BERT 大规模预训练语言模型 &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="6.9. 模型" href="model.html" />
+    <link rel="prev" title="6.7. 什么是 BERT？" href="What_is_BERT.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">6. 语料库</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="FAQ.html">6.1. 常问问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fine-tuning_with_BERT.html">6.2. 使用 BERT 进行微调</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pre-trained_models.html">6.3. 预先训练的模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pre-training_with_BERT.html">6.4. 使用 BERT 进行预训练</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using_BERT_in_Colab.html">6.5. 在 Colab 中使用 BERT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using_BERT_to_extract_fixed_feature_vectors.html">6.6. 使用 BERT 提取固定的特征向量 (像 ELMo)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="What_is_BERT.html">6.7. 什么是 BERT？</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.8. BERT 大规模预训练语言模型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">6.8.1. 介绍</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">6.8.2. 该存储库中发布了什么？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">6.8.3. 放弃</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">6.8.4. 联系信息</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">6.9. 模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/Agricultural_Knowledge_Graph.html">6.10. 农业知识图谱(AgriKG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/ChineseNLPCorpus.html">6.11. Chinese NLP Corpus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/cnSchema.html">6.12. cnSchema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/index.html">6.13. 知识图谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/openkg.html">6.14. openkg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/LabelStyle.html">6.15. 现代汉语语料库加工规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/index.html">6.16. 标注规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/nation.html">6.17. 信息处理用现代汉语词类标记规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/nlpir.html">6.18. 计算所汉语词性标记集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GlobalWordNetAssociation.html">6.19. 全球 WordNet 协会</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HowNet.html">6.20. 知网</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Schema.html">6.21. Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aihanyu.html">6.22. 爱汉语语料库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cow.html">6.23. Chinese Open Wordnet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../csdn.html">6.24. CSDN 下载</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dianchacha.html">6.25. 店查查数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../funNLP.html">6.26. funNLP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nlp-datasets.html">6.27. nlp-datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pku-opendata.html">6.28. 北京大学开发数据研究平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wikipedia.html">6.29. 维基百科语料库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wordnet.html">6.30. WordNet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/index.html">7. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/index.html">9. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">6. 语料库</a> &raquo;</li>
+        
+      <li>6.8. BERT 大规模预训练语言模型</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Corpus/BERT/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bert">
+<h1>6.8. BERT 大规模预训练语言模型<a class="headerlink" href="#bert" title="永久链接至标题">¶</a></h1>
+<p>BERT是谷歌发布的基于双向Transformer的大规模预训练语言模型，该预训练模型能高效抽取文本信息并应用于各种NLP任务，并刷新了11
+项NLP 任务的当前最优性能记录。
+BERT的全称是基于Transformer的双向编码器表征，其中“双向”表示模型在处理某一个词时，它能同时利用前面的词和后面的词两部分信息。</p>
+<p>** 新的 2019 年 2 月 7 日：TfHub 模块 **</p>
+<p>BERT 已上传至<a class="reference external" href="https://tfhub.dev">TensorFlow Hub</a>. 有关如何使用 TF
+Hub
+模块的示例，请参阅<code class="docutils literal notranslate"><span class="pre">run_classifier_with_tfhub.py</span></code>，或者在<a class="reference external" href="https://colab.sandbox.google.com/github/google-research/bert/blob/master/predicting_movie_reviews_with_bert_on_tf_hub.ipynb">Colab</a>上的浏览器中运行示例.</p>
+<p>** 新的 2018 年 11 月 23 日：未规范化的多语言模式+泰语+蒙古语 **</p>
+<p>我们上传了一个新的多语言模型，它不会对输入执行任何规范化（没有下限，重音剥离或
+Unicode 规范化），还包括泰语和蒙古语。</p>
+<p><strong>建议使用此版本开发多语言模型，尤其是使用非拉丁字母的语言。</strong></p>
+<p>这不需要任何代码更改，可以在此处下载：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">`BERT-Base,多语言套装</span></code> &lt;<a class="reference external" href="https://storage.googleapis.com/bert_models/2018_11_23/multi_cased_L-12_H-768_A-12.zip">https://storage.googleapis.com/bert_models/2018_11_23/multi_cased_L-12_H-768_A-12.zip</a>&gt;`__:
+104 种语言，12 层，768 隐藏，12 头，110M 参数</p></li>
+</ul>
+<p>** 新的 2018 年 11 月 15 日：SOTA SQuAD 2.0 系统 **</p>
+<p>我们发布了代码更改，以重现我们的 83％F1 SQuAD 2.0
+系统，目前排行榜上第一名是 3％。 有关详细信息，请参阅自述文件的 SQuAD
+2.0 部分。</p>
+<p>** 新的 2018 年 11 月 5 日：第三方 PyTorch 和 Chainer 版本的 BERT 可用
+**</p>
+<p>来自 HuggingFace 的 NLP 研究人员制作了<a class="reference external" href="https://github.com/huggingface/pytorch-pretrained-BERT">PyTorch 版本的
+BERT</a>，它与我们预先训练好的检查点兼容，并能够重现我们的结果。
+Sosuke Kobayashi 也提供了<a class="reference external" href="https://github.com/soskek/bert-chainer">Biner 版本的
+BERT</a>（谢谢！）我们没有参与
+PyTorch 实现的创建或维护，所以请将任何问题都指向该存储库的作者。</p>
+<p>** 新的 2018 年 11 月 3 日：提供多种语言和中文模式 **</p>
+<p>我们提供了两种新的 BERT 型号:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">`BERT-基地，多语种</span></code> &lt;<a class="reference external" href="https://storage.googleapis.com/bert_models/2018_11_03/multilingual_L-12_H-768_A-12.zip">https://storage.googleapis.com/bert_models/2018_11_03/multilingual_L-12_H-768_A-12.zip</a>&gt;`__<strong>（不推荐，使用``Multilingual Cased``代替）</strong>：102
+种语言，12 层，768 隐藏，12 头，110M 参数</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">`BERT-Base，中文</span></code> &lt;<a class="reference external" href="https://storage.googleapis.com/bert_models/2018_11_03/chinese_L-12_H-768_A-12.zip">https://storage.googleapis.com/bert_models/2018_11_03/chinese_L-12_H-768_A-12.zip</a>&gt;`__:
+中文简体和繁体，12 层，768 隐藏，12 头，110M 参数</p></li>
+</ul>
+<p>我们对中文使用基于字符的标记化，对所有其他语言使用 WordPiece 标记化。
+两种模型都应该开箱即用，不需要任何代码更改。
+我们确实在<code class="docutils literal notranslate"><span class="pre">tokenization.py</span></code>中更新了<code class="docutils literal notranslate"><span class="pre">BasicTokenizer</span></code>的实现以支持中文字符
+但是，我们没有更改标记化 API。</p>
+<p>有关更多信息，请参阅<a class="reference external" href="https://github.com/google-research/bert/blob/master/multilingual.md">多语言自述文件</a>.</p>
+<p>** 结束新信息 **</p>
+<div class="section" id="id1">
+<h2>6.8.1. 介绍<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p><strong>BERT</strong>，或<strong>B</strong>idirectional <strong>E</strong>ncoder <strong>R</strong>epresentations
+from <strong>T</strong>ransformers
+的表示，是一种预训练语言表示的新方法，它获得了最先进的结果可用于各种自然语言处理（NLP）任务。</p>
+<p>我们的学术论文详细描述了 BERT，并提供了许多任务的完整结果:
+<a class="reference external" href="https://arxiv.org/abs/1810.04805">https://arxiv.org/abs/1810.04805</a>.</p>
+<p>为了给出几个数字，这里是<a class="reference external" href="https://rajpurkar.github.io/SQuAD-explorer/">SQuAD
+v1.1</a>
+问题回答任务的结果:</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>SQuAD v1.1排行榜（2018年10月8日）</p></th>
+<th class="head"><p>Test EM</p></th>
+<th class="head"><p>Test F1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1st Place Ensemble - BERT</p></td>
+<td><p><strong>87.4</strong></p></td>
+<td><p><strong>93.2</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>2nd Place Ensemble - nlnet</p></td>
+<td><p>86.0</p></td>
+<td><p>91.7</p></td>
+</tr>
+<tr class="row-even"><td><p>1st Place Single Model - BERT</p></td>
+<td><p><strong>85.1</strong></p></td>
+<td><p><strong>91.8</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>2nd Place Single Model - nlnet</p></td>
+<td><p>83.5</p></td>
+<td><p>90.1</p></td>
+</tr>
+</tbody>
+</table>
+<p>以及几种自然语言推理任务:</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 17%" />
+<col style="width: 24%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>System</p></th>
+<th class="head"><p>MultiNLI</p></th>
+<th class="head"><p>Question NLI</p></th>
+<th class="head"><p>SWAG</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BERT</p></td>
+<td><p><strong>86.7</strong></p></td>
+<td><p><strong>91.1</strong></p></td>
+<td><p><strong>86.3</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>OpenAI GPT (Prev. SOTA)</p></td>
+<td><p>82.2</p></td>
+<td><p>88.1</p></td>
+<td><p>75.0</p></td>
+</tr>
+</tbody>
+</table>
+<p>还有许多其他任务。</p>
+<p>而且，这些结果都是在几乎没有任务特定的神经网络架构设计的情况下获得的。</p>
+<p>如果您已经知道 BERT
+是什么并且您只是想要开始，您可以在几分钟内<a class="reference external" href="#pre-trained-models">下载预先训练的模型</a>和<a class="reference external" href="#fine-tuning-with-bert">运行最先进的微调</a>。</p>
+</div>
+<div class="section" id="id2">
+<h2>6.8.2. 该存储库中发布了什么？<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>我们发布以下内容:</p>
+<ul class="simple">
+<li><p>BERT模型架构的TensorFlow代码（主要是标准的<a class="reference external" href="https://arxiv.org/abs/1706.03762">Transformer</a>架构）.</p></li>
+<li><p>来自纸张的<code class="docutils literal notranslate"><span class="pre">BERT-Base</span></code>和<code class="docutils literal notranslate"><span class="pre">BERT-Large</span></code>的小写和套装版本的预先训练的检查点。</p></li>
+<li><p>TensorFlow代码用于按钮复制本文最重要的微调实验，包括SQuAD，MultiNLI和MRPC。</p></li>
+</ul>
+<p>此存储库中的所有代码都与CPU，GPU和云TPU一起开箱即用。</p>
+</div>
+<div class="section" id="id3">
+<h2>6.8.3. 放弃<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>这不是 Google 的官方产品。</p>
+</div>
+<div class="section" id="id4">
+<h2>6.8.4. 联系信息<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>有关使用 BERT 的帮助或问题，请提交 GitHub 问题。</p>
+<p>有关 BERT 的个人通信，请联系 Jacob
+Devlin（<code class="docutils literal notranslate"><span class="pre">jacobdevlin&#64;google.com</span></code>），Ming-Wei
+Chang（<code class="docutils literal notranslate"><span class="pre">mingweichang&#64;google.com</span></code>）或 Kenton
+Lee（<code class="docutils literal notranslate"><span class="pre">kentonl&#64;google.com</span></code>）。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="model.html" class="btn btn-neutral float-right" title="6.9. 模型" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="What_is_BERT.html" class="btn btn-neutral float-left" title="6.7. 什么是 BERT？" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

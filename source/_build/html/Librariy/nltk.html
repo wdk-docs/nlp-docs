@@ -1,0 +1,347 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>73. NLTK &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="74. 北大-pkuseg" href="pkuseg.html" />
+    <link rel="prev" title="72. 中科院-NLPIR" href="nlpair-ictclas.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/ConditionalRandomField.html">3. 条件随机场 CRF（Conditional Random Field）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/Hidden_Markov_Model.html">4. 隐马尔可夫模型 HMM（Hidden Markov Model）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/MMSEG.html">5. MMSEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/MMSeg_description.html">6. MMSeg 分词算法简述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/Maximum-entropy_Markov_model.html">7. 最大熵马尔可夫模型 MEMM（Maximum-entropy Markov model）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/Maximum_Entropy.html">8. 最大熵模型 ME（Maximum Entropy）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/Statistical_Model.html">9. 统计模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/Viterbi.html">10. Viterbi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">11. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/Awesome-Chinese-NLP.html">12. awesome-chinese-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">13. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/multi-language.html">14. 其他语言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/techniques.html">15. 技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/tutorials.html">16. 教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/aliyun.html">17. 阿里云自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/pai.html">18. 阿里机器学习平台 PAI 3.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/百度AI.html">19. 百度 AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/FAQ.html">20. 常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/Fine-tuning_with_BERT.html">21. 使用 BERT 进行微调</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/Pre-trained_models.html">22. 预先训练的模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/Pre-training_with_BERT.html">23. 使用 BERT 进行预训练</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/Using_BERT_in_Colab.html">24. 在 Colab 中使用 BERT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/Using_BERT_to_extract_fixed_feature_vectors.html">25. 使用 BERT 提取固定的特征向量 (像 ELMo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/What_is_BERT.html">26. 什么是 BERT？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/index.html">27. BERT 大规模预训练语言模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/model.html">28. 模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Knowledge_Graph/Agricultural_Knowledge_Graph.html">29. 农业知识图谱(AgriKG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Knowledge_Graph/ChineseNLPCorpus.html">30. Chinese NLP Corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Knowledge_Graph/cnSchema.html">31. cnSchema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Knowledge_Graph/index.html">32. 知识图谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Knowledge_Graph/openkg.html">33. openkg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/regulation/LabelStyle.html">34. 现代汉语语料库加工规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/regulation/index.html">35. 标注规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/regulation/nation.html">36. 信息处理用现代汉语词类标记规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/regulation/nlpir.html">37. 计算所汉语词性标记集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/GlobalWordNetAssociation.html">38. 全球 WordNet 协会</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/HowNet.html">39. 知网</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Schema.html">40. Schema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/aihanyu.html">41. 爱汉语语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/cow.html">42. Chinese Open Wordnet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/csdn.html">43. CSDN 下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/dianchacha.html">44. 店查查数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/funNLP.html">45. funNLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/index.html">46. 语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/nlp-datasets.html">47. nlp-datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/pku-opendata.html">48. 北京大学开发数据研究平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/wikipedia.html">49. 维基百科语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/wordnet.html">50. WordNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FoolNLTK/index.html">51. FoolNLTK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FoolNLTK/train.html">52. train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JieBa/Jieba.html">53. JieBa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JieBa/JiebaCpp.html">54. CppJieba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JieBa/JiebaNode.html">55. NodeJieba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HanLP.html">56. HanLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jcseg.html">57. Jcseg logo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jiagu.html">58. Jiagu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Keras.html">59. Keras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Keras.html#x-train-and-y-train-are-numpy-arrays-just-like-in-the-scikit-learn-api">60. x_train and y_train are Numpy arrays –just like in the Scikit-Learn API.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyTorch.html">61. PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SnowNLP.html">62. SnowNLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SpaCy.html">63. spacy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StanfordNLP.html">64. 斯坦福-StanfordNLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="THULAC.html">65. 清华-THULAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TensorFlow.html">66. TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ansj_seg.html">67. Ansj 中文分词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="awesome.html">68. 👍🏻 表库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bosonnlp.html">69. 玻森数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">70. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltp.html">71. 哈工大-LTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nlpair-ictclas.html">72. 中科院-NLPIR</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">73. NLTK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pkuseg.html">74. 北大-pkuseg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scikit-learn.html">75. scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sego.html">76. sego</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Online/index.html">77. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/2018-nlp.html">78. 2018 年，NLP 研究与应用进展到什么水平了？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/bert-jiqizhixin.html">79. 谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/chinese-segmenter.html">80. 细说中文分词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">81. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/milestone.html">82. 一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/nlp-gather.html">83. 自然语言处理（NLP）知识结构总结</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/nlp.ict.ac.cn.html">84. 中国科学院计算技术研究所自然语言处理研究组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensitive-word/fastscan.html">85. FastScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensitive-word/index.html">86. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">87. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>73. NLTK</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/Librariy/nltk.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nltk">
+<h1>73. NLTK<a class="headerlink" href="#nltk" title="永久链接至标题">¶</a></h1>
+<p><a class="reference external" href="https://www.nltk.org/">nltk</a></p>
+<p>Natural Language Toolkit</p>
+<p>NLTK is a leading platform for building Python programs to work with
+human language data. It provides easy-to-use interfaces to over 50
+corpora and lexical resources such as WordNet, along with a suite of
+text processing libraries for classification, tokenization, stemming,
+tagging, parsing, and semantic reasoning, wrappers for
+industrial-strength NLP libraries, and an active discussion forum.</p>
+<p>Thanks to a hands-on guide introducing programming fundamentals
+alongside topics in computational linguistics, plus comprehensive API
+documentation, NLTK is suitable for linguists, engineers, students,
+educators, researchers, and industry users alike. NLTK is available for
+Windows, Mac OS X, and Linux. Best of all, NLTK is a free, open source,
+community-driven project.</p>
+<p>NLTK has been called “a wonderful tool for teaching, and working in,
+computational linguistics using Python,” and “an amazing library to play
+with natural language.”</p>
+<p>Natural Language Processing with Python provides a practical
+introduction to programming for language processing. Written by the
+creators of NLTK, it guides the reader through the fundamentals of
+writing Python programs, working with corpora, categorizing text,
+analyzing linguistic structure, and more. The online version of the book
+has been been updated for Python 3 and NLTK 3. (The original Python 2
+version is still available at <a class="reference external" href="http://nltk.org/book_1ed">http://nltk.org/book_1ed</a>.)</p>
+<p>Some simple things you can do with NLTK Tokenize and tag some text:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&gt;</span> <span class="kn">import</span> <span class="nn">nltk</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;At eight o&#39;clock on Thursday morning</span>
+<span class="s2">&gt; &gt; &gt; ... Arthur didn&#39;t feel very good.&quot;&quot;&quot;</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">tokens</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">tokens</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&gt;</span> <span class="p">[</span><span class="s1">&#39;At&#39;</span><span class="p">,</span> <span class="s1">&#39;eight&#39;</span><span class="p">,</span> <span class="s2">&quot;o&#39;clock&quot;</span><span class="p">,</span> <span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="s1">&#39;Thursday&#39;</span><span class="p">,</span> <span class="s1">&#39;morning&#39;</span><span class="p">,</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&gt;</span> <span class="s1">&#39;Arthur&#39;</span><span class="p">,</span> <span class="s1">&#39;did&#39;</span><span class="p">,</span> <span class="s2">&quot;n&#39;t&quot;</span><span class="p">,</span> <span class="s1">&#39;feel&#39;</span><span class="p">,</span> <span class="s1">&#39;very&#39;</span><span class="p">,</span> <span class="s1">&#39;good&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">]</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">tagged</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">pos_tag</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">tagged</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">][(</span><span class="s1">&#39;at&#39;</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;eight&#39;</span><span class="p">,</span> <span class="s1">&#39;cd&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;o&#39;clock&quot;</span><span class="p">,</span> <span class="s1">&#39;jj&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;thursday&#39;</span><span class="p">,</span> <span class="s1">&#39;nnp&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;morning&#39;</span><span class="p">,</span> <span class="s1">&#39;nn&#39;</span><span class="p">)]</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">Identify</span> <span class="n">named</span> <span class="n">entities</span><span class="p">:</span>
+
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">entities</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">chunk</span><span class="o">.</span><span class="n">ne_chunk</span><span class="p">(</span><span class="n">tagged</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">entities</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">Tree</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;At&#39;</span><span class="p">,</span> <span class="s1">&#39;IN&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;eight&#39;</span><span class="p">,</span> <span class="s1">&#39;CD&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;o&#39;clock&quot;</span><span class="p">,</span> <span class="s1">&#39;JJ&#39;</span><span class="p">),</span>
+
+           <span class="p">(</span><span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="s1">&#39;IN&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Thursday&#39;</span><span class="p">,</span> <span class="s1">&#39;NNP&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;morning&#39;</span><span class="p">,</span> <span class="s1">&#39;NN&#39;</span><span class="p">),</span>
+       <span class="n">Tree</span><span class="p">(</span><span class="s1">&#39;PERSON&#39;</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;Arthur&#39;</span><span class="p">,</span> <span class="s1">&#39;NNP&#39;</span><span class="p">)]),</span>
+           <span class="p">(</span><span class="s1">&#39;did&#39;</span><span class="p">,</span> <span class="s1">&#39;VBD&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;n&#39;t&quot;</span><span class="p">,</span> <span class="s1">&#39;RB&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;feel&#39;</span><span class="p">,</span> <span class="s1">&#39;VB&#39;</span><span class="p">),</span>
+           <span class="p">(</span><span class="s1">&#39;very&#39;</span><span class="p">,</span> <span class="s1">&#39;RB&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;good&#39;</span><span class="p">,</span> <span class="s1">&#39;JJ&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p>Display a parse tree:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&gt;</span> <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">treebank</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="n">treebank</span><span class="o">.</span><span class="n">parsed_sents</span><span class="p">(</span><span class="s1">&#39;wsj_0001.mrg&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&gt;</span> \<span class="n">_images</span><span class="o">/</span><span class="n">tree</span><span class="o">.</span><span class="n">gif</span>
+<span class="o">&gt;</span> <span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">NB</span><span class="o">.</span> <span class="n">If</span> <span class="n">you</span> <span class="n">publish</span> <span class="n">work</span> <span class="n">that</span> <span class="n">uses</span> <span class="n">NLTK</span><span class="p">,</span> <span class="n">please</span> <span class="n">cite</span> <span class="n">the</span> <span class="n">NLTK</span> <span class="n">book</span> <span class="k">as</span> <span class="n">follows</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>Bird, Steven, Edward Loper and Ewan Klein (2009), Natural Language
+Processing with Python. O’Reilly Media Inc.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pkuseg.html" class="btn btn-neutral float-right" title="74. 北大-pkuseg" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nlpair-ictclas.html" class="btn btn-neutral float-left" title="72. 中科院-NLPIR" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

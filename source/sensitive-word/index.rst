@@ -47,3 +47,12 @@ ouch-words-cn
 `ouch-words-cn <https://github.com/bobauto/ouch-words-cn>`__
 
 中文敏感词库
+
+菜单
+------
+
+.. toctree::
+   :maxdepth: 2
+   :glob:
+
+   fastscan

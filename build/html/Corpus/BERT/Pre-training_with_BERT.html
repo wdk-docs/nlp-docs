@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6.4. 使用 BERT 进行预训练 &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="6.5. 在 Colab 中使用 BERT" href="Using_BERT_in_Colab.html" />
+    <link rel="prev" title="6.3. 预先训练的模型" href="Pre-trained_models.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">6. 语料库</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="FAQ.html">6.1. 常问问题</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Fine-tuning_with_BERT.html">6.2. 使用 BERT 进行微调</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Pre-trained_models.html">6.3. 预先训练的模型</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.4. 使用 BERT 进行预训练</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">6.4.1. 预训练提示和警告</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">6.4.2. 预训练数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wordpiece">6.4.3. 学习一个新的 WordPiece 词汇表</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Using_BERT_in_Colab.html">6.5. 在 Colab 中使用 BERT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Using_BERT_to_extract_fixed_feature_vectors.html">6.6. 使用 BERT 提取固定的特征向量 (像 ELMo)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="What_is_BERT.html">6.7. 什么是 BERT？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html">6.8. BERT 大规模预训练语言模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">6.9. 模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/Agricultural_Knowledge_Graph.html">6.10. 农业知识图谱(AgriKG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/ChineseNLPCorpus.html">6.11. Chinese NLP Corpus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/cnSchema.html">6.12. cnSchema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/index.html">6.13. 知识图谱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Knowledge_Graph/openkg.html">6.14. openkg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/LabelStyle.html">6.15. 现代汉语语料库加工规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/index.html">6.16. 标注规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/nation.html">6.17. 信息处理用现代汉语词类标记规范</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../regulation/nlpir.html">6.18. 计算所汉语词性标记集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GlobalWordNetAssociation.html">6.19. 全球 WordNet 协会</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HowNet.html">6.20. 知网</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Schema.html">6.21. Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aihanyu.html">6.22. 爱汉语语料库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cow.html">6.23. Chinese Open Wordnet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../csdn.html">6.24. CSDN 下载</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dianchacha.html">6.25. 店查查数据</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../funNLP.html">6.26. funNLP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nlp-datasets.html">6.27. nlp-datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pku-opendata.html">6.28. 北京大学开发数据研究平台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wikipedia.html">6.29. 维基百科语料库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wordnet.html">6.30. WordNet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Librariy/index.html">7. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/index.html">9. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">6. 语料库</a> &raquo;</li>
+        
+      <li>6.4. 使用 BERT 进行预训练</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Corpus/BERT/Pre-training_with_BERT.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bert">
+<h1>6.4. 使用 BERT 进行预训练<a class="headerlink" href="#bert" title="永久链接至标题">¶</a></h1>
+<p>我们正在发布代码，在任意文本语料库上做“蒙面 LM”和“下一句话预测”。
+请注意，这不是用于论文的确切代码（原始代码是用 C
+++编写的，并且有一些额外的复杂性），但是此代码确实生成了本文所述的预训练数据。</p>
+<p>Here’s how to run the data generation. The input is a plain text file,
+with one sentence per line. (It is important that these be actual
+sentences for the “next sentence prediction” task). Documents are
+delimited by empty lines. The output is a set of <code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code>s
+serialized into <code class="docutils literal notranslate"><span class="pre">TFRecord</span></code> file format.</p>
+<p>You can perform sentence segmentation with an off-the-shelf NLP toolkit
+such as <a class="reference external" href="https://spacy.io/">spaCy</a>. The
+<code class="docutils literal notranslate"><span class="pre">create_pretraining_data.py</span></code> script will concatenate segments until
+they reach the maximum sequence length to minimize computational waste
+from padding (see the script for more details). However, you may want to
+intentionally add a slight amount of noise to your input data (e.g.,
+randomly truncate 2% of input segments) to make it more robust to
+non-sentential input during fine-tuning.</p>
+<p>This script stores all of the examples for the entire input file in
+memory, so for large data files you should shard the input file and call
+the script multiple times. (You can pass in a file glob to
+<code class="docutils literal notranslate"><span class="pre">run_pretraining.py</span></code>, e.g., <code class="docutils literal notranslate"><span class="pre">tf_examples.tf_record*</span></code>.)</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">max_predictions_per_seq</span></code> is the maximum number of masked LM
+predictions per sequence. You should set this to around
+<code class="docutils literal notranslate"><span class="pre">max_seq_length</span></code> * <code class="docutils literal notranslate"><span class="pre">masked_lm_prob</span></code> (the script doesn’t do that
+automatically because the exact value needs to be passed to both
+scripts).</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python create_pretraining_data.py <span class="se">\</span>
+  --input_file<span class="o">=</span>./sample_text.txt <span class="se">\</span>
+  --output_file<span class="o">=</span>/tmp/tf_examples.tfrecord <span class="se">\</span>
+  --vocab_file<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/vocab.txt <span class="se">\</span>
+  --do_lower_case<span class="o">=</span>True <span class="se">\</span>
+  --max_seq_length<span class="o">=</span><span class="m">128</span> <span class="se">\</span>
+  --max_predictions_per_seq<span class="o">=</span><span class="m">20</span> <span class="se">\</span>
+  --masked_lm_prob<span class="o">=</span><span class="m">0</span>.15 <span class="se">\</span>
+  --random_seed<span class="o">=</span><span class="m">12345</span> <span class="se">\</span>
+  --dupe_factor<span class="o">=</span><span class="m">5</span>
+</pre></div>
+</div>
+<p>Here’s how to run the pre-training. Do not include <code class="docutils literal notranslate"><span class="pre">init_checkpoint</span></code>
+if you are pre-training from scratch. The model configuration (including
+vocab size) is specified in <code class="docutils literal notranslate"><span class="pre">bert_config_file</span></code>. This demo code only
+pre-trains for a small number of steps (20), but in practice you will
+probably want to set <code class="docutils literal notranslate"><span class="pre">num_train_steps</span></code> to 10000 steps or more. The
+<code class="docutils literal notranslate"><span class="pre">max_seq_length</span></code> and <code class="docutils literal notranslate"><span class="pre">max_predictions_per_seq</span></code> parameters passed to
+<code class="docutils literal notranslate"><span class="pre">run_pretraining.py</span></code> must be the same as
+<code class="docutils literal notranslate"><span class="pre">create_pretraining_data.py</span></code>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python run_pretraining.py <span class="se">\</span>
+  --input_file<span class="o">=</span>/tmp/tf_examples.tfrecord <span class="se">\</span>
+  --output_dir<span class="o">=</span>/tmp/pretraining_output <span class="se">\</span>
+  --do_train<span class="o">=</span>True <span class="se">\</span>
+  --do_eval<span class="o">=</span>True <span class="se">\</span>
+  --bert_config_file<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/bert_config.json <span class="se">\</span>
+  --init_checkpoint<span class="o">=</span><span class="nv">$BERT_BASE_DIR</span>/bert_model.ckpt <span class="se">\</span>
+  --train_batch_size<span class="o">=</span><span class="m">32</span> <span class="se">\</span>
+  --max_seq_length<span class="o">=</span><span class="m">128</span> <span class="se">\</span>
+  --max_predictions_per_seq<span class="o">=</span><span class="m">20</span> <span class="se">\</span>
+  --num_train_steps<span class="o">=</span><span class="m">20</span> <span class="se">\</span>
+  --num_warmup_steps<span class="o">=</span><span class="m">10</span> <span class="se">\</span>
+  --learning_rate<span class="o">=</span>2e-5
+</pre></div>
+</div>
+<p>This will produce an output like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*****</span> <span class="n">Eval</span> <span class="n">results</span> <span class="o">*****</span>
+  <span class="n">global_step</span> <span class="o">=</span> <span class="mi">20</span>
+  <span class="n">loss</span> <span class="o">=</span> <span class="mf">0.0979674</span>
+  <span class="n">masked_lm_accuracy</span> <span class="o">=</span> <span class="mf">0.985479</span>
+  <span class="n">masked_lm_loss</span> <span class="o">=</span> <span class="mf">0.0979328</span>
+  <span class="n">next_sentence_accuracy</span> <span class="o">=</span> <span class="mf">1.0</span>
+  <span class="n">next_sentence_loss</span> <span class="o">=</span> <span class="mf">3.45724e-05</span>
+</pre></div>
+</div>
+<p>Note that since our <code class="docutils literal notranslate"><span class="pre">sample_text.txt</span></code> file is very small, this example
+training will overfit that data in only a few steps and produce
+unrealistically high accuracy numbers.</p>
+<div class="section" id="id1">
+<h2>6.4.1. 预训练提示和警告<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><strong>If using your own vocabulary, make sure to change ``vocab_size`` in
+``bert_config.json``. If you use a larger vocabulary without changing
+this, you will likely get NaNs when training on GPU or TPU due to
+unchecked out-of-bounds access.</strong></p></li>
+<li><p>If your task has a large domain-specific corpus available (e.g.,
+“movie reviews” or “scientific papers”), it will likely be beneficial
+to run additional steps of pre-training on your corpus, starting from
+the BERT checkpoint.</p></li>
+<li><p>The learning rate we used in the paper was 1e-4. However, if you are
+doing additional steps of pre-training starting from an existing BERT
+checkpoint, you should use a smaller learning rate (e.g., 2e-5).</p></li>
+<li><p>Current BERT models are English-only, but we do plan to release a
+multilingual model which has been pre-trained on a lot of languages
+in the near future (hopefully by the end of November 2018).</p></li>
+<li><p>Longer sequences are disproportionately expensive because attention
+is quadratic to the sequence length. In other words, a batch of 64
+sequences of length 512 is much more expensive than a batch of 256
+sequences of length 128. The fully-connected/convolutional cost is
+the same, but the attention cost is far greater for the 512-length
+sequences. Therefore, one good recipe is to pre-train for, say,
+90,000 steps with a sequence length of 128 and then for 10,000
+additional steps with a sequence length of 512. The very long
+sequences are mostly needed to learn positional embeddings, which can
+be learned fairly quickly. Note that this does require generating the
+data twice with different values of <code class="docutils literal notranslate"><span class="pre">max_seq_length</span></code>.</p></li>
+<li><p>If you are pre-training from scratch, be prepared that pre-training
+is computationally expensive, especially on GPUs. If you are
+pre-training from scratch, our recommended recipe is to pre-train a
+<code class="docutils literal notranslate"><span class="pre">BERT-Base</span></code> on a single <a class="reference external" href="https://cloud.google.com/tpu/docs/pricing">preemptible Cloud TPU
+v2</a>, which takes about
+2 weeks at a cost of about $500 USD (based on the pricing in October
+2018). You will have to scale down the batch size when only training
+on a single Cloud TPU, compared to what was used in the paper. It is
+recommended to use the largest batch size that fits into TPU memory.</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>6.4.2. 预训练数据<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>We will <strong>not</strong> be able to release the pre-processed datasets used in
+the paper. For Wikipedia, the recommended pre-processing is to download
+<a class="reference external" href="https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2">the latest
+dump</a>,
+extract the text with
+<code class="docutils literal notranslate"><span class="pre">`WikiExtractor.py</span></code> &lt;<a class="reference external" href="https://github.com/attardi/wikiextractor">https://github.com/attardi/wikiextractor</a>&gt;`__, and
+then apply any necessary cleanup to convert it into plain text.</p>
+<p>Unfortunately the researchers who collected the
+<a class="reference external" href="http://yknzhu.wixsite.com/mbweb">BookCorpus</a> no longer have it
+available for public download. The <a class="reference external" href="https://web.eecs.umich.edu/~lahiri/gutenberg_dataset.html">Project Guttenberg
+Dataset</a>
+is a somewhat smaller (200M word) collection of older books that are
+public domain.</p>
+<p><a class="reference external" href="http://commoncrawl.org/">Common Crawl</a> is another very large
+collection of text, but you will likely have to do substantial
+pre-processing and cleanup to extract a usable corpus for pre-training
+BERT.</p>
+</div>
+<div class="section" id="wordpiece">
+<h2>6.4.3. 学习一个新的 WordPiece 词汇表<a class="headerlink" href="#wordpiece" title="永久链接至标题">¶</a></h2>
+<p>This repository does not include code for <em>learning</em> a new WordPiece
+vocabulary. The reason is that the code used in the paper was
+implemented in C++ with dependencies on Google’s internal libraries. For
+English, it is almost always better to just start with our vocabulary
+and pre-trained models. For learning vocabularies of other languages,
+there are a number of open source options available. However, keep in
+mind that these are not compatible with our <code class="docutils literal notranslate"><span class="pre">tokenization.py</span></code> library:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/google/sentencepiece">Google’s SentencePiece
+library</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tensorflow/tensor2tensor/blob/master/tensor2tensor/data_generators/text_encoder_build_subword.py">tensor2tensor’s WordPiece generation
+script</a></p></li>
+<li><p><a class="reference external" href="https://github.com/rsennrich/subword-nmt">Rico Sennrich’s Byte Pair Encoding
+library</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Using_BERT_in_Colab.html" class="btn btn-neutral float-right" title="6.5. 在 Colab 中使用 BERT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Pre-trained_models.html" class="btn btn-neutral float-left" title="6.3. 预先训练的模型" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

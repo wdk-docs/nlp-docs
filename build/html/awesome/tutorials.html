@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.3.4. 教程 &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="5. 云处理" href="../Cloud/index.html" />
+    <link rel="prev" title="4.3.3. 技术" href="techniques.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">4. awesome-nlp</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#id1">4.1. 内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id2">4.2. 研究摘要和趋势</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#id3">4.3. 相关内容</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Awesome-Chinese-NLP.html">4.3.1. awesome-chinese-nlp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multi-language.html">4.3.2. 其他语言</a></li>
+<li class="toctree-l3"><a class="reference internal" href="techniques.html">4.3.3. 技术</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">4.3.4. 教程</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">4.3.4.1. 阅读内容</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">4.3.4.2. 视频和在线课程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">4.3.4.3. 图书</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/index.html">6. 语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/index.html">7. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">9. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">11. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">4. awesome-nlp</a> &raquo;</li>
+        
+      <li>4.3.4. 教程</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/awesome/tutorials.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>4.3.4. 教程<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>4.3.4.1. 阅读内容<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>General Machine Learning</p>
+<ul class="simple">
+<li><p>Jason’s <a class="reference external" href="https://docs.google.com/presentation/d/1kSuQyW5DTnkVaZEjGYCkfOxvzCqGEFzWBy4e9Uedd9k/edit?usp=sharing">Machine Learning
+101</a>
+from Google’s Senior Creative Engineer explains Machine Learning for
+engineer’s and executives alike</p></li>
+<li><p>a16z <a class="reference external" href="https://aiplaybook.a16z.com/">AI Playbook</a> is a great link
+to forward to your managers or content for your presentations</p></li>
+<li><p><a class="reference external" href="https://bmcfee.github.io/#home">Machine Learning Blog</a> by Brian
+McFee</p></li>
+<li><p><a class="reference external" href="http://ruder.io/#open">Ruder’s Blog</a> by <a class="reference external" href="https://twitter.com/seb_ruder">Sebastian
+Ruder</a> for commentary on the best
+of NLP Research</p></li>
+</ul>
+<p>Introductions and Guides to NLP</p>
+<ul class="simple">
+<li><p>Ultimate Guide to <a class="reference external" href="https://www.analyticsvidhya.com/blog/2017/01/ultimate-guide-to-understand-implement-natural-language-processing-codes-in-python/">Understand &amp; Implement Natural Language
+Processing</a></p></li>
+<li><p><a class="reference external" href="https://hackernoon.com/learning-ai-if-you-suck-at-math-p7-the-magic-of-natural-language-processing-f3819a689386">Introduction to NLP at
+Hackernoon</a>
+is for people who suck at math - in their own words</p></li>
+<li><p><a class="reference external" href="http://www.vikparuchuri.com/blog/natural-language-processing-tutorial/">NLP Tutorial by Vik
+Paruchari</a></p></li>
+<li><p><a class="reference external" href="https://academic.oup.com/jamia/article/18/5/544/829676">Natural Language Processing: An
+Introduction</a>
+by Oxford</p></li>
+<li><p><a class="reference external" href="https://pytorch.org/tutorials/beginner/deep_learning_nlp_tutorial.html">Deep Learning for NLP with
+Pytorch</a></p></li>
+<li><p><a class="reference external" href="https://github.com/hb20007/hands-on-nltk-tutorial">Hands-On NLTK
+Tutorial</a> - The
+hands-on NLTK tutorial in the form of Jupyter notebooks</p></li>
+</ul>
+<p>Blogs and Newsletters</p>
+<ul class="simple">
+<li><p>Blog: <a class="reference external" href="https://colah.github.io/posts/2014-07-NLP-RNNs-Representations/">Deep Learning, NLP, and
+Representations</a></p></li>
+<li><p>Blog: <a class="reference external" href="https://jalammar.github.io/illustrated-bert/">The Illustrated BERT, ELMo, and co. (How NLP Cracked Transfer
+Learning)</a> and <a class="reference external" href="https://jalammar.github.io/illustrated-transformer/">The
+Illustrated
+Transformer</a></p></li>
+<li><p>Blog: <a class="reference external" href="https://nlpers.blogspot.com/">Natural Language Processing</a>
+by Hal Daumé III</p></li>
+<li><p><a class="reference external" href="https://radimrehurek.com/gensim/tutorial.html">Tutorials by Radim
+Řehůřek</a> on using
+Python and <a class="reference external" href="https://radimrehurek.com/gensim/index.html">gensim</a> to
+process language corpora</p></li>
+<li><p><a class="reference external" href="https://arxiv.org/pdf/1103.0398.pdf">arXiv: Natural Language Processing (Almost) from
+Scratch</a></p></li>
+<li><p><a class="reference external" href="https://karpathy.github.io/2015/05/21/rnn-effectiveness">Karpathy’s The Unreasonable Effectiveness of Recurrent Neural
+Networks</a></p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>4.3.4.2. 视频和在线课程<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="section" id="nlp">
+<h3>4.3.4.2.1. 深度学习和 NLP<a class="headerlink" href="#nlp" title="永久链接至标题">¶</a></h3>
+<p>Word embeddings, RNNs, LSTMs and CNNs for Natural Language Processing |</p>
+<ul class="simple">
+<li><p>Udacity’s <a class="reference external" href="https://www.udacity.com/course/intro-to-artificial-intelligence--cs271">Intro to Artificial
+Intelligence</a>
+course which touches upon NLP as well</p></li>
+<li><p>Udacity’s <a class="reference external" href="https://udacity.com/course/deep-learning--ud730">Deep
+Learning</a> using
+Tensorflow which covers a section on using deep learning for NLP
+tasks (covering Word2Vec, RNN’s and LSTMs)</p></li>
+<li><p>Oxford’s <a class="reference external" href="https://github.com/oxford-cs-deepnlp-2017/lectures">Deep Natural Language
+Processing</a>
+has videos, lecture slides and reading material</p></li>
+<li><p>Stanford’s <a class="reference external" href="https://web.stanford.edu/class/cs224n/">Deep Learning for Natural Language Processing
+(cs224-n)</a> by Richard
+Socher and Christopher Manning</p></li>
+<li><p>Coursera’s <a class="reference external" href="https://www.coursera.org/learn/language-processing">Natural Language
+Processing</a> by
+National Research University Higher School of Economics</p></li>
+<li><p>Carnegie Mellon University’s <a class="reference external" href="http://phontron.com/class/nn4nlp2017/">Neural Networks for
+NLP</a> by Language Technology
+Institute there</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>4.3.4.2.2. 经典 NLP<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>Bayesian, statistics and Linguistics approaches for Natural Language
+Processing |</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://mt-class.org">Statistical Machine Translation</a> - a Machine
+Translation course with great assignments and slides</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/playlist?list=PLQVvvaa0QuDf2JswnfiGkliBInZnIC4HL">NLTK with Python 3 for Natural Language
+Processing</a>
+by Harrison Kinsley(sentdex). Good tutorials with NLTK code
+implementation</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/playlist?list=PLegWUnz91WfuPebLI97-WueAP90JO-15i">Computational Linguistics
+I</a>
+by Jordan Boyd-Graber, Lectures from University of Maryland</p></li>
+<li><p><a class="reference external" href="https://github.com/yandexdataschool/nlp_course">Deep NLP Course</a>
+by Yandex Data School, covering important ideas from text embedding
+to machine translation including sequence modeling, language models
+and so on.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>4.3.4.3. 图书<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">Speech and Language
+Processing</a> by Prof. Dan
+Jurafsy</p></li>
+<li><p><a class="reference external" href="https://www.tidytextmining.com">Text Mining in R</a></p></li>
+<li><p><a class="reference external" href="https://www.nltk.org/book/">Natural Language Processing with
+Python</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Cloud/index.html" class="btn btn-neutral float-right" title="5. 云处理" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="techniques.html" class="btn btn-neutral float-left" title="4.3.3. 技术" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

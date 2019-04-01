@@ -81,3 +81,15 @@ awesome-nlp
    :target: https://github.com/sindresorhus/awesome
 .. |Awesome NLP Logo| image:: ../images/logo.jpg
    :target: https://github.com/keon/awesome-nlp
+
+
+相关内容
+--------
+
+.. toctree::
+   :maxdepth: 3
+
+   Awesome-Chinese-NLP
+   multi-language
+   techniques
+   tutorials

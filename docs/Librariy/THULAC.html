@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>清华-THULAC &mdash; nlp-docs v2019.03.19 文档</title>
+  <title>7.1.15. 清华-THULAC &mdash; nlp-docs v2019.03.19 文档</title>
   
 
   
@@ -37,7 +37,9 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜索" href="../search.html" /> 
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="7.1.16. TensorFlow" href="TensorFlow.html" />
+    <link rel="prev" title="7.1.14. 斯坦福-StanfordNLP" href="StanfordNLP.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -81,13 +83,64 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">自然语言处理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">自然语言处理作者</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">算法汇总</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">awesome-nlp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html">常用分词工具包</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">论文 || 文章</a></li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/index.html">6. 语料库</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">7. 常用分词工具包</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#id2">7.1. ## 菜单</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="FoolNLTK/index.html">7.1.1. FoolNLTK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FoolNLTK/train.html">7.1.2. train</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JieBa/Jieba.html">7.1.3. JieBa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JieBa/JiebaCpp.html">7.1.4. CppJieba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="JieBa/JiebaNode.html">7.1.5. NodeJieba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HanLP.html">7.1.6. HanLP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Jcseg.html">7.1.7. Jcseg logo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Jiagu.html">7.1.8. Jiagu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Keras.html">7.1.9. Keras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Keras.html#x-train-and-y-train-are-numpy-arrays-just-like-in-the-scikit-learn-api">7.1.10. x_train and y_train are Numpy arrays –just like in the Scikit-Learn API.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PyTorch.html">7.1.11. PyTorch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SnowNLP.html">7.1.12. SnowNLP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SpaCy.html">7.1.13. spacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StanfordNLP.html">7.1.14. 斯坦福-StanfordNLP</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">7.1.15. 清华-THULAC</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">7.1.15.1. 软件简介</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">7.1.15.2. 在线演示</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">7.1.15.3. 编译和安装</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">7.1.15.4. 使用方式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">7.1.15.5. 与代表性分词软件的性能对比</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">7.1.15.6. 词性标记集</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">7.1.15.7. THULAC 的不同配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">7.1.15.8. 获取链接</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">7.1.15.9. 注意事项</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">7.1.15.10. 历史</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">7.1.15.11. 开源协议</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">7.1.15.12. 相关论文</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">7.1.15.13. 常见问题</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">7.1.15.14. 致谢</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="TensorFlow.html">7.1.16. TensorFlow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ansj_seg.html">7.1.17. Ansj 中文分词</a></li>
+<li class="toctree-l3"><a class="reference internal" href="awesome.html">7.1.18. 👍🏻 表库</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bosonnlp.html">7.1.19. 玻森数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltp.html">7.1.20. 哈工大-LTP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nlpair-ictclas.html">7.1.21. 中科院-NLPIR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nltk.html">7.1.22. NLTK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pkuseg.html">7.1.23. 北大-pkuseg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scikit-learn.html">7.1.24. scikit-learn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sego.html">7.1.25. sego</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">9. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">11. 术语表</a></li>
 </ul>
 
             
@@ -133,7 +186,9 @@
     
       <li><a href="../contents.html">Docs</a> &raquo;</li>
         
-      <li>清华-THULAC</li>
+          <li><a href="index.html">7. 常用分词工具包</a> &raquo;</li>
+        
+      <li>7.1.15. 清华-THULAC</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -153,7 +208,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="thulac">
-<h1>清华-THULAC<a class="headerlink" href="#thulac" title="永久链接至标题">¶</a></h1>
+<h1>7.1.15. 清华-THULAC<a class="headerlink" href="#thulac" title="永久链接至标题">¶</a></h1>
 <blockquote>
 <div><p><a class="reference external" href="https://github.com/thunlp/THULAC-Python">THULAC</a>一个高效的中文词法分析工具包</p>
 </div></blockquote>
@@ -176,7 +231,7 @@
 <li><p>致谢</p></li>
 </ul>
 <div class="section" id="id1">
-<h2>软件简介<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<h2>7.1.15.1. 软件简介<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>THULAC（THU Lexical Analyzer for
 Chinese）由清华大学自然语言处理与社会人文计算实验室研制推出的一套中文词法分析工具包，具有中文分词和词性标注功能。THULAC
 具有如下几个特点：</p>
@@ -189,11 +244,11 @@ Chinese）由清华大学自然语言处理与社会人文计算实验室研制�
 万字。只进行分词速度可达到 1.3MB/s。</p>
 </div>
 <div class="section" id="id2">
-<h2>在线演示<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2>7.1.15.2. 在线演示<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>THULAC 在线演示平台 thulac.thunlp.org/demo</p>
 </div>
 <div class="section" id="id3">
-<h2>编译和安装<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2>7.1.15.3. 编译和安装<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>C++版</p>
 <p>在当前路径下运行 make 会在当前目录下得到 thulac 和 train_c （thulac
 需要模型的支持，需要将下载的模型放到当前目录下） java 版</p>
@@ -207,7 +262,7 @@ python2.x 和 python3.x）</p>
 <p>sudo pip install thulac 通过 import thulac 来引用</p>
 </div>
 <div class="section" id="id4">
-<h2>使用方式<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<h2>7.1.15.4. 使用方式<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>1.分词和词性标注程序 1.1.命令格式 C++版(接口调用参见 1.5)</p>
 <p>./thulac [-t2s][-seg_only] [-deli delimeter][-user userword.txt]
 从命令行输入输出 ./thulac [-t2s][-seg_only] [-deli delimeter][-user
@@ -285,7 +340,7 @@ iteration] training_filename model_filename 使用 training_filename
 中的对应模型，之后执行分词程序即可使用训练出来的模型。</p>
 </div>
 <div class="section" id="id5">
-<h2>与代表性分词软件的性能对比<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<h2>7.1.15.5. 与代表性分词软件的性能对比<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>我们选择 LTP-3.2.0 、ICTCLAS(2015 版)
 、jieba(C++版)等国内具代表性的分词软件与 THULAC 做性能比较。我们选择
 Windows 作为测试环境，根据第二届国际汉语分词测评（The Second
@@ -315,7 +370,7 @@ icwb2-data/scripts 目录下含有对分词进行自动评分的 perl 脚本 sco
 1221.05KB/s</p>
 </div>
 <div class="section" id="id6">
-<h2>词性标记集<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<h2>7.1.15.6. 词性标记集<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <p>通用标记集（适用于所有版本）</p>
 <ul class="simple">
 <li><p>n/名词 np/人名 ns/地名 ni/机构名 nz/其它专名</p></li>
@@ -329,7 +384,7 @@ v1_2 版本，我们增加了两种词性，如果需要可以下载使用。 vm
 vd/趋向动词</p>
 </div>
 <div class="section" id="id7">
-<h2>THULAC 的不同配置<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<h2>7.1.15.7. THULAC 的不同配置<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
 <p>我们随 THULAC 源代码附带了简单的分词模型
 Model_1，仅支持分词功能。该模型由人民日报分词语料库训练得到。</p>
 <p>我们随 THULAC 源代码附带了分词和词性标注联合模型
@@ -339,7 +394,7 @@ Model_2，支持同时分词和词性标注功能。该模型由人民日报分�
 <a class="reference external" href="mailto:thunlp&#37;&#52;&#48;gmail&#46;com">thunlp<span>&#64;</span>gmail<span>&#46;</span>com</a> ，通过审核后我们会将相关资源发送给联系人。</p>
 </div>
 <div class="section" id="id8">
-<h2>获取链接<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<h2>7.1.15.8. 获取链接<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
 <p>THULAC
 工具包分成两个部分组成。第一部分为算法源代码部分，可以通过网站上下载或者从
 github 获取最新基础版代码，无需注册；第二部分为算法模型部分，THULAC
@@ -372,12 +427,12 @@ download</p></li>
 </ul>
 </div>
 <div class="section" id="id9">
-<h2>注意事项<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<h2>7.1.15.9. 注意事项<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
 <p>该工具目前仅处理 UTF8
 编码中文文本，之后会逐渐增加支持其他编码的功能，敬请期待。</p>
 </div>
 <div class="section" id="id10">
-<h2>历史<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<h2>7.1.15.10. 历史<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
 <p>更新时间 更新内容</p>
 <ul class="simple">
 <li><p>2017-01-17 在 pip 上发布 THULAC 分词 python 版本。</p></li>
@@ -388,7 +443,7 @@ download</p></li>
 </ul>
 </div>
 <div class="section" id="id11">
-<h2>开源协议<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<h2>7.1.15.11. 开源协议<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
 <p>THULAC 面向国内外大学、研究所、企业以及个人用于研究目的免费开放源代码。
 如有机构或个人拟将 THULAC 用于商业目的，请发邮件至 <a class="reference external" href="mailto:thunlp&#37;&#52;&#48;gmail&#46;com">thunlp<span>&#64;</span>gmail<span>&#46;</span>com</a>
 洽谈技术许可协议。 欢迎对该工具包提出任何宝贵意见和建议。请发邮件至
@@ -401,7 +456,7 @@ THULAC：一个高效的中文词法分析工具包. 2016.</p>
 Liu. THULAC: An Efficient Lexical Analyzer for Chinese. 2016.</p>
 </div>
 <div class="section" id="id12">
-<h2>相关论文<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<h2>7.1.15.12. 相关论文<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
 <p>Zhongguo Li, Maosong Sun. Punctuation as Implicit Annotations for
 Chinese Word Segmentation. Computational Linguistics, vol. 35, no. 4,
 pp. 505-512, 2009.</p>
@@ -411,7 +466,7 @@ Zhang (张开旭，硕士生）, Zhipeng Guo（郭志芃，本科生）, Junhua 
 （马骏骅，访问学生）, Zhiyuan Liu（刘知远，助理教授）.</p>
 </div>
 <div class="section" id="id13">
-<h2>常见问题<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<h2>7.1.15.13. 常见问题<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
 <ol class="arabic">
 <li><p>THULAC 工具包提供的模型是如何得到的？</p>
 <p>THULAC 工具包随包附带的分词模型 Model_1 以及分词和词性标注模型
@@ -428,7 +483,7 @@ Model_2
 </ol>
 </div>
 <div class="section" id="id14">
-<h2>致谢<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<h2>7.1.15.14. 致谢<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
 <p>感谢清华大学的本科生潘星宇对 THULAC-Python 工具的支持和帮助。
 感谢付超群带领的看盘宝团队对 THULAC.so 工具的支持和帮助。
 使用者如有任何问题、建议和意见，欢迎发邮件至 <a class="reference external" href="mailto:thunlp&#37;&#52;&#48;gmail&#46;com">thunlp<span>&#64;</span>gmail<span>&#46;</span>com</a> 。</p>
@@ -443,6 +498,15 @@ Lab, Tsinghua University</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="TensorFlow.html" class="btn btn-neutral float-right" title="7.1.16. TensorFlow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="StanfordNLP.html" class="btn btn-neutral float-left" title="7.1.14. 斯坦福-StanfordNLP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

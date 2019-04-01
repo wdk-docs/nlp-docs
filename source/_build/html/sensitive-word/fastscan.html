@@ -1,0 +1,450 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>85. FastScan &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="86. 敏感词" href="index.html" />
+    <link rel="prev" title="84. 中国科学院计算技术研究所自然语言处理研究组" href="../Paper/nlp.ict.ac.cn.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/ConditionalRandomField.html">3. 条件随机场 CRF（Conditional Random Field）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/Hidden_Markov_Model.html">4. 隐马尔可夫模型 HMM（Hidden Markov Model）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/MMSEG.html">5. MMSEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/MMSeg_description.html">6. MMSeg 分词算法简述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/Maximum-entropy_Markov_model.html">7. 最大熵马尔可夫模型 MEMM（Maximum-entropy Markov model）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/Maximum_Entropy.html">8. 最大熵模型 ME（Maximum Entropy）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/Statistical_Model.html">9. 统计模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/Viterbi.html">10. Viterbi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">11. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/Awesome-Chinese-NLP.html">12. awesome-chinese-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">13. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/multi-language.html">14. 其他语言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/techniques.html">15. 技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/tutorials.html">16. 教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/aliyun.html">17. 阿里云自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/pai.html">18. 阿里机器学习平台 PAI 3.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/百度AI.html">19. 百度 AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/FAQ.html">20. 常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/Fine-tuning_with_BERT.html">21. 使用 BERT 进行微调</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/Pre-trained_models.html">22. 预先训练的模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/Pre-training_with_BERT.html">23. 使用 BERT 进行预训练</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/Using_BERT_in_Colab.html">24. 在 Colab 中使用 BERT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/Using_BERT_to_extract_fixed_feature_vectors.html">25. 使用 BERT 提取固定的特征向量 (像 ELMo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/What_is_BERT.html">26. 什么是 BERT？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/index.html">27. BERT 大规模预训练语言模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/BERT/model.html">28. 模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Knowledge_Graph/Agricultural_Knowledge_Graph.html">29. 农业知识图谱(AgriKG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Knowledge_Graph/ChineseNLPCorpus.html">30. Chinese NLP Corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Knowledge_Graph/cnSchema.html">31. cnSchema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Knowledge_Graph/index.html">32. 知识图谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Knowledge_Graph/openkg.html">33. openkg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/regulation/LabelStyle.html">34. 现代汉语语料库加工规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/regulation/index.html">35. 标注规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/regulation/nation.html">36. 信息处理用现代汉语词类标记规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/regulation/nlpir.html">37. 计算所汉语词性标记集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/GlobalWordNetAssociation.html">38. 全球 WordNet 协会</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/HowNet.html">39. 知网</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/Schema.html">40. Schema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/aihanyu.html">41. 爱汉语语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/cow.html">42. Chinese Open Wordnet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/csdn.html">43. CSDN 下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/dianchacha.html">44. 店查查数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/funNLP.html">45. funNLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/index.html">46. 语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/nlp-datasets.html">47. nlp-datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/pku-opendata.html">48. 北京大学开发数据研究平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/wikipedia.html">49. 维基百科语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/wordnet.html">50. WordNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/FoolNLTK/index.html">51. FoolNLTK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/FoolNLTK/train.html">52. train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/JieBa/Jieba.html">53. JieBa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/JieBa/JiebaCpp.html">54. CppJieba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/JieBa/JiebaNode.html">55. NodeJieba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/HanLP.html">56. HanLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/Jcseg.html">57. Jcseg logo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/Jiagu.html">58. Jiagu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/Keras.html">59. Keras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/Keras.html#x-train-and-y-train-are-numpy-arrays-just-like-in-the-scikit-learn-api">60. x_train and y_train are Numpy arrays –just like in the Scikit-Learn API.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/PyTorch.html">61. PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/SnowNLP.html">62. SnowNLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/SpaCy.html">63. spacy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/StanfordNLP.html">64. 斯坦福-StanfordNLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/THULAC.html">65. 清华-THULAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/TensorFlow.html">66. TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/ansj_seg.html">67. Ansj 中文分词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/awesome.html">68. 👍🏻 表库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/bosonnlp.html">69. 玻森数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/index.html">70. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/ltp.html">71. 哈工大-LTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/nlpair-ictclas.html">72. 中科院-NLPIR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/nltk.html">73. NLTK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/pkuseg.html">74. 北大-pkuseg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/scikit-learn.html">75. scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/sego.html">76. sego</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Online/index.html">77. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/2018-nlp.html">78. 2018 年，NLP 研究与应用进展到什么水平了？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/bert-jiqizhixin.html">79. 谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/chinese-segmenter.html">80. 细说中文分词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">81. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/milestone.html">82. 一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/nlp-gather.html">83. 自然语言处理（NLP）知识结构总结</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/nlp.ict.ac.cn.html">84. 中国科学院计算技术研究所自然语言处理研究组</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">85. FastScan</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">85.1. 演示地址</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">85.2. 安装方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">85.3. 使用方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api">85.4. API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">85.5. 性能</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">86. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">87. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+      <li>85. FastScan</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/sensitive-word/fastscan.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fastscan">
+<h1>85. FastScan<a class="headerlink" href="#fastscan" title="永久链接至标题">¶</a></h1>
+<p>苦于没有找到一个比较合适的敏感词过滤库，所以我自己花了点时间撸了一个。
+它基于广为人知的 ahocorasick 字符串匹配算法，使用原生的 js
+实现，浏览器和服务端都可以使用。</p>
+<div class="section" id="id1">
+<h2>85.1. 演示地址<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://pyloque.github.io/fastscan/">FastScan PlayGround</a></p>
+</div>
+<div class="section" id="id2">
+<h2>85.2. 安装方法<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 安装到当前项目</span>
+<span class="n">npm</span> <span class="n">install</span> <span class="o">--</span><span class="n">save</span> <span class="n">fastscan</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>85.3. 使用方法<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>import FastScanner from fastscan
+
+var words = [&quot;今日头条&quot;，&quot;微信&quot;, &quot;支付宝&quot;]
+var scanner = new FastScanner(words)
+var content = &quot;今日头条小程序终于来了，这是继微信、支付宝、百度后，第四个推出小程序功能的App。猫眼电影率先试水，出现在今日头条。&quot;
+var offWords = scanner.search(content)
+console.log(offWords)
+var hits = scanner.hits(content)
+console.log(hits)
+
+-------------
+[ [ 0, &#39;今日头条&#39; ], [ 15, &#39;微信&#39; ], [ 18, &#39;支付宝&#39; ], [ 53, &#39;今日头条&#39; ] ]
+{ &#39;今日头条&#39;: 2, &#39;微信&#39;: 1, &#39;支付宝&#39;: 1 }
+</pre></div>
+</div>
+</div>
+<div class="section" id="api">
+<h2>85.4. API<a class="headerlink" href="#api" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>查询匹配的词汇以及所在字符串的位置 search(content, option={})</p></li>
+<li><p>查询匹配词汇的命中数量 hits(content, options={})</p></li>
+<li><p>临时动态增加词汇，不修正其它词汇的回溯指针 add(word)</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="n">quick</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span> <span class="n">longest</span><span class="p">:</span> <span class="n">false</span><span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>quick 选项表示快速模式，匹配到一个就立即返回</p></li>
+<li><p>longest
+表示最长模式，同一个位置出现多个词汇(中国、中国人)，选择最长的一个(中国人)</p></li>
+<li><p>默认匹配出所有的词汇，同一个位置可能会出现多个词汇</p></li>
+</ol>
+</div>
+<div class="section" id="id4">
+<h2>85.5. 性能<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>项目代码使用原生的 js
+实现，我开始非常担心词汇树的构建速度会不会太慢。经测试后发现虽然性能不算太快，不过也不是太差，对于绝大多数项目来说已经绰绰有余了。我分别测试了构造
+20000 ～ 100000 个词汇的树结构，每个词汇随机在 10 ～ 20
+之间，耗时情况如下</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 64%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>单词数</p></th>
+<th class="head"><p>耗时</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>20000 words</p></td>
+<td><p>385ms</p></td>
+</tr>
+<tr class="row-odd"><td><p>40000 words</p></td>
+<td><p>654ms</p></td>
+</tr>
+<tr class="row-even"><td><p>60000 words</p></td>
+<td><p>1108ms</p></td>
+</tr>
+<tr class="row-odd"><td><p>80000 words</p></td>
+<td><p>1273ms</p></td>
+</tr>
+<tr class="row-even"><td><p>100000 words</p></td>
+<td><p>1659ms</p></td>
+</tr>
+</tbody>
+</table>
+<p>如果你的词汇比较短小，构建树的速度还会更快。</p>
+<p>查询性能我并不担心，因为 ahocorasick 算法在词汇长度较短的情况下复杂度是
+O(n)，性能和被过滤内容的长度呈线性变化。下面我使用 100000
+词汇量构建的树分别对 20000 ～ 100000 字的内容进行了过滤，耗时情况如下</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 70%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>字数</p></th>
+<th class="head"><p>耗时</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>20000 words</p></td>
+<td><p>14ms</p></td>
+</tr>
+<tr class="row-odd"><td><p>40000 words</p></td>
+<td><p>32ms</p></td>
+</tr>
+<tr class="row-even"><td><p>60000 words</p></td>
+<td><p>67ms</p></td>
+</tr>
+<tr class="row-odd"><td><p>80000 words</p></td>
+<td><p>71ms</p></td>
+</tr>
+<tr class="row-even"><td><p>100000 words</p></td>
+<td><p>84ms</p></td>
+</tr>
+</tbody>
+</table>
+<p>fastscan 可以做到以迅雷不及掩耳的速度扫遍一幅 10w 字的长文，10w
+大概就是一部中篇小说的长度了。如果你要扫百万字的长篇小说，那还是建议你分章分节来扫吧。</p>
+<p>内存占用也是需要考虑的点，内存对于 Node
+程序来说本来就非常有限，如果因为敏感词树占据了太大的内存那是非常要不得的大问题。所以我也对内存占用进行了测试，下面是测试的结果</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 58%" />
+<col style="width: 42%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>词汇数</p></th>
+<th class="head"><p>内存占用</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0 words</p></td>
+<td><p>14M</p></td>
+</tr>
+<tr class="row-odd"><td><p>20000 words</p></td>
+<td><p>81M</p></td>
+</tr>
+<tr class="row-even"><td><p>40000 words</p></td>
+<td><p>135M</p></td>
+</tr>
+<tr class="row-odd"><td><p>60000 words</p></td>
+<td><p>184M</p></td>
+</tr>
+<tr class="row-even"><td><p>80000 words</p></td>
+<td><p>234M</p></td>
+</tr>
+<tr class="row-odd"><td><p>100000 words</p></td>
+<td><p>277M</p></td>
+</tr>
+</tbody>
+</table>
+<p>词汇量不是太大的话，这样的内存占用还是可以接受的。如果你对内存占用不满意，那就只能使用Node 的 C语言扩展来打造更高性能的库了，考虑到成本问题，恕我目前无能为力。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="index.html" class="btn btn-neutral float-right" title="86. 敏感词" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Paper/nlp.ict.ac.cn.html" class="btn btn-neutral float-left" title="84. 中国科学院计算技术研究所自然语言处理研究组" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

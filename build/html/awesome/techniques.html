@@ -1,0 +1,532 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.3.3. 技术 &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="4.3.4. 教程" href="tutorials.html" />
+    <link rel="prev" title="4.3.2. 其他语言" href="multi-language.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">4. awesome-nlp</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#id1">4.1. 内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#id2">4.2. 研究摘要和趋势</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#id3">4.3. 相关内容</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Awesome-Chinese-NLP.html">4.3.1. awesome-chinese-nlp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="multi-language.html">4.3.2. 其他语言</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">4.3.3. 技术</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">4.3.3.1. 文字嵌入</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">4.3.3.2. 问答和知识提取</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html">4.3.4. 教程</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/index.html">6. 语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/index.html">7. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Paper/index.html">9. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">11. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../contents.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">4. awesome-nlp</a> &raquo;</li>
+        
+      <li>4.3.3. 技术</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/awesome/techniques.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>4.3.3. 技术<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>4.3.3.1. 文字嵌入<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>Text embeddings allow deep learning to be effective on smaller datasets.
+These are often first inputs to a deep learning archiectures and most
+popular way of transfer learning in NLP. Embeddings are simply vectors
+or a more generically, real valued representations of strings. Word
+embeddings are considered a great starting point for most deep NLP
+tasks.</p>
+<p>The most popular names in word embeddings are word2vec by Google
+(Mikolov) and GloVe by Stanford (Pennington, Socher and Manning).
+fastText seems to be a fairly popular for multi-lingual sub-word
+embeddings.</p>
+<div class="section" id="id3">
+<h3>4.3.3.1.1. 单词嵌入<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 49%" />
+<col style="width: 4%" />
+<col style="width: 4%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>E
+m
+b
+e
+d
+d
+i
+n
+g</p></th>
+<th class="head"><p>Paper</p></th>
+<th class="head"><p>O
+r
+g
+a
+n
+i
+s
+a
+t
+i
+o
+n</p></th>
+<th class="head"><p>g
+e
+n
+s
+i
+m
+-
+T
+r
+a
+i
+n
+i
+n
+g
+S
+u
+p
+p
+o
+r
+t</p></th>
+<th class="head"><p>Blogs</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>w
+o
+r
+d
+2
+v
+e
+c</p></td>
+<td><p><a class="reference external" href="https://code.google.com/archive/p/word2vec/">Official
+Implementation</a>,
+T.Mikolove et al. 2013.
+Distributed Representations of
+Words and Phrases and their
+Compositionality.
+<a class="reference external" href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf">pdf</a></p></td>
+<td><p>G
+o
+o
+g
+l
+e</p></td>
+<td><p>Y
+e
+s
+:
+h
+e
+a
+v
+y
+_
+c
+h
+e
+c
+k
+_
+m
+a
+r
+k
+:</p></td>
+<td><p>Visual explanations by
+colah at <a class="reference external" href="http://colah.github.io/posts/2014-07-NLP-RNNs-Representations/">Deep Learning,
+NLP, and
+Representations</a>;
+gensim’s <a class="reference external" href="https://rare-technologies.com/making-sense-of-word2vec">Making Sense of
+word2vec</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>G
+l
+o
+V
+e</p></td>
+<td><p>Jeffrey Pennington, Richard
+Socher, and Christopher D.
+Manning. 2014. GloVe: Global
+Vectors for Word Representation.
+<a class="reference external" href="https://nlp.stanford.edu/pubs/glove.pdf">pdf</a></p></td>
+<td><p>S
+t
+a
+n
+f
+o
+r
+d</p></td>
+<td><p>N
+o
+:
+n
+e
+g
+a
+t
+i
+v
+e
+_
+s
+q
+u
+a
+r
+e
+d
+_
+c
+r
+o
+s
+s
+_
+m
+a
+r
+k
+:</p></td>
+<td><p><a class="reference external" href="https://blog.acolyer.org/2016/04/22/glove-global-vectors-for-word-representation/">Morning Paper on
+GloVe</a>
+by acoyler</p></td>
+</tr>
+<tr class="row-even"><td><p>f
+a
+s
+t
+T
+e
+x
+t</p></td>
+<td><p><a class="reference external" href="https://github.com/facebookresearch/fastText">Official
+Implementation</a>,
+T. Mikolov et al. 2017. Enriching
+Word Vectors with Subword
+Information.
+<a class="reference external" href="https://arxiv.org/abs/1607.04606">pdf</a></p></td>
+<td><p>F
+a
+c
+e
+b
+o
+o
+k</p></td>
+<td><p>Y
+e
+s
+:
+h
+e
+a
+v
+y
+_
+c
+h
+e
+c
+k
+_
+m
+a
+r
+k
+:</p></td>
+<td><p><a class="reference external" href="https://towardsdatascience.com/fasttext-under-the-hood-11efc57b2b3">Fasttext: Under the
+Hood</a>
+_</p></td>
+</tr>
+</tbody>
+</table>
+<p>Notes for Beginners:</p>
+<ul class="simple">
+<li><p>Thumb Rule: <strong>fastText &gt;&gt; GloVe &gt; word2vec</strong></p></li>
+<li><p>You can find <a class="reference external" href="https://fasttext.cc/docs/en/pretrained-vectors.html">pre-trained fasttext
+Vectors</a> in
+several languages</p></li>
+<li><p>If you are interested in the logic and intuition behind word2vec and
+GloVe: <a class="reference external" href="https://blog.acolyer.org/2016/04/21/the-amazing-power-of-word-vectors/">The Amazing Power of Word
+Vectors</a>
+and introduce the topics well</p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/1607.01759">arXiv: Bag of Tricks for Efficient Text
+Classification</a>, and <a class="reference external" href="https://arxiv.org/abs/1612.03651">arXiv:
+FastText.zip: Compressing text classification
+models</a> were released as part of
+fasttext</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>4.3.3.1.2. 基于句子和语言模型的词嵌入<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><em>ElMo</em> from <a class="reference external" href="https://arxiv.org/abs/1802.05365">Deep Contextualized Word
+Represenations</a> - <a class="reference external" href="https://github.com/allenai/allennlp/blob/master/tutorials/how_to/elmo.md">PyTorch
+implmentation</a>
+- <a class="reference external" href="https://github.com/allenai/bilm-tf">TF Implementation</a></p></li>
+<li><p><em>ULimFit</em> aka <a class="reference external" href="https://arxiv.org/abs/1801.06146">Universal Language Model Fine-tuning for Text
+Classification</a> by Jeremy Howard
+and Sebastian Ruder</p></li>
+<li><p><em>InferSent</em> from <a class="reference external" href="https://arxiv.org/abs/1705.02364">Supervised Learning of Universal Sentence
+Representations from Natural Language Inference
+Data</a> by facebook</p></li>
+<li><p><em>CoVe</em> from <a class="reference external" href="https://arxiv.org/abs/1708.00107">Learned in Translation: Contextualized Word
+Vectors</a></p></li>
+<li><p><em>Pargraph vectors</em> from <a class="reference external" href="https://cs.stanford.edu/~quocle/paragraph_vector.pdf">Distributed Representations of Sentences and
+Documents</a>.
+See <a class="reference external" href="https://rare-technologies.com/doc2vec-tutorial/">doc2vec tutorial at
+gensim</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/1511.06388">sense2vec</a> - on word sense
+disambiguation</p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/1506.06726">Skip Thought Vectors</a> - word
+representation method</p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/1502.07257">Adaptive skip-gram</a> - similar
+approach, with adaptive properties</p></li>
+<li><p><a class="reference external" href="https://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf">Sequence to Sequence
+Learning</a>
+- word vectors for machine translation</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>4.3.3.2. 问答和知识提取<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/facebookresearch/DrQA">DrQA: Open Domain Question
+Answering</a> by facebook
+on Wikipedia data</p></li>
+<li><p>DocQA: <a class="reference external" href="https://github.com/allenai/document-qa">Simple and Effective Multi-Paragraph Reading
+Comprehension</a> by AllenAI</p></li>
+<li><p><a class="reference external" href="https://arxiv.org/pdf/1507.03045v1.pdf">Markov Logic Networks for Natural Language Question
+Answering</a></p></li>
+<li><p><a class="reference external" href="https://www.usna.edu/Users/cs/nchamber/pubs/acl2011-chambers-templates.pdf">Template-Based Information Extraction without the
+Templates</a></p></li>
+<li><p><a class="reference external" href="https://www.anthology.aclweb.org/N/N13/N13-1008.pdf">Relation extraction with matrix factorization and universal
+schemas</a></p></li>
+<li><p><a class="reference external" href="https://www.sebastianzimmeck.de/zimmeckAndBellovin2014Privee.pdf">Privee: An Architecture for Automatically Analyzing Web Privacy
+Policies</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/1506.03340">Teaching Machines to Read and
+Comprehend</a> - DeepMind paper</p></li>
+<li><p><a class="reference external" href="https://www.riedelcastro.org//publications/papers/riedel13relation.pdf">Relation Extraction with Matrix Factorization and Universal
+Schemas</a></p></li>
+<li><p><a class="reference external" href="https://www.aclweb.org/anthology/S13-1001">Towards a Formal Distributional Semantics: Simulating Logical
+Calculi with Tensors</a></p></li>
+<li><p><a class="reference external" href="https://github.com/clulab/nlp-reading-group/blob/master/fall-2015-resources/mln-summary-20150918.ppt">Presentation slides for MLN
+tutorial</a></p></li>
+<li><p><a class="reference external" href="https://github.com/clulab/nlp-reading-group/blob/master/fall-2015-resources/Markov%20Logic%20Networks%20for%20Natural%20Language%20Question%20Answering.pdf">Presentation slides for QA applications of
+MLNs</a></p></li>
+<li><p><a class="reference external" href="https://github.com/clulab/nlp-reading-group/blob/master/fall-2015-resources/poon-paper.pdf">Presentation
+slides</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tutorials.html" class="btn btn-neutral float-right" title="4.3.4. 教程" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="multi-language.html" class="btn btn-neutral float-left" title="4.3.2. 其他语言" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

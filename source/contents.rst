@@ -6,20 +6,22 @@
 
 .. toctree::
    :numbered:
-   :maxdepth: 2
+   :maxdepth: 1
    :glob:
 
-   index
+   info
 
-   Author/*
+   Author/index
    Algorithm/index
    awesome/index
    Cloud/index
-   Courpus/index
+   Corpus/index
    Librariy/index
-   Onlin/index
+   Online/index
    Paper/index
-   sensitive-word/intl
+   sensitive-word/index
+
+   glossary
 
 指数和表格
 ==================

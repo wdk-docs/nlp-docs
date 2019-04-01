@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2018 年，NLP 研究与应用进展到什么水平了？ &mdash; nlp-docs v2019.03.19 文档</title>
+  <title>9.1. 2018 年，NLP 研究与应用进展到什么水平了？ &mdash; nlp-docs v2019.03.19 文档</title>
   
 
   
@@ -37,7 +37,9 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜索" href="../search.html" /> 
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="9.2. 谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读" href="bert-jiqizhixin.html" />
+    <link rel="prev" title="9. 论文 || 文章" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -81,13 +83,45 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">自然语言处理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">自然语言处理作者</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">算法汇总</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">awesome-nlp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Librariy/index.html">常用分词工具包</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html">论文 || 文章</a></li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Algorithm/index.html">3. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome/index.html">4. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Cloud/index.html">5. 云处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Corpus/index.html">6. 语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Librariy/index.html">7. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Online/index.html">8. 在线分析工具</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">9. 论文 || 文章</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">9.1. 2018 年，NLP 研究与应用进展到什么水平了？</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">9.1.1. 导读</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">9.1.2. 学术研究</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#unsupervised-mt">9.1.2.1. 1. 无监督机器翻译（Unsupervised MT）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pretrained-language-models">9.1.2.2. 2. 预训练语言模型（Pretrained language models）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-sense-inference-datasets">9.1.2.3. 3. 常识推理数据集（Common sense inference datasets）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#meta-learning">9.1.2.4. 4. 元学习（Meta-learning）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#robust-unsupervised-methods">9.1.2.5. 5. 稳健的无监督方法（Robust unsupervised methods）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#understanding-representations">9.1.2.6. 6. 理解表征（Understanding representations）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#clever-auxiliary-tasks">9.1.2.7. 7. 巧妙的辅助任务（Clever auxiliary tasks）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#combining-semi-supervised-learning-with-transfer-learning">9.1.2.8. 8. 半监督学习和迁移学习结合（Combining semi-supervised learning with transfer learning）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#qa-qa-and-reasoning-with-large-documents">9.1.2.9. 9. QA 和大型文档推理（QA and reasoning with large documents）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#inductive-bias">9.1.2.10. 10. 归纳偏差（Inductive bias）</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">9.1.3. 商业应用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">9.1.4. 小结</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">9.1.5. 作者介绍</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bert-jiqizhixin.html">9.2. 谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chinese-segmenter.html">9.3. 细说中文分词</a></li>
+<li class="toctree-l2"><a class="reference internal" href="milestone.html">9.4. 一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nlp-gather.html">9.5. 自然语言处理（NLP）知识结构总结</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nlp.ict.ac.cn.html">9.6. 中国科学院计算技术研究所自然语言处理研究组</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sensitive-word/index.html">10. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">11. 术语表</a></li>
 </ul>
 
             
@@ -133,7 +167,9 @@
     
       <li><a href="../contents.html">Docs</a> &raquo;</li>
         
-      <li>2018 年，NLP 研究与应用进展到什么水平了？</li>
+          <li><a href="index.html">9. 论文 || 文章</a> &raquo;</li>
+        
+      <li>9.1. 2018 年，NLP 研究与应用进展到什么水平了？</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -153,12 +189,12 @@
            <div itemprop="articleBody">
             
   <div class="section" id="nlp">
-<h1>2018 年，NLP 研究与应用进展到什么水平了？<a class="headerlink" href="#nlp" title="永久链接至标题">¶</a></h1>
+<h1>9.1. 2018 年，NLP 研究与应用进展到什么水平了？<a class="headerlink" href="#nlp" title="永久链接至标题">¶</a></h1>
 <blockquote>
 <div><p><a class="reference external" href="https://mp.weixin.qq.com/s/uMwLbX6NeMoO0sc48SEXPw">https://mp.weixin.qq.com/s/uMwLbX6NeMoO0sc48SEXPw</a></p>
 </div></blockquote>
 <div class="section" id="id1">
-<h2>导读<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<h2>9.1.1. 导读<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>随着人工智能的再次兴起，尤其是深度学习的成功应用，自然语言处理（NLP）也逐渐受到了科研研所、高校以及相关企业的关注，也成为了人工智能重点研究的课题之一。NLP
 的主要目标是解决人机对话中的各种困难，使得计算机能够理解人类的语言，让用户能用自己的语言与计算机沟通。</p>
 <p>最近几年 NLP 的高速发展，其相关技术和应用都取得辉煌的成绩，清华大学的
@@ -174,20 +210,20 @@ BERT，无论是学术研究还是在企业应用，同样还有许多激动人�
 <p>更多优质内容请关注微信公众号“AI 前线”（ID：ai-front）</p>
 </div>
 <div class="section" id="id2">
-<h2>学术研究<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2>9.1.2. 学术研究<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>学术研究是技术发展的先行者，我们首先来看看 2018 年 NLP
 学术研究都有哪些令人激动的想法。爱尔兰的 NLP 研究科学家 Sebastian Ruder
 盘点了 2018 年 NLP
 领域的十大想法，在保留其原文的框架基础上，我们对内容进行了重新编辑和补充。</p>
 <div class="section" id="unsupervised-mt">
-<h3>1. 无监督机器翻译（Unsupervised MT）<a class="headerlink" href="#unsupervised-mt" title="永久链接至标题">¶</a></h3>
+<h3>9.1.2.1. 1. 无监督机器翻译（Unsupervised MT）<a class="headerlink" href="#unsupervised-mt" title="永久链接至标题">¶</a></h3>
 <p>EMNLP 2018 上，Guillaume Lample
 等人提炼出了无监督机器翻译的三个关键方法：良好的初始化、语言建模和逆向任务建模
 (通过反向翻译)，大幅改进了之前的研究方法，无监督机器翻译获得了重大进展。这三个方法在其他无监督场景中也有用。逆向任务建模可以增强循环一致性，这种一致性已经在不同的方法中得到应用，在
 CycleGAN 中最为突出。</p>
 </div>
 <div class="section" id="pretrained-language-models">
-<h3>2. 预训练语言模型（Pretrained language models）<a class="headerlink" href="#pretrained-language-models" title="永久链接至标题">¶</a></h3>
+<h3>9.1.2.2. 2. 预训练语言模型（Pretrained language models）<a class="headerlink" href="#pretrained-language-models" title="永久链接至标题">¶</a></h3>
 <p>这是 NLP
 领域今年最重要的发展趋势。有很多令人难忘的方法：ELMo、ULMFiT、OpenAI
 Transformer 和 BERT。这里主要介绍 ELMo 和 BERT 两个模型。
@@ -207,7 +243,7 @@ representation。从性能上来看，没有哪个模型能与 BERT 一战。目
 11 项 NLP 任务上都取得了最顶尖成绩。</p>
 </div>
 <div class="section" id="common-sense-inference-datasets">
-<h3>3. 常识推理数据集（Common sense inference datasets）<a class="headerlink" href="#common-sense-inference-datasets" title="永久链接至标题">¶</a></h3>
+<h3>9.1.2.3. 3. 常识推理数据集（Common sense inference datasets）<a class="headerlink" href="#common-sense-inference-datasets" title="永久链接至标题">¶</a></h3>
 <p>将常识融入到模型中，是 NLP
 最重要的前进方向之一。然而，创建一个好的数据集并不容易，即便是流行的数据集，也存在很大的偏差。而来自于华盛顿大学
 Event2Mind 和 SWAG 试图教模型一些常识，虽然 SWAG 很快被 BERT
@@ -218,7 +254,7 @@ Reasoning”，每个答案都包含对答案的解释，且每个问题需要�
 次)。在创建数据集的过程中，需要使用计算相关性和相似性的模型来解决约束优化问题，以防止可能出现的偏差会成为一个常识。</p>
 </div>
 <div class="section" id="meta-learning">
-<h3>4. 元学习（Meta-learning）<a class="headerlink" href="#meta-learning" title="永久链接至标题">¶</a></h3>
+<h3>9.1.2.4. 4. 元学习（Meta-learning）<a class="headerlink" href="#meta-learning" title="永久链接至标题">¶</a></h3>
 <p>元学习在少样本学习、强化学习和机器人学习中得到了广泛的应用，最突出的例子是与模型无关的元学习
 ( MAML )。但在 NLP
 领域，元学习很少有成功的应用。其实在解决样本数量有限的问题上，元学习非常有用，尤其是将多语言迁移学习
@@ -229,7 +265,7 @@ Translation”就使用了 MAML，即将每一种“语言对”都视为单独�
 领域，用来适应资源较少的语言，可能是元学习的最佳用武之地了。</p>
 </div>
 <div class="section" id="robust-unsupervised-methods">
-<h3>5. 稳健的无监督方法（Robust unsupervised methods）<a class="headerlink" href="#robust-unsupervised-methods" title="永久链接至标题">¶</a></h3>
+<h3>9.1.2.5. 5. 稳健的无监督方法（Robust unsupervised methods）<a class="headerlink" href="#robust-unsupervised-methods" title="永久链接至标题">¶</a></h3>
 <p>在迁移学习中，源和目标设置之间的差异
 (例如，领域适应、持续学习和多任务学习中的任务)
 会导致模型的效果变差或崩溃。即当语言不相似时，无监督的跨语言单词嵌入方法会导致模型崩溃。面对这种变化时，如何让模型更加稳健是很重要的。ACL
@@ -238,7 +274,7 @@ cross-lingual mappings of word embeddings”
 利用他们对问题的理解来设计更好的初始化，而不是将元学习应用到初始化上。比较亮眼的是，他们将两种语言中分布相似的单词配对。这一个例子证明了可以利用领域专业知识和分析见解使模型更加稳健。</p>
 </div>
 <div class="section" id="understanding-representations">
-<h3>6. 理解表征（Understanding representations）<a class="headerlink" href="#understanding-representations" title="永久链接至标题">¶</a></h3>
+<h3>9.1.2.6. 6. 理解表征（Understanding representations）<a class="headerlink" href="#understanding-representations" title="永久链接至标题">¶</a></h3>
 <p>为了更好地理解表征，研究者已经做了很多努力。特别是“诊断分类器”（diagnostic
 classifiers）(旨在测量学习到的表征能否预测某些属性的任务)
 已经变得非常普遍了。在理解表征方面，EMNLP 2018 上论文“Dissecting
@@ -247,7 +283,7 @@ Contextual Word Embeddings: Architecture and Representation”
 ImageNet 上预处理的计算机视觉模型相似的特性。</p>
 </div>
 <div class="section" id="clever-auxiliary-tasks">
-<h3>7. 巧妙的辅助任务（Clever auxiliary tasks）<a class="headerlink" href="#clever-auxiliary-tasks" title="永久链接至标题">¶</a></h3>
+<h3>9.1.2.7. 7. 巧妙的辅助任务（Clever auxiliary tasks）<a class="headerlink" href="#clever-auxiliary-tasks" title="永久链接至标题">¶</a></h3>
 <p>在许多场景中，越来越多的学者使用多任务学习和精心选择的辅助任务。对于一项好的辅助任务来说，数据必须易于访问。一个最突出的例子是
 BERT，它使用下一句预测 (在 Skip-thoughts 中使用过，最近在 Quick-thoughts
 使用) 取得了很大的效果。除 BERT 外，发表于 EMNLP 2018 上论文“Syntactic
@@ -262,7 +298,7 @@ MultiNLI，预训练表征是有效的。将来或许可以看到更多的预训
 (如语言建模) 相辅相成。</p>
 </div>
 <div class="section" id="combining-semi-supervised-learning-with-transfer-learning">
-<h3>8. 半监督学习和迁移学习结合（Combining semi-supervised learning with transfer learning）<a class="headerlink" href="#combining-semi-supervised-learning-with-transfer-learning" title="永久链接至标题">¶</a></h3>
+<h3>9.1.2.8. 8. 半监督学习和迁移学习结合（Combining semi-supervised learning with transfer learning）<a class="headerlink" href="#combining-semi-supervised-learning-with-transfer-learning" title="永久链接至标题">¶</a></h3>
 <p>实际上，预训练表征与许多半监督学习表征的方法是互补的。已经有学者探索了自我标注的方法，这是一种特殊类型的半监督学习。论文“Semi-Supervised
 Sequence Modeling with Cross-View Training (EMNLP 2018)”
 展示了一个在概念上非常简单的想法，确保对不同输入观点的预测与主模型的预测一致，可以在不同的任务集合中获得收益。这个想法类似于单词
@@ -270,7 +306,7 @@ dropout，但是可以利用未标记的数据来使模型更加稳健。与其�
 NLP 任务设计的。</p>
 </div>
 <div class="section" id="qa-qa-and-reasoning-with-large-documents">
-<h3>9. QA 和大型文档推理（QA and reasoning with large documents）<a class="headerlink" href="#qa-qa-and-reasoning-with-large-documents" title="永久链接至标题">¶</a></h3>
+<h3>9.1.2.9. 9. QA 和大型文档推理（QA and reasoning with large documents）<a class="headerlink" href="#qa-qa-and-reasoning-with-large-documents" title="永久链接至标题">¶</a></h3>
 <p>在问答系统中，除了对话式问答和多步推理，问答最具挑战性的方面是综合叙述和处理大体量信息。TACL
 2018 上的论文“The NarrativeQA Reading Comprehension Challenge”
 基于对整部电影剧本和书籍问题的回答，提出了一个具有挑战性的新 QA
@@ -279,7 +315,7 @@ NLP 任务设计的。</p>
 (而不是生成答案)。这些变体使完成任务更加可行，并使模型能够逐步扩展到完整的语境。</p>
 </div>
 <div class="section" id="inductive-bias">
-<h3>10. 归纳偏差（Inductive bias）<a class="headerlink" href="#inductive-bias" title="永久链接至标题">¶</a></h3>
+<h3>9.1.2.10. 10. 归纳偏差（Inductive bias）<a class="headerlink" href="#inductive-bias" title="永久链接至标题">¶</a></h3>
 <p>归纳偏差，如 CNN 中的卷积、正则化、dropout
 和其他机制，是神经网络模型的核心部分，它们起到调节器的作用，使模型更具样本效率。然而，提出一个应用更加广泛的归纳偏差方法，并将其融入模型是一个挑战。有幸的是在
 2018 的研究中有了这一类的相关成果。论文“Sequence classification with
@@ -298,7 +334,7 @@ token 的句法父项，使 Transformer 的多头注意力对句法更加敏感�
 </div>
 </div>
 <div class="section" id="id3">
-<h2>商业应用<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2>9.1.3. 商业应用<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>伴随着 NLP
 研究的不断深入，其应用也变得越来越广泛，尤其是在知识图谱、机器翻译、阅读理解和智能写作等方面都有较为成熟的应用。</p>
 <p>由于知识图谱能够让人工智能具备认知能力和逻辑能力，进而实现智能分析、智能搜索、人机交互等场景应用，而这一优势使得知识图谱可以应用于科研、金融、医疗、司法、公共安全等各个领域。2018
@@ -346,7 +382,7 @@ Ovadia。智能创作几乎需要集成目前所有的 NLP 技术，也侧面体
 的成熟应用，让智能应用的关键一步，不仅可以解放人力，同时也带来了更好的用户体验。</p>
 </div>
 <div class="section" id="id4">
-<h2>小结<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<h2>9.1.4. 小结<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>2018 年，无论是 NLP 的研究还是应用，都十分热闹。NLP
 研究的内容逐渐趋近于模型的可解释性和预训练，说明 NLP
 的研究已经进入了深水区。而在应用方面，我们看到微软、谷歌、百度等巨头的竞争格局已经形成，同时各垂直领域也相继推出相应的产品，例如汽车之家的家家小秘、蔚来的
@@ -359,7 +395,7 @@ NLP 技术，我们仍然需要 NLP
 NLP 时代。</p>
 </div>
 <div class="section" id="id5">
-<h2>作者介绍<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<h2>9.1.5. 作者介绍<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>雷涛，高级算法工程师，汽车之家智能聊天机器人算法负责人。博士毕业于北京邮电大学大学网络技术学院，主要从事智能聊天机器人相关技术研发，致力于机器学习、深度学习、NLP
 相关算法在智能聊天机器人领域的落地应用。</p>
 <p>文章版权归极客邦科技 InfoQ 所有，未经许可不得转载。</p>
@@ -371,6 +407,15 @@ NLP 时代。</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bert-jiqizhixin.html" class="btn btn-neutral float-right" title="9.2. 谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="9. 论文 || 文章" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

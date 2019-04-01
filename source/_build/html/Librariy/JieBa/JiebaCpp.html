@@ -1,0 +1,582 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>54. CppJieba &mdash; nlp-docs v2019.03.19 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="55. NodeJieba" href="JiebaNode.html" />
+    <link rel="prev" title="53. JieBa" href="Jieba.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../contents.html" class="icon icon-home"> nlp-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../info.html">1. 自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Author/index.html">2. 自然语言处理作者</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/ConditionalRandomField.html">3. 条件随机场 CRF（Conditional Random Field）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/Hidden_Markov_Model.html">4. 隐马尔可夫模型 HMM（Hidden Markov Model）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/MMSEG.html">5. MMSEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/MMSeg_description.html">6. MMSeg 分词算法简述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/Maximum-entropy_Markov_model.html">7. 最大熵马尔可夫模型 MEMM（Maximum-entropy Markov model）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/Maximum_Entropy.html">8. 最大熵模型 ME（Maximum Entropy）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/Statistical_Model.html">9. 统计模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/Viterbi.html">10. Viterbi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algorithm/index.html">11. 算法汇总</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../awesome/Awesome-Chinese-NLP.html">12. awesome-chinese-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../awesome/index.html">13. awesome-nlp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../awesome/multi-language.html">14. 其他语言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../awesome/techniques.html">15. 技术</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../awesome/tutorials.html">16. 教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Cloud/aliyun.html">17. 阿里云自然语言处理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Cloud/pai.html">18. 阿里机器学习平台 PAI 3.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Cloud/百度AI.html">19. 百度 AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/BERT/FAQ.html">20. 常问问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/BERT/Fine-tuning_with_BERT.html">21. 使用 BERT 进行微调</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/BERT/Pre-trained_models.html">22. 预先训练的模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/BERT/Pre-training_with_BERT.html">23. 使用 BERT 进行预训练</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/BERT/Using_BERT_in_Colab.html">24. 在 Colab 中使用 BERT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/BERT/Using_BERT_to_extract_fixed_feature_vectors.html">25. 使用 BERT 提取固定的特征向量 (像 ELMo)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/BERT/What_is_BERT.html">26. 什么是 BERT？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/BERT/index.html">27. BERT 大规模预训练语言模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/BERT/model.html">28. 模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/Knowledge_Graph/Agricultural_Knowledge_Graph.html">29. 农业知识图谱(AgriKG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/Knowledge_Graph/ChineseNLPCorpus.html">30. Chinese NLP Corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/Knowledge_Graph/cnSchema.html">31. cnSchema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/Knowledge_Graph/index.html">32. 知识图谱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/Knowledge_Graph/openkg.html">33. openkg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/regulation/LabelStyle.html">34. 现代汉语语料库加工规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/regulation/index.html">35. 标注规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/regulation/nation.html">36. 信息处理用现代汉语词类标记规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/regulation/nlpir.html">37. 计算所汉语词性标记集</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/GlobalWordNetAssociation.html">38. 全球 WordNet 协会</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/HowNet.html">39. 知网</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/Schema.html">40. Schema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/aihanyu.html">41. 爱汉语语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/cow.html">42. Chinese Open Wordnet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/csdn.html">43. CSDN 下载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/dianchacha.html">44. 店查查数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/funNLP.html">45. funNLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/index.html">46. 语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/nlp-datasets.html">47. nlp-datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/pku-opendata.html">48. 北京大学开发数据研究平台</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/wikipedia.html">49. 维基百科语料库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Corpus/wordnet.html">50. WordNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FoolNLTK/index.html">51. FoolNLTK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FoolNLTK/train.html">52. train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Jieba.html">53. JieBa</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">54. CppJieba</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">54.1. 特性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">54.2. 用法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">54.2.1. 依赖软件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">54.2.2. 下载和编译</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#demo">54.3. Demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">54.3.1. 分词结果示例</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mpsegment">54.3.1.1. MPSegment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hmmsegment">54.3.1.2. HMMSegment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mixsegment">54.3.1.3. MixSegment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fullsegment">54.3.1.4. FullSegment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#querysegment">54.3.1.5. QuerySegment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">54.3.2. 自定义用户词典</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">54.3.3. 关键词抽取</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">54.3.4. 词性标注</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">54.4. 其它词典资料分享</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">54.5. 应用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">54.6. 线上演示</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">54.7. 性能评测</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">54.8. 客服</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">54.9. 鸣谢</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">54.10. 许可证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">54.11. 作者</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="JiebaNode.html">55. NodeJieba</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../HanLP.html">56. HanLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Jcseg.html">57. Jcseg logo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Jiagu.html">58. Jiagu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Keras.html">59. Keras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Keras.html#x-train-and-y-train-are-numpy-arrays-just-like-in-the-scikit-learn-api">60. x_train and y_train are Numpy arrays –just like in the Scikit-Learn API.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PyTorch.html">61. PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SnowNLP.html">62. SnowNLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SpaCy.html">63. spacy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../StanfordNLP.html">64. 斯坦福-StanfordNLP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../THULAC.html">65. 清华-THULAC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TensorFlow.html">66. TensorFlow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ansj_seg.html">67. Ansj 中文分词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../awesome.html">68. 👍🏻 表库</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bosonnlp.html">69. 玻森数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">70. 常用分词工具包</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ltp.html">71. 哈工大-LTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nlpair-ictclas.html">72. 中科院-NLPIR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nltk.html">73. NLTK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pkuseg.html">74. 北大-pkuseg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scikit-learn.html">75. scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sego.html">76. sego</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Online/index.html">77. 在线分析工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/2018-nlp.html">78. 2018 年，NLP 研究与应用进展到什么水平了？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/bert-jiqizhixin.html">79. 谷歌终于开源 BERT 代码：3 亿参数量，机器之心全面解读</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/chinese-segmenter.html">80. 细说中文分词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/index.html">81. 论文 || 文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/milestone.html">82. 一文看懂 NLP 神经网络发展历史中最重要的 8 个里程碑</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/nlp-gather.html">83. 自然语言处理（NLP）知识结构总结</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Paper/nlp.ict.ac.cn.html">84. 中国科学院计算技术研究所自然语言处理研究组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sensitive-word/fastscan.html">85. FastScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sensitive-word/index.html">86. 敏感词</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">87. 术语表</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">nlp-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../contents.html">Docs</a> &raquo;</li>
+        
+      <li>54. CppJieba</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Librariy/JieBa/JiebaCpp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cppjieba">
+<h1>54. CppJieba<a class="headerlink" href="#cppjieba" title="永久链接至标题">¶</a></h1>
+<p>CppJieba 是“结巴(Jieba)”中文分词的 C++版本</p>
+<div class="section" id="id1">
+<h2>54.1. 特性<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>源代码都写进头文件<code class="docutils literal notranslate"><span class="pre">include/cppjieba/*.hpp</span></code>里，<code class="docutils literal notranslate"><span class="pre">include</span></code>即可使用。</p></li>
+<li><p>支持<code class="docutils literal notranslate"><span class="pre">utf8</span></code>编码。</p></li>
+<li><p>项目自带较为完善的单元测试，核心功能中文分词(utf8)的稳定性接受过线上环境检验。</p></li>
+<li><p>支持载自定义用户词典，多路径时支持分隔符’|‘或者’;’分隔。</p></li>
+<li><p>支持 <code class="docutils literal notranslate"><span class="pre">Linux</span></code> , <code class="docutils literal notranslate"><span class="pre">Mac</span> <span class="pre">OSX</span></code>, <code class="docutils literal notranslate"><span class="pre">Windows</span></code> 操作系统。</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>54.2. 用法<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>54.2.1. 依赖软件<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">g++</span> <span class="pre">(version</span> <span class="pre">&gt;=</span> <span class="pre">4.1</span> <span class="pre">is</span> <span class="pre">recommended)</span> <span class="pre">or</span> <span class="pre">clang++</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">(version</span> <span class="pre">&gt;=</span> <span class="pre">2.6</span> <span class="pre">is</span> <span class="pre">recommended)</span></code>;</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>54.2.2. 下载和编译<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone --depth<span class="o">=</span><span class="m">10</span> --branch<span class="o">=</span>master git://github.com/yanyiwu/cppjieba.git
+<span class="nb">cd</span> cppjieba
+mkdir build
+<span class="nb">cd</span> build
+cmake ..
+make
+</pre></div>
+</div>
+<p>有兴趣的可以跑跑测试(可选):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>make <span class="nb">test</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="demo">
+<h2>54.3. Demo<a class="headerlink" href="#demo" title="永久链接至标题">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./demo
+</pre></div>
+</div>
+<p>结果示例：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>demo<span class="o">]</span> Cut With HMM
+他/来到/了/网易/杭研/大厦
+<span class="o">[</span>demo<span class="o">]</span> Cut Without HMM
+他/来到/了/网易/杭/研/大厦
+我来到北京清华大学
+<span class="o">[</span>demo<span class="o">]</span> CutAll
+我/来到/北京/清华/清华大学/华大/大学
+小明硕士毕业于中国科学院计算所，后在日本京都大学深造
+<span class="o">[</span>demo<span class="o">]</span> CutForSearch
+小明/硕士/毕业/于/中国/科学/学院/科学院/中国科学院/计算/计算所/，/后/在/日本/京都/大学/日本京都大学/深造
+<span class="o">[</span>demo<span class="o">]</span> Insert User Word
+男默/女泪
+男默女泪
+<span class="o">[</span>demo<span class="o">]</span> CutForSearch Word With Offset
+<span class="o">[{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;小明&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="m">0</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;硕士&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="m">6</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;毕业&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="m">12</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;于&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="m">18</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;中国&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="m">21</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;科学&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="m">27</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;学院&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="m">30</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;科学院&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="m">27</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;中国科学院&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="m">21</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;计算&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="m">36</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;计算所&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="m">36</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;，&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="m">45</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;后&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="m">48</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;在&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="m">51</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;日本&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="m">54</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;京都&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="m">60</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;大学&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="m">66</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;日本京都大学&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="m">54</span><span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;深造&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="m">72</span><span class="o">}]</span>
+<span class="o">[</span>demo<span class="o">]</span> Tagging
+我是拖拉机学院手扶拖拉机专业的。不用多久，我就会升职加薪，当上CEO，走上人生巅峰。
+<span class="o">[</span>我:r, 是:v, 拖拉机:n, 学院:n, 手扶拖拉机:n, 专业:n, 的:uj, 。:x, 不用:v, 多久:m, ，:x, 我:r, 就:d, 会:v, 升职:v, 加薪:nr, ，:x, 当上:t, CEO:eng, ，:x, 走上:v, 人生:n, 巅峰:n, 。:x<span class="o">]</span>
+<span class="o">[</span>demo<span class="o">]</span> Keyword Extraction
+我是拖拉机学院手扶拖拉机专业的。不用多久，我就会升职加薪，当上CEO，走上人生巅峰。
+<span class="o">[{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;CEO&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="o">[</span><span class="m">93</span><span class="o">]</span>, <span class="s2">&quot;weight&quot;</span>: <span class="m">11</span>.7392<span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;升职&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="o">[</span><span class="m">72</span><span class="o">]</span>, <span class="s2">&quot;weight&quot;</span>: <span class="m">10</span>.8562<span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;加薪&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="o">[</span><span class="m">78</span><span class="o">]</span>, <span class="s2">&quot;weight&quot;</span>: <span class="m">10</span>.6426<span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;手扶拖拉机&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="o">[</span><span class="m">21</span><span class="o">]</span>, <span class="s2">&quot;weight&quot;</span>: <span class="m">10</span>.0089<span class="o">}</span>, <span class="o">{</span><span class="s2">&quot;word&quot;</span>: <span class="s2">&quot;巅峰&quot;</span>, <span class="s2">&quot;offset&quot;</span>: <span class="o">[</span><span class="m">111</span><span class="o">]</span>, <span class="s2">&quot;weight&quot;</span>: <span class="m">9</span>.49396<span class="o">}]</span>
+</pre></div>
+</div>
+<p>详细请看 <code class="docutils literal notranslate"><span class="pre">test/demo.cpp</span></code>.</p>
+<div class="section" id="id5">
+<h3>54.3.1. 分词结果示例<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<div class="section" id="mpsegment">
+<h4>54.3.1.1. MPSegment<a class="headerlink" href="#mpsegment" title="永久链接至标题">¶</a></h4>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>我来到北京清华大学
+我/来到/北京/清华大学
+
+他来到了网易杭研大厦
+他/来到/了/网易/杭/研/大厦
+
+小明硕士毕业于中国科学院计算所，后在日本京都大学深造
+小/明/硕士/毕业/于/中国科学院/计算所/，/后/在/日本京都大学/深造
+</pre></div>
+</div>
+</div>
+<div class="section" id="hmmsegment">
+<h4>54.3.1.2. HMMSegment<a class="headerlink" href="#hmmsegment" title="永久链接至标题">¶</a></h4>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>我来到北京清华大学
+我来/到/北京/清华大学
+
+他来到了网易杭研大厦
+他来/到/了/网易/杭/研大厦
+
+小明硕士毕业于中国科学院计算所，后在日本京都大学深造
+小明/硕士/毕业于/中国/科学院/计算所/，/后/在/日/本/京/都/大/学/深/造
+</pre></div>
+</div>
+</div>
+<div class="section" id="mixsegment">
+<h4>54.3.1.3. MixSegment<a class="headerlink" href="#mixsegment" title="永久链接至标题">¶</a></h4>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>我来到北京清华大学
+我/来到/北京/清华大学
+
+他来到了网易杭研大厦
+他/来到/了/网易/杭研/大厦
+
+小明硕士毕业于中国科学院计算所，后在日本京都大学深造
+小明/硕士/毕业/于/中国科学院/计算所/，/后/在/日本京都大学/深造
+</pre></div>
+</div>
+</div>
+<div class="section" id="fullsegment">
+<h4>54.3.1.4. FullSegment<a class="headerlink" href="#fullsegment" title="永久链接至标题">¶</a></h4>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>我来到北京清华大学
+我/来到/北京/清华/清华大学/华大/大学
+
+他来到了网易杭研大厦
+他/来到/了/网易/杭/研/大厦
+
+小明硕士毕业于中国科学院计算所，后在日本京都大学深造
+小/明/硕士/毕业/于/中国/中国科学院/科学/科学院/学院/计算/计算所/，/后/在/日本/日本京都大学/京都/京都大学/大学/深造
+</pre></div>
+</div>
+</div>
+<div class="section" id="querysegment">
+<h4>54.3.1.5. QuerySegment<a class="headerlink" href="#querysegment" title="永久链接至标题">¶</a></h4>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>我来到北京清华大学
+我/来到/北京/清华/清华大学/华大/大学
+
+他来到了网易杭研大厦
+他/来到/了/网易/杭研/大厦
+
+小明硕士毕业于中国科学院计算所，后在日本京都大学深造
+小明/硕士/毕业/于/中国/中国科学院/科学/科学院/学院/计算所/，/后/在/中国/中国科学院/科学/科学院/学院/日本/日本京都大学/京都/京都大学/大学/深造
+</pre></div>
+</div>
+<p>以上依次是 MP,HMM,Mix 三种方法的效果。</p>
+<p>可以看出效果最好的是 Mix，也就是融合 MP 和 HMM
+的切词算法。即可以准确切出词典已有的词，又可以切出像“杭研”这样的未登录词。</p>
+<p>Full 方法切出所有字典里的词语。</p>
+<p>Query 方法先使用 Mix 方法切词，对于切出来的较长的词再使用 Full 方法。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>54.3.2. 自定义用户词典<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>自定义词典示例请看<code class="docutils literal notranslate"><span class="pre">dict/user.dict.utf8</span></code>。</p>
+<p>没有使用自定义用户词典时的结果:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>令狐冲/是/云/计算/行业/的/专家
+</pre></div>
+</div>
+<p>使用自定义用户词典时的结果:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>令狐冲/是/云计算/行业/的/专家
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>54.3.3. 关键词抽取<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>我是拖拉机学院手扶拖拉机专业的。不用多久，我就会升职加薪，当上CEO，走上人生巅峰。
+<span class="o">[</span><span class="s2">&quot;CEO:11.7392&quot;</span>, <span class="s2">&quot;升职:10.8562&quot;</span>, <span class="s2">&quot;加薪:10.6426&quot;</span>, <span class="s2">&quot;手扶拖拉机:10.0089&quot;</span>, <span class="s2">&quot;巅峰:9.49396&quot;</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>详细请见 <code class="docutils literal notranslate"><span class="pre">test/demo.cpp</span></code>.</p>
+</div>
+<div class="section" id="id8">
+<h3>54.3.4. 词性标注<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>我是蓝翔技工拖拉机学院手扶拖拉机专业的。不用多久，我就会升职加薪，当上总经理，出任CEO，迎娶白富美，走上人生巅峰。
+<span class="o">[</span><span class="s2">&quot;我:r&quot;</span>, <span class="s2">&quot;是:v&quot;</span>, <span class="s2">&quot;拖拉机:n&quot;</span>, <span class="s2">&quot;学院:n&quot;</span>, <span class="s2">&quot;手扶拖拉机:n&quot;</span>, <span class="s2">&quot;专业:n&quot;</span>, <span class="s2">&quot;的:uj&quot;</span>, <span class="s2">&quot;。:x&quot;</span>, <span class="s2">&quot;不用:v&quot;</span>, <span class="s2">&quot;多久:m&quot;</span>, <span class="s2">&quot;，:x&quot;</span>, <span class="s2">&quot;我:r&quot;</span>, <span class="s2">&quot;就:d&quot;</span>, <span class="s2">&quot;会:v&quot;</span>, <span class="s2">&quot;升职:v&quot;</span>, <span class="s2">&quot;加薪:nr&quot;</span>, <span class="s2">&quot;，:x&quot;</span>, <span class="s2">&quot;当上:t&quot;</span>, <span class="s2">&quot;CEO:eng&quot;</span>, <span class="s2">&quot;，:x&quot;</span>, <span class="s2">&quot;走上:v&quot;</span>, <span class="s2">&quot;人生:n&quot;</span>, <span class="s2">&quot;巅峰:n&quot;</span>, <span class="s2">&quot;。:x&quot;</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>详细请看 <code class="docutils literal notranslate"><span class="pre">test/demo.cpp</span></code>.</p>
+<p>支持自定义词性。 比如在(<code class="docutils literal notranslate"><span class="pre">dict/user.dict.utf8</span></code>)增加一行</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>蓝翔 nz
+</pre></div>
+</div>
+<p>结果如下：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="s2">&quot;我:r&quot;</span>, <span class="s2">&quot;是:v&quot;</span>, <span class="s2">&quot;蓝翔:nz&quot;</span>, <span class="s2">&quot;技工:n&quot;</span>, <span class="s2">&quot;拖拉机:n&quot;</span>, <span class="s2">&quot;学院:n&quot;</span>, <span class="s2">&quot;手扶拖拉机:n&quot;</span>, <span class="s2">&quot;专业:n&quot;</span>, <span class="s2">&quot;的:uj&quot;</span>, <span class="s2">&quot;。:x&quot;</span>, <span class="s2">&quot;不用:v&quot;</span>, <span class="s2">&quot;多久:m&quot;</span>, <span class="s2">&quot;，:x&quot;</span>, <span class="s2">&quot;我:r&quot;</span>, <span class="s2">&quot;就:d&quot;</span>, <span class="s2">&quot;会:v&quot;</span>, <span class="s2">&quot;升职:v&quot;</span>, <span class="s2">&quot;加薪:nr&quot;</span>, <span class="s2">&quot;，:x&quot;</span>, <span class="s2">&quot;当:t&quot;</span>, <span class="s2">&quot;上:f&quot;</span>, <span class="s2">&quot;总经理:n&quot;</span>, <span class="s2">&quot;，:x&quot;</span>, <span class="s2">&quot;出任:v&quot;</span>, <span class="s2">&quot;CEO:eng&quot;</span>, <span class="s2">&quot;，:x&quot;</span>, <span class="s2">&quot;迎娶:v&quot;</span>, <span class="s2">&quot;白富美:x&quot;</span>, <span class="s2">&quot;，:x&quot;</span>, <span class="s2">&quot;走上:v&quot;</span>, <span class="s2">&quot;人生:n&quot;</span>, <span class="s2">&quot;巅峰:n&quot;</span>, <span class="s2">&quot;。:x&quot;</span><span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>54.4. 其它词典资料分享<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/qinwf/BigDict">dict.367W.utf8</a> iLife(562193561
+at qq.com)</p></li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h2>54.5. 应用<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/yanyiwu/gojieba">GoJieba</a> go
+语言版本的结巴中文分词。</p></li>
+<li><p><a class="reference external" href="https://github.com/yanyiwu/nodejieba">NodeJieba</a> Node.js
+版本的结巴中文分词。</p></li>
+<li><p><a class="reference external" href="https://github.com/yanyiwu/simhash">simhash</a>
+中文文档的的相似度计算</p></li>
+<li><p><a class="reference external" href="https://github.com/falood/exjieba">exjieba</a> Erlang
+版本的结巴中文分词。</p></li>
+<li><p><a class="reference external" href="https://github.com/qinwf/jiebaR">jiebaR</a> R
+语言版本的结巴中文分词。</p></li>
+<li><p><a class="reference external" href="http://github.com/yanyiwu/cjieba">cjieba</a> C 语言版本的结巴分词。</p></li>
+<li><p><a class="reference external" href="https://github.com/altkatz/jieba_rb">jieba_rb</a> Ruby
+版本的结巴分词。</p></li>
+<li><p><a class="reference external" href="https://github.com/yanyiwu/iosjieba">iosjieba</a> iOS
+版本的结巴分词。</p></li>
+<li><p><a class="reference external" href="https://github.com/yanyiwu/sqljieba">SqlJieba</a> MySQL
+全文索引的结巴中文分词插件。</p></li>
+<li><p><a class="reference external" href="https://github.com/jaiminpan/pg_jieba">pg_jieba</a> PostgreSQL
+数据库的分词插件。</p></li>
+<li><p><a class="reference external" href="https://plugins.gitbook.com/plugin/search-pro">gitbook-plugin-search-pro</a>
+支持中文搜索的 gitbook 插件。</p></li>
+<li><p><a class="reference external" href="https://github.com/yanyiwu/ngx_http_cppjieba_module">ngx_http_cppjieba_module</a>
+Nginx 分词插件。</p></li>
+<li><p><a class="reference external" href="https://github.com/jannson/cppjiebapy">cppjiebapy</a> 由
+<a class="reference external" href="https://github.com/jannson">jannson</a> 开发的供 python
+模块调用的项目
+<a class="reference external" href="https://github.com/jannson/cppjiebapy">cppjiebapy</a>, 相关讨论
+<a class="reference external" href="https://github.com/yanyiwu/cppjieba/issues/1">cppjiebapy_discussion</a>
+.</p></li>
+<li><p><a class="reference external" href="https://github.com/bung87/cppjieba-py">cppjieba-py</a> 由
+<a class="reference external" href="https://github.com/bung87">bung87</a> 基于 pybind11 封装的 python
+模块,使用体验上接近于原 jieba。</p></li>
+<li><p><a class="reference external" href="https://github.com/yanyiwu/keyword_server">KeywordServer</a> 50
+行搭建一个中文关键词抽取服务。</p></li>
+<li><p><a class="reference external" href="https://github.com/yanyiwu/cppjieba-server">cppjieba-server</a>
+CppJieba HTTP 服务器。</p></li>
+<li><p><a class="reference external" href="https://github.com/jonnywang/phpjieba">phpjieba</a> php
+版本的结巴分词扩展。</p></li>
+<li><p><a class="reference external" href="https://metacpan.org/pod/distribution/Lingua-ZH-Jieba/lib/Lingua/ZH/Jieba.pod">perl5-jieba</a>
+Perl 版本的结巴分词扩展。</p></li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h2>54.6. 线上演示<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://cppjieba-webdemo.herokuapp.com/">Web-Demo</a>(建议使用 chrome
+打开)</p>
+</div>
+<div class="section" id="id12">
+<h2>54.7. 性能评测<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://yanyiwu.com/work/2015/06/14/jieba-series-performance-test.html">jieba
+中文分词系列性能评测</a></p>
+</div>
+<div class="section" id="id13">
+<h2>54.8. 客服<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>Email: <a class="reference external" href="mailto:i&#37;&#52;&#48;yanyiwu&#46;com">i<span>&#64;</span>yanyiwu<span>&#46;</span>com</a></p></li>
+<li><p>QQ: 64162451</p></li>
+<li><p>WeChat: <img alt="image" src="http://7viirv.com1.z0.glb.clouddn.com/5a7d1b5c0d_yanyiwu_personal_qrcodes.jpg" /></p></li>
+</ul>
+</div>
+<div class="section" id="id14">
+<h2>54.9. 鸣谢<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<p>“结巴”中文分词作者: <a class="reference external" href="https://github.com/fxsjy">SunJunyi</a></p>
+</div>
+<div class="section" id="id15">
+<h2>54.10. 许可证<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="http://yanyiwu.mit-license.org">MIT</a></p>
+</div>
+<div class="section" id="id16">
+<h2>54.11. 作者<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.yanyiwu.com">yanyiwu</a></p></li>
+<li><p><a class="reference external" href="https://github.com/aholic">aholic</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="JiebaNode.html" class="btn btn-neutral float-right" title="55. NodeJieba" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Jieba.html" class="btn btn-neutral float-left" title="53. JieBa" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Nosy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
